@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/media-catalog.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/media-product.css">
+    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <title>OMG Latex — OMG Universe</title>
+</head>
+<body>
+
+<header class="header">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="hero product-hero" aria-labelledby="product-title">
+        <!-- Same background + blurred diagonal strip as the home hero -->
+        <div class="hero__media">
+            <img class="hero__slide is-active" src="assets/img/latex-hero.jpg" alt="" width="1920" height="1217" fetchpriority="high">
+        </div>
+
+        <div class="product-hero__inner">
+            <nav class="breadcrumbs" aria-label="Breadcrumb" data-aos="fade">
+                <ol class="breadcrumbs__list">
+                    <li><a class="breadcrumbs__link" href="index.html">Home</a></li>
+                    <li><a class="breadcrumbs__link" href="catalog.html">Catalog</a></li>
+                    <li><span class="breadcrumbs__current" aria-current="page">OMG Latex</span></li>
+                </ol>
+            </nav>
+
+            <div class="product-hero__bottom">
+                <h1 class="product-hero__title" id="product-title">
+                    <span class="product-hero__kicker" data-aos="fade-up">PMU Sketch</span>
+                    <span class="product-hero__name" data-aos="fade-up" data-aos-delay="120">Latex</span>
+                </h1>
+
+                <div class="product-hero__buy" data-aos="fade-up" data-aos-delay="240">
+                    <span class="product-hero__price-label">Price</span>
+                    <p class="product-hero__price">6€</p>
+                    <a class="btn btn--light" href="#">Buy now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-details" aria-labelledby="product-details-title">
+        <p class="product-details__code" data-aos="fade">Código de producto: COMBO 2</p>
+
+        <div class="product-details__body">
+            <!-- One photo for now: every thumbnail opens the same image until
+                 the other shots are supplied. -->
+            <div class="gallery" data-gallery>
+                <div class="gallery__main" data-aos="fade-up" data-aos-duration="1000">
+                    <img class="gallery__image" src="assets/img/product-latex-1.jpg" alt="Three OMG practice latex sheets with brow outlines" width="873" height="938">
+                </div>
+                <ul class="gallery__thumbs">
+                        <li data-aos="fade-left" data-aos-delay="150">
+                            <button class="gallery__thumb is-active" type="button" aria-label="Show photo 1" aria-pressed="true" data-full="assets/img/product-latex-1.jpg">
+                                <img src="assets/img/product-latex-2.jpg" alt="" width="128" height="228" loading="lazy">
+                            </button>
+                        </li>
+                        <li data-aos="fade-left" data-aos-delay="240">
+                            <button class="gallery__thumb" type="button" aria-label="Show photo 2" aria-pressed="false" data-full="assets/img/product-latex-1.jpg">
+                                <img src="assets/img/product-latex-2.jpg" alt="" width="128" height="228" loading="lazy">
+                            </button>
+                        </li>
+                        <li data-aos="fade-left" data-aos-delay="330">
+                            <button class="gallery__thumb" type="button" aria-label="Show photo 3" aria-pressed="false" data-full="assets/img/product-latex-1.jpg">
+                                <img src="assets/img/product-latex-2.jpg" alt="" width="128" height="228" loading="lazy">
+                            </button>
+                        </li>
+                        <li data-aos="fade-left" data-aos-delay="420">
+                            <button class="gallery__thumb" type="button" aria-label="Show photo 4" aria-pressed="false" data-full="assets/img/product-latex-1.jpg">
+                                <img src="assets/img/product-latex-2.jpg" alt="" width="128" height="228" loading="lazy">
+                            </button>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="product-info">
+                <div class="product-info__head" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="product-info__title product-info__title--as-written" id="product-details-title">OMG Latex</h2>
+                    <p class="product-info__price">6€</p>
+                </div>
+
+                <div class="product-info__actions" data-aos="fade-up" data-aos-delay="200">
+                    <button class="product-info__add" type="button">
+                        Add to cart
+                        <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                    </button>
+
+                    <div class="qty" data-qty>
+                        <label class="qty__label" for="product-qty">Quantity</label>
+                        <input class="qty__input" id="product-qty" type="number" min="1" max="99" value="1" inputmode="numeric">
+                        <div class="qty__steps">
+                            <button class="qty__step qty__step--up" type="button" aria-label="Increase quantity" data-qty-step="1">
+                                <img src="assets/icons/chevron.svg" alt="" width="6" height="5">
+                            </button>
+                            <button class="qty__step" type="button" aria-label="Decrease quantity" data-qty-step="-1">
+                                <img src="assets/icons/chevron.svg" alt="" width="6" height="5">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="accordion__heading">
+                        <button class="accordion__toggle" type="button" aria-expanded="true" aria-controls="product-description" data-expand-toggle>
+                            Description
+                            <img class="accordion__chevron" src="assets/icons/options-chevron.svg" alt="" width="9" height="6">
+                        </button>
+                    </h3>
+                    <div class="accordion__panel is-expanded" id="product-description" style="height: auto;">
+                        <div class="accordion__content">
+                            <p class="product-info__text">Una declaración de elegancia y fuerza interior. Este anillo único presenta una vívida esmeralda en forma de pera rodeada de diamantes de talla marquesa, magistralmente engastados en oro blanco de alto pulido. Cabujones de esmeralda ocultos a lo largo del interior del aro añaden un detalle íntimo y artístico — un secreto conocido solo por quien lo lleva. Ideal para compromisos, aniversarios o simplemente para celebrar tu brillo personal.</p>
+
+                            <table class="product-specs">
+                                <tbody>
+                                    <tr><th scope="row">Option 1</th><td>Rango de precios</td></tr>
+                                    <tr><th scope="row">Color</th><td>Color de la tela</td></tr>
+                                    <tr><th scope="row">Order Number</th><td>Número de asientos</td></tr>
+                                    <tr><th scope="row">Position</th><td>Estilo</td></tr>
+                                </tbody>
+                            </table>
+
+                            <p class="product-note">
+                                <img src="assets/icons/important.svg" alt="" width="19" height="19">
+                                Disponible para envío en 2–5 días
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion accordion--delivery" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="accordion__heading">
+                        <button class="accordion__toggle" type="button" aria-expanded="false" aria-controls="product-delivery" data-expand-toggle>
+                            Delivery Options
+                            <img class="accordion__chevron" src="assets/icons/options-chevron.svg" alt="" width="9" height="6">
+                        </button>
+                    </h3>
+                    <div class="accordion__panel" id="product-delivery">
+                        <div class="accordion__content">
+                            <p class="product-info__text">Envío estándar en 2–5 días laborables a toda la UE. Envío exprés disponible al finalizar la compra. Las devoluciones son gratuitas dentro de los 14 días posteriores a la entrega.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related" aria-labelledby="related-title">
+        <h2 class="visually-hidden" id="related-title">You may also like</h2>
+        <!-- Card markup and styles are the catalog's (catalog.css) -->
+        <ul class="catalog__grid">
+        <li class="product" data-aos="fade-up" data-aos-delay="0" data-category="pencils" data-price="1700" data-order="0">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/latex-related-1.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">XL 110x150</span>
+                            <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                        </div>
+                        <p class="product__price">1 700€</p>
+                    </div>
+                </article>
+            </li>
+        <li class="product" data-aos="fade-up" data-aos-delay="80" data-category="pencils" data-price="1450" data-order="1">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/latex-related-2.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">XL 110x150</span>
+                            <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                        </div>
+                        <p class="product__price">1 450€</p>
+                    </div>
+                </article>
+            </li>
+        <li class="product" data-aos="fade-up" data-aos-delay="160" data-category="pigments" data-price="1950" data-order="2">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/latex-related-1.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">XL 110x150</span>
+                            <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                        </div>
+                        <p class="product__price">1 950€</p>
+                    </div>
+                </article>
+            </li>
+        <li class="product" data-aos="fade-up" data-aos-delay="240" data-category="pencils" data-price="2300" data-order="3">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/latex-related-3.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">XL 110x150</span>
+                            <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                        </div>
+                        <p class="product__price">2 300€</p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+            <video class="cta__video" src="assets/vid/cta-course.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+            <div class="cta__top" data-aos="fade">
+                <a class="cta__logo" href="/" aria-label="OMG Universe — home">
+                    <img src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+                </a>
+                <p class="cta__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+            </div>
+
+            <div class="cta__content">
+                <p class="promo__label" data-aos="fade-up">Online course that transforms</p>
+                <h2 class="promo__title" id="cta-title" data-aos="fade-up" data-aos-delay="120">PMU reality</h2>
+                <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
+                    <a class="btn btn--light" href="#">Buy now</a>
+                    <a class="btn btn--glass" href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

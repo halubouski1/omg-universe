@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/media-catalog.css">
+    <link rel="stylesheet" href="css/pigments.css">
+    <link rel="stylesheet" href="css/media-pigments.css">
+    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <title>OMG Pigments — OMG Universe</title>
+</head>
+<body class="page-pigments">
+
+<header class="header">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="pigments-hero" aria-labelledby="pigments-title">
+        <img class="pigments-hero__bg" src="assets/img/pigments-hero.jpg" alt="" width="1920" height="1150" fetchpriority="high">
+
+        <div class="pigments-hero__content">
+            <p class="pigments-hero__tag" data-aos="fade-right">OMG Pigments</p>
+            <h1 class="pigments-hero__title" id="pigments-title" data-aos="fade-up" data-aos-delay="120">Eyeliner, Lips, Eyebrow, Cover-up Pigments</h1>
+        </div>
+
+        <div class="pigments-hero__actions" data-aos="fade-up" data-aos-delay="260">
+            <button class="pigments-hero__btn pigments-hero__btn--light" type="button">
+                Add to cart
+                <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+            </button>
+            <a class="pigments-hero__btn pigments-hero__btn--outline" href="#">
+                Learn more
+                <svg class="pigments-hero__arrow" width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="pigments-range" aria-labelledby="pigments-range-title">
+        <h2 class="visually-hidden" id="pigments-range-title">Pigment lines</h2>
+
+        <!-- 8 slides to fill the pagination; the two designed slides repeat
+             until the other lines (Lips, Eyeliner…) are supplied. -->
+        <div class="swiper pigments-range__slider" data-pigments-slider>
+            <div class="swiper-wrapper">
+                <article class="swiper-slide pigment-slide pigment-slide--cover">
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Cover-up pigments</h3>
+                        <div class="pigment-slide__text">
+                            <p>Cover-up pigments are designed<br>to neutralize unwanted undertones<br>and refresh old permanent makeup.</p>
+                            <p>- 11 Sun Flash covers cool bluish tones<br>- 12 Saturn neutralizes violet and greyish tones<br>- 13 UFO corrects warm and reddish tones</p>
+                            <p>Choose the pigment according to the dominant<br>undertone for a clean, balanced result.</p>
+                        </div>
+                        <ul class="pigment-slide__swatches" aria-label="Shades">
+                            <li style="--swatch: #a7561f">11</li>
+                            <li style="--swatch: #d4a241">12</li>
+                            <li style="--swatch: #8f7e53">13</li>
+                        </ul>
+                    </div>
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-1.png" alt="Cover Up Pigments" width="164" height="55">
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-1.png" alt="" width="616" height="539" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--brow">
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-2.png" alt="Eyebrow Pigments" width="164" height="55">
+                    <ul class="pigment-slide__swatches" aria-label="Shades">
+                        <li style="--swatch: #615233">2</li>
+                        <li style="--swatch: #8d7044">3</li>
+                        <li style="--swatch: #784b34">4</li>
+                        <li style="--swatch: #473624">5</li>
+                        <li style="--swatch: #4c3434">6</li>
+                    </ul>
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Eyebrow</h3>
+                        <p class="pigment-slide__text">Bigger vents give better air circulation inside the<br>cartridge, thereby ink flow starts to be consistent<br>(saturate and release pigment consistently)</p>
+                    </div>
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-2.png" alt="" width="305" height="497" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--cover">
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Cover-up pigments</h3>
+                        <div class="pigment-slide__text">
+                            <p>Cover-up pigments are designed<br>to neutralize unwanted undertones<br>and refresh old permanent makeup.</p>
+                            <p>- 11 Sun Flash covers cool bluish tones<br>- 12 Saturn neutralizes violet and greyish tones<br>- 13 UFO corrects warm and reddish tones</p>
+                            <p>Choose the pigment according to the dominant<br>undertone for a clean, balanced result.</p>
+                        </div>
+                        <ul class="pigment-slide__swatches" aria-label="Shades">
+                            <li style="--swatch: #9c5a2d">11</li>
+                            <li style="--swatch: #cca453">12</li>
+                            <li style="--swatch: #8c7f58">13</li>
+                        </ul>
+                    </div>
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-1.png" alt="Cover Up Pigments" width="164" height="55">
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-1.png" alt="" width="616" height="539" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--brow">
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-2.png" alt="Eyebrow Pigments" width="164" height="55">
+                    <ul class="pigment-slide__swatches" aria-label="Shades">
+                        <li style="--swatch: #5f5337">2</li>
+                        <li style="--swatch: #88714a">3</li>
+                        <li style="--swatch: #724d38">4</li>
+                        <li style="--swatch: #443726">5</li>
+                        <li style="--swatch: #483535">6</li>
+                    </ul>
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Eyebrow</h3>
+                        <p class="pigment-slide__text">Bigger vents give better air circulation inside the<br>cartridge, thereby ink flow starts to be consistent<br>(saturate and release pigment consistently)</p>
+                    </div>
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-2.png" alt="" width="305" height="497" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--cover">
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Cover-up pigments</h3>
+                        <div class="pigment-slide__text">
+                            <p>Cover-up pigments are designed<br>to neutralize unwanted undertones<br>and refresh old permanent makeup.</p>
+                            <p>- 11 Sun Flash covers cool bluish tones<br>- 12 Saturn neutralizes violet and greyish tones<br>- 13 UFO corrects warm and reddish tones</p>
+                            <p>Choose the pigment according to the dominant<br>undertone for a clean, balanced result.</p>
+                        </div>
+                        <ul class="pigment-slide__swatches" aria-label="Shades">
+                            <li style="--swatch: #9c5a2d">11</li>
+                            <li style="--swatch: #cca453">12</li>
+                            <li style="--swatch: #8c7f58">13</li>
+                        </ul>
+                    </div>
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-1.png" alt="Cover Up Pigments" width="164" height="55">
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-1.png" alt="" width="616" height="539" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--brow">
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-2.png" alt="Eyebrow Pigments" width="164" height="55">
+                    <ul class="pigment-slide__swatches" aria-label="Shades">
+                        <li style="--swatch: #5f5337">2</li>
+                        <li style="--swatch: #88714a">3</li>
+                        <li style="--swatch: #724d38">4</li>
+                        <li style="--swatch: #443726">5</li>
+                        <li style="--swatch: #483535">6</li>
+                    </ul>
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Eyebrow</h3>
+                        <p class="pigment-slide__text">Bigger vents give better air circulation inside the<br>cartridge, thereby ink flow starts to be consistent<br>(saturate and release pigment consistently)</p>
+                    </div>
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-2.png" alt="" width="305" height="497" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--cover">
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Cover-up pigments</h3>
+                        <div class="pigment-slide__text">
+                            <p>Cover-up pigments are designed<br>to neutralize unwanted undertones<br>and refresh old permanent makeup.</p>
+                            <p>- 11 Sun Flash covers cool bluish tones<br>- 12 Saturn neutralizes violet and greyish tones<br>- 13 UFO corrects warm and reddish tones</p>
+                            <p>Choose the pigment according to the dominant<br>undertone for a clean, balanced result.</p>
+                        </div>
+                        <ul class="pigment-slide__swatches" aria-label="Shades">
+                            <li style="--swatch: #9c5a2d">11</li>
+                            <li style="--swatch: #cca453">12</li>
+                            <li style="--swatch: #8c7f58">13</li>
+                        </ul>
+                    </div>
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-1.png" alt="Cover Up Pigments" width="164" height="55">
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-1.png" alt="" width="616" height="539" loading="lazy">
+                </article>
+                <article class="swiper-slide pigment-slide pigment-slide--brow">
+                    <img class="pigment-slide__logo" src="assets/img/pigments-slider-logo-2.png" alt="Eyebrow Pigments" width="164" height="55">
+                    <ul class="pigment-slide__swatches" aria-label="Shades">
+                        <li style="--swatch: #5f5337">2</li>
+                        <li style="--swatch: #88714a">3</li>
+                        <li style="--swatch: #724d38">4</li>
+                        <li style="--swatch: #443726">5</li>
+                        <li style="--swatch: #483535">6</li>
+                    </ul>
+                    <div class="pigment-slide__body">
+                        <h3 class="pigment-slide__title">Eyebrow</h3>
+                        <p class="pigment-slide__text">Bigger vents give better air circulation inside the<br>cartridge, thereby ink flow starts to be consistent<br>(saturate and release pigment consistently)</p>
+                    </div>
+                    <img class="pigment-slide__image" src="assets/img/pigments-slider-2.png" alt="" width="305" height="497" loading="lazy">
+                </article>
+            </div>
+        </div>
+
+        <div class="pigments-range__controls">
+            <div class="pigments-range__pagination" data-pigments-pagination></div>
+            <button class="pigments-range__play is-playing" type="button" aria-label="Pause slideshow" data-pigments-play>
+                <img class="pigments-range__play-icon" src="assets/icons/slider-play.svg" alt="" width="13" height="15">
+                <span class="pigments-range__pause-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+
+    <section class="bundles" aria-labelledby="bundles-title">
+        <img class="bundles__figure bundles__figure--left" src="assets/img/pigments-bundle-bg-1.png" alt="" width="806" height="1139" loading="lazy" data-aos="fade-right" data-aos-duration="1100">
+        <img class="bundles__figure bundles__figure--right" src="assets/img/pigments-bundle-bg-2.png" alt="" width="804" height="1120" loading="lazy" data-aos="fade-left" data-aos-duration="1100">
+
+        <div class="bundles__content">
+            <h2 class="bundles__title" id="bundles-title">
+                <span class="bundles__script" data-aos="zoom-in" data-aos-duration="1100">Omg</span>
+                <span class="bundles__line" data-aos="fade-up" data-aos-delay="100">Curated Pigment</span>
+                <em class="bundles__serif" data-aos="fade-up" data-aos-delay="200">Bundles</em>
+            </h2>
+            <p class="bundles__text" data-aos="fade-up" data-aos-delay="300">Discover expertly matched pigment sets for brows, eyeliner, and lips. Each bundle is designed for specific undertones and techniques, helping you achieve balanced, natural-looking results while saving on your favorite pigments.</p>
+        </div>
+    </section>
+
+    <section class="bundle-slider" aria-labelledby="bundle-slider-title">
+        <h2 class="visually-hidden" id="bundle-slider-title">Pigment bundles</h2>
+
+        <!-- Three bundles, repeated so the looping slider always has slides to
+             bring in from either side -->
+        <div class="swiper bundle-slider__slider" data-bundle-slider>
+            <div class="swiper-wrapper">
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #1</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">Perfect set for the people<br>with yellow undertone.</p>
+                    <img class="bundle-card__image" src="assets/img/pigments-bundle-1.png" alt="" width="481" height="387" loading="lazy">
+                </article>
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #2</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">Perfect set for the people<br>with red undertone.</p>
+                    <img class="bundle-card__image" src="assets/img/pigments-bundle-1.png" alt="" width="481" height="387" loading="lazy">
+                </article>
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #3</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">A full set of five OMG pigments<br>for eyebrows.</p>
+                    <img class="bundle-card__image bundle-card__image--wide" src="assets/img/pigments-bundle-2.png" alt="" width="632" height="342" loading="lazy">
+                </article>
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #1</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">Perfect set for the people<br>with yellow undertone.</p>
+                    <img class="bundle-card__image" src="assets/img/pigments-bundle-1.png" alt="" width="481" height="387" loading="lazy">
+                </article>
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #2</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">Perfect set for the people<br>with red undertone.</p>
+                    <img class="bundle-card__image" src="assets/img/pigments-bundle-1.png" alt="" width="481" height="387" loading="lazy">
+                </article>
+                <article class="swiper-slide bundle-card">
+                    <div class="bundle-card__head">
+                        <h3 class="bundle-card__title">Bundle #3</h3>
+                        <a class="bundle-card__link" href="#">Learn more <img src="assets/icons/learn-more-bundle-arrow.svg" alt="" width="12" height="11"></a>
+                    </div>
+                    <p class="bundle-card__text">A full set of five OMG pigments<br>for eyebrows.</p>
+                    <img class="bundle-card__image bundle-card__image--wide" src="assets/img/pigments-bundle-2.png" alt="" width="632" height="342" loading="lazy">
+                </article>
+            </div>
+        </div>
+
+        <!-- Raised tab from pigments-bundle-slider-shape.svg, drawn inline -->
+        <div class="bundle-slider__base" aria-hidden="true">
+            <svg class="bundle-slider__tab" width="560" height="52" viewBox="0 0 560 52" preserveAspectRatio="none"><path d="M0 52C40 52 50 0 100 0H460C510 0 520 52 560 52Z"/></svg>
+        </div>
+
+        <div class="bundle-slider__nav">
+            <button class="bundle-slider__arrow bundle-slider__arrow--prev" type="button" aria-label="Previous bundle" data-bundle-prev><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+            <button class="bundle-slider__arrow bundle-slider__arrow--next" type="button" aria-label="Next bundle" data-bundle-next><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+        </div>
+    </section>
+
+    <section class="deck deck--pigments" aria-labelledby="pigments-deck-title">
+        <h2 class="visually-hidden" id="pigments-deck-title">Why OMG pigments</h2>
+
+        <!-- Three identical cards for now, stacking on scroll like the home deck -->
+        <ul class="deck__list" data-deck>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments">
+                        <div class="deck-card__content">
+                            <p class="deck-card__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+                            <h3 class="deck-card__title" data-aos="fade-up">OMG pigments are<br>loved by clients and<br>artists <em>worldwide</em></h3>
+                            <div class="deck-card__footer" data-aos="fade-up" data-aos-delay="150">
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">Powered by RCA<br>connectivity</p>
+                                    <a class="deck-card__link" href="#">Learn more</a>
+                                </div>
+                                <a class="btn btn--accent" href="#">Buy now</a>
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">High quality<br>Swiss motor</p>
+                                    <a class="deck-card__link" href="#">Catalog</a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image" src="assets/img/pigments-deck-card-1.png" alt="OMG Dark Matter eyeliner pigment bottle" width="767" height="225" loading="lazy">
+                    </article>
+                </li>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments">
+                        <div class="deck-card__content">
+                            <p class="deck-card__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+                            <h3 class="deck-card__title">OMG pigments are<br>loved by clients and<br>artists <em>worldwide</em></h3>
+                            <div class="deck-card__footer">
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">Powered by RCA<br>connectivity</p>
+                                    <a class="deck-card__link" href="#">Learn more</a>
+                                </div>
+                                <a class="btn btn--accent" href="#">Buy now</a>
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">High quality<br>Swiss motor</p>
+                                    <a class="deck-card__link" href="#">Catalog</a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image" src="assets/img/pigments-deck-card-1.png" alt="OMG Dark Matter eyeliner pigment bottle" width="767" height="225" loading="lazy">
+                    </article>
+                </li>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments">
+                        <div class="deck-card__content">
+                            <p class="deck-card__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+                            <h3 class="deck-card__title">OMG pigments are<br>loved by clients and<br>artists <em>worldwide</em></h3>
+                            <div class="deck-card__footer">
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">Powered by RCA<br>connectivity</p>
+                                    <a class="deck-card__link" href="#">Learn more</a>
+                                </div>
+                                <a class="btn btn--accent" href="#">Buy now</a>
+                                <div class="deck-card__feature">
+                                    <p class="deck-card__feature-text">High quality<br>Swiss motor</p>
+                                    <a class="deck-card__link" href="#">Catalog</a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image" src="assets/img/pigments-deck-card-1.png" alt="OMG Dark Matter eyeliner pigment bottle" width="767" height="225" loading="lazy">
+                    </article>
+                </li>
+        </ul>
+    </section>
+
+    <section class="cover-up" aria-labelledby="cover-up-title">
+        <div class="cover-up__head">
+            <div class="cover-up__title-row">
+                <h2 class="cover-up__title" id="cover-up-title" data-aos="fade-up">Cover-up pigments</h2>
+                <div class="cover-up__nav" data-aos="fade-up" data-aos-delay="100">
+                    <button class="bundle-slider__arrow bundle-slider__arrow--prev" type="button" aria-label="Previous product" data-cover-prev><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                    <button class="bundle-slider__arrow bundle-slider__arrow--next cover-up__next" type="button" aria-label="Next product" data-cover-next><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                </div>
+            </div>
+            <ul class="pigment-slide__swatches cover-up__swatches" aria-label="Shades" data-aos="fade-up" data-aos-delay="150">
+                <li style="--swatch: #9c5a2d">11</li>
+                <li style="--swatch: #cca453">12</li>
+                <li style="--swatch: #8c7f58">13</li>
+            </ul>
+        </div>
+
+        <!-- The three cover-up shades, repeated so the looping slider fills -->
+        <div class="swiper cover-up__slider" data-cover-slider>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 11 Sun Flash to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">11 Sun Flash</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 12 Saturn to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">12 Saturn</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 13 UFO to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">13 UFO</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 11 Sun Flash to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">11 Sun Flash</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 12 Saturn to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">12 Saturn</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 13 UFO to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">13 UFO</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 11 Sun Flash to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">11 Sun Flash</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 12 Saturn to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">12 Saturn</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/cover-up-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 13 UFO to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Cover-up pigments</span>
+                                <h3 class="product__name">13 UFO</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tips" aria-labelledby="tips-title">
+        <p class="tips__kicker" data-aos="fade-up">Fitzpatrick scale &amp; Skin types</p>
+        <h2 class="tips__title" id="tips-title" data-aos="fade-up" data-aos-delay="100">Tips for using<br>brow <em>pigments</em></h2>
+
+        <ul class="tips__grid">
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="0">
+                <a class="skin-card__link" href="#" aria-label="Skin type I — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-1.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #faefec; --tone-ink: #4e3024">I</span>
+                </a>
+            </li>
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="80">
+                <a class="skin-card__link" href="#" aria-label="Skin type II — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-2.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #fae0d8; --tone-ink: #4e3024">II</span>
+                </a>
+            </li>
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="160">
+                <a class="skin-card__link" href="#" aria-label="Skin type III — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-3.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #f4c09d; --tone-ink: #4e3024">III</span>
+                </a>
+            </li>
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="240">
+                <a class="skin-card__link" href="#" aria-label="Skin type IV — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-4.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #d8966f; --tone-ink: #4e3024">IV</span>
+                </a>
+            </li>
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="320">
+                <a class="skin-card__link" href="#" aria-label="Skin type V — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-5.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #a36952; --tone-ink: #4e3024">V</span>
+                </a>
+            </li>
+            <li class="skin-card" data-aos="fade-up" data-aos-delay="400">
+                <a class="skin-card__link" href="#" aria-label="Skin type VI — learn more">
+                    <span class="skin-card__media">
+                        <img class="skin-card__image" src="assets/img/tips-card-6.jpg" alt="" width="293" height="779" loading="lazy">
+                        <span class="skin-card__more" aria-hidden="true">Learn<br>more</span>
+                    </span>
+                    <span class="skin-card__type" style="--tone: #4e3024; --tone-ink: #fae0d8">VI</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+        <section class="cover-up" aria-labelledby="eyebrow-pigments-title">
+        <div class="cover-up__head">
+            <div class="cover-up__title-row">
+                <h2 class="cover-up__title" id="eyebrow-pigments-title" data-aos="fade-up">Eyebrow pigments</h2>
+                <div class="cover-up__nav" data-aos="fade-up" data-aos-delay="100">
+                    <button class="bundle-slider__arrow bundle-slider__arrow--prev" type="button" aria-label="Previous product" data-cover-prev><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                    <button class="bundle-slider__arrow bundle-slider__arrow--next cover-up__next" type="button" aria-label="Next product" data-cover-next><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                </div>
+            </div>
+            <ul class="pigment-slide__swatches cover-up__swatches" aria-label="Shades" data-aos="fade-up" data-aos-delay="150">
+                <li style="--swatch: #615233">2</li>
+                <li style="--swatch: #8d7044">3</li>
+                <li style="--swatch: #784b34">4</li>
+                <li style="--swatch: #473624">5</li>
+                <li style="--swatch: #4c3434">6</li>
+            </ul>
+        </div>
+
+        <!-- The five eyebrow shades, repeated so the looping slider fills -->
+        <div class="swiper cover-up__slider" data-cover-slider>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 2 Moon to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">2 Moon</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 3 Milky Way to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">3 Milky Way</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 4 Infinity to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">4 Infinity</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 5 Mercury to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">5 Mercury</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 6 Galaxy to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">6 Galaxy</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 2 Moon to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">2 Moon</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 3 Milky Way to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">3 Milky Way</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 4 Infinity to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">4 Infinity</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 5 Mercury to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">5 Mercury</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyebrow-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 6 Galaxy to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h3 class="product__name">6 Galaxy</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="permanent" aria-labelledby="permanent-title">
+        <!-- <picture> so a different crop can be swapped in per breakpoint later -->
+        <picture class="permanent__bg">
+            <img src="assets/img/permanent-makeup-bg.png" alt="" width="1900" height="972" loading="lazy">
+        </picture>
+
+        <div class="permanent__content">
+            <h2 class="permanent__title" id="permanent-title" data-aos="fade-up">Permanent<br>Makeup</h2>
+            <p class="permanent__text" data-aos="fade-up" data-aos-delay="100">Enhance your natural beauty and enjoy a flawless look every day. Perfectly shaped brows, defined lips and long-lasting results tailored to your unique features.</p>
+            <a class="btn btn--light permanent__btn" href="#" data-aos="fade-up" data-aos-delay="200">Buy now</a>
+        </div>
+    </section>
+
+    <section class="cover-up cover-up--lips" aria-labelledby="lips-pigments-title">
+        <div class="cover-up__head">
+            <div class="cover-up__title-row">
+                <h2 class="cover-up__title" id="lips-pigments-title" data-aos="fade-up">Pigments for lips</h2>
+                <div class="cover-up__nav" data-aos="fade-up" data-aos-delay="100">
+                    <button class="bundle-slider__arrow bundle-slider__arrow--prev" type="button" aria-label="Previous product" data-cover-prev><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                    <button class="bundle-slider__arrow bundle-slider__arrow--next cover-up__next" type="button" aria-label="Next product" data-cover-next><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></button>
+                </div>
+            </div>
+            <ul class="pigment-slide__swatches cover-up__swatches" aria-label="Shades" data-aos="fade-up" data-aos-delay="150">
+                <li style="--swatch: #ea8e81">204</li>
+                <li style="--swatch: #dc485e">244</li>
+                <li style="--swatch: #f18f9e">240</li>
+                <li style="--swatch: #ba2954">402</li>
+                <li style="--swatch: #91232c">442</li>
+                <li style="--swatch: #a82420">420</li>
+            </ul>
+        </div>
+
+        <!-- The six lip shades, repeated so the looping slider fills -->
+        <div class="swiper cover-up__slider" data-cover-slider>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 204 Parhelion to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">204 Parhelion</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 244 Star Birth to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">244 Star Birth</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 240 Universe to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">240 Universe</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 402 Eclipse to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">402 Eclipse</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 442 Proxima to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">442 Proxima</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-7.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 420 Blood Moon to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">420 Blood Moon</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 204 Parhelion to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">204 Parhelion</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 244 Star Birth to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">244 Star Birth</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 240 Universe to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">240 Universe</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 402 Eclipse to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">402 Eclipse</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 442 Proxima to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">442 Proxima</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/lips-pigments-7.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 420 Blood Moon to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments for lips</span>
+                                <h3 class="product__name">420 Blood Moon</h3>
+                            </div>
+                            <p class="product__price">60€</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eyeliner" aria-labelledby="eyeliner-title">
+        <img class="eyeliner__needle" src="assets/img/eyeliner-pigments-bg.png" alt="" width="1108" height="1108" loading="lazy" data-aos="fade-left" data-aos-duration="1100">
+
+        <div class="eyeliner__main">
+            <h2 class="eyeliner__title" id="eyeliner-title" data-aos="fade-up">Eyeliner pigments</h2>
+            <p class="eyeliner__text" data-aos="fade-up" data-aos-delay="100">Professional Eyeliner pigments for <span>creating rich, expressive</span> eyeliner and lash enhancement effects. <span>Choose from deep brown</span> to carbon black shades or mix them <span>for a custom, intense color.</span></p>
+
+            <ul class="eyeliner__cards">
+                <li>
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/eyeliner-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 7 Interstellar to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Eyeliner pigments</span>
+                            <h3 class="product__name">7 Interstellar</h3>
+                        </div>
+                        <p class="product__price">60€</p>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/eyeliner-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 000 Dark Matter to cart"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Eyeliner pigments</span>
+                            <h3 class="product__name">000 Dark Matter</h3>
+                        </div>
+                        <p class="product__price">60€</p>
+                    </div>
+                </article>
+                </li>
+            </ul>
+        </div>
+
+        <div class="eyeliner__side">
+            <ul class="pigment-slide__swatches eyeliner__swatches" aria-label="Shades" data-aos="fade-up">
+                <li style="--swatch: #3b302c">7</li>
+                <li style="--swatch: #000">000</li>
+            </ul>
+
+            <div class="eyeliner__needle-info" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="eyeliner__needle-title">The 5RL needle</h3>
+                <p class="eyeliner__needle-text">The needle diameter in 5 Flat impacts saturation, density, and skin trauma. The choice of diameter depends on the client’s skin type, the technique used, and the desired result. Thin needles are ideal for natural effects, while thicker ones are better for saturated and dense work.</p>
+                <button class="eyeliner__btn" type="button">
+                    Add to cart
+                    <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="deck deck--pigments deck--thinner" aria-labelledby="thinner-deck-title">
+        <h2 class="visually-hidden" id="thinner-deck-title">OMG Thinner</h2>
+
+        <!-- Three identical Thinner cards, stacking on scroll like the other decks -->
+        <ul class="deck__list" data-deck>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments deck-card--thinner">
+                        <div class="deck-card__content thinner-card">
+                            <img class="thinner-card__logo" src="assets/img/thinner-deck-logo-1.png" alt="Thinner — fully analogous to liquid pigment base" width="252" height="57">
+                            <div class="thinner-card__col thinner-card__col--left">
+                                <h3 class="thinner-card__heading">The choice of needle diameter depends on the skin type.</h3>
+                                <p class="thinner-card__text">A specially designed formula which fully corresponds to the product line of the OMG brand pigments in terms of chemical composition. A glycerine mix which is designed to dilute the pigments without losing a comfortable dense consistency.</p>
+                            </div>
+                            <div class="thinner-card__col thinner-card__col--right">
+                                <h3 class="thinner-card__heading">By dripping a diluent into the pigment, you can:</h3>
+                                <ul class="thinner-card__list">
+                                    <li>reduce the concentration of the pigment</li>
+                                    <li>make the pigment more liquid</li>
+                                    <li>dilute and moisten the dried pigment</li>
+                                </ul>
+                                <button class="thinner-card__btn" type="button">
+                                    Add to cart
+                                    <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                                </button>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image thinner-card__hand" src="assets/img/thinner-deck-card-1.png" alt="Robotic hand holding OMG Transparent Thinner" width="843" height="1205" loading="lazy">
+                    </article>
+                </li>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments deck-card--thinner">
+                        <div class="deck-card__content thinner-card">
+                            <img class="thinner-card__logo" src="assets/img/thinner-deck-logo-1.png" alt="Thinner — fully analogous to liquid pigment base" width="252" height="57">
+                            <div class="thinner-card__col thinner-card__col--left">
+                                <h3 class="thinner-card__heading">The choice of needle diameter depends on the skin type.</h3>
+                                <p class="thinner-card__text">A specially designed formula which fully corresponds to the product line of the OMG brand pigments in terms of chemical composition. A glycerine mix which is designed to dilute the pigments without losing a comfortable dense consistency.</p>
+                            </div>
+                            <div class="thinner-card__col thinner-card__col--right">
+                                <h3 class="thinner-card__heading">By dripping a diluent into the pigment, you can:</h3>
+                                <ul class="thinner-card__list">
+                                    <li>reduce the concentration of the pigment</li>
+                                    <li>make the pigment more liquid</li>
+                                    <li>dilute and moisten the dried pigment</li>
+                                </ul>
+                                <button class="thinner-card__btn" type="button">
+                                    Add to cart
+                                    <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                                </button>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image thinner-card__hand" src="assets/img/thinner-deck-card-1.png" alt="Robotic hand holding OMG Transparent Thinner" width="843" height="1205" loading="lazy">
+                    </article>
+                </li>
+                <li class="deck__item" data-deck-item>
+                    <article class="deck-card deck-card--pigments deck-card--thinner">
+                        <div class="deck-card__content thinner-card">
+                            <img class="thinner-card__logo" src="assets/img/thinner-deck-logo-1.png" alt="Thinner — fully analogous to liquid pigment base" width="252" height="57">
+                            <div class="thinner-card__col thinner-card__col--left">
+                                <h3 class="thinner-card__heading">The choice of needle diameter depends on the skin type.</h3>
+                                <p class="thinner-card__text">A specially designed formula which fully corresponds to the product line of the OMG brand pigments in terms of chemical composition. A glycerine mix which is designed to dilute the pigments without losing a comfortable dense consistency.</p>
+                            </div>
+                            <div class="thinner-card__col thinner-card__col--right">
+                                <h3 class="thinner-card__heading">By dripping a diluent into the pigment, you can:</h3>
+                                <ul class="thinner-card__list">
+                                    <li>reduce the concentration of the pigment</li>
+                                    <li>make the pigment more liquid</li>
+                                    <li>dilute and moisten the dried pigment</li>
+                                </ul>
+                                <button class="thinner-card__btn" type="button">
+                                    Add to cart
+                                    <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                                </button>
+                            </div>
+                        </div>
+                        <span class="deck-card__glow" aria-hidden="true"></span>
+                        <img class="deck-card__image thinner-card__hand" src="assets/img/thinner-deck-card-1.png" alt="Robotic hand holding OMG Transparent Thinner" width="843" height="1205" loading="lazy">
+                    </article>
+                </li>
+        </ul>
+    </section>
+
+
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+            <video class="cta__video" src="assets/vid/cta-course.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+            <div class="cta__top" data-aos="fade">
+                <a class="cta__logo" href="/" aria-label="OMG Universe — home">
+                    <img src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+                </a>
+                <p class="cta__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+            </div>
+
+            <div class="cta__content">
+                <p class="promo__label" data-aos="fade-up">Online course that transforms</p>
+                <h2 class="promo__title" id="cta-title" data-aos="fade-up" data-aos-delay="120">PMU reality</h2>
+                <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
+                    <a class="btn btn--light" href="#">Buy now</a>
+                    <a class="btn btn--glass" href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pigments.js"></script>
+</body>
+</html>

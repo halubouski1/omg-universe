@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Cart page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from cart.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from cart.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .page-cart {
+        --cart-frame: 7.5px;
+        background: linear-gradient(180deg, #498734 0, #92b88b 195px, #eceff4 420px) #eceff4;
+    }
+
+    .cart__panel {
+        min-height: calc(100vh - 7.5px);
+        padding: 97.5px calc(var(--page-gutter) - 7.5px) 90px;
+        border-radius: 10.5px;
+    }
+
+    .cart__title {
+        font-size: 45px;
+    }
+
+    .cart__back {
+        gap: 8.25px;
+        margin-top: 15px;
+        font-size: 9px;
+    }
+
+    .cart__back:hover img {
+        transform: rotate(90deg) translateY(2.25px);
+    }
+
+    .cart__back:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .cart__items {
+        gap: 67.5px 140.25px;
+        margin-top: 82.5px;
+    }
+
+    .bag-item {
+        gap: 21px;
+    }
+
+    .bag-item__image {
+        width: 112.5px;
+        height: 112.5px;
+    }
+
+    .bag-item__body {
+        padding-top: 7.5px;
+    }
+
+    .bag-item__title {
+        font-size: 16.5px;
+    }
+
+    .bag-item__text {
+        max-width: 192px;
+        margin-top: 15px;
+        font-size: 10.5px;
+    }
+
+    .bag-item__size {
+        margin-top: 16.5px;
+        font-size: 10.5px;
+    }
+
+    .bag-item__remove {
+        padding: 1.5px;
+    }
+
+    .bag-item__remove:focus-visible {
+        outline-offset: 1.5px;
+    }
+
+    .cart__empty {
+        margin-top: 75px;
+        font-size: 17.25px;
+    }
+
+    .summary {
+        gap: 127.5px;
+        min-height: 244.5px;
+        margin: 80.25px 0 0 0px;
+        padding: 45px 135px;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 0 0 / 14.25px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1755 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 100% 0 / 14.25px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 27px) 100% no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 0 0 / 14.25px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1755 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 100% 0 / 14.25px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 27px) 100% no-repeat;
+    }
+
+    .summary__details {
+        padding-right: 127.5px;
+    }
+
+    .summary__title {
+        font-size: 26.25px;
+    }
+
+    .summary__list {
+        gap: 18px 241.5px;
+        margin: 22.5px 0 0;
+        font-size: 10.5px;
+    }
+
+    .summary__delivery {
+        gap: 4.5px;
+    }
+
+    .summary__note {
+        font-size: 9.75px;
+    }
+
+    .summary__total {
+        padding: 0px 0 18px;
+        font-size: 10.5px;
+    }
+
+    .summary__actions {
+        gap: 10.5px;
+        margin-top: 48px;
+    }
+
+    .summary__promo,
+    .summary__checkout-btn {
+        height: 48px;
+        padding: 0 24px;
+        border-radius: 7.5px;
+        font-size: 12px;
+    }
+
+    .summary__checkout-btn:hover .summary__checkout-icon {
+        transform: translateX(3px);
+    }
+
+    .summary__checkout-btn:focus-visible {
+        outline-offset: 2.25px;
+    }
+}
+
+/* ==========================================================================
+   ≤1270px — tighter order summary
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. The 1920 paddings and gaps leave the right half too narrow below
+   ~1100px, pushing the Total row and the Checkout arrow off the page. */
+@media (max-width: 1270px) {
+    .summary {
+        gap: 60px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .summary__details {
+        padding-right: 60px;
+    }
+
+    .summary__list {
+        column-gap: 90px;
+    }
+
+    .summary__checkout {
+        min-width: 0;
+    }
+}

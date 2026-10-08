@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Thank You page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from thanks.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from thanks.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .thanks {
+        min-height: 786px;
+        padding-bottom: 108px;
+    }
+
+    .thanks__figure {
+        top: 33px;
+        left: -127.5px;
+        width: 673.5px;
+    }
+
+    .thanks__message {
+        padding-top: 279.75px;
+    }
+
+    .thanks__title {
+        font-size: 90px;
+    }
+
+    .thanks__title-line--serif {
+        margin-top: -11.25px;
+    }
+
+    .thanks__text {
+        margin-top: 43.5px;
+        font-size: 12px;
+    }
+
+    .thanks__link:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .thanks__continue {
+        min-width: 173.25px;
+        height: 33px;
+        margin-top: 45px;
+        border-radius: 7.5px;
+        font-size: 10.5px;
+    }
+
+    .thanks__continue:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .order-card {
+        margin: 136.5px 30px 0 0;
+        width: 276px;
+        min-height: 541.5px;
+        padding: 61.5px 18px 30px 18px;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 368 30' preserveAspectRatio='none'%3E%3Cpath d='M101.51 0C108.894 0 114.697 6.23834 119.124 12.1481C123.273 17.686 129.887 21.2695 137.34 21.2695H230.66C238.113 21.2695 244.727 17.686 248.875 12.1481C253.302 6.23828 259.105 0 266.489 0H354.001C361.733 0 368.001 6.26801 368.001 14L368.001 708C368.001 715.732 361.733 722 354.001 722H266.799C259.3 722 253.441 715.571 248.999 709.529C244.859 703.897 238.187 700.241 230.66 700.241H137.34C129.813 700.241 123.141 703.897 119.001 709.529C114.559 715.571 108.7 722 101.201 722H14C6.26802 722 0 715.732 0 708L0 14C0 6.26801 6.26801 0 14 0H101.51Z'/%3E%3C/svg%3E") 0 0 / 100% 22.5px no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 692 368 30' preserveAspectRatio='none'%3E%3Cpath d='M101.51 0C108.894 0 114.697 6.23834 119.124 12.1481C123.273 17.686 129.887 21.2695 137.34 21.2695H230.66C238.113 21.2695 244.727 17.686 248.875 12.1481C253.302 6.23828 259.105 0 266.489 0H354.001C361.733 0 368.001 6.26801 368.001 14L368.001 708C368.001 715.732 361.733 722 354.001 722H266.799C259.3 722 253.441 715.571 248.999 709.529C244.859 703.897 238.187 700.241 230.66 700.241H137.34C129.813 700.241 123.141 703.897 119.001 709.529C114.559 715.571 108.7 722 101.201 722H14C6.26802 722 0 715.732 0 708L0 14C0 6.26801 6.26801 0 14 0H101.51Z'/%3E%3C/svg%3E") 0 100% / 100% 22.5px no-repeat,
+        linear-gradient(#000 0 0) 0 19.5px / 100% calc(100% - 39px) no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 368 30' preserveAspectRatio='none'%3E%3Cpath d='M101.51 0C108.894 0 114.697 6.23834 119.124 12.1481C123.273 17.686 129.887 21.2695 137.34 21.2695H230.66C238.113 21.2695 244.727 17.686 248.875 12.1481C253.302 6.23828 259.105 0 266.489 0H354.001C361.733 0 368.001 6.26801 368.001 14L368.001 708C368.001 715.732 361.733 722 354.001 722H266.799C259.3 722 253.441 715.571 248.999 709.529C244.859 703.897 238.187 700.241 230.66 700.241H137.34C129.813 700.241 123.141 703.897 119.001 709.529C114.559 715.571 108.7 722 101.201 722H14C6.26802 722 0 715.732 0 708L0 14C0 6.26801 6.26801 0 14 0H101.51Z'/%3E%3C/svg%3E") 0 0 / 100% 22.5px no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 692 368 30' preserveAspectRatio='none'%3E%3Cpath d='M101.51 0C108.894 0 114.697 6.23834 119.124 12.1481C123.273 17.686 129.887 21.2695 137.34 21.2695H230.66C238.113 21.2695 244.727 17.686 248.875 12.1481C253.302 6.23828 259.105 0 266.489 0H354.001C361.733 0 368.001 6.26801 368.001 14L368.001 708C368.001 715.732 361.733 722 354.001 722H266.799C259.3 722 253.441 715.571 248.999 709.529C244.859 703.897 238.187 700.241 230.66 700.241H137.34C129.813 700.241 123.141 703.897 119.001 709.529C114.559 715.571 108.7 722 101.201 722H14C6.26802 722 0 715.732 0 708L0 14C0 6.26801 6.26801 0 14 0H101.51Z'/%3E%3C/svg%3E") 0 100% / 100% 22.5px no-repeat,
+        linear-gradient(#000 0 0) 0 19.5px / 100% calc(100% - 39px) no-repeat;
+    }
+
+    .order-card__title {
+        margin-left: -2.25px;
+        padding-bottom: 12.75px;
+        font-size: 15px;
+    }
+
+    .order-card__meta {
+        margin-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .order-card__row {
+        gap: 12px;
+        font-size: 10.5px;
+    }
+
+    .order-card__row--spaced {
+        margin-top: 14.25px;
+    }
+
+    .order-card__small {
+        font-size: 9px;
+    }
+
+    .order-card__items {
+        gap: 15px;
+        margin: 23.25px 0 0;
+        padding: 0 0 18px;
+    }
+
+    .order-card__items.is-scrollable {
+        max-height: 183px;
+        padding-right: 6px;
+    }
+
+    .order-card__items.is-scrollable:not(.is-at-end) {
+        -webkit-mask-image: linear-gradient(#000 calc(100% - 36px), transparent);
+        mask-image: linear-gradient(#000 calc(100% - 36px), transparent);
+    }
+
+    .order-card__items::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .order-card__items::-webkit-scrollbar-thumb {
+        border-radius: 1.5px;
+    }
+
+    .order-card__item {
+        gap: 29.25px;
+    }
+
+    .order-card__image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .order-card__item-body {
+        padding-top: 3px;
+    }
+
+    .order-card__item-name {
+        font-size: 10.5px;
+    }
+
+    .order-card__specs {
+        grid-template-columns: 79.5px auto;
+    }
+
+    .order-card__specs dt {
+        font-size: 9px;
+    }
+
+    .order-card__specs dd {
+        margin: 1.5px 0 0;
+        font-size: 10.5px;
+    }
+
+    .order-card__item-price {
+        padding: 15.75px 0 20.25px;
+        font-size: 10.5px;
+    }
+
+    .order-card__costs {
+        gap: 12px;
+        padding: 18px 0 18px;
+    }
+
+    .order-card__total {
+        padding-top: 12px;
+        font-size: 13.5px;
+    }
+
+    .order-card__total-value {
+        font-size: 12px;
+    }
+
+    .order-card__more {
+        gap: 6px;
+        margin: -17.25px auto 1px;
+        padding: 3px 9px;
+        border-radius: 15px;
+        font-size: 9px;
+        -webkit-backdrop-filter: blur(4.5px);
+        backdrop-filter: blur(4.5px);
+    }
+
+    .order-card__more:focus-visible {
+        outline-offset: 1.5px;
+    }
+}
+
+/* ==========================================================================
+   ≤1370px — woman further left, message centred in the space that is left
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. The woman's visible edge ends near x 454; the message is centred
+   between her and the order card (30px margin + 276px card on the right),
+   and the heading steps down so it fits that gap down to 1025px. */
+@media (max-width: 1370px) {
+    .thanks__figure {
+        left: -220px;
+    }
+
+    .thanks__message {
+        padding-right: 300px;
+        padding-left: 300px;
+    }
+
+    .thanks__title {
+        font-size: 72px;
+    }
+
+    .thanks__title-line--serif {
+        margin-top: -9px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .thanks__title {
+        font-size: 52px;
+    }
+
+    .thanks__title-line--serif {
+        margin-top: -7px;
+    }
+}

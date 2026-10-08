@@ -1,0 +1,1459 @@
+/* ===== Fonts ===== */
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../assets/fonts/HelveticaNeue-Light.woff2') format('woff2'),
+       url('../assets/fonts/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../assets/fonts/HelveticaNeue-Regular.woff2') format('woff2'),
+       url('../assets/fonts/HelveticaNeue-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../assets/fonts/HelveticaNeue-Medium.woff2') format('woff2'),
+       url('../assets/fonts/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../assets/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+       url('../assets/fonts/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Forum */
+@font-face {
+  font-family: 'Forum';
+  src: url('../assets/fonts/Forum-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Forum-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Brier — serif accent words */
+@font-face {
+  font-family: 'Brier';
+  src: url('../assets/fonts/Brier-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Brier-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brier';
+  src: url('../assets/fonts/Brier-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Brier-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Mr Dafoe — script year mark */
+@font-face {
+  font-family: 'Mr Dafoe';
+  src: url('../assets/fonts/MrDafoe-Regular.woff2') format('woff2'),
+       url('../assets/fonts/MrDafoe-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base / reset
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #000;
+    background-color: #000;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+}
+
+/* Anchor links stop 100px short of the section top so the heading does not sit
+   flush against the viewport edge. Applies to native #hash jumps; the Lenis
+   scrolls in main.js pass the same value as an offset. */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+h1, h2, h3, h4, h5, h6,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+img,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+/* Side gutter shared by the header and every hero layer, so all edges line up. */
+:root {
+    --page-gutter: 40px;
+}
+
+/* ==========================================================================
+   Header — transparent, laid over the hero
+   ========================================================================== */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px var(--page-gutter) 0;
+    color: #fff;
+}
+
+.header__brand {
+    display: block;
+}
+
+.header__logo {
+    width: 68px;
+    height: auto;
+}
+
+.header__tools {
+    display: flex;
+    align-items: center;
+    gap: 122px;
+}
+
+.header__tools-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.header__icon-btn,
+.header__menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .3s ease;
+}
+
+.header__icon-btn:hover,
+.header__menu-btn:hover {
+    opacity: .7;
+}
+
+.header__icon-btn img {
+    width: 19px;
+    height: auto;
+}
+
+/* burger.svg is drawn in black; invert it to sit on the dark hero */
+.header__menu-btn img {
+    width: 17px;
+    height: auto;
+}
+
+.header__menu-btn {
+    border-radius: 6px;
+    width: 33px;
+    height: 33px;
+    background: #d9d9d9;
+}
+
+/* Dark variant for pages on a light background: the white logo and icons
+   are inverted to black */
+.header--dark {
+    color: #000;
+}
+
+.header--dark .header__logo,
+.header--dark .header__icon-btn img {
+    filter: invert(1);
+}
+
+.header--dark .header__menu-btn {
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: var(--fixed-vh, 100vh);
+    min-height: 700px;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+}
+
+/* --- Background slides ------------------------------------------------- */
+.hero__media {
+    position: absolute;
+    inset: 0;
+}
+
+.hero__slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+}
+
+/* The outgoing slide stays fully opaque underneath while the incoming one
+   fades in on top, so the cross-fade never reveals the black background. */
+.hero__slide.is-prev {
+    z-index: 1;
+    opacity: 1;
+}
+
+.hero__slide.is-active {
+    z-index: 2;
+    opacity: 1;
+}
+
+/* --- Diagonal glass strip ---------------------------------------------- */
+.hero__media::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    top: -50%;
+    right: 3%;
+    width: 482px;
+    height: 200%;
+    background-color: rgba(8, 12, 8, .18);
+    border-left: 1px solid rgba(255, 255, 255, .14);
+    border-right: 1px solid rgba(255, 255, 255, .06);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transform: rotate(45deg);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+/* --- Slide indicators -------------------------------------------------- */
+.hero__indicators {
+    position: absolute;
+    z-index: 5;
+    top: 250px;
+    right: var(--page-gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* The button is a wider hit area; the visible line is its ::before */
+.hero__indicator {
+    position: relative;
+    width: 12px;
+    height: 22px;
+    transition: height .6s ease;
+}
+
+.hero__indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background-color: #fff;
+    opacity: .2;
+    transform: translateX(-50%);
+    transition: opacity .6s ease;
+}
+
+.hero__indicator:hover::before {
+    opacity: .5;
+}
+
+.hero__indicator.is-active {
+    height: 75px;
+}
+
+.hero__indicator.is-active::before {
+    opacity: .9;
+}
+
+.hero__indicator:focus-visible {
+    outline: 1px solid rgba(255, 255, 255, .6);
+    outline-offset: 2px;
+}
+
+/* --- Text layer -------------------------------------------------------- */
+/* Equal 1fr rows above and below the lead keep it at the vertical centre of
+   the hero; the heading sits at the end of the lower row, on the bottom edge. */
+.hero__inner {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    padding: 0 var(--page-gutter) 28px;
+    container-type: inline-size;
+    pointer-events: none;
+}
+
+.hero__lead {
+    grid-row: 2;
+    /* em cap keeps the reference's three-line wrap as the font scales down */
+    max-width: 200px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* "CSHMR BROWS" in Helvetica Neue Light (-0.03em tracking) renders a 7.086em
+   box whose ink runs from 0.038em to 7.080em (measured in Chrome), so the
+   letters themselves are 7.042em wide. 100cqw / 7.042 (cqw = .hero__inner's
+   content box, between the gutters) sizes the ink to exactly 100% width, and
+   the em margins pull the side bearings out past the gutters so the C and S
+   sit flush with the lead's edge at every viewport width. */
+.hero__heading {
+    grid-row: 3;
+    align-self: end;
+    font-size: calc(100cqw / 7.042);
+    font-weight: 300;
+    line-height: .78;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-left: -0.038em; /* left side bearing of the C */
+    margin-right: -0.006em; /* S bearing minus trailing tracking */
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Events — marquee of categories + expandable city list
+   ==========================================================================
+   Sizes are the 1920 Figma frame values; smaller screens get fixed
+   overrides in media.css. */
+.events {
+    --events-bg: #eceff4;
+    --events-ink: #272c1f;
+    --events-line: rgba(0, 0, 0, 0.1);
+    --events-accent: #98F146;
+    --events-ease: cubic-bezier(.22, 1, .36, 1); /* soft ease-out for fades */
+
+    --marquee-gap: 250px;
+    --marquee-duration: 40s;
+    --event-gap: 60px;
+    --event-inline-gap: 30px;
+    --event-stack-gap: 70px;
+    --event-desc-gap: 120px;
+    --event-head-width: 456px;
+    --event-pad: 110px;
+
+    position: relative;
+    padding-bottom: 40px;
+    overflow-x: clip;
+    /* Rows resizing would make the browser's scroll anchoring jump the page;
+       main.js scrolls the active row to the centre itself instead */
+    overflow-anchor: none;
+    background-color: var(--events-bg);
+    color: var(--events-ink);
+    /* The whole section is set in Light (the bundled "Regular" file is
+       weight 500 and renders visibly heavier than the design) */
+    font-weight: 300;
+}
+
+/* --- Marquee ------------------------------------------------------------ */
+/* Inset by the page gutters and clipped there, so the words scroll inside
+   the container and the loop starts at its left edge */
+.events__marquee {
+    margin: 0 var(--page-gutter);
+    padding: 85px 0 10px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--events-line);
+}
+
+.events__tag--italic {
+    font-style: italic;
+}
+
+.events__track {
+    display: flex;
+    width: max-content;
+    animation: events-marquee var(--marquee-duration) linear infinite;
+}
+
+/* Trailing padding equals the gap, so both groups are the same width and
+   shifting the track by -50% lands exactly on the start of the copy. */
+.events__group {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--marquee-gap);
+    padding-right: var(--marquee-gap);
+}
+
+.events__tag {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 233%;
+    letter-spacing: -0.03em;
+    color: #272c1f;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.events__tag:nth-child(even) {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes events-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- List --------------------------------------------------------------- */
+.events__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--event-gap);
+    padding: 125px var(--page-gutter) 0;
+}
+
+/* Collapsed: date and city on one baseline. Active: they stack, the
+   description follows and the poster is pinned to the right edge. The
+   layout change is smoothed by the height animation and fade in main.js. */
+.event {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+    /* Height and margin are animated by main.js alongside the scroll */
+    transition: border-color .3s ease;
+}
+
+.event.is-active {
+    gap: var(--event-desc-gap);
+    margin-top: var(--event-gap);
+    padding-top: var(--event-pad);
+    padding-bottom: var(--event-pad);
+    border-color: var(--events-line);
+    cursor: default;
+}
+
+.event:focus-visible .event__city {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: .12em;
+}
+
+.event__head {
+    display: flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: var(--event-inline-gap);
+}
+
+.event.is-active .event__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--event-stack-gap);
+}
+
+/* Padding is constant and cancelled by equal negative margins, so the text
+   never shifts and the pill doesn't add to any gap; only the fill fades in */
+.event__date {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #272c1f;
+    white-space: nowrap;
+    /* Same marker sweep as the description */
+    background-image: linear-gradient(var(--events-accent), var(--events-accent));
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .2s ease;
+}
+
+/* On the city's baseline the padded date hangs below the city's tight line
+   box; negative block margins keep it from making the row taller */
+.event:not(.is-active) .event__date {
+    margin-top: -.6em;
+    margin-bottom: -.6em;
+}
+
+.event.is-active .event__date {
+    background-size: 100% 100%;
+    transition: background-size .6s cubic-bezier(.65, 0, .35, 1) .25s;
+    padding: 10px;
+}
+
+.event__city {
+    font-size: 100px;
+    line-height: 125%;
+    font-weight: 400;
+    line-height: .78;
+    white-space: nowrap;
+}
+
+/* Out of flow while collapsed so it can fade out in place */
+.event__desc {
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--event-head-width) + var(--event-desc-gap));
+    max-width: 544px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 140%;
+    letter-spacing: -0.03em;
+    color: #272c1f;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .35s var(--events-ease), visibility 0s .25s;
+}
+
+.event.is-active .event__desc {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity .6s ease .25s, transform .8s var(--events-ease) .25s, visibility 0s;
+}
+
+/* Marker: two solid bars behind the text — all of line 1, then the start of
+   line 2 — bleeding past the left edge. Each bar's width is its own animatable
+   custom property, so line 1 fills first and line 2 follows. */
+@property --event-marker-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@property --event-marker-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+.event__desc {
+    --event-marker-bleed: .52em;
+    --event-marker-line-2: 61%;
+
+    isolation: isolate; /* keeps the z-index: -1 marker above the page */
+}
+
+.event__desc::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -.32em;
+    right: -.8em;
+    left: calc(var(--event-marker-bleed) * -1);
+    height: 2.96em; /* line 1 bar (1.76em) + line 2 bar (1.2em) */
+    background:
+        linear-gradient(var(--events-accent), var(--events-accent))
+            0 0 / var(--event-marker-1) 1.76em no-repeat,
+        linear-gradient(var(--events-accent), var(--events-accent))
+            0 1.76em / var(--event-marker-2) 1.2em no-repeat;
+    transition: --event-marker-1 .2s ease, --event-marker-2 .2s ease;
+}
+
+/* Relative only to anchor the marker; the collapsed offsets must not apply */
+.event.is-active .event__desc {
+    position: relative;
+    bottom: auto;
+    left: auto;
+}
+
+.event.is-active .event__desc::before {
+    --event-marker-1: 100%;
+    --event-marker-2: var(--event-marker-line-2);
+    transition:
+        --event-marker-1 .55s cubic-bezier(.65, 0, .35, 1) .45s,
+        --event-marker-2 .45s cubic-bezier(.22, 1, .36, 1) .95s;
+}
+
+/* Taller than the row, so it is centred on it and overlaps its neighbours */
+.event__poster {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 0;
+    width: 518px;
+    height: auto;
+    opacity: 0;
+    /* Same fade-and-rise as the date and city; the tilt stays constant */
+    transform: translateY(-50%) translateY(10px) rotate(4deg);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .35s var(--events-ease);
+}
+
+/* Figma -4deg = CSS 4deg (Figma measures rotation counter-clockwise) */
+.event.is-active .event__poster {
+    opacity: 1;
+    transform: translateY(-50%) rotate(4deg);
+    transition: opacity .7s ease .2s, transform .9s var(--events-ease) .2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .events__track {
+        animation: none;
+    }
+
+    .event,
+    .event *,
+    .event.is-active * {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* ==========================================================================
+   Shared components
+   ========================================================================== */
+
+/* "20 26" script mark. Sizes and the "26" colour are set per use. */
+.year-mark {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: 'Mr Dafoe', cursive;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.year-mark__small {
+    font-size: 18px;
+}
+
+.year-mark__big {
+    font-size: 50px;
+    color: var(--year-mark-big-color, inherit);
+}
+
+/* Button: one shape for every call to action; modifiers only change colour */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 197px;
+    height: 50px;
+    padding: 0 24px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+
+.btn:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+}
+
+.btn--accent {
+    background-color: #44d62d;
+    color: #000;
+}
+
+.btn--accent:hover {
+    background-color: #8ae069;
+}
+
+.btn--light {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn--light:hover {
+    background-color: #e3e5e8;
+}
+
+.btn--lime {
+    background-color: #85f55f;
+    color: #000;
+}
+
+.btn--lime:hover {
+    background-color: #a4f88a;
+}
+
+.btn--dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn--dark:hover {
+    background-color: #262626;
+}
+
+.btn--glass {
+    border-color: rgba(255, 255, 255, .35);
+    color: #fff;
+    backdrop-filter: blur(40px);
+    --webkit-backdrop-filter: blur(40px);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.btn--glass:hover {
+    border-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .16);
+}
+
+/* Promo: label, big serif title and buttons — the CTA on the home page and
+   the course page hero share it */
+.promo__label {
+    margin-bottom: 50px;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.promo__title {
+    margin-bottom: 75px;
+    font-family: 'Brier', serif;
+    font-weight: 400;
+    font-size: 200px;
+    /* Tight box (cap height + a little) so the 50 / 75px gaps measure from
+       the letters, as in Figma */
+    line-height: .705;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.promo__actions {
+    display: flex;
+    gap: 20px;
+}
+
+/* ==========================================================================
+   Deck — cards pin in the viewport and stack as the page scrolls
+   ========================================================================== */
+.deck {
+    --deck-accent: #44d62d;
+    --deck-gutter: var(--page-gutter); /* 40px each side, like the rest of the page */
+    --deck-gap: 40px;
+    /* Fixed height; only the width follows the viewport, so the content
+       never gets squeezed onto the centre image */
+    --deck-card-h: 1010px;
+
+    padding: 40px var(--deck-gutter) 0px;
+    background-color: #eceff4;
+}
+
+.deck__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--deck-gap);
+}
+
+/* Every card sticks centred in the viewport; the next one scrolls up over it.
+   --deck-progress (0 → 1, set by main.js) is how far the next card covers it. */
+.deck__item {
+    --deck-progress: 0;
+
+    position: sticky;
+    top: calc((100svh - var(--deck-card-h)) / 2);
+}
+
+/* The card shape is rebuilt from slider-card-bg-1.svg so it never stretches:
+   a rounded body (::before) plus fixed-size top and bottom tabs (::after).
+   Measurements are the SVG's, in its 1870x1010 frame. */
+.deck-card {
+    --deck-card-bg: #131312;
+    --deck-body-top: 49px;
+    --deck-body-bottom: 54px;
+    --deck-body-radius: 45px;
+    --deck-shape-gap: 6px; /* empty strip under the bottom tab, as in the SVG */
+    --deck-tab-top-w: 520px;
+    --deck-tab-top-h: 50px;
+    --deck-tab-bottom-w: 1112px;
+    --deck-tab-bottom-h: 49px;
+
+    position: relative;
+    width: 100%;
+    height: var(--deck-card-h);
+    color: #fff;
+    transform: scale(calc(1 - .06 * var(--deck-progress)));
+    transform-origin: 50% 0;
+    will-change: transform;
+}
+
+.deck-card::before,
+.deck-card::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.deck-card::before {
+    inset: var(--deck-body-top) 0 var(--deck-body-bottom);
+    border-radius: var(--deck-body-radius);
+    background: url('../assets/img/deck-card-lines.svg') center / cover no-repeat, var(--deck-card-bg);
+}
+
+/* Tabs overlap the body by 1px so no seam shows */
+.deck-card::after {
+    inset: 0 0 var(--deck-shape-gap);
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 50' preserveAspectRatio='none'%3E%3Cpath fill='%23131312' d='M0 50C42 50 38 0 80 0H440C482 0 478 50 520 50Z'/%3E%3C/svg%3E") 50% 0 / var(--deck-tab-top-w) var(--deck-tab-top-h) no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1112 49' preserveAspectRatio='none'%3E%3Cpath fill='%23131312' d='M0 0C42 0 42 48 84 48H1028C1070 48 1070 0 1112 0Z'/%3E%3C/svg%3E") 50% 100% / var(--deck-tab-bottom-w) var(--deck-tab-bottom-h) no-repeat;
+}
+
+.deck-card__content {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    opacity: calc(1 - 1.4 * var(--deck-progress));
+}
+
+.deck-card__year {
+    --year-mark-small: 30px;
+    --year-mark-big: 86px;
+    --year-mark-big-color: var(--deck-accent);
+
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.deck-card__title {
+    position: absolute;
+    top: 186px;
+    right: 0;
+    left: 0;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 93%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.deck-card__title em {
+    font-family: 'Brier', serif;
+    font-size: 1.03em;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--deck-accent);
+}
+
+/* Centred in the card, under the text */
+.deck-card__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(1640 / 1870 * 100%);
+    height: auto;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.deck-card__footer {
+    position: absolute;
+    right: 0;
+    bottom: 128px;
+    left: 0;
+    /* Equal 1fr side columns keep the button in the exact centre whatever
+       the width of the two features */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    padding: 0 94px;
+}
+
+.deck-card__feature:first-child {
+    justify-self: start;
+}
+
+.deck-card__feature:last-child {
+    justify-self: end;
+}
+
+.deck-card__feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.deck-card__feature-text {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 107%;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.deck-card__link {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #44d62d;
+    color: var(--deck-accent);
+    text-transform: uppercase;
+    transition: opacity .3s ease;
+}
+
+.deck-card__link:hover {
+    opacity: .7;
+}
+
+.deck-card__link:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 4px;
+}
+
+/* ==========================================================================
+   Masterclasses in Tallin — centred heading over a full-bleed figure image
+   ========================================================================== */
+.masterclasses {
+    --masterclasses-accent: #44d62d;
+    --masterclasses-ink: #282c20;
+
+    /* The image is pulled up over the deck by the depth of the card's bottom
+       tab, so its top edge — and the right-hand arc — starts where the card
+       body ends. */
+    --masterclasses-overlap: 54px; /* = the deck card's --deck-body-bottom */
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Image height and content offset are the design's 1100 / 160, measured
+       from the image top */
+    height: calc(1100px - var(--masterclasses-overlap));
+    padding-top: calc(100px - var(--masterclasses-overlap));
+    background-color: #eceff4;
+    color: var(--masterclasses-ink);
+}
+
+.masterclasses::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--masterclasses-overlap) * -1);
+    right: 0;
+    left: 0;
+    height: 1100px;
+    background: url('../assets/img/on-masterclasses-bg.png') center / cover no-repeat;
+    pointer-events: none;
+}
+
+.masterclasses > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Soft fade of the figures into the page colour where the CTA card begins */
+.masterclasses::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 160px;
+    background: linear-gradient(rgba(236, 239, 244, 0), rgba(236, 239, 244, .85));
+    pointer-events: none;
+}
+
+.masterclasses__title {
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 75%;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #272c1f;
+    text-transform: uppercase;
+}
+
+/* The script glyph's ink fills only part of its 300px line box; the negative
+   margin brings it down to 16px above the MASTERCLASSES cap height */
+.masterclasses__on {
+    display: block;
+    margin-bottom: -44px;
+    font-family: 'Mr Dafoe', cursive;
+    font-size: 300px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: var(--masterclasses-accent);
+    text-transform: uppercase;
+}
+
+.masterclasses__city {
+    display: block;
+    font-family: 'Brier', serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.masterclasses__intro {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 48px;
+}
+
+/* Decorative only — not interactive */
+.masterclasses__decor {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    background-color: var(--masterclasses-accent);
+}
+
+.masterclasses__decor--mirrored img {
+    transform: scaleX(-1);
+}
+
+.masterclasses__text {
+    max-width: 450px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: rgba(39, 44, 31, 0.7);
+    text-transform: uppercase;
+}
+
+.masterclasses__links {
+    display: flex;
+    gap: 100px;
+    margin-top: 90px;
+}
+
+/* Green uppercase link with a ↗ arrow (link-arrow.svg inlined so it takes
+   the text colour) */
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: var(--masterclasses-accent);
+    text-transform: uppercase;
+    transition: opacity .3s ease;
+}
+
+.link-arrow__icon {
+    width: 14px;
+    height: auto;
+    transform: rotate(-45deg);
+    transition: transform .3s ease;
+}
+
+.link-arrow:hover {
+    opacity: .7;
+}
+
+.link-arrow:hover .link-arrow__icon {
+    transform: rotate(-45deg) translateX(3px);
+}
+
+.link-arrow:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+}
+
+/* ==========================================================================
+   CTA — course banner over a dimmed background video
+   ========================================================================== */
+.cta {
+    /* How far the card slides up over the masterclasses image; that strip
+       stays transparent so the figures show round the card's corners */
+    --cta-overlap: 30px;
+
+    position: relative;
+    z-index: 3;
+    margin-top: calc(var(--cta-overlap) * -1);
+    padding: 10px;
+    padding-bottom: 0;
+    padding-top: 0;
+    background: linear-gradient(transparent var(--cta-overlap), #eceff4 var(--cta-overlap));
+}
+
+.cta__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 1100px;
+    padding: 44px 40px 295px;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #000;
+    color: #fff;
+}
+
+/* opacity over the black panel is what dims the footage */
+.cta__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .7;
+    pointer-events: none;
+}
+
+.cta__top,
+.cta__content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.cta__logo img {
+    width: 68px;
+    height: auto;
+}
+
+.cta__year {
+    --year-mark-small: 21px;
+    --year-mark-big: 56px;
+}
+
+.cta__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* pinned to the bottom, 295px above the card edge */
+    text-align: center;
+}
+
+/* ==========================================================================
+   Footer — white panel on a green gradient, notched at the bottom centre
+   ========================================================================== */
+.footer {
+    --footer-accent: #44D62D;
+    --footer-ink: #141414;
+    /* Text fill: near-black fading into green across each item */
+    --footer-text-gradient: linear-gradient(90deg, #141414 0%, #45772c 50%, var(--footer-accent) 100%);
+    --footer-notch-w: 370px;
+    --footer-notch-h: 36px;
+    --footer-top: #eceff4; /* colour the green gradient starts from */
+
+    position: relative;
+    z-index: 4;
+    /* The panel rises over the bottom of the CTA card; that strip of the
+       footer stays transparent so the video carries on behind the panel's
+       rounded corners */
+    --footer-overlap: 50px;
+
+    margin-top: calc(var(--footer-overlap) * -1);
+    padding: 0 10px;
+    background: linear-gradient(
+        180deg,
+        transparent var(--footer-overlap),
+        var(--footer-top) var(--footer-overlap),
+        #44D62D 75%,
+        var(--footer-accent) 100%
+    );
+    color: var(--footer-ink);
+}
+
+/* The notch is cut out of the panel with a mask, so the real gradient
+   behind shows through it */
+.footer__card {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 40px 35px;
+    border-radius: 24px;
+    background-color: #fff;
+    -webkit-mask:
+        linear-gradient(#000 0 0),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 370 36' preserveAspectRatio='none'%3E%3Cpath d='M0 36C18 36 30 33 40 24L52 12C61 3 68 0 80 0H290C302 0 309 3 318 12L330 24C340 33 352 36 370 36Z'/%3E%3C/svg%3E") 50% 100% / var(--footer-notch-w) var(--footer-notch-h) no-repeat;
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 370 36' preserveAspectRatio='none'%3E%3Cpath d='M0 36C18 36 30 33 40 24L52 12C61 3 68 0 80 0H290C302 0 309 3 318 12L330 24C340 33 352 36 370 36Z'/%3E%3C/svg%3E") 50% 100% / var(--footer-notch-w) var(--footer-notch-h) no-repeat;
+}
+
+.footer__nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 38px;
+}
+
+.footer__group--end {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer__label {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
+    color: #141414;
+    text-transform: uppercase;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+}
+
+/* Gradient text twice as wide as the word: hover slides it to the
+   brighter half and nudges the word toward the page centre */
+.footer__link {
+    display: inline-block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: .97;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    background: var(--footer-text-gradient) 0 0 / 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-position .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+    background-position: 100% 0;
+    transform: translateX(8px);
+}
+
+.footer__group--end .footer__link:hover,
+.footer__group--end .footer__link:focus-visible {
+    transform: translateX(-8px);
+}
+
+.footer__link:focus-visible {
+    outline: none;
+}
+
+.footer__divider {
+    width: 100%;
+    height: 1px;
+    margin: 45px 0 0;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.15);;
+}
+
+.footer__contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 130px;
+}
+
+.footer__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer__contact--end {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer__contact-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #141414;
+}
+
+.footer__star {
+    width: 19px;
+    height: 19px;
+}
+
+.footer__contact-value {
+    display: inline-block;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 109%;
+    background: var(--footer-text-gradient) 0 0 / 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-position .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+a.footer__contact-value:hover {
+    background-position: 100% 0;
+}
+
+.footer__address {
+    max-width: 380px;
+}
+
+.footer__to-top {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    margin-top: 40px;
+    border-radius: 50%;
+    background-color: var(--footer-accent);
+    transition: background-color .3s ease;
+}
+
+.footer__to-top img {
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.footer__to-top:hover {
+    background-color: #8ae069;
+}
+
+.footer__to-top:hover img {
+    transform: translateY(-4px);
+}
+
+.footer__to-top:focus-visible {
+    outline: 1px solid var(--footer-ink);
+    outline-offset: 4px;
+}
+
+/* Equal side columns keep the studio logo centred under the notch */
+.footer__bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer__copy {
+    justify-self: start;
+}
+
+/* Pulled up so it sits across the panel edge, inside the notch */
+.footer__dev {
+    align-self: start;
+    margin-top: -15px;
+}
+
+.footer__legal {
+    justify-self: end;
+    transition: opacity .3s ease;
+}
+
+.footer__legal:hover {
+    opacity: .75;
+}

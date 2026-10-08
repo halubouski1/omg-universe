@@ -1,0 +1,389 @@
+/* ==========================================================================
+   Needles page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from needles.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from needles.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .needles-hero {
+        height: max(var(--fixed-vh, 100vh), 810px);
+        padding: 112.5px var(--page-gutter) 60px;
+    }
+
+    .needles-hero__image {
+        top: 241.5px;
+        width: 1065px;
+    }
+
+    .needles-hero__tag {
+        height: 27px;
+        padding: 8.25px 27px;
+        font-size: 9px;
+    }
+
+    .needles-hero__title {
+        max-width: 607.5px;
+        margin-top: 33px;
+        font-size: 67.5px;
+    }
+
+    .needles-hero__btn {
+        min-width: 259.5px;
+        height: 44.25px;
+        margin-top: 48.75px;
+        padding: 0 15px 0 25.5px;
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .needles-hero__btn img {
+        width: 15.75px;
+        height: 15.75px;
+    }
+
+    .needles-hero__btn:hover img {
+        transform: translateY(-1.5px) rotate(-8deg);
+    }
+
+    .needles-hero__btn:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .needles-facts {
+        padding: 26.25px var(--page-gutter) 0;
+    }
+
+    .needles-facts__list {
+        gap: 30px;
+    }
+
+    .needles-facts__item {
+        max-width: 197.25px;
+        padding-left: 21px;
+        border-left: 1.5px solid #42b536;
+        font-size: 13.5px;
+    }
+
+    .needle-slide--tip .pigment-slide__text {
+        max-width: 150px;
+        gap: 34.5px;
+    }
+
+    .needle-slide--vents .pigment-slide__text {
+        max-width: 255px;
+    }
+
+    .needle-slide--tip .pigment-slide__image {
+        top: 5.25px;
+        left: 369px;
+        width: 378px;
+    }
+
+    .needle-slide--vents .pigment-slide__image {
+        top: 100.5px;
+        left: 380.25px;
+        width: 452.25px;
+    }
+
+    .deck--needles {
+        padding-top: 45px;
+    }
+
+    .needle-card__title {
+        top: 28.5px;
+        font-size: 22.5px;
+    }
+
+    .needle-card__info {
+        top: 166.5px;
+        left: 58.5px;
+        max-width: 279px;
+    }
+
+    .needle-card__heading {
+        font-size: 18.75px;
+    }
+
+    .needle-card__text {
+        gap: 36.75px;
+        max-width: 277.5px;
+        margin-top: 45.75px;
+        font-size: 13.5px;
+    }
+
+    .needle-card__btn {
+        margin-top: 105.75px;
+    }
+
+    .needle-card__image {
+        top: 187.5px;
+        width: 513px;
+    }
+
+    .needle-card__stats {
+        right: 72px;
+        width: 202.5px;
+    }
+
+    .needle-card__stat {
+        gap: 15px;
+    }
+
+    .needle-card__stat + .needle-card__stat {
+        margin-top: 67.5px;
+        padding-top: 67.5px;
+    }
+
+    .needle-card__value {
+        font-size: 45px;
+    }
+
+    .needle-card__label {
+        font-size: 12px;
+    }
+
+    .needle-finder {
+        padding: 67.5px var(--page-gutter) 0px;
+    }
+
+    .needle-finder__head {
+        gap: 30px;
+        margin-bottom: 30px;
+        padding: 0 11.25px;
+    }
+
+    .needle-finder__title {
+        font-size: 26.25px;
+    }
+
+    .needle-finder__text {
+        max-width: 255px;
+        font-size: 13.5px;
+    }
+
+    .needle-finder__panel {
+        padding: 60px 60px 75px;
+        border-radius: 11.25px;
+        box-shadow: 0 1.5px 10.5px #fff;
+    }
+
+    .needle-table {
+        font-size: 12.75px;
+    }
+
+    .needle-table__col-name {
+        width: 173.25px;
+    }
+
+    .needle-table__col-diameter {
+        width: 118.5px;
+    }
+
+    .needle-table__col-taper {
+        width: 91.5px;
+    }
+
+    .needle-table__col-flex {
+        width: 132px;
+    }
+
+    .needle-table__col-skin {
+        width: 347.25px;
+    }
+
+    .needle-table thead th {
+        padding: 0 12px 16.5px 0;
+        font-size: 12px;
+    }
+
+    .needle-table tbody th,
+    .needle-table td {
+        padding: 22.5px 12px 22.5px 0;
+    }
+
+    .needle-table tbody th {
+        font-size: 13.5px;
+    }
+
+    .needle-table__diameter {
+        font-size: 13.5px;
+    }
+
+    .needle-products {
+        padding: 93.75px 11.25px 150px;
+    }
+
+    .needle-products .catalog__grid {
+        gap: 11.25px;
+    }
+
+    .needle-3rl {
+        padding: 0 var(--page-gutter) 105px;
+    }
+
+    .needle-3rl__image {
+        top: 229.5px;
+        left: -351px;
+        width: 1342.5px;
+    }
+
+    .needle-3rl__title {
+        font-size: 82.5px;
+    }
+
+    .needle-3rl__text {
+        max-width: 514.5px;
+        margin-top: 31.5px;
+        font-size: 16.5px;
+    }
+
+    .needle-3rl__note {
+        max-width: 366px;
+        margin-top: 345px;
+        margin-right: 24px;
+        padding-left: 22.5px;
+        border-left: 1.5px solid #64b34a;
+        font-size: 10.5px;
+    }
+
+    .needle-loop {
+        padding: 0 0 90px;
+    }
+
+    .needle-loop__group {
+        gap: 9px;
+        padding: 0 9px 0 0;
+    }
+
+    .needle-loop__item {
+        width: 237px;
+    }
+
+    .product__card--compact .product__media {
+        height: 319.5px;
+    }
+
+    .product__card--compact .product__add {
+        top: 7.5px;
+        right: 7.5px;
+        width: 20.25px;
+        height: 20.25px;
+    }
+
+    .product__card--compact .product__add::before,
+    .product__card--compact .product__add::after {
+        width: 7.5px;
+    }
+
+    .product__card--compact .product__info {
+        padding: 9.75px 15px;
+    }
+
+    .product__card--compact .product__meta {
+        gap: 2.25px;
+    }
+
+    .product__card--compact .product__size {
+        font-size: 8.25px;
+    }
+
+    .product__card--compact .product__name,
+    .product__card--compact .product__price {
+        font-size: 12px;
+    }
+
+    .eyeliner__text--needle {
+        max-width: 450px;
+    }
+
+    .eyeliner {
+        padding-bottom: 120px;
+    }
+
+    .deck--magnum {
+        padding-bottom: 105px;
+    }
+
+    .deck-card--magnum .deck-card__title {
+        top: 139.5px;
+        font-size: 52.5px;
+    }
+
+    .deck-card--magnum .deck-card__image {
+        width: 954px;
+    }
+
+    .deck-card__feature {
+        gap: 18.75px;
+    }
+
+    .deck-card__preview {
+        width: 83.25px;
+        height: 83.25px;
+    }
+
+    .deck-card__preview img {
+        border-radius: 75px;
+    }
+
+    .deck-card__preview .product__add {
+        top: -10.5px;
+        right: -3px;
+    }
+}
+
+/* ==========================================================================
+   ≤1270px — hand, 3RL cartridge and Magnum shot moved/shrunk to stay clear
+   of the copy; the needle table scrolls sideways (holds down to 1025px)
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. */
+@media (max-width: 1270px) {
+    .needles-hero__image {
+        top: 340px;
+        right: -200px;
+        width: 960px;
+    }
+
+    .needle-3rl__image {
+        left: -700px;
+    }
+
+    .deck-card--magnum .deck-card__image {
+        width: 620px;
+    }
+
+    /* Table keeps its columns; the panel scrolls horizontally instead */
+    .needle-finder__panel {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .needle-table {
+        min-width: 1100px;
+    }
+
+    /* Skin column only needs the width of the other short columns; longer
+       values ("Thick, but soft and stretching") wrap */
+    .needle-table__col-skin {
+        width: 250px;
+    }
+
+    .needle-card__stats {
+        width: 106px;
+    }
+
+    .needle-card__image {
+        width: 413px;
+        left: 58%
+    }
+
+    .needle-card__value {
+        font-size: 36px;
+    }
+
+    .needle-card__stats {
+        right: 50px;
+    }
+}

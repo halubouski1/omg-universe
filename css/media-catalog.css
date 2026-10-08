@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Catalog page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from catalog.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from catalog.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .catalog {
+        padding: 97.5px var(--page-gutter) 86.25px;
+    }
+
+    .catalog__filters {
+        padding-bottom: 28.5px;
+    }
+
+    .catalog__filter-list {
+        gap: 15px 63.75px;
+    }
+
+    .catalog__filter {
+        font-size: 18.75px;
+    }
+
+    .catalog__filter:focus-visible {
+        outline-offset: 4.5px;
+    }
+
+    .catalog__head {
+        margin: 42.75px 0 40.5px;
+    }
+
+    .catalog__title {
+        font-size: 45px;
+    }
+
+    .sort__button {
+        gap: 15px;
+        padding: 6.75px 6px 6.75px 13.5px;
+        border-radius: 5.25px;
+        font-size: 8.25px;
+    }
+
+    .sort__button:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .sort__menu {
+        top: calc(100% + 6px);
+        min-width: 157.5px;
+        padding: 6px;
+        border-radius: 7.5px;
+        box-shadow: 0 13.5px 30px rgba(20, 30, 20, .14);
+        transform: translateY(-6px) scale(.96);
+        transform-origin: 100% 0;
+    }
+
+    .sort__option {
+        gap: 12px;
+        padding: 7.5px 9px;
+        border-radius: 4.5px;
+        font-size: 11.25px;
+    }
+
+    .sort__option::after {
+        width: 4.5px;
+        height: 4.5px;
+    }
+
+    .catalog__grid {
+        gap: 45px 11.25px;
+    }
+
+    .product__add {
+        top: 12px;
+        right: 12px;
+        width: 29.25px;
+        height: 29.25px;
+    }
+
+    .product__add::before,
+    .product__add::after {
+        width: 9.75px;
+        height: 1.125px;
+    }
+
+    .product__add:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .product__info {
+        gap: 12px;
+        padding: 17.25px 15px 13.5px 22.5px;
+    }
+
+    .product__meta {
+        gap: 5.25px;
+    }
+
+    .product__size {
+        font-size: 9px;
+    }
+
+    .product__name {
+        font-size: 13.5px;
+    }
+
+    .product__price {
+        font-size: 13.5px;
+    }
+}

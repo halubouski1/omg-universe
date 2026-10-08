@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/course.css">
+    <link rel="stylesheet" href="css/media-course.css">
+    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <title>PMU Reality — OMG Universe</title>
+</head>
+<body>
+
+<header class="header">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="course-hero" aria-labelledby="course-hero-title">
+        <video class="course-hero__video" src="assets/vid/cta-course.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+        <div class="course-hero__content">
+            <p class="promo__label" data-aos="fade-up">Online course that transforms</p>
+            <h1 class="promo__title" id="course-hero-title" data-aos="fade-up" data-aos-delay="120">PMU reality</h1>
+            <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
+                <a class="btn btn--light" href="#">Buy now</a>
+                <a class="btn btn--glass" href="#">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" aria-label="The course in numbers">
+        <!-- The group is duplicated so the -50% loop is seamless. -->
+        <div class="stats__track" data-aos="fade">
+            <ul class="stats__group">
+                <li class="stats__item">
+                    <span class="stats__value">50+</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">20</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">15+</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">8</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+            </ul>
+            <ul class="stats__group" aria-hidden="true">
+                <li class="stats__item">
+                    <span class="stats__value">50+</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">20</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">15+</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+                <li class="stats__item">
+                    <span class="stats__value">8</span>
+                    <span class="stats__label">Education videos</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tariffs" aria-labelledby="tariffs-title">
+        <h2 class="visually-hidden" id="tariffs-title">Packages</h2>
+        <ul class="tariffs__list">
+            <li class="tariff" data-aos="fade-up" data-aos-delay="0">
+                <h3 class="tariff__title"><span class="tariff__accent">Basic</span> Package</h3>
+                <p class="tariff__subtitle">когда нужен быстрый результат</p>
+                <div class="tariff__about">
+                    <div class="tariff__desc" id="tariff-desc-basic" data-expandable>
+                        <p>Start creating brows you truly admire — and would proudly choose for yourself</p>
+                        <p>deeply understand the correct hand positioning learn how to build a correct basic hairstroke scheme and understand the logic behind it</p>
+                        <p>master brow mapping step by step and adapt the shape to every face, so each result looks natural and balanced</p>
+                        <p>work through real client cases, from consultation to aftercare, and build a portfolio you are proud to show</p>
+                    </div>
+                    <button class="tariff__toggle" type="button" aria-expanded="false" aria-controls="tariff-desc-basic" aria-label="Show full description" data-expand-toggle>
+                        <img src="assets/icons/footer-arrow-top.svg" alt="" width="11" height="11">
+                    </button>
+                </div>
+                <p class="tariff__price">599€</p>
+                <a class="btn btn--lime tariff__btn" href="#">Cource program</a>
+            </li>
+            <li class="tariff tariff--featured" data-aos="fade-up" data-aos-delay="120">
+                <p class="tariff__badge">popular choice <img src="assets/icons/tariffs-star.svg" alt="" width="17" height="17"></p>
+                <h3 class="tariff__title">Advantage Package</h3>
+                <p class="tariff__subtitle">когда важен имидж компании</p>
+                <div class="tariff__about">
+                    <div class="tariff__desc" id="tariff-desc-advantage" data-expandable>
+                        <p>Start creating brows you truly admire — and would proudly choose for yourself</p>
+                        <p>deeply understand the correct hand positioning learn how to build a correct basic hairstroke scheme and understand the logic behind it</p>
+                        <p>master brow mapping step by step and adapt the shape to every face, so each result looks natural and balanced</p>
+                        <p>work through real client cases, from consultation to aftercare, and build a portfolio you are proud to show</p>
+                    </div>
+                    <button class="tariff__toggle" type="button" aria-expanded="false" aria-controls="tariff-desc-advantage" aria-label="Show full description" data-expand-toggle>
+                        <img src="assets/icons/footer-arrow-top.svg" alt="" width="11" height="11">
+                    </button>
+                </div>
+                <p class="tariff__price">899€</p>
+                <a class="btn btn--dark tariff__btn" href="#">Cource program</a>
+            </li>
+            <li class="tariff" data-aos="fade-up" data-aos-delay="240">
+                <h3 class="tariff__title"><span class="tariff__accent">Premium</span> Package</h3>
+                <p class="tariff__subtitle">когда нужен быстрый результат</p>
+                <div class="tariff__about">
+                    <div class="tariff__desc" id="tariff-desc-premium" data-expandable>
+                        <p>Start creating brows you truly admire — and would proudly choose for yourself</p>
+                        <p>deeply understand the correct hand positioning learn how to build a correct basic hairstroke scheme and understand the logic behind it</p>
+                        <p>master brow mapping step by step and adapt the shape to every face, so each result looks natural and balanced</p>
+                        <p>work through real client cases, from consultation to aftercare, and build a portfolio you are proud to show</p>
+                    </div>
+                    <button class="tariff__toggle" type="button" aria-expanded="false" aria-controls="tariff-desc-premium" aria-label="Show full description" data-expand-toggle>
+                        <img src="assets/icons/footer-arrow-top.svg" alt="" width="11" height="11">
+                    </button>
+                </div>
+                <p class="tariff__price">1 599€</p>
+                <a class="btn btn--lime tariff__btn" href="#">Cource program</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="moon" aria-labelledby="moon-title">
+        <h2 class="moon__title" id="moon-title" data-aos="fade-up">Check this out</h2>
+
+        <div class="moon__stage">
+            <div class="moon__globe" data-moon data-moon-map="assets/img/moon-map.jpg">
+                <!-- Shown if WebGL is unavailable; the canvas replaces it otherwise -->
+                <img class="moon__fallback" src="assets/img/moon.jpg" alt="" width="1164" height="1164" loading="lazy">
+                <canvas class="moon__canvas" aria-hidden="true"></canvas>
+                <!-- Videos all reuse the course clip until their own are supplied. -->
+                <ul class="moon__spots">
+                    <li class="moon__spot" data-lat="38" data-lon="-42">
+                        <button class="moon__dot" type="button" aria-label="Watch video 1" aria-controls="moon-video-1">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-1">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="50" data-lon="18">
+                        <button class="moon__dot" type="button" aria-label="Watch video 2" aria-controls="moon-video-2">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-2">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="12" data-lon="-14">
+                        <button class="moon__dot" type="button" aria-label="Watch video 3" aria-controls="moon-video-3">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-3">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="20" data-lon="48">
+                        <button class="moon__dot" type="button" aria-label="Watch video 4" aria-controls="moon-video-4">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-4">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="-8" data-lon="22">
+                        <button class="moon__dot" type="button" aria-label="Watch video 5" aria-controls="moon-video-5">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-5">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="30" data-lon="115">
+                        <button class="moon__dot" type="button" aria-label="Watch video 6" aria-controls="moon-video-6">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-6">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="-4" data-lon="160">
+                        <button class="moon__dot" type="button" aria-label="Watch video 7" aria-controls="moon-video-7">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-7">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="42" data-lon="-150">
+                        <button class="moon__dot" type="button" aria-label="Watch video 8" aria-controls="moon-video-8">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-8">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="14" data-lon="-105">
+                        <button class="moon__dot" type="button" aria-label="Watch video 9" aria-controls="moon-video-9">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-9">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="moon__spot" data-lat="-10" data-lon="-95">
+                        <button class="moon__dot" type="button" aria-label="Watch video 10" aria-controls="moon-video-10">
+                            <img src="assets/icons/dot.svg" alt="" width="191" height="191">
+                        </button>
+                        <div class="moon__popup" id="moon-video-10">
+                            <video class="moon__video" src="assets/vid/cta-course.mp4" playsinline loop preload="metadata"></video>
+                            <button class="moon__play" type="button" aria-label="Play video">
+                                <img src="assets/icons/play.svg" alt="" width="14" height="16">
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/course.js"></script>
+</body>
+</html>

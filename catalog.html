@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/media-catalog.css">
+    <title>Catalog — OMG Universe</title>
+</head>
+<body class="page-light">
+
+<header class="header header--dark">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="catalog" aria-labelledby="catalog-title">
+        <nav class="catalog__filters" aria-label="Product categories">
+            <ul class="catalog__filter-list">
+                <li><button class="catalog__filter is-active" type="button" aria-pressed="true" data-filter="all" data-title="All products">All</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pigments" data-title="Pigments">Pigments</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="cartridges" data-title="Cartridges">Cartridges</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pmu-sketch" data-title="PMU Sketch">PMU Sketch</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pencils" data-title="Pencils">Pencils</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="latex" data-title="Latex">Latex</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pmu-devices" data-title="PMU Devices">PMU Devices</button></li>
+            </ul>
+        </nav>
+
+        <div class="catalog__head">
+            <h1 class="catalog__title" id="catalog-title" aria-live="polite" data-catalog-title>All products</h1>
+
+            <div class="sort" data-sort-menu>
+                <button class="sort__button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options">
+                    Sort by
+                    <img class="sort__chevron" src="assets/icons/chevron.svg" alt="" width="6" height="5">
+                </button>
+                <ul class="sort__menu" id="sort-options" role="listbox" aria-label="Sort products">
+                    <li class="sort__option is-selected" role="option" tabindex="-1" aria-selected="true" data-sort="recommended">Recommended</li>
+                    <li class="sort__option" role="option" tabindex="-1" aria-selected="false" data-sort="price-asc">Price: low to high</li>
+                    <li class="sort__option" role="option" tabindex="-1" aria-selected="false" data-sort="price-desc">Price: high to low</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Placeholder products: three photos and one name until the real
+             catalogue is supplied. -->
+        <ul class="catalog__grid" data-catalog-grid>
+                <li class="product" data-category="pencils" data-price="1700" data-order="0">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 700€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pencils" data-price="1450" data-order="1">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 450€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="1950" data-order="2">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 950€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pencils" data-price="2300" data-order="3">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">2 300€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="1200" data-order="4">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 200€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pencils" data-price="1700" data-order="5">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 700€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-sketch" data-price="1350" data-order="6">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 350€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-devices" data-price="2600" data-order="7">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">2 600€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="1550" data-order="8">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 550€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pencils" data-price="1850" data-order="9">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 850€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="latex" data-price="990" data-order="10">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">990€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pencils" data-price="2100" data-order="11">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">2 100€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="1250" data-order="12">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 250€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-sketch" data-price="1600" data-order="13">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 600€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="1750" data-order="14">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">1 750€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-devices" data-price="2450" data-order="15">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">XL 110x150</span>
+                                <h2 class="product__name">Norsk Nasjonaldrakt</h2>
+                            </div>
+                            <p class="product__price">2 450€</p>
+                        </div>
+                    </article>
+                </li>
+        </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+            <video class="cta__video" src="assets/vid/cta-course.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+            <div class="cta__top" data-aos="fade">
+                <a class="cta__logo" href="/" aria-label="OMG Universe — home">
+                    <img src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+                </a>
+                <p class="cta__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+            </div>
+
+            <div class="cta__content">
+                <p class="promo__label" data-aos="fade-up">Online course that transforms</p>
+                <h2 class="promo__title" id="cta-title" data-aos="fade-up" data-aos-delay="120">PMU reality</h2>
+                <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
+                    <a class="btn btn--light" href="#">Buy now</a>
+                    <a class="btn btn--glass" href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

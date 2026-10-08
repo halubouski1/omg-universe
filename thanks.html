@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/thanks.css">
+    <link rel="stylesheet" href="css/media-thanks.css">
+    <title>Thank You for Your Order — OMG Universe</title>
+</head>
+<body class="page-thanks">
+
+<header class="header header--dark">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="cart.html" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main class="thanks">
+    <div class="thanks__figure" aria-hidden="true" data-aos="fade-right" data-aos-duration="1100">
+        <img src="assets/img/thank-bg.png" alt="">
+    </div>
+
+    <section class="thanks__message" aria-labelledby="thanks-title">
+        <h1 class="thanks__title" id="thanks-title">
+            <span class="thanks__title-line" data-aos="fade-up">Thank You for</span>
+            <span class="thanks__title-line thanks__title-line--serif" data-aos="fade-up" data-aos-delay="120">Your Order</span>
+        </h1>
+        <p class="thanks__text" data-aos="fade-up" data-aos-delay="240">
+            We have sent the details of your order to your <a class="thanks__link" href="mailto:">email address.</a>
+        </p>
+        <!-- AOS sits on the wrapper: on the link itself its transition rules
+             would override the hover transition below -->
+        <div class="thanks__actions" data-aos="fade-up" data-aos-delay="340">
+            <a class="thanks__continue" href="catalog.html">back to shop</a>
+        </div>
+    </section>
+
+    <!-- Placeholder order data until the real order is wired in -->
+    <aside class="order-card" aria-labelledby="order-card-title" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+        <h2 class="order-card__title" id="order-card-title">Order Summary</h2>
+
+        <dl class="order-card__meta">
+            <div class="order-card__row">
+                <dt>Order Number</dt>
+                <dd class="order-card__small">#12345</dd>
+            </div>
+            <div class="order-card__row">
+                <dt>Delivery Date</dt>
+                <dd class="order-card__small">14.07.2025</dd>
+            </div>
+            <div class="order-card__row order-card__row--spaced">
+                <dt>Shipping Details</dt>
+                <dd class="order-card__small">First Name/Last Name<br>Adress</dd>
+            </div>
+        </dl>
+
+        <!-- One <li> per product. Past three products the list scrolls inside
+             the card (data-lenis-prevent lets the wheel reach it). -->
+        <ul class="order-card__items" data-order-items data-lenis-prevent>
+            <li class="order-card__item">
+                <img class="order-card__image" src="assets/img/cart-preview-2.jpg" alt="" width="150" height="150">
+                <div class="order-card__item-body">
+                    <h3 class="order-card__item-name">Dragon Ring With Round Brilliant Diamond</h3>
+                    <dl class="order-card__specs">
+                        <div>
+                            <dt>Size</dt>
+                            <dd>180x160</dd>
+                        </div>
+                        <div>
+                            <dt>Qty</dt>
+                            <dd>1</dd>
+                        </div>
+                    </dl>
+                </div>
+            </li>
+        </ul>
+
+        <p class="order-card__item-price">$44,704 USD</p>
+
+        <dl class="order-card__costs">
+            <div class="order-card__row">
+                <dt>Subtotal</dt>
+                <dd>$44,704 USD</dd>
+            </div>
+            <div class="order-card__row">
+                <dt>Exspress Delivery</dt>
+                <dd>$0,00 USD</dd>
+            </div>
+            <div class="order-card__row">
+                <dt>Estimated Tax</dt>
+                <dd>$1000,73 USD</dd>
+            </div>
+        </dl>
+
+        <p class="order-card__total">
+            <span>Total</span>
+            <span class="order-card__total-value">$45,777 USD</span>
+        </p>
+    </aside>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/thanks.js"></script>
+</body>
+</html>

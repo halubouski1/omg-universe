@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Tracking page — header, footer and fonts come from style.css
+   ========================================================================== */
+.page-tracking {
+    background-color: #eceff4;
+}
+
+/* Footer card starts at 1196px (it rises 50px over this section), and the
+   card sits in the middle of the section, as in the design */
+.tracking {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 1246px;
+    padding: 156px var(--page-gutter) 160px;
+    overflow: hidden;
+}
+
+/* Natural size; positions matched against the design reference */
+.tracking__figure {
+    position: absolute;
+    pointer-events: none;
+}
+
+.tracking__figure img {
+    max-width: none;
+    height: auto;
+}
+
+.tracking__figure--left {
+    top: 161px;
+    left: -178px;
+    width: 821px;
+}
+
+.tracking__figure--right {
+    top: 230px;
+    right: -260px;
+    width: 975px;
+}
+
+.tracking__figure img {
+    width: 100%;
+}
+
+/* --- Card ------------------------------------------------------------------------
+   tracking-shape.svg: side notches from the SVG's own path, middle stretched.
+   Fill = the SVG gradient (#141414 -> #278e1a). */
+.tracking-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 611px;
+    min-height: 413px;
+    padding: 32px 40px 36px;
+    background: linear-gradient(36deg, #141414 37%, #278e1a 95%);
+    color: #fff;
+    -webkit-mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 0 0 / 19px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='592 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 100% 0 / 19px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 34px) 100% no-repeat;
+    mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 0 0 / 19px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='592 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 100% 0 / 19px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 34px) 100% no-repeat;
+}
+
+.tracking-card__tabs {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6px 25px 12px;
+}
+
+.tracking-card__tab {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 124%;
+    color: #fff;
+    transition: color .3s ease;
+}
+
+.tracking-card__tab:hover,
+.tracking-card__tab.is-active {
+    color: #fff;
+}
+
+.tracking-card__tab:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 4px;
+}
+
+/* Track line with a filled part under the active tab */
+.tracking-card__progress {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    border-radius: 2px;
+    background-color: rgba(217, 217, 217, 0.3);
+}
+
+.tracking-card__progress-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 29%;
+    border-radius: 2px;
+    background-color: #fff;
+    transition: left .6s cubic-bezier(.22, 1, .36, 1), width .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.tracking-card__hint {
+    margin-top: 19px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 124%;
+    color: #fff;
+}
+
+.tracking-card__form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: start;
+}
+
+.tracking-card__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 56px;
+    width: 100%;
+}
+
+.tracking-card__fields[hidden] {
+    display: none;
+}
+
+/* Underlined field: no box, a 1px rule 11px below the text */
+.tracking-card__input {
+    width: 100%;
+    padding: 0 0 11px;
+    border: 0;
+    border-bottom: 2px solid rgba(217, 217, 217, 0.4);
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 124%;
+    color: #fff;
+    transition: border-color .3s ease;
+}
+
+.tracking-card__input::placeholder {
+    color: #fff;
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.tracking-card__input:focus {
+    outline: none;
+    border-bottom-color: #fff;
+}
+
+.tracking-card__input:focus::placeholder {
+    opacity: .5;
+}
+
+.tracking-card__input.is-invalid {
+    border-bottom-color: #ff8a7a;
+}
+
+/* Pinned to the bottom of the card */
+.tracking-card__submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 294px;
+    height: 64px;
+    margin-top: auto;
+    padding: 0 30px 0 28px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #33b120;
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color .4s ease, color .4s ease;
+}
+
+.tracking-card__arrow {
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.tracking-card__submit:hover {
+    background-color: #33b120;
+    color: #fff;
+}
+
+.tracking-card__submit:hover .tracking-card__arrow {
+    transform: translateX(4px);
+}
+
+.tracking-card__submit:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}

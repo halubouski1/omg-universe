@@ -1,0 +1,1269 @@
+/* ==========================================================================
+   Pigments page — header, buttons and fonts come from style.css
+   ========================================================================== */
+.page-pigments {
+    background-color: #000;
+}
+
+/* --- Hero ---------------------------------------------------------------------
+   Full-screen image; tag + title at the top (170px), buttons on the bottom
+   (60px from the edge) */
+.pigments-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--fixed-vh, 100vh);
+    padding: 170px var(--page-gutter) 60px;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+}
+
+.pigments-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 50% 50%;
+    pointer-events: none;
+}
+
+.pigments-hero__content,
+.pigments-hero__actions {
+    position: relative;
+    z-index: 1;
+}
+
+.pigments-hero__tag {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 11px 48px;
+    background: linear-gradient(95.68deg, #1f2821 -23.57%, #009e15 126.59%);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.pigments-hero__title {
+    margin-top: 44px;
+    margin-left: -0.065em; /* optical: the E's side bearing */
+    /* Light: the bundled "Regular" file is weight 500, much heavier than
+       the design's Regular; Light with a touch of tracking matches its
+       stroke and line widths */
+    font-weight: 300;
+    font-size: 90px;
+    line-height: 82%;
+    color: #fff;
+    max-width: 690px;
+}
+
+/* --- Buttons ------------------------------------------------------------------- */
+.pigments-hero__actions {
+    display: flex;
+    gap: 20px;
+}
+
+.pigments-hero__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 59px;
+    padding: 0 20px 0 34px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition:
+        background-color .5s ease,
+        border-color .5s ease,
+        color .5s ease,
+        transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.pigments-hero__btn img,
+.pigments-hero__arrow {
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.pigments-hero__btn--light {
+    min-width: 347px;
+    background-color: #fff;
+    color: #000;
+}
+
+.pigments-hero__btn--light:hover {
+    background-color: #c0ff85;
+}
+
+.pigments-hero__btn--light:hover img {
+    transform: translateY(-2px) rotate(-8deg);
+}
+
+.pigments-hero__btn--outline {
+    width: 298px;
+    border: 1px solid #fff;
+    color: #fff;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.pigments-hero__btn--outline:hover {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.pigments-hero__btn--outline:hover .pigments-hero__arrow {
+    transform: translateX(4px);
+}
+
+.pigments-hero__btn:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Pigment lines — Swiper slider of 1078px cards with progress pagination
+   ========================================================================== */
+.pigments-range {
+    --range-ink: #657b8d;
+    --range-accent: #33b120;
+    --range-ease: cubic-bezier(.22, 1, .36, 1);
+
+    padding: 140px 0 0px var(--page-gutter);
+    overflow: hidden;
+    background-color: #ebeef3;
+}
+
+/* Slides and controls sit above the bundles figures that reach up into this
+   section (bundles is z-index 1); this section's own background stays below
+   them, so the dropper still shows in the gaps */
+.pigments-range__slider,
+.pigments-range__controls {
+    position: relative;
+    z-index: 2;
+}
+
+/* Slides run on past the right edge; the section clips them */
+.pigments-range__slider {
+    overflow: visible;
+}
+
+.pigment-slide {
+    position: relative;
+    width: 1078px;
+    height: 568px;
+    overflow: hidden;
+    border-radius: 25px;
+    background-color: #fff;
+    color: var(--range-ink);
+    transition: opacity .6s ease;
+}
+
+.pigment-slide:not(.swiper-slide-active) {
+    opacity: .85;
+}
+
+.pigment-slide__body {
+    position: absolute;
+    z-index: 1;
+    left: 62px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pigment-slide__title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 60%;
+    text-transform: uppercase;
+    color: #657b8d;
+}
+
+.pigment-slide__text {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    margin-top: 46px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    color: #657b8d;
+}
+
+/* The global p reset would put these back at 400 */
+.pigment-slide__text p {
+    font-weight: inherit;
+}
+
+.pigment-slide__swatches {
+    display: flex;
+    gap: 11px;
+}
+
+.pigment-slide__swatches li {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background-color: var(--swatch);
+    color: #fff;
+    font-size: 13px;
+    transition: transform .4s var(--range-ease);
+}
+
+.pigment-slide__swatches li:hover {
+    transform: translateY(-3px);
+}
+
+.pigment-slide__logo {
+    position: absolute;
+    top: 36px;
+}
+
+/* Product shots sit on the bottom edge, as in the design */
+.pigment-slide__image {
+    position: absolute;
+    bottom: 0;
+    max-width: none;
+    transition: transform .7s var(--range-ease);
+}
+
+.pigment-slide:not(.swiper-slide-active) .pigment-slide__image {
+    transform: translateY(24px);
+}
+
+/* Cover-up: copy top-left, logo top-right, bottles bottom-right */
+.pigment-slide--cover .pigment-slide__body {
+    top: 67px;
+    bottom: 56px;
+}
+
+.pigment-slide--cover .pigment-slide__swatches {
+    margin-top: auto;
+}
+
+.pigment-slide--cover .pigment-slide__logo {
+    right: 38px;
+}
+
+.pigment-slide--cover .pigment-slide__image {
+    right: 0;
+}
+
+/* Eyebrow: logo top-left, swatches top-right, copy bottom-left */
+.pigment-slide--brow .pigment-slide__logo {
+    top: 44px;
+    left: 56px;
+}
+
+.pigment-slide--brow .pigment-slide__swatches {
+    position: absolute;
+    top: 56px;
+    right: 58px;
+}
+
+.pigment-slide--brow .pigment-slide__body {
+    bottom: 54px;
+}
+
+.pigment-slide--brow .pigment-slide__title {
+    font-size: 64px;
+}
+
+.pigment-slide--brow .pigment-slide__text {
+    margin-top: 54px;
+}
+
+.pigment-slide--brow .pigment-slide__image {
+    left: 440px;
+}
+
+/* --- Controls: pill pagination + play/pause, centred under the active slide */
+.pigments-range__controls {
+    display: flex;
+    gap: 8px;
+    width: 1078px;
+    justify-content: center;
+    margin-top: 27px;
+}
+
+.pigments-range__pagination.swiper-pagination-bullets {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    height: 52px;
+    padding: 0 30px;
+    border-radius: 1000px;
+    background-color: #fff;
+}
+
+.pigments-range__pagination .swiper-pagination-bullet {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin: 0 !important;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    opacity: 1;
+    transition: width .5s var(--range-ease), background-color .4s ease;
+}
+
+.pigments-range__pagination .swiper-pagination-bullet:hover {
+    background-color: #c2c2c2;
+}
+
+/* Active bullet grows into a bar that fills with the autoplay countdown */
+.pigments-range__pagination .swiper-pagination-bullet-active {
+    width: 59px;
+    background-color: rgba(51, 177, 32, 0.35);
+}
+
+.pigments-range__pagination .swiper-pagination-bullet::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--range-accent);
+    transform: scaleX(var(--progress, 0));
+    transform-origin: 0 50%;
+    opacity: 0;
+}
+
+.pigments-range__pagination .swiper-pagination-bullet-active::after {
+    opacity: 1;
+}
+
+.pigments-range__play {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform .4s var(--range-ease);
+}
+
+.pigments-range__play:hover {
+    transform: scale(1.06);
+}
+
+.pigments-range__play:focus-visible,
+.pigments-range__pagination .swiper-pagination-bullet:focus-visible {
+    outline: 1px solid var(--range-accent);
+    outline-offset: 3px;
+}
+
+.pigments-range__play-icon {
+    grid-area: 1 / 1;
+    margin-left: 3px;
+}
+
+/* Pause: two bars, shown while playing */
+.pigments-range__pause-icon {
+    grid-area: 1 / 1;
+    width: 11px;
+    height: 14px;
+    border-right: 4px solid var(--range-accent);
+    border-left: 4px solid var(--range-accent);
+}
+
+.pigments-range__play.is-playing .pigments-range__play-icon,
+.pigments-range__play:not(.is-playing) .pigments-range__pause-icon {
+    display: none;
+}
+
+/* ==========================================================================
+   Curated bundles — centred heading between two figures that reach up over
+   the slider section above (same entrance animations as Masterclasses)
+   ========================================================================== */
+.bundles {
+    --bundles-ink: #1d2015;
+    --bundles-accent: #72d34d;
+
+    position: relative;
+    z-index: 1;
+    min-height: 1046px; /* runs to the bottom of both figures */
+    padding-top: 107px;
+    overflow-x: clip; /* the woman runs off the right edge; upward overlap stays */
+    background-color: #ebeef3;
+    color: var(--bundles-ink);
+    text-align: center;
+}
+
+/* Positions matched against the design: the dropper starts 141px and the
+   woman 80px above this section, reaching up past the slider's pagination */
+.bundles__figure {
+    position: absolute;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+}
+
+.bundles__figure--left {
+    top: -141px;
+    left: -19px;
+    width: 854px;
+}
+
+.bundles__figure--right {
+    top: -80px;
+    right: -151px;
+    width: 804px;
+}
+
+.bundles__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bundles__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 88%;
+    letter-spacing: -0.03em;
+    color: #272c1f;
+}
+
+/* Script "Omg" drawn over the top of "Curated Pigment", as designed */
+.bundles__script {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+    font-family: 'Mr Dafoe', cursive;
+    font-weight: 400;
+    font-size: 300px;
+    line-height: 1;
+    color: var(--bundles-accent);
+}
+
+.bundles__serif {
+    font-family: 'Brier', serif;
+    margin-top: -17px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.bundles__text {
+    max-width: 450px;
+    margin-top: 70px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: rgba(39, 44, 31, 0.7);
+}
+
+/* ==========================================================================
+   Bundle cards slider — 3 cards in view, 20px apart, arrows in a raised tab
+   ========================================================================== */
+.bundle-slider {
+    --bundle-bg: #ebeef3;
+    --bundle-ink: #697a8b;
+    --bundle-accent: #4cb430;
+    --bundle-ease: cubic-bezier(.22, 1, .36, 1);
+
+    position: relative;
+    z-index: 2; /* above the bundles figures reaching down from above */
+    padding: 0px 20px 140px;
+    background-color: var(--bundle-bg);
+}
+
+/* Soft fade over the bottom of the section above, so its figures melt into
+   the background before the cards start */
+.bundle-slider::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 220px;
+    background: linear-gradient(rgba(235, 238, 243, 0), var(--bundle-bg));
+    pointer-events: none;
+}
+
+.bundle-slider__slider {
+    overflow: hidden;
+}
+
+/* Fixed width (the 1920 design size): when the row gets narrower the
+   slider shows part of the next card instead of squeezing all three */
+.bundle-card {
+    width: 613px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 569px;
+    overflow: hidden;
+    padding: 46px 52px 0 59px;
+    border-radius: 25px;
+    background-color: #fdfdfd;
+    color: var(--bundle-ink);
+}
+
+.bundle-card__head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.bundle-card__title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #657b8d;
+}
+
+.bundle-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #44d62d;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity .3s ease;
+}
+
+.bundle-card__link img {
+    transform: rotate(-45deg);
+    transition: transform .5s var(--bundle-ease);
+}
+
+.bundle-card__link:hover {
+    opacity: .8;
+}
+
+.bundle-card__link:hover img {
+    transform: rotate(-45deg) translateX(3px);
+}
+
+.bundle-card__link:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+}
+
+.bundle-card__text {
+    margin-top: 17px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    color: #657b8d;
+}
+
+/* Bottles at natural size, cropped by the card's bottom edge; positions
+   matched against the design */
+.bundle-card__image {
+    position: absolute;
+    top: 273px;
+    left: 0;
+    width: 481px;
+    max-width: none;
+    height: auto;
+    transition: transform .7s var(--bundle-ease);
+}
+
+/* Five-bottle set */
+.bundle-card__image--wide {
+    top: 311px;
+    left: -16px;
+    width: 632px;
+}
+
+.bundle-card:hover .bundle-card__image {
+    transform: translateY(-8px);
+}
+
+/* --- Base with raised tab, overlapping the bottom of the cards --------------- */
+.bundle-slider__base {
+    position: relative;
+    z-index: 1;
+    height: 52px;
+    margin-top: -52px;
+    pointer-events: none;
+}
+
+.bundle-slider__tab {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 560px;
+    height: 52px;
+    fill: var(--bundle-bg);
+    transform: translateX(-50%);
+}
+
+.bundle-slider__nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    margin-top: -14px;
+}
+
+.bundle-slider__arrow {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #657b8d; /* the inactive (white) arrow */
+    transition: background-color .4s ease, color .4s ease, transform .5s var(--bundle-ease);
+}
+
+.bundle-slider__arrow--prev svg {
+    transform: rotate(180deg);
+}
+
+.bundle-slider__arrow--next {
+    background-color: var(--bundle-accent);
+    color: #fff;
+}
+
+.bundle-slider__arrow:hover {
+    transform: translateY(-2px);
+}
+
+.bundle-slider__arrow--prev:hover {
+    background-color: var(--bundle-accent);
+    color: #fff;
+}
+
+.bundle-slider__arrow--next:hover {
+    background-color: #3d9a24;
+}
+
+/* Swiper adds this at either end when loop is off: both arrows then fall
+   back to the inactive white look and stop reacting */
+.bundle-slider__arrow.swiper-button-disabled {
+    background-color: #fff;
+    color: #657b8d;
+    transform: none;
+    cursor: default;
+}
+
+.bundle-slider__arrow:focus-visible {
+    outline: 1px solid var(--bundle-accent);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Pigments deck — the home page's stacking deck (styles in style.css) with
+   a three-line title, a centred bottle and a green glow behind it
+   ========================================================================== */
+.deck--pigments {
+    position: relative;
+    z-index: 2;
+    overflow-x: clip; /* the wide green glow; clip keeps the cards sticky */
+    background-color: #ebeef3;
+}
+
+.deck-card--pigments .deck-card__title {
+    top: 136px;
+    font-size: 66px;
+    line-height: 91%;
+}
+
+.deck-card--pigments .deck-card__title em {
+    font-weight: 400;
+}
+
+/* Soft green light behind the bottle */
+.deck-card__glow {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    width: 1500px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(52, 146, 30, .7), rgba(39, 110, 25, .3) 55%, rgba(20, 20, 20, 0));
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.deck-card--pigments .deck-card__image {
+    top: 53%;
+    width: 767px;
+}
+
+/* ==========================================================================
+   Cover-up pigments — product cards (catalog.css) in a looping slider;
+   arrows and swatches reuse the bundle slider and pigment slide styles
+   ========================================================================== */
+.cover-up {
+    --bundle-accent: #4cb430;
+    --bundle-ease: cubic-bezier(.22, 1, .36, 1);
+    --range-ease: cubic-bezier(.22, 1, .36, 1);
+
+    position: relative;
+    z-index: 2;
+    padding: 180px 0 200px;
+    background-color: #ebeef3;
+}
+
+.cover-up__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 66px;
+    padding: 0 var(--page-gutter);
+}
+
+.cover-up__title-row {
+    display: flex;
+    align-items: center;
+    gap: 87px;
+}
+
+.cover-up__title {
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 166%;
+    color: #657b8d;
+    text-transform: uppercase;
+}
+
+.cover-up__nav {
+    display: flex;
+    gap: 13px;
+}
+
+/* Active arrow is grey here instead of green */
+.cover-up__next {
+    background-color: #657b8d;
+    color: #fff;
+}
+
+.cover-up__next:hover {
+    background-color: #4f6476;
+}
+
+.cover-up__swatches {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cover-up__slider {
+    padding: 0 13px;
+}
+
+.cover-up .swiper-slide {
+    height: auto;
+}
+
+/* ==========================================================================
+   Tips — Fitzpatrick skin types: photo cards with a tone bar; hovering a
+   card reveals a frosted "Learn more" circle over the photo
+   ========================================================================== */
+.tips {
+    position: relative;
+    z-index: 2;
+    padding: 0px var(--page-gutter) 0px;
+    background-color: #ebeef3;
+    text-align: center;
+}
+
+.tips__kicker {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 133%;
+    color: #657b8d;
+}
+
+.tips__title {
+    margin-top: 36px;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 80%;
+    letter-spacing: -0.03em;
+    color: #272c1f;
+    text-transform: uppercase;
+}
+
+.tips__title em {
+    font-family: 'Brier', serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #44d62d;
+}
+
+.tips__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin: 85px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.skin-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skin-card__media {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 293 / 779;
+}
+
+.skin-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .9s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Frosted circle, hidden until the card is hovered or focused */
+.skin-card__more {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background-color:  rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 106%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+    transition: opacity .4s ease, transform .6s cubic-bezier(.22, 1, .36, 1);
+    pointer-events: none;
+}
+
+.skin-card__link:hover .skin-card__more,
+.skin-card__link:focus-visible .skin-card__more {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.skin-card__link:hover .skin-card__image,
+.skin-card__link:focus-visible .skin-card__image {
+    transform: scale(1.04);
+}
+
+.skin-card__link:focus-visible {
+    outline: none;
+}
+
+.skin-card__link:focus-visible .skin-card__media {
+    outline: 2px solid #72d34d;
+    outline-offset: 3px;
+}
+
+/* Tone bar with the type in Roman numerals */
+.skin-card__type {
+    padding: 10px 14px 12px;
+    background-color: var(--tone);
+    color: var(--tone-ink);
+    font-family: 'Brier', serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+}
+
+/* ==========================================================================
+   Permanent makeup — framed photo banner, copy on the right
+   ========================================================================== */
+/* The photo sets the height at its own 1900:972 ratio, so its notched corners
+   are never cropped; the copy sits in the same grid cell, centred vertically
+   (≈245px from top and bottom at 1920) and 140px from the right */
+.permanent {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    /* The 10px side gutters are borders in the page colour: they stay light
+       over the page's black background */
+    border-right: 10px solid #ebeef3;
+    border-left: 10px solid #ebeef3;
+    background-color: #ebeef3;
+}
+
+/* Transparent PNG: its notched frame is cut out, so the page colour shows */
+.permanent__bg {
+    grid-area: 1 / 1;
+    display: block;
+    aspect-ratio: 1900 / 972;
+    pointer-events: none;
+}
+
+.permanent__bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+}
+
+.permanent__content {
+    grid-area: 1 / 1;
+    align-self: center;
+    justify-self: end;
+    margin-right: 140px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 566px;
+    color: #fff;
+}
+
+.permanent__title {
+    font-weight: 500;
+    font-size: 110px;
+    line-height: 105%;
+    color: #fff;
+}
+
+.permanent__text {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 141%;
+    color: #fff;
+}
+
+.permanent__btn {
+    margin-top: 70px;
+}
+
+/* Lips slider: same as cover-up, closer to the permanent makeup banner */
+.cover-up--lips {
+    padding-top: 70px;
+}
+
+/* ==========================================================================
+   Eyeliner pigments — copy + two product cards on the left; swatches and the
+   5RL needle block on the right over the needle photo
+   ========================================================================== */
+.eyeliner {
+    --eyeliner-ink: #10260e;
+    --eyeliner-green: #2f6b25;
+
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 561px;
+    gap: 40px;
+    padding: 100px var(--page-gutter) 210px;
+    overflow: hidden;
+    background-color: #ebeef3;
+    color: var(--eyeliner-ink);
+}
+
+/* Matched against the design: 0.9 scale, reaching off the right edge */
+.eyeliner__needle {
+    position: absolute;
+    top: -41px;
+    right: -6%;
+    width: 997px;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+}
+
+.eyeliner__main,
+.eyeliner__side {
+    position: relative;
+    z-index: 1;
+}
+
+.eyeliner__title {
+    font-weight: 500;
+    font-size: 85px;
+    line-height: 100%;
+    background: linear-gradient(102.82deg, #122315 13.4%, #009e15 72.34%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eyeliner__text {
+    max-width: 666px;
+    margin-top: 45px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 141%;
+    background: linear-gradient(104.57deg, #122315 24.83%, #009e15 114.92%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eyeliner__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 461px);
+    gap: 45px;
+    margin: 110px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Right column: swatches at the top, needle block at the bottom */
+.eyeliner__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.eyeliner__swatches {
+    align-self: flex-end;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eyeliner__needle-title {
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 113%;
+    background: linear-gradient(102.82deg, #122315 13.74%, #009e15 72.18%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eyeliner__needle-text {
+    max-width: 533px;
+    margin-top: 20px;
+    padding-left: 30px;
+    border-left: 2px solid #42b536;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    color: #657b8d;
+}
+
+.eyeliner__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 346px;
+    height: 59px;
+    margin-top: 55px;
+    padding: 0 20px 0 34px;
+    border-radius: 12px;
+    background: linear-gradient(98.59deg, #19421f 29.78%, #019e15 129.45%);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-transform: uppercase;
+    transition: filter .4s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.eyeliner__btn img {
+    filter: invert(1);
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.eyeliner__btn:hover {
+    filter: brightness(1.15);
+}
+
+.eyeliner__btn:hover img {
+    transform: translateY(-2px) rotate(-8deg);
+}
+
+.eyeliner__btn:focus-visible {
+    outline: 1px solid var(--eyeliner-green);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Thinner deck — same stacking deck; logo top-centre, a text column either
+   side and the robotic hand rising from the bottom tab over a green glow
+   ========================================================================== */
+.thinner-card__logo {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    width: 234px;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.thinner-card__col {
+    position: absolute;
+    top: 343px;
+    color: #fff;
+}
+
+.thinner-card__col--left {
+    left: 78px;
+    max-width: 388px;
+}
+
+.thinner-card__col--right {
+    right: 78px;
+    max-width: 349px;
+}
+
+.thinner-card__heading {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 124%;
+    color: #fff;
+}
+
+.thinner-card__text,
+.thinner-card__list {
+    margin: 61px 0 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 194%;
+    color: #fff;
+}
+
+.thinner-card__text {
+    max-width: 368px;
+}
+
+.thinner-card__list {
+    padding: 0;
+    list-style: none;
+}
+
+.thinner-card__list li::before {
+    content: '– ';
+}
+
+.thinner-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 349px;
+    height: 59px;
+    margin-top: 43px;
+    padding: 0 20px 0 34px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: background-color .4s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.thinner-card__btn img {
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.thinner-card__btn:hover {
+    background-color: #c0ff85;
+}
+
+.thinner-card__btn:hover img {
+    transform: translateY(-2px) rotate(-8deg);
+}
+
+.deck--thinner {
+    padding-bottom: 170px;
+}
+
+.thinner-card__btn:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Hand: matched against the design, rising out of the bottom tab */
+/* The hand sits above the card's tab layer (::after, painted last, which
+   was hiding it over the bottom tab) and is cut at the tab's bottom edge,
+   not at the 6px empty strip below it */
+.deck-card--thinner {
+    clip-path: inset(0 0 var(--deck-shape-gap) 0);
+}
+
+.deck-card--thinner .deck-card__image.thinner-card__hand {
+    z-index: 1;
+    top: 93px;
+    left: calc(50% - 471px);
+    width: 851px;
+    transform: none;
+}
+
+.deck-card--thinner .deck-card__glow {
+    top: 48%;
+}
+
+/* ==========================================================================
+   Icon and product-shot sizes — set in CSS (not only via HTML width/height
+   attributes) so the ×0.75 media block scales them with everything else
+   ========================================================================== */
+.bundle-slider__arrow svg,
+.pigments-hero__arrow {
+    width: 16px;
+    height: 14px;
+}
+
+.pigments-hero__btn img,
+.eyeliner__btn img,
+.thinner-card__btn img {
+    width: 21px;
+    height: 21px;
+}
+
+.bundle-card__link img {
+    width: 12px;
+    height: 11px;
+}
+
+.pigments-range__play-icon {
+    width: 13px;
+    height: 15px;
+}
+
+.pigment-slide__logo {
+    width: 164px;
+    height: auto;
+}
+
+.pigment-slide--cover .pigment-slide__image {
+    width: 616px;
+    height: auto;
+}
+
+.pigment-slide--brow .pigment-slide__image {
+    width: 305px;
+    height: auto;
+}

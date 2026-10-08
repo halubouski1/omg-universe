@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Product page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from product.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from product.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .product-hero__inner {
+        padding: 127.5px var(--page-gutter) 30px;
+    }
+
+    .breadcrumbs__list {
+        font-size: 12px;
+    }
+
+    .breadcrumbs__link:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .product-hero__bottom {
+        gap: 30px;
+    }
+
+    .product-hero__title {
+        margin-bottom: 15px;
+    }
+
+    .product-hero__kicker {
+        font-size: 30px;
+    }
+
+    .product-hero__name {
+        font-size: 225px;
+    }
+
+    .product-hero__price-label {
+        padding-left: 9px;
+        font-size: 12px;
+    }
+
+    .product-hero__price {
+        margin: 26.25px 0 27.75px;
+        font-size: 90px;
+    }
+
+    .product-details {
+        padding: 67.5px var(--page-gutter) 97.5px;
+    }
+
+    .product-details__code {
+        margin-bottom: 19.5px;
+        font-size: 10.5px;
+    }
+
+    .product-details__body {
+        gap: 57px;
+    }
+
+    .gallery {
+        gap: 10.5px;
+    }
+
+    .gallery__main {
+        width: 654px;
+        height: 702.75px;
+    }
+
+    .gallery__thumbs {
+        gap: 7.5px;
+    }
+
+    .gallery__thumb {
+        width: 96px;
+        height: 169.5px;
+    }
+
+    .gallery__thumb:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .product-info__head {
+        gap: 18px;
+        padding-bottom: 11.25px;
+    }
+
+    .product-info__title {
+        font-size: 30px;
+    }
+
+    .product-info__price {
+        font-size: 20.25px;
+    }
+
+    .product-info__actions {
+        gap: 8.25px;
+        margin-top: 26.25px;
+    }
+
+    .product-info__add {
+        gap: 124.5px;
+        padding: 14.25px 15.75px 14.25px 25.5px;
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .product-info__add:hover img {
+        transform: translateY(-1.5px) rotate(-8deg);
+    }
+
+    .product-info__add:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .qty {
+        height: 44.25px;
+        min-width: 201.75px;
+        padding: 0 12.75px 0 17.25px;
+        border-radius: 9px;
+    }
+
+    .qty__label {
+        font-size: 12px;
+    }
+
+    .qty__input {
+        font-size: 12px;
+    }
+
+    .qty__steps {
+        gap: 3px;
+        margin-left: 10.5px;
+    }
+
+    .qty__step {
+        width: 10.5px;
+        height: 9px;
+    }
+
+    .qty__step img {
+        width: 4.5px;
+    }
+
+    .accordion {
+        margin-top: 56.25px;
+    }
+
+    .accordion--delivery {
+        margin-top: 46.5px;
+    }
+
+    .accordion__toggle {
+        padding-bottom: 13.5px;
+        font-size: 10.5px;
+    }
+
+    .accordion__chevron {
+        margin-right: 4.5px;
+    }
+
+    .accordion__toggle:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .accordion__content {
+        padding-top: 32.25px;
+    }
+
+    .product-info__text {
+        max-width: 555px;
+        font-size: 10.5px;
+    }
+
+    .product-specs {
+        margin-top: 45px;
+    }
+
+    .product-specs th,
+    .product-specs td {
+        height: 54.75px;
+    }
+
+    .product-specs th {
+        min-width: 172.5px;
+        padding: 0 24px;
+        font-size: 12px;
+    }
+
+    .product-specs td {
+        min-width: 220.5px;
+        padding: 0 24px 0 47.25px;
+        font-size: 10.5px;
+    }
+
+    .product-note {
+        gap: 22.5px;
+        margin-top: 30px;
+        padding: 12px;
+        border-radius: 9px;
+        font-size: 9px;
+    }
+
+    .related {
+        padding: 0 7.5px 67.5px;
+    }
+}
+
+/* ==========================================================================
+   ≤1370px — gallery and info column share the row 50/50
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. The main photo keeps its 872:937 ratio; the thumbnail column takes
+   a fixed share of the gallery and its four thumbs split the photo's height. */
+@media (max-width: 1370px) {
+    .gallery,
+    .product-info {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .gallery {
+        align-items: stretch;
+    }
+
+    .gallery__main {
+        flex: 1 1 0;
+        width: auto;
+        height: auto;
+        aspect-ratio: 872 / 937;
+    }
+
+    .gallery__thumbs {
+        flex: 0 0 15%;
+    }
+
+    .gallery__thumbs li {
+        flex: 1 1 0;
+        min-height: 0;
+    }
+
+    .gallery__thumb {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-info__add {
+      gap: 80px;
+    }
+
+    .product-hero__name {
+      font-size: 150px;
+    }
+
+   .product-details__body {
+        gap: 30px;
+    }
+}

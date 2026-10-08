@@ -1,0 +1,307 @@
+/* ==========================================================================
+   Catalog page — header, footer, buttons and fonts come from style.css
+   ========================================================================== */
+.page-light {
+    background-color: #eceff4;
+}
+
+/* Tokens for the product cards, shared with the "related" strip on the
+   product page */
+.catalog,
+.related,
+.cover-up,
+.eyeliner,
+.needle-products,
+.needle-loop,
+.deck--magnum {
+    --catalog-ink: #000;
+    --catalog-muted: #878787;
+    --catalog-line: #caccce;
+    --catalog-accent: #4a932f;
+    --catalog-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+.catalog {
+    padding: 130px var(--page-gutter) 115px;
+    background-color: #eceff4;
+    color: var(--catalog-ink);
+}
+
+/* --- Category filters ---------------------------------------------------- */
+.catalog__filters {
+    padding-bottom: 38px;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.catalog__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 85px;
+}
+
+.catalog__filter {
+    position: relative;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 176%;
+    letter-spacing: -0.03em;
+    color: var(--catalog-muted);
+    transition: color .35s ease;
+}
+
+.catalog__filter:hover {
+    color: #3c3c3c;
+}
+
+.catalog__filter.is-active {
+    color: var(--catalog-ink);
+}
+
+.catalog__filter:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 6px;
+}
+
+/* --- Title + sort ----------------------------------------------------------- */
+.catalog__head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin: 57px 0 54px;
+}
+
+.catalog__title {
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 73%;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+
+.sort {
+    position: relative;
+    z-index: 5;
+}
+
+.sort__button {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 9px 8px 9px 18px;
+    border-radius: 7px;
+    background-color: var(--catalog-accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+}
+
+.sort__button:hover {
+    background-color: #57a63a;
+}
+
+.sort__button:focus-visible {
+    outline: 1px solid var(--catalog-accent);
+    outline-offset: 3px;
+}
+
+.sort__chevron {
+    transition: transform .4s var(--catalog-ease);
+}
+
+.sort__button[aria-expanded="true"] .sort__chevron {
+    transform: rotate(180deg);
+}
+
+/* Drops down from the button's right edge */
+.sort__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 210px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 18px 40px rgba(20, 30, 20, .14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(.96);
+    transform-origin: 100% 0;
+    transition:
+        opacity .25s ease,
+        transform .35s var(--catalog-ease),
+        visibility 0s .35s;
+}
+
+.sort.is-open .sort__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+        opacity .25s ease,
+        transform .45s var(--catalog-ease),
+        visibility 0s;
+}
+
+.sort__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+/* Green dot marks the current order */
+.sort__option::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--catalog-accent);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .25s ease, transform .35s var(--catalog-ease);
+}
+
+.sort__option.is-selected::after {
+    opacity: 1;
+    transform: none;
+}
+
+.sort__option:hover,
+.sort__option:focus-visible {
+    background-color: #f1f3f6;
+    outline: none;
+}
+
+/* --- Product grid ----------------------------------------------------------- */
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 15px;
+}
+
+.product[hidden] {
+    display: none;
+}
+
+.product__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 461 / 622;
+    background-color: #dfe2e6;
+}
+
+.product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s var(--catalog-ease);
+}
+
+.product__card:hover .product__image {
+    transform: scale(1.04);
+}
+
+/* Round "+" (add to cart) in the top-right corner */
+.product__add {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform .4s var(--catalog-ease), background-color .3s ease;
+}
+
+.product__add::before,
+.product__add::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 1.5px;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+    transition: background-color .3s ease;
+}
+
+.product__add::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.product__add:hover {
+    background-color: var(--catalog-accent);
+    transform: rotate(90deg);
+}
+
+.product__add:hover::before,
+.product__add:hover::after {
+    background-color: #fff;
+}
+
+.product__add:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+.product__info {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 23px 20px 18px 30px;
+    background-color: #fff;
+}
+
+.product__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.product__size {
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: -0.03em;
+    color: #565656;
+}
+
+/* Light: the bundled "Regular" file (weight 500) is heavier than the design */
+.product__name {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+
+.product__price {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    color: #000;
+    white-space: nowrap;
+}
+
+/* cta */
+.cta {
+    --cta-overlap: 0px;
+}

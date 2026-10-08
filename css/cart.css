@@ -1,0 +1,309 @@
+/* ==========================================================================
+   Cart page — header, buttons and fonts come from style.css
+   ========================================================================== */
+
+/* Green wash at the top of the page shows round the panel's 10px frame */
+.page-cart {
+    --cart-frame: 10px;
+
+    padding: var(--cart-frame) var(--cart-frame) 0;
+    background: linear-gradient(180deg, #498734 0, #92b88b 260px, #eceff4 560px) #eceff4;
+}
+
+.cart__panel {
+    min-height: calc(100vh - 10px);
+    padding: 130px calc(var(--page-gutter) - 10px) 120px;
+    border-radius: 14px;
+    background: url('../assets/img/card-lines-bg.svg') 50% 0 / 100% auto no-repeat, #eceff4;
+    color: #000;
+}
+
+/* --- Heading ----------------------------------------------------------------- */
+/* Light: the bundled "Regular" file is weight 500, heavier than the design */
+.cart__title {
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+
+.cart__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #141414;
+    transition: opacity .3s ease;
+}
+
+/* options-chevron.svg points down; turned to point back */
+.cart__back img {
+    transform: rotate(90deg);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.cart__back:hover {
+    opacity: .7;
+}
+
+.cart__back:hover img {
+    transform: rotate(90deg) translateY(3px);
+}
+
+.cart__back:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+}
+
+/* --- Items ------------------------------------------------------------------- */
+.cart__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 90px 187px;
+    margin-top: 110px;
+}
+
+.bag-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.bag-item__image {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.bag-item__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.bag-item__title {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.bag-item__text {
+    max-width: 256px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    color: #9c9c9c;
+}
+
+.bag-item__size {
+    margin-top: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #38912b;
+}
+
+.bag-item__remove {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 2px;
+    border-radius: 50%;
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .3s ease;
+}
+
+.bag-item__remove img {
+    display: block;
+}
+
+.bag-item__remove:hover {
+    transform: rotate(90deg);
+}
+
+.bag-item__remove:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+}
+
+.cart__empty {
+    margin-top: 100px;
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.cart__empty a {
+    text-decoration: underline;
+    text-underline-offset: .15em;
+}
+
+/* --- Order summary --------------------------------------------------------------
+   The summary-bg.svg shape (notched sides) is cut with a mask so it stretches
+   to any width without distorting: the two 19px edge strips come from the
+   SVG's own path, the middle is a plain rectangle. The fill is the SVG's
+   gradient (#141414 -> #278e1a, ~39deg). */
+.summary {
+    display: flex;
+    align-items: stretch;
+    gap: 170px;
+    min-height: 326px;
+    margin: 107px 0 0 0px;
+    padding: 60px 180px;
+    background: linear-gradient(39deg, #141414 18.5%, #278e1a 90.8%);
+    color: #fff;
+    -webkit-mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 0 0 / 19px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1755 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 100% 0 / 19px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 36px) 100% no-repeat;
+    mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 0 0 / 19px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1755 0 19 326' preserveAspectRatio='none'%3E%3Cpath d='M1774 82.9101C1774 90.2942 1767.59 96.1089 1762.17 101.128C1758.38 104.643 1756 109.67 1756 115.251V209.907C1756 215.488 1758.38 220.514 1762.17 224.03C1767.59 229.048 1774 234.863 1774 242.247V312C1774 319.732 1767.73 326 1760 326H14C6.26802 326 0 319.732 0 312V242.616C0 235.092 6.65433 229.205 12.2149 224.137C16.0773 220.617 18.501 215.545 18.501 209.907V115.251C18.501 109.613 16.0772 104.541 12.2148 101.021C6.65435 95.9524 0 90.0649 0 82.5412V14C0 6.26801 6.26801 0 14 0H1760C1767.73 0 1774 6.26801 1774 14V82.9101Z'/%3E%3C/svg%3E") 100% 0 / 19px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 36px) 100% no-repeat;
+}
+
+/* Vertical divider between the two halves */
+.summary__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 170px;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.summary__checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.summary__title {
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 124%;
+    color: #fff;
+}
+
+/* Prices line up in one column; 232px keeps "Subtotal" 322px from its price */
+.summary__list {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 24px 322px;
+    align-items: start;
+    margin: 30px 0 0;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.summary__list dd {
+    margin: 0;
+    font-weight: 700;
+}
+
+.summary__delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.summary__note {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.summary__checkout {
+    flex-grow: 1;
+}
+
+.summary__total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.summary__total-value {
+    font-weight: 700;
+}
+
+.summary__actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 64px;
+}
+
+.summary__promo,
+.summary__checkout-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 64px;
+    padding: 0 32px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.summary__promo {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    transition: border-color .3s ease, background-color .3s ease;
+}
+
+.summary__promo::placeholder {
+    color: #a9b7a4;
+    opacity: 1;
+}
+
+.summary__promo:hover,
+.summary__promo:focus {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, .06);
+    outline: none;
+}
+
+.summary__checkout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    color: #33b120;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.summary__checkout-icon {
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.summary__checkout-btn:hover {
+    background-color: #5baf3c;
+    color: #fff;
+}
+
+.summary__checkout-btn:hover .summary__checkout-icon {
+    transform: translateX(4px);
+}
+
+.summary__checkout-btn:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Footer: the body's 10px frame padding would inset it twice; pull it back
+   to the edges so it lines up with the footer on the other pages */
+.page-cart .footer {
+    --footer-overlap: 0px;
+    margin-right: calc(var(--cart-frame) * -1);
+    margin-left: calc(var(--cart-frame) * -1);
+}

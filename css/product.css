@@ -1,0 +1,464 @@
+/* ==========================================================================
+   Product page — the hero reuses .hero / .hero__media from style.css
+   (full-screen image + blurred diagonal strip); this file only lays out
+   the text on top of it
+   ========================================================================== */
+.product-hero__inner {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 170px var(--page-gutter) 40px;
+}
+
+/* --- Breadcrumbs ---------------------------------------------------------- */
+/* <ol> keeps its default numbers and indent — the base reset only covers ul */
+.breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.breadcrumbs__list li + li::before {
+    content: '/';
+    margin: 0 .3em;
+}
+
+.breadcrumbs__link {
+    transition: opacity .3s ease;
+}
+
+.breadcrumbs__link:hover {
+    opacity: .7;
+}
+
+.breadcrumbs__link:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+}
+
+/* --- Bottom row: title left, price + button right ------------------------- */
+.product-hero__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.product-hero__title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* sits PENCILS' baseline ~66px off the bottom */
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.product-hero__kicker {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+/* Tight line box so the gap to PMU SKETCH measures from the letters */
+/* At 300px the P's side bearing is ~18px wider than PMU SKETCH's; the em
+   margin pulls its stem back in line with the line above at any size */
+.product-hero__name {
+    margin-left: -0.062em;
+    font-size: 300px;
+    font-weight: 300;
+    line-height: .78;
+    letter-spacing: -0.04em;
+}
+
+.product-hero__buy {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.product-hero__price-label {
+    padding-left: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+}
+
+.product-hero__price {
+    margin: 35px 0 37px;
+    font-size: 120px;
+    font-weight: 300;
+    line-height: .75;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+}
+
+/* ==========================================================================
+   Product details — gallery left, purchase + info right
+   ========================================================================== */
+.product-details {
+    --details-ink: #000;
+    --details-muted: #7b7b7b;
+    --details-line: rgba(0, 0, 0, 0.1);
+    --details-accent: #72d34d;
+    --details-ease: cubic-bezier(.22, 1, .36, 1);
+
+    padding: 90px var(--page-gutter) 130px;
+    background-color: #eceff4;
+    color: var(--details-ink);
+}
+
+.product-details__code {
+    margin-bottom: 26px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #4f4f4f;
+}
+
+.product-details__body {
+    display: flex;
+    align-items: flex-start;
+    gap: 76px;
+}
+
+/* --- Gallery ----------------------------------------------------------------- */
+.gallery {
+    display: flex;
+    flex-shrink: 0;
+    gap: 14px;
+}
+
+.gallery__main {
+    position: relative;
+    width: 872px;
+    height: 937px;
+    overflow: hidden;
+    background-color: #dfe2e6;
+}
+
+.gallery__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__thumbs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.gallery__thumb {
+    display: block;
+    width: 128px;
+    height: 226px;
+    overflow: hidden;
+    opacity: .6;
+    transition: opacity .35s ease;
+}
+
+.gallery__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s var(--details-ease);
+}
+
+.gallery__thumb:hover,
+.gallery__thumb.is-active {
+    opacity: 1;
+}
+
+.gallery__thumb:hover img {
+    transform: scale(1.05);
+}
+
+.gallery__thumb:focus-visible {
+    outline: 1px solid var(--details-ink);
+    outline-offset: 3px;
+}
+
+/* --- Info column ---------------------------------------------------------------- */
+.product-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.product-info__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--details-line);
+}
+
+.product-info__title {
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* Keeps the name's own casing (e.g. "OMG Latex") instead of all caps */
+.product-info__title--as-written {
+    text-transform: none;
+}
+
+.product-info__price {
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #000;
+    white-space: nowrap;
+}
+
+.product-info__actions {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 35px;
+}
+
+.product-info__add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 166px;
+    padding: 19px 21px 19px 34px;
+    border-radius: 12px;
+    background-color: var(--details-accent);
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+}
+
+.product-info__add img {
+    transition: transform .4s var(--details-ease);
+}
+
+.product-info__add:hover {
+    background-color: #8ae069;
+}
+
+.product-info__add:hover img {
+    transform: translateY(-2px) rotate(-8deg);
+}
+
+.product-info__add:focus-visible {
+    outline: 1px solid var(--details-ink);
+    outline-offset: 3px;
+}
+
+/* Quantity: typed or stepped with the chevrons, minimum 1 */
+.qty {
+    display: flex;
+    align-items: center;
+    height: 59px;
+    min-width: 269px;
+    padding: 0 17px 0 23px;
+    border-radius: 12px;
+    background-color: #151514;
+    color: #fff;
+}
+
+.qty__label {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.qty__input {
+    width: 3ch;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 16px;
+    text-align: right;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.qty__input::-webkit-inner-spin-button,
+.qty__input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.qty__input:focus-visible {
+    outline: none;
+    text-decoration: underline;
+}
+
+.qty__steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    margin-left: 14px;
+}
+
+.qty__step {
+    display: grid;
+    place-items: center;
+    width: 14px;
+    height: 12px;
+    transition: opacity .2s ease;
+}
+
+/* chevron.svg is a small white triangle pointing down */
+.qty__step img {
+    width: 6px;
+}
+
+.qty__step--up img {
+    transform: rotate(180deg);
+}
+
+.qty__step:hover {
+    opacity: .6;
+}
+
+.qty__step:disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.qty__step:focus-visible {
+    outline: 1px solid #fff;
+}
+
+/* --- Accordions -------------------------------------------------------------- */
+.accordion {
+    margin-top: 75px;
+}
+
+.accordion--delivery {
+    margin-top: 62px;
+}
+
+.accordion__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--details-line);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: left;
+}
+
+.accordion__chevron {
+    margin-right: 6px;
+    transition: transform .5s var(--details-ease);
+}
+
+.accordion__toggle[aria-expanded="true"] .accordion__chevron {
+    transform: rotate(180deg);
+}
+
+.accordion__toggle:focus-visible {
+    outline: 1px solid var(--details-ink);
+    outline-offset: 4px;
+}
+
+/* Height animated by main.js (data-expand-toggle); closed = 0 */
+.accordion__panel {
+    height: 0;
+    overflow: hidden;
+    transition: height .6s var(--details-ease);
+}
+
+.accordion__content {
+    padding-top: 43px;
+}
+
+.product-info__text {
+    max-width: 740px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 185%;
+    color: #7b7b7b;
+    color: var(--details-muted);
+}
+
+.product-specs {
+    margin-top: 60px;
+    border-collapse: collapse;
+}
+
+.product-specs th,
+.product-specs td {
+    height: 73px;
+    border: 1px solid #d7d9dd;
+    text-align: left;
+}
+
+.product-specs th {
+    min-width: 230px;
+    padding: 0 32px;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+
+.product-specs td {
+    min-width: 294px;
+    padding: 0 32px 0 63px;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.03em;
+    color: #949494;
+}
+
+.product-note {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #e8e8e8;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #202020;
+}
+
+/* ==========================================================================
+   Related products — four catalog cards (styles from catalog.css)
+   ========================================================================== */
+.related {
+    padding: 0 10px 90px;
+    background-color: #eceff4;
+    color: var(--catalog-ink);
+}

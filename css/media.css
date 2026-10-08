@@ -1,0 +1,415 @@
+/* ==========================================================================
+   ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from style.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from style.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    section[id] {
+        scroll-margin-top: 75px;
+    }
+
+    :root {
+        --page-gutter: 30px;
+    }
+
+    .header {
+        padding: 30px var(--page-gutter) 0;
+    }
+
+    .header__logo {
+        width: 51px;
+    }
+
+    .header__tools {
+        gap: 91.5px;
+    }
+
+    .header__tools-wrapper {
+        gap: 24px;
+    }
+
+    .header__icon-btn img {
+        width: 14.25px;
+    }
+
+    .header__menu-btn img {
+        width: 12.75px;
+    }
+
+    .header__menu-btn {
+        border-radius: 4.5px;
+        width: 24.75px;
+        height: 24.75px;
+    }
+
+    .hero {
+        min-height: 525px;
+    }
+
+    .hero__media::after {
+        width: 361.5px;
+        -webkit-backdrop-filter: blur(10.5px);
+        backdrop-filter: blur(10.5px);
+    }
+
+    .hero__indicators {
+        top: 187.5px;
+        gap: 6px;
+    }
+
+    .hero__indicator {
+        width: 9px;
+        height: 16.5px;
+    }
+
+    .hero__indicator::before {
+        width: 2.25px;
+    }
+
+    .hero__indicator.is-active {
+        height: 56.25px;
+    }
+
+    .hero__indicator:focus-visible {
+        outline-offset: 1.5px;
+    }
+
+    .hero__inner {
+        padding: 0 var(--page-gutter) 21px;
+    }
+
+    .hero__lead {
+        max-width: 150px;
+        font-size: 12px;
+    }
+
+    .events {
+        --marquee-gap: 187.5px;
+        --event-gap: 45px;
+        --event-inline-gap: 22.5px;
+        --event-stack-gap: 52.5px;
+        --event-desc-gap: 90px;
+        --event-head-width: 342px;
+        --event-pad: 82.5px;
+        padding-bottom: 30px;
+    }
+
+    .events__marquee {
+        padding: 63.75px 0 7.5px;
+    }
+
+    .events__tag {
+        font-size: 11.25px;
+    }
+
+    .events__list {
+        padding: 93.75px var(--page-gutter) 0;
+    }
+
+    .event:focus-visible .event__city {
+        text-decoration-thickness: 1.5px;
+    }
+
+    .event__date {
+        font-size: 15px;
+    }
+
+    .event.is-active .event__date {
+        padding: 7.5px;
+    }
+
+    .event__city {
+        font-size: 75px;
+    }
+
+    .event__desc {
+        max-width: 408px;
+        font-size: 18.75px;
+        transform: translateY(4.5px);
+    }
+
+    .event__poster {
+        width: 388.5px;
+        transform: translateY(-50%) translateY(7.5px) rotate(4deg);
+    }
+
+    .year-mark {
+        gap: 4.5px;
+    }
+
+    .year-mark__small {
+        font-size: 13.5px;
+    }
+
+    .year-mark__big {
+        font-size: 37.5px;
+    }
+
+    .btn {
+        min-width: 147.75px;
+        height: 37.5px;
+        padding: 0 18px;
+        border-radius: 5.25px;
+        font-size: 13.5px;
+    }
+
+    .btn:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .btn--glass {
+        backdrop-filter: blur(30px);
+        --webkit-backdrop-filter: blur(30px);
+    }
+
+    .deck {
+        --deck-card-h: 757.5px;
+        --deck-gap: 30px;
+        padding: 30px var(--deck-gutter) 0px;
+    }
+
+    .deck-card {
+        --deck-body-top: 36.75px;
+        --deck-body-bottom: 40.5px;
+        --deck-body-radius: 33.75px;
+        --deck-shape-gap: 4.5px;
+        --deck-tab-top-w: 390px;
+        --deck-tab-top-h: 37.5px;
+        --deck-tab-bottom-w: 834px;
+        --deck-tab-bottom-h: 36.75px;
+    }
+
+    .deck-card__year {
+        --year-mark-small: 22.5px;
+        --year-mark-big: 64.5px;
+        --year-mark-big-color: var(--deck-accent);
+        top: 16.5px;
+    }
+
+    .deck-card__title {
+        top: 139.5px;
+        font-size: 52.5px;
+    }
+
+    .deck-card__footer {
+        bottom: 96px;
+        padding: 0 70.5px;
+    }
+
+    .deck-card__feature {
+        gap: 15px;
+    }
+
+    .deck-card__feature-text {
+        font-size: 20.25px;
+    }
+
+    .deck-card__link {
+        font-size: 12px;
+    }
+
+    .deck-card__link:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .masterclasses {
+        --masterclasses-overlap: 40.5px;
+        height: calc(825px - var(--masterclasses-overlap));
+        padding-top: calc(75px - var(--masterclasses-overlap));
+    }
+
+    .masterclasses::before {
+        height: 825px;
+    }
+
+    .masterclasses::after {
+        height: 120px;
+    }
+
+    .masterclasses__title {
+        font-size: 90px;
+    }
+
+    .masterclasses__on {
+        margin-bottom: -33px;
+        font-size: 225px;
+    }
+
+    .masterclasses__intro {
+        gap: 45px;
+        margin-top: 36px;
+    }
+
+    .masterclasses__decor {
+        width: 40.5px;
+        height: 40.5px;
+        border-radius: 7.5px;
+    }
+
+    .masterclasses__text {
+        max-width: 337.5px;
+        font-size: 12px;
+    }
+
+    .masterclasses__links {
+        gap: 75px;
+        margin-top: 67.5px;
+    }
+
+    .link-arrow {
+        gap: 6px;
+        font-size: 13.5px;
+    }
+
+    .link-arrow__icon {
+        width: 10.5px;
+    }
+
+    .link-arrow:hover .link-arrow__icon {
+        transform: rotate(-45deg) translateX(2.25px);
+    }
+
+    .link-arrow:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .cta {
+        --cta-overlap: 22.5px;
+        padding: 7.5px;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    .cta__inner {
+        height: 825px;
+        padding: 33px 30px 221.25px;
+        border-radius: 12px;
+    }
+
+    .cta__logo img {
+        width: 51px;
+    }
+
+    .cta__year {
+        --year-mark-small: 15.75px;
+        --year-mark-big: 42px;
+    }
+
+    .promo__label {
+        margin-bottom: 37.5px;
+        font-size: 20.25px;
+    }
+
+    .promo__title {
+        margin-bottom: 56.25px;
+        font-size: 150px;
+    }
+
+    .promo__actions {
+        gap: 15px;
+    }
+
+    .footer {
+        --footer-notch-w: 277.5px;
+        --footer-notch-h: 27px;
+        --footer-overlap: 37.5px;
+        padding: 0 7.5px;
+    }
+
+    .footer__card {
+        padding: 52.5px 30px 26.25px;
+        border-radius: 18px;
+    }
+
+    .footer__group {
+        gap: 28.5px;
+    }
+
+    .footer__label {
+        font-size: 10.5px;
+    }
+
+    .footer__link {
+        font-size: 27px;
+    }
+
+    .footer__link:hover,
+    .footer__link:focus-visible {
+        transform: translateX(6px);
+    }
+
+    .footer__group--end .footer__link:hover,
+    .footer__group--end .footer__link:focus-visible {
+        transform: translateX(-6px);
+    }
+
+    .footer__divider {
+        margin: 33.75px 0 0;
+    }
+
+    .footer__contacts {
+        margin-top: 97.5px;
+    }
+
+    .footer__contact {
+        gap: 7.5px;
+    }
+
+    .footer__contact-label {
+        gap: 10.5px;
+        font-size: 15px;
+    }
+
+    .footer__star {
+        width: 14.25px;
+        height: 14.25px;
+    }
+
+    .footer__contact-value {
+        font-size: 27px;
+        font-size: 26.25px;
+    }
+
+    .footer__address {
+        max-width: 285px;
+    }
+
+    .footer__to-top {
+        width: 45px;
+        height: 45px;
+        margin-top: 30px;
+    }
+
+    .footer__to-top:hover img {
+        transform: translateY(-3px);
+    }
+
+    .footer__to-top:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .footer__bottom {
+        height: 60px;
+        padding: 0 15px;
+        font-size: 13.5px;
+    }
+
+    .footer__dev {
+        margin-top: -11.25px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .event__poster {
+        width: 300px;
+    }
+
+    .event__desc {
+        max-width: 290px;
+    }
+
+    .event.is-active {
+        gap: 40px;
+    }
+}

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Tracking page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from tracking.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from tracking.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .tracking {
+        min-height: 934.5px;
+        padding: 117px var(--page-gutter) 120px;
+    }
+
+    .tracking__figure--left {
+        top: 120.75px;
+        left: -133.5px;
+        width: 615.75px;
+    }
+
+    .tracking__figure--right {
+        top: 172.5px;
+        right: -195px;
+        width: 731.25px;
+    }
+
+    .tracking-card {
+        width: 458.25px;
+        min-height: 309.75px;
+        padding: 24px 30px 27px;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 0 0 / 14.25px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='592 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 100% 0 / 14.25px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 25.5px) 100% no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 0 0 / 14.25px 100% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='592 0 19 413' preserveAspectRatio='none'%3E%3Cpath d='M611 136.243C611 143.627 604.586 149.442 599.17 154.461C595.375 157.976 593 163.003 593 168.584V244.416C593 249.997 595.375 255.023 599.17 258.539C604.586 263.557 611 269.372 611 276.756V399C611 406.732 604.732 413 597 413H14C6.26803 413 0 406.732 0 399V276.754C0 269.371 6.41337 263.556 11.8299 258.538C15.6241 255.022 17.999 249.997 17.999 244.416V168.584C17.999 163.003 15.6241 157.977 11.8298 154.461C6.41339 149.443 0 143.628 0 136.244V14C0 6.26801 6.26801 0 14 0H597C604.732 0 611 6.26801 611 14V136.243Z'/%3E%3C/svg%3E") 100% 0 / 14.25px 100% no-repeat,
+        linear-gradient(#000 0 0) 50% 0 / calc(100% - 25.5px) 100% no-repeat;
+    }
+
+    .tracking-card__tabs {
+        padding: 0 4.5px 18.75px 9px;
+    }
+
+    .tracking-card__tab {
+        font-size: 15px;
+    }
+
+    .tracking-card__tab:focus-visible {
+        outline-offset: 3px;
+    }
+
+    .tracking-card__progress {
+        height: 2.25px;
+        border-radius: 1.5px;
+    }
+
+    .tracking-card__progress-bar {
+        border-radius: 1.5px;
+    }
+
+    .tracking-card__hint {
+        margin-top: 14.25px;
+        font-size: 10.5px;
+    }
+
+    .tracking-card__fields {
+        gap: 22.5px;
+        margin-top: 42px;
+    }
+
+    .tracking-card__input {
+        padding: 0 0 8.25px;
+        border-bottom: 1.5px solid rgba(217, 217, 217, 0.4);
+        font-size: 12px;
+    }
+
+    .tracking-card__submit {
+        min-width: 220.5px;
+        height: 48px;
+        padding: 0 22.5px 0 21px;
+        border-radius: 4.5px;
+        font-size: 12px;
+    }
+
+    .tracking-card__submit:hover .tracking-card__arrow {
+        transform: translateX(3px);
+    }
+
+    .tracking-card__submit:focus-visible {
+        outline-offset: 2.25px;
+    }
+}

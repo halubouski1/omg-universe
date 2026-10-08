@@ -1,0 +1,626 @@
+/* ==========================================================================
+   Pigments page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from pigments.css restated ×0.75. Hairlines (1px and under),
+   percentages, em, ratios and viewport units are left as they are.
+   Generated from pigments.css — regenerate after layout edits. */
+@media (max-width: 1919px) {
+    .pigments-hero {
+        padding: 127.5px var(--page-gutter) 45px;
+    }
+
+    .pigments-hero__tag {
+        height: 27px;
+        padding: 8.25px 36px;
+        font-size: 9px;
+    }
+
+    .pigments-hero__title {
+        margin-top: 33px;
+        font-size: 67.5px;
+        max-width: 517.5px;
+    }
+
+    .pigments-hero__actions {
+        gap: 15px;
+    }
+
+    .pigments-hero__btn {
+        height: 44.25px;
+        padding: 0 15px 0 25.5px;
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .pigments-hero__btn--light {
+        min-width: 260.25px;
+    }
+
+    .pigments-hero__btn--light:hover img {
+        transform: translateY(-1.5px) rotate(-8deg);
+    }
+
+    .pigments-hero__btn--outline {
+        width: 223.5px;
+        -webkit-backdrop-filter: blur(4.5px);
+        backdrop-filter: blur(4.5px);
+    }
+
+    .pigments-hero__btn--outline:hover .pigments-hero__arrow {
+        transform: translateX(3px);
+    }
+
+    .pigments-hero__btn:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .pigments-range {
+        padding: 105px 0 0px var(--page-gutter);
+    }
+
+    .pigment-slide {
+        width: 808.5px;
+        height: 426px;
+        border-radius: 18.75px;
+    }
+
+    .pigment-slide__body {
+        left: 46.5px;
+    }
+
+    .pigment-slide__title {
+        font-size: 30px;
+    }
+
+    .pigment-slide__text {
+        gap: 25.5px;
+        margin-top: 34.5px;
+        font-size: 10.5px;
+    }
+
+    .pigment-slide__swatches {
+        gap: 8.25px;
+    }
+
+    .pigment-slide__swatches li {
+        width: 31.5px;
+        height: 31.5px;
+        border-radius: 4.5px;
+        font-size: 9.75px;
+    }
+
+    .pigment-slide__swatches li:hover {
+        transform: translateY(-2.25px);
+    }
+
+    .pigment-slide__logo {
+        top: 27px;
+    }
+
+    .pigment-slide:not(.swiper-slide-active) .pigment-slide__image {
+        transform: translateY(18px);
+    }
+
+    .pigment-slide--cover .pigment-slide__body {
+        top: 50.25px;
+        bottom: 42px;
+    }
+
+    .pigment-slide--cover .pigment-slide__logo {
+        right: 28.5px;
+    }
+
+    .pigment-slide--brow .pigment-slide__logo {
+        top: 33px;
+        left: 42px;
+    }
+
+    .pigment-slide--brow .pigment-slide__swatches {
+        top: 42px;
+        right: 43.5px;
+    }
+
+    .pigment-slide--brow .pigment-slide__body {
+        bottom: 40.5px;
+    }
+
+    .pigment-slide--brow .pigment-slide__title {
+        font-size: 48px;
+    }
+
+    .pigment-slide--brow .pigment-slide__text {
+        margin-top: 40.5px;
+    }
+
+    .pigment-slide--brow .pigment-slide__image {
+        left: 330px;
+    }
+
+    .pigments-range__controls {
+        gap: 6px;
+        width: 808.5px;
+        margin-top: 20.25px;
+    }
+
+    .pigments-range__pagination.swiper-pagination-bullets {
+        gap: 7.5px;
+        height: 39px;
+        padding: 0 22.5px;
+        border-radius: 750px;
+    }
+
+    .pigments-range__pagination .swiper-pagination-bullet {
+        width: 7.5px;
+        height: 7.5px;
+        border-radius: 3.75px;
+    }
+
+    .pigments-range__pagination .swiper-pagination-bullet-active {
+        width: 44.25px;
+    }
+
+    .pigments-range__play {
+        width: 39px;
+        height: 39px;
+    }
+
+    .pigments-range__play:focus-visible,
+    .pigments-range__pagination .swiper-pagination-bullet:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .pigments-range__play-icon {
+        margin-left: 2.25px;
+    }
+
+    .pigments-range__pause-icon {
+        width: 8.25px;
+        height: 10.5px;
+        border-right: 3px solid var(--range-accent);
+        border-left: 3px solid var(--range-accent);
+    }
+
+    .bundles {
+        min-height: 784.5px;
+        padding-top: 80.25px;
+    }
+
+    .bundles__figure--left {
+        top: -105.75px;
+        left: -14.25px;
+        width: 640.5px;
+    }
+
+    .bundles__figure--right {
+        top: -60px;
+        right: -113.25px;
+        width: 603px;
+    }
+
+    .bundles__title {
+        font-size: 90px;
+    }
+
+    .bundles__script {
+        margin-bottom: 22.5px;
+        font-size: 225px;
+    }
+
+    .bundles__serif {
+        margin-top: -12.75px;
+    }
+
+    .bundles__text {
+        max-width: 337.5px;
+        margin-top: 52.5px;
+        font-size: 12px;
+    }
+
+    .bundle-slider {
+        padding: 0px 15px 105px;
+    }
+
+    .bundle-slider::before {
+        height: 165px;
+    }
+
+    .bundle-card {
+        width: 459.75px;
+        height: 426.75px;
+        padding: 34.5px 39px 0 44.25px;
+        border-radius: 18.75px;
+    }
+
+    .bundle-card__head {
+        gap: 18px;
+    }
+
+    .bundle-card__title {
+        font-size: 30px;
+    }
+
+    .bundle-card__link {
+        gap: 6px;
+        font-size: 13.5px;
+    }
+
+    .bundle-card__link:hover img {
+        transform: rotate(-45deg) translateX(2.25px);
+    }
+
+    .bundle-card__link:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .bundle-card__text {
+        margin-top: 12.75px;
+        font-size: 10.5px;
+    }
+
+    .bundle-card__image {
+        top: 204.75px;
+        width: 360.75px;
+    }
+
+    .bundle-card__image--wide {
+        top: 233.25px;
+        left: -12px;
+        width: 474px;
+    }
+
+    .bundle-card:hover .bundle-card__image {
+        transform: translateY(-6px);
+    }
+
+    .bundle-slider__base {
+        height: 39px;
+        margin-top: -39px;
+    }
+
+    .bundle-slider__tab {
+        width: 420px;
+        height: 39px;
+    }
+
+    .bundle-slider__nav {
+        gap: 9.75px;
+        margin-top: -10.5px;
+    }
+
+    .bundle-slider__arrow {
+        width: 40.5px;
+        height: 40.5px;
+        border-radius: 7.5px;
+    }
+
+    .bundle-slider__arrow:hover {
+        transform: translateY(-1.5px);
+    }
+
+    .bundle-slider__arrow:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .deck-card--pigments .deck-card__title {
+        top: 102px;
+        font-size: 49.5px;
+    }
+
+    .deck-card__glow {
+        width: 1125px;
+        height: 600px;
+    }
+
+    .deck-card--pigments .deck-card__image {
+        width: 575.25px;
+    }
+
+    .cover-up {
+        padding: 135px 0 150px;
+    }
+
+    .cover-up__head {
+        margin-bottom: 49.5px;
+    }
+
+    .cover-up__title-row {
+        gap: 65.25px;
+    }
+
+    .cover-up__title {
+        font-size: 26.25px;
+    }
+
+    .cover-up__nav {
+        gap: 9.75px;
+    }
+
+    .cover-up__slider {
+        padding: 0 9.75px;
+    }
+
+    .tips__kicker {
+        font-size: 13.5px;
+    }
+
+    .tips__title {
+        margin-top: 27px;
+        font-size: 52.5px;
+    }
+
+    .tips__grid {
+        gap: 11.25px;
+        margin: 63.75px 0 0;
+    }
+
+    .skin-card__link {
+        gap: 13.5px;
+    }
+
+    .skin-card__more {
+        width: 112.5px;
+        height: 112.5px;
+        -webkit-backdrop-filter: blur(9px);
+        backdrop-filter: blur(9px);
+        font-size: 14.25px;
+    }
+
+    .skin-card__link:focus-visible .skin-card__media {
+        outline: 1.5px solid #72d34d;
+        outline-offset: 2.25px;
+    }
+
+    .skin-card__type {
+        padding: 7.5px 10.5px 9px;
+        font-size: 18px;
+    }
+
+    .permanent {
+        border-right: 7.5px solid #ebeef3;
+        border-left: 7.5px solid #ebeef3;
+    }
+
+    .permanent__content {
+        margin-right: 105px;
+        max-width: 424.5px;
+    }
+
+    .permanent__title {
+        font-size: 82.5px;
+    }
+
+    .permanent__text {
+        margin-top: 30px;
+        font-size: 16.5px;
+    }
+
+    .permanent__btn {
+        margin-top: 52.5px;
+    }
+
+    .cover-up--lips {
+        padding-top: 52.5px;
+    }
+
+    .eyeliner {
+        grid-template-columns: 1fr 420.75px;
+        gap: 30px;
+        padding: 75px var(--page-gutter) 157.5px;
+    }
+
+    .eyeliner__needle {
+        top: -30.75px;
+        width: 747.75px;
+    }
+
+    .eyeliner__title {
+        font-size: 63.75px;
+    }
+
+    .eyeliner__text {
+        max-width: 499.5px;
+        margin-top: 33.75px;
+        font-size: 16.5px;
+    }
+
+    .eyeliner__cards {
+        grid-template-columns: repeat(2, 345.75px);
+        gap: 33.75px;
+        margin: 82.5px 0 0;
+    }
+
+    .eyeliner__swatches {
+        margin: 22.5px 0 0;
+    }
+
+    .eyeliner__needle-title {
+        font-size: 33.75px;
+    }
+
+    .eyeliner__needle-text {
+        max-width: 399.75px;
+        margin-top: 15px;
+        padding-left: 22.5px;
+        border-left: 1.5px solid #42b536;
+        font-size: 10.5px;
+    }
+
+    .eyeliner__btn {
+        min-width: 259.5px;
+        height: 44.25px;
+        margin-top: 41.25px;
+        padding: 0 15px 0 25.5px;
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .eyeliner__btn:hover img {
+        transform: translateY(-1.5px) rotate(-8deg);
+    }
+
+    .eyeliner__btn:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .thinner-card__logo {
+        top: 33.75px;
+        width: 175.5px;
+    }
+
+    .thinner-card__col {
+        top: 257.25px;
+    }
+
+    .thinner-card__col--left {
+        left: 58.5px;
+        max-width: 291px;
+    }
+
+    .thinner-card__col--right {
+        right: 58.5px;
+        max-width: 261.75px;
+    }
+
+    .thinner-card__heading {
+        font-size: 18.75px;
+    }
+
+    .thinner-card__text,
+    .thinner-card__list {
+        margin: 45.75px 0 0;
+        font-size: 13.5px;
+    }
+
+    .thinner-card__text {
+        max-width: 276px;
+    }
+
+    .thinner-card__btn {
+        min-width: 261.75px;
+        height: 44.25px;
+        margin-top: 32.25px;
+        padding: 0 15px 0 25.5px;
+        border-radius: 4.5px;
+        font-size: 12px;
+    }
+
+    .thinner-card__btn:hover img {
+        transform: translateY(-1.5px) rotate(-8deg);
+    }
+
+    .deck--thinner {
+        padding-bottom: 127.5px;
+    }
+
+    .thinner-card__btn:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .deck-card--thinner .deck-card__image.thinner-card__hand {
+        top: 69.75px;
+        left: calc(50% - 353.25px);
+        width: 638.25px;
+    }
+
+    .bundle-slider__arrow svg,
+    .pigments-hero__arrow {
+        width: 12px;
+        height: 10.5px;
+    }
+
+    .pigments-hero__btn img,
+    .eyeliner__btn img,
+    .thinner-card__btn img {
+        width: 15.75px;
+        height: 15.75px;
+    }
+
+    .bundle-card__link img {
+        width: 9px;
+        height: 8.25px;
+    }
+
+    .pigments-range__play-icon {
+        width: 9.75px;
+        height: 11.25px;
+    }
+
+    .pigment-slide__logo {
+        width: 123px;
+    }
+
+    .pigment-slide--cover .pigment-slide__image {
+        width: 462px;
+    }
+
+    .pigment-slide--brow .pigment-slide__image {
+        width: 228.75px;
+    }
+}
+
+/* ==========================================================================
+   ≤1370px — bundles: figures pushed further out, smaller heading
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. */
+@media (max-width: 1370px) {
+    .bundles__figure--left {
+        left: -150px;
+    }
+
+    .bundles__figure--right {
+        right: -250px;
+    }
+
+    .bundles__title {
+        font-size: 70px;
+    }
+
+    .bundles__script {
+        margin-bottom: 18px;
+        font-size: 175px;
+    }
+
+    .bundles__serif {
+        margin-top: -10px;
+    }
+}
+
+/* ==========================================================================
+   ≤1270px — eyeliner: needle further right, narrower right column,
+   cards share the left column with a tighter gap (holds down to 1025px)
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. */
+@media (max-width: 1270px) {
+    .eyeliner {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .eyeliner__needle {
+        right: calc(-6% - 180px);
+    }
+
+    .eyeliner__cards {
+        grid-template-columns: repeat(2, minmax(0, 345.75px));
+        gap: 16px;
+    }
+
+    .eyeliner__needle-text {
+        max-width: 280px;
+    }
+}
+
+/* ==========================================================================
+   ≤1270px — Thinner deck: smaller hand, lowered, same centre line, so it
+   stays clear of the two text columns
+   ==========================================================================
+   Written by hand (not generated) — keep it when regenerating the block
+   above. */
+@media (max-width: 1270px) {
+    .deck-card--thinner .deck-card__image.thinner-card__hand {
+        top: 175px;
+        left: calc(50% - 266px);
+        width: 480px;
+    }
+}

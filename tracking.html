@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/tracking.css">
+    <link rel="stylesheet" href="css/media-tracking.css">
+    <title>Track Your Order — OMG Universe</title>
+</head>
+<body class="page-tracking">
+
+<header class="header header--dark">
+    <a class="header__brand" href="/" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.png" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="#" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="cart.html" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main class="tracking">
+    <div class="tracking__figure tracking__figure--left" aria-hidden="true" data-aos="fade-right" data-aos-duration="1100">
+        <img src="assets/img/tracking-bg-part-1.png" alt="" width="821" height="1232">
+    </div>
+    <div class="tracking__figure tracking__figure--right" aria-hidden="true" data-aos="fade-left" data-aos-duration="1100">
+        <img src="assets/img/tracking-bg-part-2.png" alt="" width="975" height="1170">
+    </div>
+
+    <section class="tracking-card" aria-labelledby="tracking-title" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="900">
+        <h1 class="visually-hidden" id="tracking-title">Track your order</h1>
+
+        <!-- Two ways to look an order up; the bar under the tabs slides to the active one -->
+        <div class="tracking-card__tabs" role="tablist" aria-label="Find your order by">
+            <button class="tracking-card__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tracking-form" data-track-mode="order">Order Details</button>
+            <button class="tracking-card__tab" type="button" role="tab" aria-selected="false" aria-controls="tracking-form" data-track-mode="number">Tracking Number</button>
+            <span class="tracking-card__progress" aria-hidden="true"><span class="tracking-card__progress-bar"></span></span>
+        </div>
+
+        <p class="tracking-card__hint">To track your order enter your Track Number or Email</p>
+
+        <form class="tracking-card__form" id="tracking-form" action="#" method="get" novalidate data-tracking-form>
+            <div class="tracking-card__fields" data-track-fields="order">
+                <label class="visually-hidden" for="track-order-id">Order ID</label>
+                <input class="tracking-card__input" id="track-order-id" name="order-id" type="text" placeholder="Order ID" autocomplete="off" required>
+                <label class="visually-hidden" for="track-email">Order E-Mail</label>
+                <input class="tracking-card__input" id="track-email" name="email" type="email" placeholder="Order E-Mail" autocomplete="email" required>
+            </div>
+            <div class="tracking-card__fields" data-track-fields="number" hidden>
+                <label class="visually-hidden" for="track-number">Tracking Number</label>
+                <input class="tracking-card__input" id="track-number" name="tracking-number" type="text" placeholder="Tracking Number" autocomplete="off" required>
+            </div>
+
+            <button class="tracking-card__submit" type="submit">
+                Track your order
+                <svg class="tracking-card__arrow" width="15" height="13" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg>
+            </button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">Online</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Devices</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="#">Privacy terms</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tracking.js"></script>
+</body>
+</html>

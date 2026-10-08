@@ -1,0 +1,560 @@
+/* ==========================================================================
+   Course page — styles shared with the home page (header, buttons, promo
+   block, fonts) live in style.css
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero — background video, darkened from the bottom, promo block centred
+   ========================================================================== */
+.course-hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: var(--fixed-vh, 100vh);
+    min-height: 700px;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* opacity over the black section is what dims the footage */
+.course-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .7;
+    pointer-events: none;
+}
+
+/* Above the video, under the text: fades the footage out into black
+   towards the bottom */
+.course-hero::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        #000 0%,
+        rgba(0, 0, 0, .85) 12%,
+        rgba(0, 0, 0, .4) 35%,
+        rgba(0, 0, 0, 0) 60%
+    );
+    pointer-events: none;
+}
+
+.course-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================================================
+   Stats — looping strip of course figures
+   ========================================================================== */
+.stats {
+    --stats-gap: 190px; /* from each figure to the divider */
+    --stats-duration: 35s;
+
+    padding: 170px 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.stats__track {
+    display: flex;
+    width: max-content;
+    animation: stats-marquee var(--stats-duration) linear infinite;
+}
+
+.stats__track:hover {
+    animation-play-state: paused;
+}
+
+/* Every item carries its own divider, so two identical groups line up
+   seamlessly when the track has moved by -50% */
+.stats__group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.stats__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding: 22px var(--stats-gap);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.stats__value {
+    font-family: 'Brier', serif;
+    font-size: 120px;
+    line-height: .85;
+    background: linear-gradient(90deg, #fff 0%, #969696 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+}
+
+.stats__label {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+@keyframes stats-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stats__track {
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   Tariffs — two glass cards around a taller green featured card
+   ========================================================================== */
+.tariffs {
+    position: relative;
+    padding: 66px var(--page-gutter) 110px;
+    background-color: #000;
+}
+
+/* Planet-horizon band behind the cards, cut off above and below */
+.tariffs::before {
+    content: '';
+    position: absolute;
+    top: 74px;
+    right: 0;
+    left: 0;
+    height: 626px;
+    background: url('../assets/img/tariffs-bg.jpg') 50% -407px / 100% auto no-repeat;
+    /* Soft top and bottom edges so the band melts into the black section
+       instead of stopping on a hard line */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    pointer-events: none;
+}
+
+/* align-items: end — all cards finish on one line; the featured card's
+   larger paddings make it 57px taller */
+.tariffs__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    gap: 76px;
+}
+
+.tariff {
+    --tariff-accent: #9ff582;
+    --tariff-line: rgba(255, 255, 255, .1);
+    --tariff-muted: #979797;
+    --tariff-desc-collapsed: 155px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 42px 57px 67px;
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .45);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    color: #fff;
+}
+
+.tariff--featured {
+    --tariff-line: rgba(0, 0, 0, 0.2);
+    --tariff-muted: #000;
+
+    padding: 108px 50px 57px 50px;
+    border-color: transparent;
+    background: linear-gradient(181.79deg, #6aff6a -2.79%, #30d13b 119.21%);
+    color: #000;
+}
+
+.tariff__badge {
+    position: absolute;
+    top: 38px;
+    right: 37px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.tariff__title {
+    padding-bottom: 21px;
+    border-bottom: 1px solid var(--tariff-line);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.tariff__accent {
+    color: var(--tariff-accent);
+}
+
+.tariff__subtitle {
+    margin-top: 9px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 250%;
+    color: #979797;
+    color: var(--tariff-muted);
+}
+
+/* Description with the round toggle on its right */
+.tariff__about {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 93px;
+}
+
+.tariff--featured .tariff__about {
+    margin-top: 110px;
+}
+
+/* Collapsed to the first lines and faded out; main.js animates the height
+   open to the full text */
+.tariff__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 366px; /* wraps the copy where the design does */
+    height: var(--tariff-desc-collapsed);
+    overflow: hidden;
+    /* Light: the bundled "Regular" file is weight 500 and too heavy here */
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 25px;
+    letter-spacing: -0.01em;
+    transition: height .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* The global p reset would otherwise put the paragraphs back at 400 */
+.tariff__desc p {
+    font-weight: inherit;
+}
+
+.tariff:not(.tariff--featured) .tariff__desc:not(.is-expanded) {
+    -webkit-mask-image: linear-gradient(#000 45%, rgba(0, 0, 0, .3) 100%);
+    mask-image: linear-gradient(#000 45%, rgba(0, 0, 0, .3) 100%);
+}
+
+.tariff:not(.tariff--featured) .tariff__desc p + p {
+    color: rgba(255, 255, 255, .58);
+}
+
+.tariff__toggle {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #bafd4f;
+    transition: transform .3s ease, background-color .3s ease;
+}
+
+.tariff__toggle img {
+    transform: rotate(180deg);
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.tariff__toggle[aria-expanded="true"] img {
+    transform: none;
+}
+
+.tariff__toggle:hover {
+    transform: scale(1.1);
+}
+
+.tariff__toggle:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+}
+
+.tariff--featured .tariff__toggle {
+    background-color: #000;
+}
+
+.tariff--featured .tariff__toggle img {
+    filter: invert(1);
+}
+
+/* Bottom divider runs wider than the text on the glass cards */
+.tariff__price {
+    margin-top: 105px;
+    padding-top: 60px;
+    border-top: 1px solid var(--tariff-line);
+    font-family: 'Brier', serif;
+    font-size: 120px;
+    line-height: .75;
+    letter-spacing: -0.03em;
+    color: #d3d3d3;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tariff--featured .tariff__price {
+    color: #000;
+}
+
+.tariff__btn {
+    align-self: center;
+    min-width: 223px;
+    height: 58px;
+    margin-top: 55px;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   Moon — WebGL globe rocking in 3D with video hotspots pinned to it
+   ========================================================================== */
+.moon {
+    --moon-size: 1028px;
+
+    position: relative;
+    padding-top: 200px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.moon__title {
+    margin-bottom: 110px;
+    font-family: 'Brier', serif;
+    font-size: 140px;
+    font-weight: 400;
+    line-height: .75;
+    letter-spacing: -0.03em;
+    color: #d3d3d3;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Shows the top ~72% of the globe; the rest runs under the footer */
+.moon__stage {
+    position: relative;
+    height: 740px;
+}
+
+.moon__globe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--moon-size);
+    height: var(--moon-size);
+    transform: translateX(-50%);
+}
+
+/* Draggable; pan-y keeps vertical page scrolling working on touch */
+.moon__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.moon.is-dragging .moon__canvas {
+    cursor: grabbing;
+}
+
+.moon.is-dragging .moon__spot {
+    pointer-events: none;
+}
+
+/* The photo's disk fills 88.9% of the frame, so it is enlarged to match */
+.moon__fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--moon-size) / .889);
+    max-width: none;
+    transform: translate(-50%, -50%);
+}
+
+.moon.has-webgl .moon__fallback {
+    display: none;
+}
+
+/* Covers the globe but lets drags through to the canvas; only the dots
+   and their cards take the pointer */
+.moon__spots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* A zero-size anchor on the surface point; course.js moves it every frame */
+.moon__spot {
+    position: absolute;
+    pointer-events: auto;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    will-change: transform, opacity;
+}
+
+.moon__spot.is-hidden {
+    pointer-events: none;
+}
+
+.moon__spot:hover,
+.moon__spot:focus-within {
+    z-index: 2;
+}
+
+.moon__dot {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: scale(var(--spot-scale, 1)); /* set by course.js from depth */
+}
+
+/* The SVG carries its own glow, so it is much larger than the hit area */
+.moon__dot img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 191px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.moon__dot:hover img,
+.moon__dot:focus-visible img {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.moon__dot:focus-visible {
+    outline: 1px solid #64f853;
+    outline-offset: 4px;
+}
+
+/* Video card next to the dot: to the right, or to the left for dots on the
+   left half; opens upwards for all but the top dots, which would otherwise
+   run under the footer */
+.moon__popup {
+    position: absolute;
+    top: -110px;
+    left: 44px;
+    width: 242px;
+    height: 440px;
+    overflow: hidden;
+    border-radius: 7px;
+    background-color: #111;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(.92);
+    transform-origin: 0 110px;
+    transition:
+        opacity .3s ease,
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s .45s;
+}
+
+.moon__spot.is-left .moon__popup {
+    right: 44px;
+    left: auto;
+    transform-origin: 100% 110px;
+}
+
+.moon__spot.is-low .moon__popup {
+    top: auto;
+    bottom: -60px;
+    transform-origin: 0 calc(100% - 60px);
+}
+
+.moon__spot.is-low.is-left .moon__popup {
+    transform-origin: 100% calc(100% - 60px);
+}
+
+.moon__spot:hover .moon__popup,
+.moon__spot:focus-within .moon__popup {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+        opacity .35s ease,
+        transform .55s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s;
+}
+
+.moon__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Frosted round play button in the middle of the card */
+.moon__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.02);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transform: translate(-50%, -50%);
+    transition: opacity .3s ease, transform .3s ease, background-color .3s ease;
+}
+
+.moon__play img {
+    margin-left: 3px; /* optical centre of the triangle */
+}
+
+.moon__play:hover {
+    background-color: rgba(255, 255, 255, .28);
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+.moon__play:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 4px;
+}
+
+.moon__spot.is-playing .moon__play {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Footer — on this dark page its green gradient rises out of black
+   ========================================================================== */
+.footer {
+    --footer-top: #000;
+}
