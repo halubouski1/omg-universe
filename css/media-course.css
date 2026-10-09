@@ -28,7 +28,7 @@
     }
 
     .tariffs {
-        padding: 49.5px var(--page-gutter) 82.5px;
+        padding: 49.5px var(--page-gutter) 0px;
     }
 
     .tariffs::before {
@@ -188,5 +188,265 @@
 
     .tariff__price {
         font-size: 70px;
+    }
+}
+
+@media (max-width: 1025px) {
+    /* the first two cards stretch to one height (top and bottom level), the
+       extra space opening above the price line; the third card sits centred
+       on its own row at one column's width */
+    .tariffs__list {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .tariff__about {
+        margin-bottom: auto;
+    }
+
+    .tariff:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 10px); /* half the 20px gap */
+    }
+
+    /* moon */
+    .moon__title {
+        font-size: 75px;
+    }
+
+    .moon {
+        --moon-size: 700px;
+    }
+}
+
+@media (max-width: 769px) {
+    /* one card per row, full width */
+    .tariffs__list {
+        grid-template-columns: 1fr;
+    }
+
+    .tariff:nth-child(3) {
+        justify-self: stretch;
+        width: auto;
+    }
+
+    .tariff__desc {
+        max-width: 90%;
+    }
+
+    /* moon */
+    .moon {
+        --moon-size: 500px;
+    }
+}
+
+@media (max-width: 570px) {
+    .course-hero {
+        place-items: end;
+        padding-bottom: 55px;
+    }
+
+    /* stats */
+    .stats {
+        padding-top: 55px;
+        padding-bottom: 120px;
+    }
+
+    .stats__track {
+        width: auto;
+        padding: 0 var(--page-gutter);
+        animation: none;
+    }
+
+    .stats__group[aria-hidden="true"] {
+        display: none;
+    }
+
+    .stats__group {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 80px;
+        width: 100%;
+    }
+
+    /* scaled to the screenshot so "50+" fits a half column at 360px */
+    .stats__value {
+        font-size: 75px;
+    }
+
+    .stats__label {
+        font-size: 13px;
+    }
+
+    .stats__item {
+        align-items: flex-start;
+        padding-right: 0;
+        padding-left: 36px;
+        border-right: 0;
+        text-align: left;
+    }
+
+    .stats__item:nth-child(odd) {
+        padding-right: 36px;
+        padding-left: 0;
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* .tariffs */
+    .tariffs {
+        padding-top: 0px;
+    }
+
+    .tariff {
+        padding: 65px 30px 50px 30px;
+        --tariff-desc-collapsed: 176.25px;
+    }
+
+    .tariff__title {
+        text-align: center;
+        font-size: 27px;
+        padding-bottom: 27px;
+    }
+
+    .tariff__subtitle {
+        margin-top: 9px;
+        font-size: 16px;
+    }
+
+    .tariff__about {
+        margin-top: 50px;
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+    }
+
+    .tariff__desc {
+        font-size: 16px;
+        gap: 29px;
+    }
+
+    .tariff__toggle {
+        width: 26px;
+        height: 26px;
+    }
+
+    .tariff__price {
+        margin-top: 25px;
+        padding-top: 60px;
+        font-size: 75px;
+    }
+
+    .tariff__btn {
+        margin-top: 70px;
+    }
+
+    .tariff__btn {
+        min-width: 223px;
+        height: 58px;
+        font-size: 15px;
+    }
+
+    .tariff--featured {
+        padding: 100px 30px 50px 30px;
+    }
+
+    .tariff__badge {
+        font-size: 16px;
+        gap: 11px;
+    }
+
+    /* .moon */
+    .moon {
+        padding-top: 100px;
+        --moon-size: 400px;
+    }
+
+    .moon__title {
+        line-height: 125%;
+        max-width: 310px;
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .moon__popup {
+        width: 242px;
+        height: 440px;
+    }
+
+    .moon__play {
+        width: 74px;
+        height: 74px;
+    }
+}
+/* ≤570px — tariffs: the planet-horizon band repeats behind every card
+   instead of once behind the list. The band (::before) runs out to the
+   screen edges with the horizon about 160px below the card top; the card's
+   own fill and blur move to ::after so they still sit over the band. */
+@media (max-width: 570px) {
+    .tariffs::before {
+        display: none;
+    }
+
+    .tariff {
+        z-index: 0;
+        background: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .tariff::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        top: -20px;
+        right: calc(var(--page-gutter) * -1);
+        left: calc(var(--page-gutter) * -1);
+        height: 420px;
+        background: url('../assets/img/tariffs-bg.jpg') 50% -285px / 1330px auto no-repeat;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%);
+        mask-image: linear-gradient(180deg, transparent 0%, #000 25%);
+        pointer-events: none;
+    }
+
+    .tariff::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        border-radius: inherit;
+        background-color: rgba(0, 0, 0, .45);
+        -webkit-backdrop-filter: blur(22.5px);
+        backdrop-filter: blur(22.5px);
+        pointer-events: none;
+    }
+
+    .tariff--featured::after {
+        background: linear-gradient(181.79deg, #6aff6a -2.79%, #30d13b 119.21%);
+    }
+}
+
+/* ≤769px — moon: whichever dot is tapped, its video card opens centred on
+   the globe. The card is still placed from the dot, so it cancels the dot's
+   offset from the globe centre (--spot-x/--spot-y, set by course.js) and
+   then centres itself; the left/low variants stop applying. */
+@media (max-width: 769px) {
+    .moon__popup,
+    .moon__spot.is-left .moon__popup,
+    .moon__spot.is-low .moon__popup,
+    .moon__spot.is-low.is-left .moon__popup {
+        top: calc(var(--spot-y, 0px) * -1);
+        right: auto;
+        bottom: auto;
+        left: calc(var(--spot-x, 0px) * -1);
+        transform: translate(-50%, calc(-50% + 12px)) scale(.92);
+        transform-origin: 50% 50%;
+    }
+
+    .moon__spot:hover .moon__popup,
+    .moon__spot:focus-within .moon__popup {
+        transform: translate(-50%, -50%);
     }
 }

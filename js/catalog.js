@@ -4,6 +4,7 @@
 const CATALOG_EASE = 'cubic-bezier(.22, 1, .36, 1)';
 const CARD_STAGGER_MS = 60;
 const CARD_STAGGER_MAX = 8; // later cards share the last delay
+const CATALOG_PAGE_SIZE = 12; // products shown at first and per "Load more"
 
 const initCatalog = (catalog) => {
   const grid = catalog.querySelector('[data-catalog-grid]');
@@ -11,11 +12,13 @@ const initCatalog = (catalog) => {
   const filters = [...catalog.querySelectorAll('[data-filter]')];
   const cards = [...grid.querySelectorAll('.product')];
   const sortMenu = catalog.querySelector('[data-sort-menu]');
+  const moreButton = catalog.querySelector('[data-catalog-more]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let activeFilter = 'all';
   let activeSort = 'recommended';
   let transitionId = 0; // a newer filter/sort change cancels an older one
+  let shownCount = CATALOG_PAGE_SIZE;
 
   const animate = (el, keyframes, options) => (
     prefersReducedMotion ? null : el.animate(keyframes, { easing: CATALOG_EASE, fill: 'both', ...options })
@@ -60,6 +63,22 @@ const initCatalog = (catalog) => {
   // --- Filter + sort -------------------------------------------------------
   const matches = (card) => activeFilter === 'all' || card.dataset.category === activeFilter;
 
+  // Shows the first shownCount matching products in grid order and hides
+  // the rest; "Load more" stays while anything is left. Returns the cards
+  // that have just appeared.
+  const applyVisibility = () => {
+    const ordered = [...grid.querySelectorAll('.product')];
+    const matching = ordered.filter(matches);
+    const appeared = [];
+    ordered.forEach((card) => {
+      const isShown = matching.indexOf(card) > -1 && matching.indexOf(card) < shownCount;
+      if (isShown && card.hidden) appeared.push(card);
+      card.hidden = !isShown;
+    });
+    if (moreButton) moreButton.parentElement.hidden = matching.length <= shownCount;
+    return appeared;
+  };
+
   const sortCards = () => {
     const byOrder = (a, b) => a.dataset.order - b.dataset.order;
     const byPrice = (a, b) => a.dataset.price - b.dataset.price;
@@ -91,10 +110,8 @@ const initCatalog = (catalog) => {
     if (id !== transitionId) return;
 
     sortCards();
-    cards.forEach((card) => {
-      card.hidden = !matches(card);
-      observer.unobserve(card); // the grid change replaces the scroll reveal
-    });
+    applyVisibility();
+    cards.forEach((card) => observer.unobserve(card)); // the grid change replaces the scroll reveal
 
     if (newTitle) {
       title.textContent = newTitle;
@@ -106,10 +123,20 @@ const initCatalog = (catalog) => {
     revealCards(cards.filter((card) => !card.hidden));
   };
 
+  // First load: only the first page; "Load more" reveals the next one
+  applyVisibility();
+  moreButton?.addEventListener('click', () => {
+    shownCount += CATALOG_PAGE_SIZE;
+    const appeared = applyVisibility();
+    appeared.forEach((card) => observer.unobserve(card));
+    revealCards(appeared);
+  });
+
   filters.forEach((button) => {
     button.addEventListener('click', () => {
       if (button.dataset.filter === activeFilter) return;
       activeFilter = button.dataset.filter;
+      shownCount = CATALOG_PAGE_SIZE;
       filters.forEach((item) => {
         const isActive = item === button;
         item.classList.toggle('is-active', isActive);
@@ -118,6 +145,44 @@ const initCatalog = (catalog) => {
       updateGrid(button.dataset.title);
     });
   });
+
+  // --- Filter row on phones: arrows + scroll --------------------------------
+  // The arrows pick the previous/next category; whichever category becomes
+  // active is scrolled into the visible part of the row
+  const filterList = catalog.querySelector('.catalog__filter-list');
+  const prevFilter = catalog.querySelector('[data-filter-prev]');
+  const nextFilter = catalog.querySelector('[data-filter-next]');
+
+  const scrollFilterIntoView = (button) => {
+    const item = button.parentElement;
+    const left = item.offsetLeft - (filterList.clientWidth - item.offsetWidth) / 2;
+    filterList.scrollTo({ left, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  };
+
+  const updateFilterRow = () => {
+    const index = filters.findIndex((button) => button.dataset.filter === activeFilter);
+    if (prevFilter) prevFilter.disabled = index <= 0;
+    if (nextFilter) nextFilter.disabled = index >= filters.length - 1;
+    const atEnd = filterList.scrollLeft + filterList.clientWidth >= filterList.scrollWidth - 2;
+    filterList.classList.toggle('is-at-end', atEnd);
+  };
+
+  const stepFilter = (step) => {
+    const index = filters.findIndex((button) => button.dataset.filter === activeFilter);
+    filters[index + step]?.click();
+  };
+
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      scrollFilterIntoView(button);
+      updateFilterRow();
+    });
+  });
+  prevFilter?.addEventListener('click', () => stepFilter(-1));
+  nextFilter?.addEventListener('click', () => stepFilter(1));
+  filterList.addEventListener('scroll', updateFilterRow, { passive: true });
+  window.addEventListener('resize', updateFilterRow);
+  updateFilterRow();
 
   // --- Sort dropdown -------------------------------------------------------
   if (!sortMenu) return;
@@ -135,6 +200,7 @@ const initCatalog = (catalog) => {
     setOpen(false, { focusButton: true });
     if (option.dataset.sort === activeSort) return;
     activeSort = option.dataset.sort;
+    shownCount = CATALOG_PAGE_SIZE;
     options.forEach((item) => {
       const isSelected = item === option;
       item.classList.toggle('is-selected', isSelected);
@@ -170,3 +236,23 @@ const initCatalog = (catalog) => {
 };
 
 document.querySelectorAll('.catalog').forEach(initCatalog);
+
+// Favourites: the heart toggles on click (state only for now — nothing is
+// stored yet); switching it on plays the pop and ring once
+document.querySelectorAll('.product__fav').forEach((button) => {
+  button.addEventListener('click', () => {
+    const isActive = button.classList.toggle('is-active');
+    button.setAttribute('aria-pressed', String(isActive));
+    button.setAttribute('aria-label', button.getAttribute('aria-label')
+      .replace(isActive ? 'Add' : 'Remove', isActive ? 'Remove' : 'Add')
+      .replace(isActive ? ' to favorites' : ' from favorites', isActive ? ' from favorites' : ' to favorites'));
+    button.classList.remove('is-popping');
+    if (isActive) {
+      void button.offsetWidth; // restart the animation on quick re-clicks
+      button.classList.add('is-popping');
+    }
+  });
+  button.addEventListener('animationend', (event) => {
+    if (event.pseudoElement === '::after') button.classList.remove('is-popping');
+  });
+});

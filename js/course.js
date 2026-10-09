@@ -189,6 +189,10 @@ const initMoon = (globe) => {
       const scale = 0.75 + 0.25 * Math.max(z, 0);
       // Only the dot shrinks with depth; the video card keeps its full size
       el.style.transform = `translate(${x * radius}px, ${-y * radius}px)`;
+      // The same offset for CSS: on small screens the card cancels it to sit
+      // centred on the globe instead of beside the dot
+      el.style.setProperty('--spot-x', `${(x * radius).toFixed(1)}px`);
+      el.style.setProperty('--spot-y', `${(-y * radius).toFixed(1)}px`);
       el.style.setProperty('--spot-scale', scale.toFixed(3));
       el.style.opacity = opacity.toFixed(3);
       el.classList.toggle('is-hidden', opacity < 0.5);

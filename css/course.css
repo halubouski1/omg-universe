@@ -131,7 +131,7 @@
    ========================================================================== */
 .tariffs {
     position: relative;
-    padding: 66px var(--page-gutter) 110px;
+    padding: 66px var(--page-gutter) 0px;
     background-color: #000;
 }
 

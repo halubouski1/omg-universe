@@ -35,9 +35,9 @@
 
     .sort__button {
         gap: 15px;
-        padding: 6.75px 6px 6.75px 13.5px;
+        padding: 6.75px 10px 6.75px 15.5px;
         border-radius: 5.25px;
-        font-size: 8.25px;
+        font-size: 12px;
     }
 
     .sort__button:focus-visible {
@@ -58,7 +58,7 @@
         gap: 12px;
         padding: 7.5px 9px;
         border-radius: 4.5px;
-        font-size: 11.25px;
+        font-size: 13px;
     }
 
     .sort__option::after {
@@ -87,6 +87,26 @@
         outline-offset: 2.25px;
     }
 
+    .product__fav {
+        top: 12px;
+        left: 12px;
+        width: 29.25px;
+        height: 29.25px;
+    }
+
+    .product__fav::before {
+        width: 11.25px;
+        height: 10.5px;
+    }
+
+    .product__fav:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .catalog__more {
+        margin-top: 45px;
+    }
+
     .product__info {
         gap: 12px;
         padding: 17.25px 15px 13.5px 22.5px;
@@ -107,4 +127,156 @@
     .product__price {
         font-size: 13.5px;
     }
+}
+
+@media (max-width: 1025px) {
+    .catalog__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px 11.25px;
+    }
+}
+
+/* ≤769px — category filters: one scrolling row with prev/next arrows
+   pinned to the right. The row fades out before the arrows while there is
+   more to scroll (.is-at-end drops the fade); the arrows step the active
+   category and scroll it into view (catalog.js). */
+@media (max-width: 769px) {
+    .catalog__filters {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .catalog__filter-list {
+        flex: 1;
+        flex-wrap: nowrap;
+        gap: 24px;
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 60px), transparent);
+        mask-image: linear-gradient(90deg, #000 calc(100% - 60px), transparent);
+        transition: -webkit-mask-image .3s ease, mask-image .3s ease;
+    }
+
+    .catalog__filter-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .catalog__filter-list.is-at-end {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .catalog__filter-list li {
+        flex-shrink: 0;
+    }
+
+    .catalog__filter {
+        white-space: nowrap;
+    }
+
+    .catalog__filter:focus-visible {
+        outline-offset: -1px;
+    }
+
+    .catalog__filter-arrows {
+        display: flex;
+        flex-shrink: 0;
+        gap: 9px;
+    }
+
+    .catalog__filter-arrow {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 7px;
+        transition: background-color .3s ease, color .3s ease, opacity .3s ease, transform .3s ease;
+    }
+
+    .catalog__filter-arrow svg {
+        width: 13px;
+        height: 10px;
+    }
+
+    .catalog__filter-arrow--prev {
+        background-color: #fff;
+        color: var(--catalog-accent);
+    }
+
+    .catalog__filter-arrow--prev svg {
+        transform: scaleX(-1);
+    }
+
+    .catalog__filter-arrow--next {
+        background-color: var(--catalog-accent);
+        color: #fff;
+    }
+
+    .catalog__filter-arrow:active {
+        transform: scale(.94);
+    }
+
+    .catalog__filter-arrow:disabled {
+        opacity: .45;
+        cursor: default;
+    }
+
+    .catalog__filter-arrow:focus-visible {
+        outline: 1px solid var(--catalog-accent);
+        outline-offset: 3px;
+    }
+
+    .catalog__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 570px) {
+    .catalog {
+        padding: 133px var(--page-gutter) 100px;
+    }
+
+    .catalog__filter {
+        font-size: 16px;
+    }
+
+    .catalog__filter-list {
+        gap: 22px;
+    }
+
+    .catalog__filters {
+        padding-bottom: 16px;
+    }
+
+    .catalog__head {
+        margin: 30px 0 30px;
+    }
+
+    .catalog__title {
+        font-size: 35px;
+    }
+
+    .product__add, .product__fav {
+        width: 25px;
+        height: 25px;
+    }
+
+    .catalog__grid {
+        margin: 0 -10px;
+        width: calc(100% + 20px);
+        gap: 16px 5px;
+    }
+
+    .product__info {
+        gap: 12px;
+        padding: 13px 10px 13px 10px;
+    }
+
+    .product__size {
+        font-size: 12px;
+    }
+
+    
 }

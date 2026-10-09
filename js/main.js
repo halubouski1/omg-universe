@@ -79,6 +79,17 @@ const initHeroSlider = (hero) => {
 
 document.querySelectorAll('[data-hero-slider]').forEach(initHeroSlider);
 
+// Hero heading width — Safari doesn't always recompute a cqw font-size on
+// resize, so the content-box width is passed to CSS as --hero-w instead
+if (typeof ResizeObserver !== 'undefined') {
+  const heroWidthObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.style.setProperty('--hero-w', `${entry.contentRect.width}px`);
+    });
+  });
+  document.querySelectorAll('.hero__inner').forEach((inner) => heroWidthObserver.observe(inner));
+}
+
 // ========================================
 // Events list — expand on hover
 // ========================================
@@ -341,4 +352,50 @@ document.querySelectorAll('[data-expand-toggle]').forEach((toggle) => {
       toggle.setAttribute('aria-label', willExpand ? 'Hide full description' : 'Show full description');
     }
   });
+});
+
+// ========================================
+// Popups — [data-popup-open="<id>"] opens #<id>; the overlay, the close
+// button and Esc close it. Page scroll is locked while one is open.
+// ========================================
+const POPUP_FADE_MS = 400;
+let openPopup = null;
+let popupTrigger = null;
+
+const closePopup = () => {
+  if (!openPopup) return;
+  openPopup.classList.remove('is-open');
+  document.body.classList.remove('is-popup-open');
+  lenis?.start();
+  popupTrigger?.focus({ preventScroll: true });
+  openPopup = null;
+  popupTrigger = null;
+};
+
+const showPopup = (popup, trigger) => {
+  if (openPopup) closePopup();
+  openPopup = popup;
+  popupTrigger = trigger;
+  popup.classList.add('is-open');
+  document.body.classList.add('is-popup-open');
+  lenis?.stop();
+  // after the fade has started, so focusing doesn't jump the page
+  setTimeout(() => (popup.querySelector('input') ?? popup.querySelector('button'))?.focus({ preventScroll: true }), POPUP_FADE_MS / 2);
+};
+
+document.querySelectorAll('[data-popup-open]').forEach((trigger) => {
+  const popup = document.getElementById(trigger.dataset.popupOpen);
+  if (!popup) return;
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    showPopup(popup, trigger);
+  });
+});
+
+document.querySelectorAll('[data-popup]').forEach((popup) => {
+  popup.querySelectorAll('[data-popup-close]').forEach((el) => el.addEventListener('click', closePopup));
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closePopup();
 });

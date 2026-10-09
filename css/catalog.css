@@ -62,10 +62,15 @@
     outline-offset: 6px;
 }
 
+/* Prev/next category arrows — shown at ≤769px (media-catalog.css) */
+.catalog__filter-arrows {
+    display: none;
+}
+
 /* --- Title + sort ----------------------------------------------------------- */
 .catalog__head {
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: space-between;
     margin: 57px 0 54px;
 }
@@ -194,6 +199,18 @@
     display: none;
 }
 
+/* "Load more" under the grid; catalog.js hides it once every product of
+   the current category is shown */
+.catalog__more {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.catalog__more[hidden] {
+    display: none;
+}
+
 .product__card {
     display: flex;
     flex-direction: column;
@@ -304,4 +321,97 @@
 /* cta */
 .cta {
     --cta-overlap: 0px;
+}
+
+/* Round heart (add to favourites) in the top-left corner — the mirror of
+   .product__add: same circle and green hover, the heart beats on hover.
+   Clicking toggles .is-active (catalog.js): the heart turns green, pops and
+   sends out a green ring. The icon (favorites-add.svg's outline) is an
+   inline mask so it can change colour — a mask loaded from a file needs
+   CORS and fails on file:// pages. */
+.product__fav {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: grid;
+    place-items: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color .3s ease, transform .4s var(--catalog-ease);
+}
+
+.product__fav::before {
+    content: '';
+    width: 15px;
+    height: 14px;
+    background-color: #000;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 14'%3E%3Cpath d='M7.49999 13.3452C7.28644 13.3452 7.08056 13.2678 6.92011 13.1273C6.31415 12.5974 5.72993 12.0995 5.21449 11.6603L5.21186 11.658C3.70067 10.3702 2.3957 9.25804 1.48773 8.1625C0.472755 6.93775 0 5.77652 0 4.50794C0 3.27541 0.42263 2.13833 1.18995 1.306C1.96643 0.463829 3.03188 0 4.19036 0C5.05622 0 5.84918 0.273743 6.54715 0.81356C6.8994 1.08604 7.21869 1.41953 7.49999 1.80851C7.7814 1.41953 8.10057 1.08604 8.45293 0.81356C9.15091 0.273743 9.94387 0 10.8097 0C11.9681 0 13.0337 0.463829 13.8101 1.306C14.5775 2.13833 15 3.27541 15 4.50794C15 5.77652 14.5273 6.93775 13.5124 8.16238C12.6044 9.25804 11.2995 10.3701 9.78857 11.6578C9.27221 12.0977 8.68708 12.5964 8.07974 13.1275C7.91941 13.2678 7.71342 13.3452 7.49999 13.3452Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 14'%3E%3Cpath d='M7.49999 13.3452C7.28644 13.3452 7.08056 13.2678 6.92011 13.1273C6.31415 12.5974 5.72993 12.0995 5.21449 11.6603L5.21186 11.658C3.70067 10.3702 2.3957 9.25804 1.48773 8.1625C0.472755 6.93775 0 5.77652 0 4.50794C0 3.27541 0.42263 2.13833 1.18995 1.306C1.96643 0.463829 3.03188 0 4.19036 0C5.05622 0 5.84918 0.273743 6.54715 0.81356C6.8994 1.08604 7.21869 1.41953 7.49999 1.80851C7.7814 1.41953 8.10057 1.08604 8.45293 0.81356C9.15091 0.273743 9.94387 0 10.8097 0C11.9681 0 13.0337 0.463829 13.8101 1.306C14.5775 2.13833 15 3.27541 15 4.50794C15 5.77652 14.5273 6.93775 13.5124 8.16238C12.6044 9.25804 11.2995 10.3701 9.78857 11.6578C9.27221 12.0977 8.68708 12.5964 8.07974 13.1275C7.91941 13.2678 7.71342 13.3452 7.49999 13.3452Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: background-color .3s ease;
+}
+
+.product__fav.is-active::before {
+    background-color: var(--catalog-accent);
+}
+
+/* ring that bursts out when the heart is switched on */
+.product__fav::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--catalog-accent);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.product__fav:hover {
+    background-color: var(--catalog-accent);
+}
+
+.product__fav:hover::before,
+.product__fav.is-active:hover::before {
+    background-color: #fff;
+    animation: product-fav-beat .9s ease-in-out infinite;
+}
+
+.product__fav.is-popping::before {
+    animation: product-fav-pop .5s var(--catalog-ease);
+}
+
+.product__fav.is-popping::after {
+    animation: product-fav-ring .6s ease-out;
+}
+
+.product__fav:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+@keyframes product-fav-beat {
+    0%, 40%, 100% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    28% { transform: scale(1.05); }
+}
+
+@keyframes product-fav-pop {
+    0% { transform: scale(.6); }
+    45% { transform: scale(1.35); }
+    70% { transform: scale(.92); }
+    100% { transform: scale(1); }
+}
+
+@keyframes product-fav-ring {
+    0% { opacity: .8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.7); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product__fav:hover::before,
+    .product__fav.is-popping::before,
+    .product__fav.is-popping::after {
+        animation: none;
+    }
 }
