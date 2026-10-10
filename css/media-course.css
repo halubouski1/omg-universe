@@ -301,7 +301,7 @@
 
     .tariff {
         padding: 65px 30px 50px 30px;
-        --tariff-desc-collapsed: 176.25px;
+        --tariff-desc-collapsed: 160.25px;
     }
 
     .tariff__title {

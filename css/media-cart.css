@@ -167,3 +167,177 @@
         min-width: 0;
     }
 }
+
+@media (max-width: 1025px) {
+    .cart__items {
+        gap: 40px;
+        margin-top: 82.5px;
+    }
+
+    .cart__back {
+        display: none;
+    }
+
+    .summary__actions {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    /* flex: 1 1 0 sized them along the row; in a column that 0 basis would
+       replace their 64px height, so they go back to plain sizing here */
+    .summary__promo,
+    .summary__checkout-btn {
+        flex: none;
+    }
+}
+
+/* ≤769px — one bag item per row, then the order summary as a single
+   column card in the mobile shape (cart-summary-mob-shape.svg): the side
+   notches stay centred on its edges whatever the height (mask pieces from
+   the SVG + plain rectangles), corners from border-radius. Inside: title,
+   rule, the two price rows, the total with its rule, then the promo field
+   and checkout button at full width. */
+@media (max-width: 769px) {
+    .cart__items {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .bag-item__body {
+        min-width: 0;
+    }
+
+    .bag-item__text {
+        max-width: none;
+    }
+
+    .summary {
+        display: block;
+        min-height: 0;
+        margin-top: 70px;
+        padding: 40px;
+        border-radius: 14px;
+        background: linear-gradient(72deg, #141414 30%, #278e1a 100%);
+        -webkit-mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 155 12 171' preserveAspectRatio='none'%3E%3Cpath d='M0 155V160.517C0 168.016 7.99166 174.675 9.45068 182.03C9.5772 182.668 9.64354 183.328 9.64355 184.003V296.997C9.64354 297.672 9.57723 298.331 9.45079 298.969C7.99212 306.325 0 312.983 0 320.482V326H12V155Z'/%3E%3C/svg%3E") 0 50% / 12px 171px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='308 155 12 171' preserveAspectRatio='none'%3E%3Cpath d='M320 155V160.813C320 168.197 312.264 174.733 310.779 181.966C310.644 182.624 310.573 183.305 310.573 184.003V296.997C310.573 297.695 310.644 298.376 310.779 299.033C312.263 306.267 320 312.802 320 320.186V326H308V155Z'/%3E%3C/svg%3E") 100% 50% / 12px 171px no-repeat,
+            linear-gradient(#000 0 0) 50% 0 / calc(100% - 22px) 100% no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 100% 0 / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 100% 100% / 12px calc(50% - 84.5px) no-repeat;
+        mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 155 12 171' preserveAspectRatio='none'%3E%3Cpath d='M0 155V160.517C0 168.016 7.99166 174.675 9.45068 182.03C9.5772 182.668 9.64354 183.328 9.64355 184.003V296.997C9.64354 297.672 9.57723 298.331 9.45079 298.969C7.99212 306.325 0 312.983 0 320.482V326H12V155Z'/%3E%3C/svg%3E") 0 50% / 12px 171px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='308 155 12 171' preserveAspectRatio='none'%3E%3Cpath d='M320 155V160.813C320 168.197 312.264 174.733 310.779 181.966C310.644 182.624 310.573 183.305 310.573 184.003V296.997C310.573 297.695 310.644 298.376 310.779 299.033C312.263 306.267 320 312.802 320 320.186V326H308V155Z'/%3E%3C/svg%3E") 100% 50% / 12px 171px no-repeat,
+            linear-gradient(#000 0 0) 50% 0 / calc(100% - 22px) 100% no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 100% 0 / 12px calc(50% - 84.5px) no-repeat,
+            linear-gradient(#000 0 0) 100% 100% / 12px calc(50% - 84.5px) no-repeat;
+    }
+
+    .summary__details {
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .summary__title {
+        padding-bottom: 17px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .summary__list {
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 25px 20px;
+        margin-top: 28px;
+        font-size: 14px;
+    }
+
+    .summary__delivery {
+        gap: 2px;
+    }
+
+    .summary__checkout {
+        margin-top: 104px;
+    }
+
+    .summary__total {
+        padding-bottom: 16px;
+        font-size: 14px;
+    }
+
+    .summary__actions {
+        gap: 10px;
+        margin-top: 17px;
+    }
+
+    .summary__note {
+        font-size: 12px;
+    }
+
+    .bag-item__text {
+        font-size: 13px;
+    }
+
+    .bag-item__size {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 570px) {
+    .page-cart {
+        --cart-frame: 10px;
+    }
+
+    .cart__panel {
+        padding: 125px 10px 70px;
+    }
+
+    .cart__title {
+        font-size: 35px;
+    }
+
+    .cart__items {
+        margin-top: 40px;
+    }
+
+    .bag-item__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .bag-item {
+        gap: 12px;
+    }
+
+    .bag-item__body {
+        padding-top: 0;
+    }
+
+    .bag-item__title {
+        font-size: 16px;
+    }
+
+    .bag-item__text {
+        margin-top: 8px;
+        line-height: 130%;
+    }
+
+    .bag-item__remove {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bag-item__size {
+        margin-top: 12px;
+    }
+
+    .summary__title {
+        font-size: 25px;
+    }
+
+    .summary__promo, .summary__checkout-btn {
+        height: 46px;
+        font-size: 14px;
+    }
+}
