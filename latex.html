@@ -42,7 +42,10 @@
     <section class="hero product-hero" aria-labelledby="product-title">
         <!-- Same background + blurred diagonal strip as the home hero -->
         <div class="hero__media">
-            <img class="hero__slide is-active" src="assets/img/latex-hero.jpg" alt="" width="1920" height="1217" fetchpriority="high">
+            <picture>
+                <source media="(max-width: 570px)" srcset="assets/img/latex-hero-mob.jpg" width="360" height="726">
+                <img class="hero__slide is-active" src="assets/img/latex-hero.jpg" alt="" width="1920" height="1217" fetchpriority="high">
+            </picture>
         </div>
 
         <div class="product-hero__inner">
@@ -78,6 +81,9 @@
             <div class="gallery" data-gallery>
                 <div class="gallery__main" data-aos="fade-up" data-aos-duration="1000">
                     <img class="gallery__image" src="assets/img/product-latex-1.jpg" alt="Three OMG practice latex sheets with brow outlines" width="873" height="938">
+                    <!-- Tablet/phone: step through the photos (product.js) -->
+                    <button class="gallery__arrow gallery__arrow--prev" type="button" aria-label="Previous photo" data-gallery-prev><svg width="13" height="10" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6h14M10 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+                    <button class="gallery__arrow gallery__arrow--next" type="button" aria-label="Next photo" data-gallery-next><svg width="13" height="10" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6h14M10 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
                 </div>
                 <ul class="gallery__thumbs">
                         <li data-aos="fade-left" data-aos-delay="150">

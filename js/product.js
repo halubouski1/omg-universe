@@ -38,6 +38,14 @@ const initGallery = (gallery) => {
     ).finished.then(() => previous.remove(), () => {});
   };
 
+  // Arrows (tablet/phone) step through the thumbnails, wrapping around
+  const step = (direction) => {
+    const index = thumbs.indexOf(activeThumb);
+    show(thumbs[(index + direction + thumbs.length) % thumbs.length]);
+  };
+  gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => step(-1));
+  gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => step(1));
+
   thumbs.forEach((thumb) => {
     thumb.addEventListener('click', () => show(thumb));
     thumb.addEventListener('pointerenter', (event) => {

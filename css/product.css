@@ -156,6 +156,11 @@
     object-fit: cover;
 }
 
+/* Prev/next over the photo — shown at ≤1025px (media-product.css) */
+.gallery__arrow {
+    display: none;
+}
+
 .gallery__thumbs {
     display: flex;
     flex-direction: column;

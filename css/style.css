@@ -92,6 +92,15 @@ body {
     font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
+/* AOS starts fade-left/right elements 100px to the side; on phones that
+   overflow widened the page and the browser zoomed out (a black strip on
+   the right). Clipped on <main> — on body the setting is handed to the
+   viewport, which mobile browsers still zoom past. clip, unlike hidden,
+   keeps position: sticky working. */
+main {
+    overflow-x: clip;
+}
+
 /* Anchor links stop 100px short of the section top so the heading does not sit
    flush against the viewport edge. Applies to native #hash jumps; the Lenis
    scrolls in main.js pass the same value as an offset. */
