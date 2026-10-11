@@ -70,6 +70,24 @@ const initBag = (bag) => {
   });
 
   updateTotals();
+
+  // Entrance: the items rise in one after another as they come into view
+  // (40px, fading — the same as the catalog and favourites cards)
+  if (!prefersReducedMotion) {
+    const items = [...list.querySelectorAll('[data-bag-item]')];
+    items.forEach((item) => { item.style.opacity = 0; });
+    const observer = new IntersectionObserver((entries) => {
+      entries.filter((e) => e.isIntersecting).forEach((entry, i) => {
+        const item = entry.target;
+        observer.unobserve(item);
+        item.animate(
+          [{ opacity: 0, transform: 'translateY(40px)' }, { opacity: 1, transform: 'none' }],
+          { duration: 700, delay: Math.min(i, 8) * 80, easing: BAG_EASE, fill: 'backwards' },
+        ).finished.then(() => { item.style.opacity = ''; }, () => { item.style.opacity = ''; });
+      });
+    }, { rootMargin: '0px 0px -60px 0px' });
+    items.forEach((item) => observer.observe(item));
+  }
 };
 
 document.querySelectorAll('[data-bag]').forEach(initBag);

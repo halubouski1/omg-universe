@@ -1902,3 +1902,187 @@ body.is-popup-open {
     width: 100%;
     margin-top: auto;
 }
+
+/* ==========================================================================
+   Favourites notification — shown on any page when a product is added to
+   favourites (main.js builds it once and reuses it)
+   ==========================================================================
+   Pinned to the content's right edge, 276px from the top; slides in from the
+   right and fades, hides after a few seconds or with the cross. Photo |
+   heart + title on top, "Go to favorites" at the bottom. */
+/* Stack of notifications: pinned here; each action adds its own plate on
+   top, 10px apart, and each leaves on its own timer (main.js) */
+.fav-stack {
+    position: fixed;
+    z-index: 90;
+    top: 276px;
+    right: var(--page-gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(452px, calc(100vw - var(--page-gutter) * 2));
+    pointer-events: none;
+}
+
+.fav-toast {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    padding: 19px;
+    pointer-events: auto;
+    border-radius: 10px;
+    background-color: #03060b;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(40px);
+    transition:
+        opacity .4s ease,
+        transform .6s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s .6s;
+}
+
+.fav-toast.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+        opacity .4s ease,
+        transform .6s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s;
+}
+
+.fav-toast__image {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.fav-toast__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding-right: 36px; /* clear of the cross */
+}
+
+.fav-toast__title {
+    max-width: 150px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 117%;
+    letter-spacing: -0.03em;
+    color: #eceff4;
+}
+
+.fav-toast__heart {
+    display: inline-block;
+    width: 14px;
+    height: 13px;
+    margin-right: 8px;
+    vertical-align: baseline;
+}
+
+.fav-toast__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    align-self: flex-start;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #eceff4;
+    transition: opacity .3s ease;
+}
+
+.fav-toast__link svg {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    transform: rotate(-45deg);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.fav-toast__link:hover {
+    opacity: .75;
+}
+
+.fav-toast__link:hover svg {
+    transform: rotate(-45deg) translateX(2px);
+}
+
+.fav-toast__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+    transition: opacity .3s ease, transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.fav-toast__close img {
+    width: 100%;
+    height: 100%;
+    filter: invert(1); /* close.svg is black */
+}
+
+.fav-toast__close:hover {
+    opacity: .7;
+    transform: rotate(90deg);
+}
+
+.fav-toast__close:focus-visible,
+.fav-toast__link:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fav-toast,
+    .fav-toast.is-visible {
+        transform: none;
+    }
+}
+
+/* Removed from favourites: the same plate without photo, heart and link —
+   one line of text, 20px / 30px padding, the cross centred on the right */
+.fav-toast--removed {
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.fav-toast--removed .fav-toast__image,
+.fav-toast--removed .fav-toast__heart,
+.fav-toast--removed .fav-toast__link {
+    display: none;
+}
+
+.fav-toast--removed .fav-toast__title {
+    max-width: none;
+}
+
+.fav-toast--removed .fav-toast__close {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fav-toast--removed .fav-toast__close:hover {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Added to cart: the same plate; the cart icon (white in the file) toned to
+   the heart's grey, a little larger than the heart and lowered onto the
+   text line so the bag reads at the same size */
+.fav-toast--cart .fav-toast__heart {
+    width: 17px;
+    height: 17px;
+    vertical-align: -2px;
+    filter: brightness(.557);
+}

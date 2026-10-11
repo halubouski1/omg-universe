@@ -70,7 +70,7 @@
 /* --- Title + sort ----------------------------------------------------------- */
 .catalog__head {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     margin: 57px 0 54px;
 }
@@ -444,4 +444,16 @@
     .product__fav.is-popping::after {
         animation: none;
     }
+}
+
+/* "+" while the product is in the cart: green cross on the white circle, like
+   the active heart; hover still shows the green circle with a white cross */
+.product__add.is-active::before,
+.product__add.is-active::after {
+    background-color: var(--catalog-accent);
+}
+
+.product__add.is-active:hover::before,
+.product__add.is-active:hover::after {
+    background-color: #fff;
 }

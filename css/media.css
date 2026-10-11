@@ -537,6 +537,76 @@
     .menu__link {
         font-size: 56.25px;
     }
+    .fav-stack {
+        top: 207px;
+        gap: 7.5px;
+        width: min(339px, calc(100vw - var(--page-gutter) * 2));
+    }
+
+    .fav-toast {
+        gap: 15px;
+        padding: 14.25px;
+        border-radius: 7.5px;
+        transform: translateX(30px);
+    }
+
+    .fav-toast__image {
+        width: 82.5px;
+        height: 82.5px;
+        border-radius: 3.75px;
+    }
+
+    .fav-toast__body {
+        padding-right: 27px;
+    }
+
+    .fav-toast__title {
+        max-width: 112.5px;
+        font-size: 13.5px;
+    }
+
+    .fav-toast__heart {
+        width: 10.5px;
+        height: 9.75px;
+        margin-right: 6px;
+    }
+
+    .fav-toast--cart .fav-toast__heart {
+        width: 12.75px;
+        height: 12.75px;
+        vertical-align: -1.5px;
+    }
+
+    .fav-toast__link {
+        gap: 8.25px;
+        font-size: 12px;
+        text-underline-offset: 2.25px;
+    }
+
+    .fav-toast__link svg {
+        width: 9px;
+        height: 9px;
+    }
+
+    .fav-toast__link:hover svg {
+        transform: rotate(-45deg) translateX(1.5px);
+    }
+
+    .fav-toast__close {
+        top: 15px;
+        right: 15px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .fav-toast__close:focus-visible,
+    .fav-toast__link:focus-visible {
+        outline-offset: 2.25px;
+    }
+
+    .fav-toast--removed {
+        padding: 15px 22.5px;
+    }
 }
 
 @media (max-width: 1370px) {
@@ -740,6 +810,11 @@
     /* menu */
     .menu  .footer__address {
         max-width: 201px;
+    }
+
+    /* fav */
+    .fav-stack {
+        top: 165px;
     }
 }
 
@@ -1304,5 +1379,32 @@
     .menu__contacts .footer__address {
         max-width: 250px;
         text-align: center;
+    }
+
+    /* fav: full width, 10px from both screen edges, at the bottom; the
+       newest plate sits nearest the edge, older ones stack above it */
+    .fav-stack {
+        top: auto;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        flex-direction: column-reverse;
+        width: auto;
+    }
+
+    .fav-toast {
+        padding: 13px;
+    }
+
+    .fav-toast__title {
+        font-size: 14px;
+    }
+
+    .fav-toast__link {
+        font-size: 13px;
+    }
+
+    .fav-toast--removed {
+        padding: 20px 22px;
     }
 }

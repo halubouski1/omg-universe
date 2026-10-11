@@ -103,8 +103,9 @@
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
-    transition:
-        background-color .5s ease,
+    /* (the trailing comma here made the whole declaration invalid, so the
+       hover colour switched abruptly) */
+    transition: background-color .5s ease;
 }
 
 /* Soft lift: slightly darker, rises 2px, a faint green glow grows beneath */
