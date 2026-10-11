@@ -639,7 +639,7 @@
     }
 
         .needles-facts {
-        --facts-gap: 24px; /* between items, and at the join of the two copies */
+        --facts-gap: 40px;
 
         padding-right: 0;
         padding-left: 0;
@@ -661,12 +661,18 @@
     .needles-facts__list[aria-hidden="true"] {
         display: flex;
         flex-shrink: 0;
-        gap: var(--facts-gap);
+        /* not the desktop space-between: Safari sizes the list from the
+           items' unwrapped text and would spread that spare width into gaps */
+        justify-content: flex-start;
+        gap: 30px;
         padding-right: var(--facts-gap);
     }
 
+    /* width as well as flex-basis: Safari takes an item's width from its
+       unwrapped text when sizing the track unless the width is set */
     .needles-facts__item {
         flex: 0 0 232px;
+        width: 232px;
         max-width: none;
         display: flex;
         justify-content: center;
@@ -838,8 +844,9 @@
 
     .needles-facts__item {
         font-size: 14px;
-        padding-left: 16px;
+        padding-left: 25px;
         flex: 0 0 198px;
+        width: 198px;
     }
 
     /* .pigments-range */
