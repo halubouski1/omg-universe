@@ -133,6 +133,26 @@ const initCheckout = (form) => {
     swapSummaryLabel(isPayment ? 'Checkout' : 'Continue');
   };
 
+  // After a step change the page glides (with Lenis, which owns the page
+  // scroll) back to the start of the new step: on phones the Continue button
+  // is far down, so it lands on the step tabs; elsewhere on the panel top,
+  // and only when that top has scrolled out of view
+  const isPhone = window.matchMedia('(max-width: 769px)');
+  const stepTabs = panel?.querySelector('.checkout-steps');
+
+  const scrollToStep = () => {
+    const target = isPhone.matches ? stepTabs : panel;
+    if (!target) return;
+    if (!isPhone.matches && target.getBoundingClientRect().top >= 0) return;
+    const offset = isPhone.matches ? -30 : 0;
+    if (typeof lenis !== 'undefined' && lenis) {
+      lenis.scrollTo(target, { offset, immediate: prefersReducedMotion });
+    } else {
+      const top = target.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+  };
+
   const goTo = async (step) => {
     if (step === current || isSwitching) return;
     isSwitching = true;
@@ -155,9 +175,7 @@ const initCheckout = (form) => {
       { opacity: 1, transform: 'none' },
     ], { duration: 650, delay: index * 90, fill: 'backwards' }));
 
-    if (panel && panel.getBoundingClientRect().top < 0) {
-      panel.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-    }
+    scrollToStep();
     to.querySelector('input')?.focus({ preventScroll: true });
     isSwitching = false;
   };
@@ -167,7 +185,8 @@ const initCheckout = (form) => {
   });
 
   const completeOrder = () => {
-    // No order confirmation design yet — place the real submit here.
+    // The real order submit goes here; for now the thank-you page opens
+    window.location.href = 'thanks.html';
   };
 
   form.addEventListener('submit', (event) => {

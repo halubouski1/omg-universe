@@ -922,14 +922,9 @@
         line-height: 0.9;
     }
 
-    /* Home deck: line breaks come from the width, not the <br> */
-    .deck-card:not(.deck-card--pigments) .deck-card__title br {
-        display: none;
-    }
-
-    /* the hidden <br> took the space between "beyond" and "your" */
-    .deck-card:not(.deck-card--pigments) .deck-card__title em:first-of-type {
-        margin-right: .25em;
+    /* Home deck: the title wraps to the card, not to the desktop width */
+    .deck-card:not(.deck-card--pigments) .deck-card__title {
+        max-width: none;
     }
 
     /* Pigments / Thinner / Magnum decks: same title size, own <br> breaks,

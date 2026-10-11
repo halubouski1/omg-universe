@@ -20,6 +20,15 @@
     color: #fff;
 }
 
+/* The <picture> (mobile photo ≤570px) must stay out of the hero's flex
+   column — as a flex item it took the top slot and pushed the heading
+   down — so it is laid over the whole hero like the photo itself */
+.pigments-hero__picture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
 .pigments-hero__bg {
     position: absolute;
     inset: 0;
@@ -278,6 +287,8 @@
 }
 
 .pigment-slide--brow .pigment-slide__text {
+    /* line breaks come from this width (was <br>) */
+    max-width: 22.75em;
     margin-top: 54px;
 }
 
@@ -482,7 +493,7 @@
 
     position: relative;
     z-index: 2; /* above the bundles figures reaching down from above */
-    padding: 0px 20px 140px;
+    padding: 0 0 140px; /* side gutter is on the slider, so cards aren't cut */
     background-color: var(--bundle-bg);
 }
 
@@ -500,6 +511,10 @@
 }
 
 .bundle-slider__slider {
+    /* The 20px side gutter lives here, not on the section: the slider clips
+       at its outer edge, so cards scroll on to the screen edge instead of
+       being cut 20px in */
+    padding: 0 20px;
     overflow: hidden;
 }
 
@@ -690,6 +705,7 @@
 
 .deck-card--pigments .deck-card__title em {
     font-weight: 400;
+    line-height: 0.7;
 }
 
 /* Soft green light behind the bottle */
@@ -796,6 +812,11 @@
 }
 
 .tips__title {
+    /* two lines from this width (was <br>): wider than "brow pigments"
+       (7.83em), narrower than "tips for using brow" (10.75em) */
+    max-width: 9.3em;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 36px;
     font-weight: 500;
     font-size: 70px;
@@ -844,6 +865,9 @@
 
 /* Frosted circle, hidden until the card is hovered or focused */
 .skin-card__more {
+    /* side padding narrows the text box so "Learn more" wraps onto two
+       lines inside the circle (was <br>) */
+    padding: 0 2.1em;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -900,6 +924,249 @@
     letter-spacing: -0.03em;
 }
 
+/* --- Tips detail ------------------------------------------------------------------
+   Opened from a card's "Learn more" (pigments.js): the grid fades away and,
+   in the same place, the photo (531px) | the white card (730px, notched on
+   its left like tips-more-shape.svg) | the card's tone panel, 36px apart.
+   The grid and the detail share one grid cell, so the section keeps the
+   taller of the two. */
+.tips__stage {
+    position: relative;
+    display: grid;
+    margin-top: 85px;
+}
+
+.tips__stage > .tips__grid,
+.tips__stage > .tips-detail {
+    grid-area: 1 / 1;
+}
+
+.tips__stage > .tips__grid {
+    margin-top: 0;
+    transition: opacity .45s ease, visibility 0s;
+}
+
+.tips__stage.is-open > .tips__grid {
+    /* out of the flow while a type is open, so the section takes the detail's
+       height, not the (on tablets much taller) card grid's */
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s .35s;
+}
+
+.tips-detail {
+    display: grid;
+    grid-template-columns: 531px 730px minmax(0, 1fr);
+    gap: 36px;
+    align-self: start;
+    height: 708px;
+    text-align: left;
+}
+
+.tips-detail[hidden] {
+    display: none;
+}
+
+.tips-detail__photo {
+    overflow: hidden;
+    cursor: pointer; /* a click on the photo closes the detail */
+}
+
+.tips-detail__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card and tone panel slide in after the photo has grown into place */
+.tips-detail__card,
+.tips-detail__tone {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .5s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.tips-detail.is-shown .tips-detail__card,
+.tips-detail.is-shown .tips-detail__tone {
+    opacity: 1;
+    transform: none;
+}
+
+.tips-detail.is-shown .tips-detail__tone {
+    transition-delay: .08s;
+}
+
+.tips-detail__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 74px 74px 48px;
+    border-radius: 14px;
+    background-color: #fff;
+    -webkit-mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 236 24 236' preserveAspectRatio='none'%3E%3Cpath d='M0 236V242.609C0 250.108 6.41838 255.967 12.4892 260.37C18.2521 264.549 22 271.337 22 279V429C22 436.663 18.2521 443.451 12.4893 447.63C6.41834 452.032 0 457.891 0 465.39V472H24V236Z'/%3E%3C/svg%3E") 0 50% / 24px 236px no-repeat,
+        linear-gradient(#000 0 0) 0 0 / 24px calc(50% - 117px) no-repeat,
+        linear-gradient(#000 0 0) 0 100% / 24px calc(50% - 117px) no-repeat,
+        linear-gradient(#000 0 0) 23px 0 / calc(100% - 23px) 100% no-repeat;
+    mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 236 24 236' preserveAspectRatio='none'%3E%3Cpath d='M0 236V242.609C0 250.108 6.41838 255.967 12.4892 260.37C18.2521 264.549 22 271.337 22 279V429C22 436.663 18.2521 443.451 12.4893 447.63C6.41834 452.032 0 457.891 0 465.39V472H24V236Z'/%3E%3C/svg%3E") 0 50% / 24px 236px no-repeat,
+        linear-gradient(#000 0 0) 0 0 / 24px calc(50% - 117px) no-repeat,
+        linear-gradient(#000 0 0) 0 100% / 24px calc(50% - 117px) no-repeat,
+        linear-gradient(#000 0 0) 23px 0 / calc(100% - 23px) 100% no-repeat;
+}
+
+.tips-detail__type {
+    position: absolute;
+    top: 34px;
+    right: 34px;
+    font-family: 'Brier', serif;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--tone-ink, #4e3024);
+}
+
+.tips-detail__title {
+    max-width: 360px;
+    margin-bottom: 36px;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 113%;
+    background: linear-gradient(102.82deg, #122315 10.74%, #009e15 73.57%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.tips-detail__text {
+    max-width: 354px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 194%;
+    color: #657b8d;
+}
+
+.tips-detail__facts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin: auto 0 0;
+}
+
+.tips-detail__fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color: #657b8d;
+}
+
+.tips-detail__fact dd {
+    margin: 0;
+    text-align: right;
+}
+
+/* Tone panel: label at the top, the two-pigment mix in the middle, a rule
+   along the bottom */
+.tips-detail__tone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 37px 33px 6px;
+    border-radius: 14px;
+    background-color: var(--tone, #faefec);
+}
+
+.tips-detail__label {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--tone-mark, rgba(101, 123, 141, 0.35));
+}
+
+.tips-detail__mix {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: auto 0;
+}
+
+.tips-detail__swatch {
+    width: 39px;
+    height: 39px;
+    border-radius: 5px;
+    background-color: var(--swatch);
+}
+
+.tips-detail__plus {
+    font-size: 18px;
+    line-height: 1;
+    color: var(--tone-mark, #657b8d);
+}
+
+.tips-detail__line {
+    align-self: stretch;
+    height: 1px;
+    margin-bottom: 21px;
+    background-color: var(--tone-mark, #c6c6cb);
+}
+
+/* Placed like the card's Roman numeral: 34px from the right, centred on its
+   22px line (45px down). The 32px hit area round the 15px cross puts the
+   button at 29px / 25.5px. */
+.tips-detail__close {
+    position: absolute;
+    top: 29px;
+    right: 25.5px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: opacity .3s ease, transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.tips-detail__close img {
+    width: 15px;
+    height: 15px;
+    filter: var(--tone-close, none); /* invert(1) = white on types V, VI */
+}
+
+.tips-detail__close:hover {
+    opacity: .6;
+    transform: rotate(90deg);
+}
+
+.tips-detail__close:focus-visible {
+    outline: 1px solid #657b8d;
+    outline-offset: 2px;
+}
+
+/* The photo travelling from the card to its place in the detail */
+.tips-ghost {
+    position: absolute;
+    z-index: 3;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tips-detail__card,
+    .tips-detail__tone {
+        transition: none;
+    }
+}
+
 /* ==========================================================================
    Permanent makeup — framed photo banner, copy on the right
    ========================================================================== */
@@ -947,6 +1214,8 @@
 }
 
 .permanent__title {
+    /* line breaks come from this width (was <br>) */
+    max-width: 5.05em;
     font-weight: 500;
     font-size: 110px;
     line-height: 105%;

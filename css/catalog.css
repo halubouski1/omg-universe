@@ -212,9 +212,37 @@
 }
 
 .product__card {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+/* The product name links to the product page; its ::after stretches over the
+   whole card so a tap anywhere opens it. The "+" and heart sit above it. */
+.product__link {
+    color: inherit;
+}
+
+.product__link::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+}
+
+.product__link:focus-visible {
+    outline: none;
+}
+
+.product__card:has(.product__link:focus-visible) {
+    outline: 2px solid var(--catalog-accent, #4a932f);
+    outline-offset: 3px;
+}
+
+.product__add,
+.product__fav {
+    z-index: 2;
 }
 
 .product__media {
@@ -344,8 +372,10 @@
 
 .product__fav::before {
     content: '';
-    width: 15px;
-    height: 14px;
+    /* a share of the button (15px of 39px at 1920), so the heart scales
+       with every button size — ×0.75, compact cards, phones */
+    width: 38.5%;
+    aspect-ratio: 15 / 14;
     background-color: #000;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 14'%3E%3Cpath d='M7.49999 13.3452C7.28644 13.3452 7.08056 13.2678 6.92011 13.1273C6.31415 12.5974 5.72993 12.0995 5.21449 11.6603L5.21186 11.658C3.70067 10.3702 2.3957 9.25804 1.48773 8.1625C0.472755 6.93775 0 5.77652 0 4.50794C0 3.27541 0.42263 2.13833 1.18995 1.306C1.96643 0.463829 3.03188 0 4.19036 0C5.05622 0 5.84918 0.273743 6.54715 0.81356C6.8994 1.08604 7.21869 1.41953 7.49999 1.80851C7.7814 1.41953 8.10057 1.08604 8.45293 0.81356C9.15091 0.273743 9.94387 0 10.8097 0C11.9681 0 13.0337 0.463829 13.8101 1.306C14.5775 2.13833 15 3.27541 15 4.50794C15 5.77652 14.5273 6.93775 13.5124 8.16238C12.6044 9.25804 11.2995 10.3701 9.78857 11.6578C9.27221 12.0977 8.68708 12.5964 8.07974 13.1275C7.91941 13.2678 7.71342 13.3452 7.49999 13.3452Z'/%3E%3C/svg%3E") center / contain no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 14'%3E%3Cpath d='M7.49999 13.3452C7.28644 13.3452 7.08056 13.2678 6.92011 13.1273C6.31415 12.5974 5.72993 12.0995 5.21449 11.6603L5.21186 11.658C3.70067 10.3702 2.3957 9.25804 1.48773 8.1625C0.472755 6.93775 0 5.77652 0 4.50794C0 3.27541 0.42263 2.13833 1.18995 1.306C1.96643 0.463829 3.03188 0 4.19036 0C5.05622 0 5.84918 0.273743 6.54715 0.81356C6.8994 1.08604 7.21869 1.41953 7.49999 1.80851C7.7814 1.41953 8.10057 1.08604 8.45293 0.81356C9.15091 0.273743 9.94387 0 10.8097 0C11.9681 0 13.0337 0.463829 13.8101 1.306C14.5775 2.13833 15 3.27541 15 4.50794C15 5.77652 14.5273 6.93775 13.5124 8.16238C12.6044 9.25804 11.2995 10.3701 9.78857 11.6578C9.27221 12.0977 8.68708 12.5964 8.07974 13.1275C7.91941 13.2678 7.71342 13.3452 7.49999 13.3452Z'/%3E%3C/svg%3E") center / contain no-repeat;

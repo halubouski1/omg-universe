@@ -84,6 +84,13 @@
     box-sizing: border-box;
 }
 
+/* No blue/grey flash over links and buttons when they are tapped on phones
+   (WebKit's tap highlight); inherited, so this covers the whole page. The
+   focus outlines for keyboard users are separate and stay. */
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -847,7 +854,9 @@ ul {
     --deck-progress: 0;
 
     position: sticky;
-    top: calc((100svh - var(--deck-card-h)) / 2);
+    /* A card taller than the screen (set by main.js) pins once its bottom
+       reaches the bottom of the screen instead of being centred */
+    top: var(--deck-sticky-top, calc((100svh - var(--deck-card-h)) / 2));
 }
 
 /* The card shape is rebuilt from slider-card-bg-1.svg so it never stretches:
@@ -913,6 +922,10 @@ ul {
 }
 
 .deck-card__title {
+    /* line breaks come from this width (was <br>), centred in the card */
+    max-width: 11.18em;
+    margin-right: auto;
+    margin-left: auto;
     position: absolute;
     top: 186px;
     right: 0;
@@ -966,6 +979,11 @@ ul {
     justify-self: end;
 }
 
+/* "High quality / Swiss motor": its longest line is 6.82em */
+.deck-card__feature:last-child .deck-card__feature-text {
+    width: 6.85em;
+}
+
 .deck-card__feature {
     display: flex;
     flex-direction: column;
@@ -975,6 +993,10 @@ ul {
 }
 
 .deck-card__feature-text {
+    /* line breaks come from a set width (was <br>): the feature column's
+       width, and so its link's place, follows this text. Left feature
+       "Powered by RCA / connectivity" (8.64em line), right one below. */
+    width: 8.68em;
     font-weight: 500;
     font-size: 27px;
     line-height: 107%;

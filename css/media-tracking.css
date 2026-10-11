@@ -87,3 +87,121 @@
         outline-offset: 2.25px;
     }
 }
+
+/* ==========================================================================
+   770–1025px — the two women move apart as the screen narrows
+   ==========================================================================
+   Pinned to the edges at full size, the right woman slid over the left one
+   behind the card. From 1025 down to 770 each slides further off her own
+   side and both shrink a little (100% -> 85%), all linear in the viewport
+   width, so the eye collage (left) and the chrome mask (right) stay in view.
+   At 1025 every value equals the ≤1919 one above. */
+@media (min-width: 571px) and (max-width: 1025px) {
+    /* Apart, the photos' straight inner edges would show, so each one fades
+       out towards the middle of the page */
+    .tracking__figure--left {
+        left: calc(-133.5px - (1025px - 100vw) * .3);
+        width: calc(523.4px + (100vw - 770px) * .3622);
+        -webkit-mask-image: linear-gradient(90deg, #000 78%, transparent 100%);
+        mask-image: linear-gradient(90deg, #000 78%, transparent 100%);
+    }
+
+    .tracking {
+        min-height: 500px;
+        height: var(--fixed-vh, 100vh);
+    }
+
+    .tracking__figure--right {
+        right: calc(-195px - (1025px - 100vw) * .35);
+        width: calc(621.6px + (100vw - 770px) * .4301);
+        -webkit-mask-image: linear-gradient(270deg, #000 78%, transparent 100%);
+        mask-image: linear-gradient(270deg, #000 78%, transparent 100%);
+    }
+}
+
+
+/* ==========================================================================
+   ≤570px — the card full width in its mobile shape, the woman under it
+   ==========================================================================
+   tracking-shape-mob.svg: side notches centred on the card's edges at any
+   height (SVG pieces + rectangles), corners from border-radius. Under the
+   card only the right woman stays, edge to edge, in the flow; the footer
+   rises over her shoulders. */
+@media (max-width: 570px) {
+    .tracking {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 0;
+        padding: 150px var(--page-gutter) 0;
+    }
+
+    .tracking-card {
+        width: auto;
+        min-height: 0;
+        padding: 40px;
+        border-radius: 14px;
+        background: linear-gradient(72deg, #141414 30%, #278e1a 100%);
+        -webkit-mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 124 12 146' preserveAspectRatio='none'%3E%3Cpath d='M0 124V129.058C0 136.558 7.9929 143.217 9.45173 150.574C9.57821 151.212 9.64453 151.871 9.64453 152.546V241.454C9.64453 242.129 9.57825 242.788 9.45185 243.426C7.99337 250.782 0 257.441 0 264.941V270H12V124Z'/%3E%3C/svg%3E") 0 50% / 12px 146px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='308 124 12 146' preserveAspectRatio='none'%3E%3Cpath d='M320 124V129.357C320 136.741 312.265 143.276 310.78 150.508C310.645 151.166 310.574 151.848 310.574 152.546V241.454C310.574 242.152 310.645 242.833 310.78 243.491C312.264 250.724 320 257.258 320 264.642V270H308V124Z'/%3E%3C/svg%3E") 100% 50% / 12px 146px no-repeat,
+            linear-gradient(#000 0 0) 50% 0 / calc(100% - 22px) 100% no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 100% 0 / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 100% 100% / 12px calc(50% - 72px) no-repeat;
+        mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 124 12 146' preserveAspectRatio='none'%3E%3Cpath d='M0 124V129.058C0 136.558 7.9929 143.217 9.45173 150.574C9.57821 151.212 9.64453 151.871 9.64453 152.546V241.454C9.64453 242.129 9.57825 242.788 9.45185 243.426C7.99337 250.782 0 257.441 0 264.941V270H12V124Z'/%3E%3C/svg%3E") 0 50% / 12px 146px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='308 124 12 146' preserveAspectRatio='none'%3E%3Cpath d='M320 124V129.357C320 136.741 312.265 143.276 310.78 150.508C310.645 151.166 310.574 151.848 310.574 152.546V241.454C310.574 242.152 310.645 242.833 310.78 243.491C312.264 250.724 320 257.258 320 264.642V270H308V124Z'/%3E%3C/svg%3E") 100% 50% / 12px 146px no-repeat,
+            linear-gradient(#000 0 0) 50% 0 / calc(100% - 22px) 100% no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 100% 0 / 12px calc(50% - 72px) no-repeat,
+            linear-gradient(#000 0 0) 100% 100% / 12px calc(50% - 72px) no-repeat;
+    }
+
+    .tracking-card__tabs {
+        padding: 0 0 12px;
+    }
+
+    .tracking-card__tab {
+        font-size: 14px;
+    }
+
+    .tracking-card__hint {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .tracking-card__fields {
+        gap: 30px;
+        margin-top: 76px;
+    }
+
+    .tracking-card__input {
+        padding-bottom: 10px;
+        font-size: 14px;
+        line-height: 124%;
+    }
+
+    .tracking-card__submit {
+        width: 100%;
+        min-width: 0;
+        height: 46px;
+        margin-top: 30px;
+        padding: 0 20px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    .tracking__figure--left {
+        display: none;
+    }
+
+    .tracking__figure--right {
+        position: static;
+        order: 2;
+        width: calc(100% + var(--page-gutter) * 2);
+        margin: 40px calc(var(--page-gutter) * -1) 0;
+    }
+}

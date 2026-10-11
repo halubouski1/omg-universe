@@ -266,8 +266,20 @@ const initDeck = (list) => {
     if (frame === null) frame = requestAnimationFrame(update);
   };
 
+  // Cards taller than the screen can't pin centred: they stick with their
+  // bottom on the bottom of the screen (negative top) so all of them is seen
+  const fitSticky = () => {
+    items.forEach((item) => {
+      const overflow = window.innerHeight - item.offsetHeight;
+      if (overflow < 0) item.style.setProperty('--deck-sticky-top', `${overflow}px`);
+      else item.style.removeProperty('--deck-sticky-top');
+    });
+  };
+
   window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
+  window.addEventListener('resize', () => { fitSticky(); requestUpdate(); });
+  window.addEventListener('load', fitSticky);
+  fitSticky();
   update();
 };
 
@@ -394,8 +406,42 @@ document.querySelectorAll('[data-popup-open]').forEach((trigger) => {
 
 document.querySelectorAll('[data-popup]').forEach((popup) => {
   popup.querySelectorAll('[data-popup-close]').forEach((el) => el.addEventListener('click', closePopup));
+  // Links inside (the menu): close first, so an in-page anchor such as
+  // #contacts scrolls the page instead of staying under the open menu
+  popup.querySelectorAll('a[href]').forEach((link) => link.addEventListener('click', () => {
+    closePopup();
+    const hash = link.getAttribute('href');
+    if (hash.startsWith('#') && hash.length > 1 && lenis) {
+      const target = document.querySelector(hash);
+      if (target) lenis.scrollTo(target, { offset: -100 });
+    }
+  }));
 });
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closePopup();
+});
+
+
+// ========================================
+// Favourites — the heart on product cards (every page with cards)
+// ========================================
+// The heart toggles on click (state only for now — nothing is
+// stored yet); switching it on plays the pop and ring once
+document.querySelectorAll('.product__fav').forEach((button) => {
+  button.addEventListener('click', () => {
+    const isActive = button.classList.toggle('is-active');
+    button.setAttribute('aria-pressed', String(isActive));
+    button.setAttribute('aria-label', button.getAttribute('aria-label')
+      .replace(isActive ? 'Add' : 'Remove', isActive ? 'Remove' : 'Add')
+      .replace(isActive ? ' to favorites' : ' from favorites', isActive ? ' from favorites' : ' to favorites'));
+    button.classList.remove('is-popping');
+    if (isActive) {
+      void button.offsetWidth; // restart the animation on quick re-clicks
+      button.classList.add('is-popping');
+    }
+  });
+  button.addEventListener('animationend', (event) => {
+    if (event.pseudoElement === '::after') button.classList.remove('is-popping');
+  });
 });

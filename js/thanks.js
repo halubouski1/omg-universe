@@ -10,7 +10,14 @@ const initOrderItems = (list) => {
   const items = list.querySelectorAll('.order-card__item');
   const isScrollable = items.length > ORDER_ITEMS_VISIBLE;
   list.classList.toggle('is-scrollable', isScrollable);
-  if (!isScrollable) return;
+  // data-lenis-prevent hands the wheel to the list so it can scroll itself.
+  // A list that doesn't scroll must not keep it: Lenis would skip the wheel
+  // there and the page would jump natively instead of gliding (the page
+  // stuttered whenever the cursor crossed the order card on phones).
+  if (!isScrollable) {
+    list.removeAttribute('data-lenis-prevent');
+    return;
+  }
 
   list.tabIndex = 0; // reachable by keyboard so arrow keys can scroll it
   list.setAttribute('aria-label', `${items.length} products, scrollable`);

@@ -40,6 +40,11 @@ const initBag = (bag) => {
   const removeItem = async (item) => {
     if (item.dataset.removing) return;
     item.dataset.removing = 'true';
+    // Only a keyboard user (focus ring showing) needs focus moved on; after
+    // a tap or click nothing should get focused
+    const fromKeyboard = item.contains(document.activeElement)
+      && document.activeElement.matches(':focus-visible');
+    const nextItem = item.nextElementSibling || item.previousElementSibling;
 
     if (!prefersReducedMotion) {
       await item.animate(
@@ -54,9 +59,9 @@ const initBag = (bag) => {
     glideSiblings(before);
     updateTotals();
 
-    // Keep keyboard focus in the list after the button disappears
-    const next = list.querySelector('[data-bag-remove]');
-    if (next) next.focus({ preventScroll: true });
+    // Keep keyboard focus in the list after the button disappears: on the
+    // item that took the removed one's place
+    if (fromKeyboard) nextItem?.querySelector('[data-bag-remove]')?.focus({ preventScroll: true });
   };
 
   list.addEventListener('click', (event) => {

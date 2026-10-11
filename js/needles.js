@@ -31,3 +31,33 @@ document.querySelectorAll('[data-counter]').forEach((list) => {
   observer.observe(list);
 });
 
+
+
+// ========================================
+// Comparison table — "Scroll →" hint (≤1025px)
+// ========================================
+// A tap scrolls the table right by most of its visible width (smoothly); the
+// hint fades once the end is reached and hides when the table fits as is.
+document.querySelectorAll('[data-table-scroll]').forEach((hint) => {
+  const panel = hint.nextElementSibling;
+  if (!panel) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const update = () => {
+    const room = panel.scrollWidth - panel.clientWidth;
+    hint.hidden = room < 2;
+    hint.classList.toggle('is-at-end', panel.scrollLeft >= room - 2);
+  };
+
+  hint.addEventListener('click', () => {
+    const room = panel.scrollWidth - panel.clientWidth;
+    const atEnd = panel.scrollLeft >= room - 2;
+    panel.scrollTo({
+      left: atEnd ? 0 : panel.scrollLeft + panel.clientWidth * 0.7,
+      behavior: reducedMotion ? 'auto' : 'smooth',
+    });
+  });
+  panel.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+});

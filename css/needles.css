@@ -119,6 +119,11 @@
     list-style: none;
 }
 
+/* The marquee copy only exists for phones (media-needles.css) */
+.needles-facts__list[aria-hidden="true"] {
+    display: none;
+}
+
 .needles-facts__item {
     max-width: 263px; /* 235px text + 28px padding */
     padding-left: 28px;
@@ -232,6 +237,11 @@
     margin-top: 141px;
 }
 
+/* <picture> (mobile shot ≤570px) stays out of the card's layout */
+.needle-card__picture {
+    display: contents;
+}
+
 .needle-card__image {
     position: absolute;
     top: 250px;
@@ -322,6 +332,11 @@
     font-size: 18px;
     line-height: 167%;
     color: #657b8d;
+}
+
+/* "Scroll →" hint above the table — shown at ≤1025px (media-needles.css) */
+.needle-finder__scroll {
+    display: none;
 }
 
 /* Soft raised panel holding the table */
@@ -543,6 +558,14 @@
     width: 10px;
 }
 
+/* Favourites heart mirrors the compact "+" */
+.product__card--compact .product__fav {
+    top: 10px;
+    left: 10px;
+    width: 27px;
+    height: 27px;
+}
+
 .product__card--compact .product__info {
     padding: 13px 20px;
 }
@@ -580,6 +603,9 @@
 }
 
 .deck-card--magnum .deck-card__title {
+    /* "The Magnum / needle" on two lines (was <br>): wider than "The Magnum"
+       (6.57em), narrower than the whole title (10.31em) */
+    max-width: 8.4em;
     top: 186px;
     font-size: 70px;
     line-height: 93%;

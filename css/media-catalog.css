@@ -94,11 +94,6 @@
         height: 29.25px;
     }
 
-    .product__fav::before {
-        width: 11.25px;
-        height: 10.5px;
-    }
-
     .product__fav:focus-visible {
         outline-offset: 2.25px;
     }

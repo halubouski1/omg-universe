@@ -236,23 +236,3 @@ const initCatalog = (catalog) => {
 };
 
 document.querySelectorAll('.catalog').forEach(initCatalog);
-
-// Favourites: the heart toggles on click (state only for now — nothing is
-// stored yet); switching it on plays the pop and ring once
-document.querySelectorAll('.product__fav').forEach((button) => {
-  button.addEventListener('click', () => {
-    const isActive = button.classList.toggle('is-active');
-    button.setAttribute('aria-pressed', String(isActive));
-    button.setAttribute('aria-label', button.getAttribute('aria-label')
-      .replace(isActive ? 'Add' : 'Remove', isActive ? 'Remove' : 'Add')
-      .replace(isActive ? ' to favorites' : ' from favorites', isActive ? ' from favorites' : ' to favorites'));
-    button.classList.remove('is-popping');
-    if (isActive) {
-      void button.offsetWidth; // restart the animation on quick re-clicks
-      button.classList.add('is-popping');
-    }
-  });
-  button.addEventListener('animationend', (event) => {
-    if (event.pseudoElement === '::after') button.classList.remove('is-popping');
-  });
-});

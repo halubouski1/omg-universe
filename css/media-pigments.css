@@ -217,7 +217,11 @@
     }
 
     .bundle-slider {
-        padding: 0px 15px 105px;
+        padding: 0 0 105px;
+    }
+
+    .bundle-slider__slider {
+        padding: 0 15px;
     }
 
     .bundle-slider::before {
@@ -351,6 +355,102 @@
     .tips__grid {
         gap: 11.25px;
         margin: 63.75px 0 0;
+    }
+
+    .tips__stage {
+        margin-top: 63.75px;
+    }
+
+    .tips-detail {
+        grid-template-columns: 398.25px 547.5px minmax(0, 1fr);
+        gap: 27px;
+        height: 531px;
+    }
+
+    .tips-detail__card,
+    .tips-detail__tone {
+        transform: translateX(30px);
+    }
+
+    .tips-detail__card {
+        padding: 55.5px 55.5px 36px;
+        border-radius: 10.5px;
+        -webkit-mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 236 24 236' preserveAspectRatio='none'%3E%3Cpath d='M0 236V242.609C0 250.108 6.41838 255.967 12.4892 260.37C18.2521 264.549 22 271.337 22 279V429C22 436.663 18.2521 443.451 12.4893 447.63C6.41834 452.032 0 457.891 0 465.39V472H24V236Z'/%3E%3C/svg%3E") 0 50% / 18px 177px no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 18px calc(50% - 87.75px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 18px calc(50% - 87.75px) no-repeat,
+            linear-gradient(#000 0 0) 17.25px 0 / calc(100% - 17.25px) 100% no-repeat;
+        mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 236 24 236' preserveAspectRatio='none'%3E%3Cpath d='M0 236V242.609C0 250.108 6.41838 255.967 12.4892 260.37C18.2521 264.549 22 271.337 22 279V429C22 436.663 18.2521 443.451 12.4893 447.63C6.41834 452.032 0 457.891 0 465.39V472H24V236Z'/%3E%3C/svg%3E") 0 50% / 18px 177px no-repeat,
+            linear-gradient(#000 0 0) 0 0 / 18px calc(50% - 87.75px) no-repeat,
+            linear-gradient(#000 0 0) 0 100% / 18px calc(50% - 87.75px) no-repeat,
+            linear-gradient(#000 0 0) 17.25px 0 / calc(100% - 17.25px) 100% no-repeat;
+    }
+
+    .tips-detail__type {
+        top: 25.5px;
+        right: 25.5px;
+        font-size: 16.5px;
+    }
+
+    .tips-detail__title {
+        max-width: 270px;
+        margin-bottom: 27px;
+        font-size: 33.75px;
+    }
+
+    .tips-detail__text {
+        max-width: 265.5px;
+        font-size: 13.5px;
+    }
+
+    .tips-detail__facts {
+        gap: 15px;
+    }
+
+    .tips-detail__fact {
+        gap: 15px;
+        font-size: 13.5px;
+    }
+
+    .tips-detail__tone {
+        padding: 27.75px 24.75px 4.5px;
+        border-radius: 10.5px;
+    }
+
+    .tips-detail__label {
+        font-size: 12px;
+    }
+
+    .tips-detail__mix {
+        gap: 16.5px;
+    }
+
+    .tips-detail__swatch {
+        width: 29.25px;
+        height: 29.25px;
+        border-radius: 3.75px;
+    }
+
+    .tips-detail__plus {
+        font-size: 13.5px;
+    }
+
+    .tips-detail__line {
+        margin-bottom: 15.75px;
+    }
+
+    /* numeral 16.5px at 25.5px -> centre 33.75px down; 24px box, 11.25px cross */
+    .tips-detail__close {
+        top: 21.75px;
+        right: 19.125px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .tips-detail__close img {
+        width: 11.25px;
+        height: 11.25px;
     }
 
     .skin-card__link {
@@ -584,14 +684,12 @@
     .bundles__serif {
         margin-top: -10px;
     }
+
+    .tips-detail {
+        grid-template-columns: minmax(0, 398fr) minmax(0, 548fr) minmax(0, 300fr);
+    }
 }
 
-/* ==========================================================================
-   ≤1270px — eyeliner: needle further right, narrower right column,
-   cards share the left column with a tighter gap (holds down to 1025px)
-   ==========================================================================
-   Written by hand (not generated) — keep it when regenerating the block
-   above. */
 @media (max-width: 1270px) {
     .eyeliner {
         grid-template-columns: 1fr 280px;
@@ -609,18 +707,1098 @@
     .eyeliner__needle-text {
         max-width: 280px;
     }
-}
 
-/* ==========================================================================
-   ≤1270px — Thinner deck: smaller hand, lowered, same centre line, so it
-   stays clear of the two text columns
-   ==========================================================================
-   Written by hand (not generated) — keep it when regenerating the block
-   above. */
-@media (max-width: 1270px) {
     .deck-card--thinner .deck-card__image.thinner-card__hand {
         top: 175px;
         left: calc(50% - 266px);
         width: 480px;
+    }
+
+    .tips-detail__card {
+        padding: 45px 40px 32px;
+    }
+
+    .tips-detail__title {
+        margin-bottom: 22px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .pigments-hero__title {
+        margin-top: 33px;
+        font-size: 55px;
+        max-width: 401.5px;
+    }
+
+    .pigment-slide, .pigments-range__controls {
+        width: 700px;
+    }
+
+    .pigment-slide--cover .pigment-slide__image {
+        width: 380px;
+    }
+
+    .pigment-slide--brow .pigment-slide__image {
+        width: 180.75px;
+    }
+
+    .bundles__figure--right {
+        right: -295px;
+    }
+
+    .bundle-slider__tab {
+        width: 220px;
+        height: 39px;
+    }
+
+    .deck-card--pigments .deck-card__title {
+        font-size: 42.5px;
+    }
+
+    .deck-card--pigments .deck-card__image {
+        width: 475px;
+    }
+
+    .tips__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skin-card__media {
+            aspect-ratio: 293 / 579;
+    }
+
+    .cover-up .swiper-slide {
+        width: 300px;
+    }
+
+    .permanent__title {
+        font-size: 60px;
+    }
+
+    .permanent__content {
+        margin-right: 40px;
+    }
+
+    .cover-up__title-row {
+        gap: 35.25px;
+    }
+
+    .deck-card__glow {
+        width: 825px;
+    }
+
+    .bundles__text {
+        max-width: 314.5px;
+        margin-top: 52.5px;
+        font-size: 14px;
+    }
+
+        .eyeliner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        padding-bottom: 100px;
+    }
+
+    .eyeliner__main {
+        grid-area: 1 / 1;
+        text-align: center;
+    }
+
+    .eyeliner__text {
+        max-width: 420px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .eyeliner__cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 60px;
+        text-align: left;
+    }
+
+    .eyeliner__side {
+        grid-area: 2 / 1;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin-top: 40px;
+    }
+
+    .eyeliner__swatches {
+        align-self: flex-start;
+        margin: 0;
+    }
+
+    .eyeliner__needle-info {
+        margin-top: 140px;
+    }
+
+    .eyeliner__needle-text {
+        max-width: 296px;
+        font-size: 14px;
+    }
+
+    .eyeliner__btn {
+        margin-top: 70px;
+    }
+
+    .eyeliner__needle {
+        position: relative;
+        top: auto;
+        right: auto;
+        grid-area: 2 / 1;
+        justify-self: end;
+        align-self: start;
+        width: min(100%, 560px);
+        margin: 30px calc(-1 * var(--page-gutter) - 22%) 0 0;
+    }
+
+        .deck .deck-card--thinner,
+    .deck .deck-card--thinner:not(.deck-card--light) {
+        width: 100%;
+        height: auto;
+        background: none;
+        -webkit-mask: none;
+        mask: none;
+        clip-path: none;
+        padding-bottom: 18.42px; /* content (the hand) ends where the body ends */
+    }
+
+    .deck .deck-card--thinner::before,
+    .deck .deck-card--thinner::after {
+        display: block;
+    }
+
+    /* Body and tabs share one background (green glow low down + the lines),
+       laid out over the whole card: ::after (the tabs) paints it as is and
+       is cut to the two tab shapes; ::before (the body, 18.42px in) offsets
+       it by the tab height. So the glow runs on into the bottom notch. */
+    .deck .deck-card--thinner::before {
+        inset: 18.42px 0;
+        border-radius: 14px;
+        background:
+            radial-gradient(ellipse 85% 35% at 50% 82%, rgba(52, 146, 30, .7), rgba(39, 110, 25, .3) 55%, rgba(20, 20, 20, 0)) 0 -18.42px / 100% calc(100% + 36.84px) no-repeat,
+            url('../assets/img/deck-card-lines-mob.svg') 0 -18.42px / 100% calc(100% + 36.84px) no-repeat,
+            #151514;
+    }
+
+    .deck .deck-card--thinner::after {
+        inset: 0;
+        background:
+            radial-gradient(ellipse 85% 35% at 50% 82%, rgba(52, 146, 30, .7), rgba(39, 110, 25, .3) 55%, rgba(20, 20, 20, 0)),
+            url('../assets/img/deck-card-lines-mob.svg') 0 0 / 100% 100% no-repeat,
+            #151514;
+        -webkit-mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='75.6881 0 168.6239 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M75.6881 19.42V18.4199C81.8664 18.4199 87.0423 14.0637 90.9991 9.31866C95.7479 3.62394 102.896 0 110.891 0H209.109C217.104 0 224.252 3.62394 229.001 9.31866C232.958 14.0637 238.134 18.4199 244.312 18.4199V19.42Z'/%3E%3C/svg%3E") 50% 0 / 168.62px 19.42px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='59.7463 1267.58 200.5077 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M59.7463 1267.58V1268.58C65.9094 1268.58 71.077 1272.92 75.0248 1277.65C79.792 1283.36 86.9666 1287 94.9912 1287H225.009C233.033 1287 240.208 1283.36 244.975 1277.65C248.923 1272.92 254.091 1268.58 260.254 1268.58V1267.58Z'/%3E%3C/svg%3E") 50% 100% / 200.51px 19.42px no-repeat;
+        mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='75.6881 0 168.6239 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M75.6881 19.42V18.4199C81.8664 18.4199 87.0423 14.0637 90.9991 9.31866C95.7479 3.62394 102.896 0 110.891 0H209.109C217.104 0 224.252 3.62394 229.001 9.31866C232.958 14.0637 238.134 18.4199 244.312 18.4199V19.42Z'/%3E%3C/svg%3E") 50% 0 / 168.62px 19.42px no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='59.7463 1267.58 200.5077 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M59.7463 1267.58V1268.58C65.9094 1268.58 71.077 1272.92 75.0248 1277.65C79.792 1283.36 86.9666 1287 94.9912 1287H225.009C233.033 1287 240.208 1283.36 244.975 1277.65C248.923 1272.92 254.091 1268.58 260.254 1268.58V1267.58Z'/%3E%3C/svg%3E") 50% 100% / 200.51px 19.42px no-repeat;
+    }
+
+    .deck-card--thinner .deck-card__content.thinner-card {
+        position: relative;
+        inset: auto;
+        padding: 84px 24px 0;
+    }
+
+    .thinner-card__logo {
+        top: 12px;
+        width: 92px;
+    }
+
+    .thinner-card__col,
+    .thinner-card__col--left,
+    .thinner-card__col--right {
+        position: static;
+        max-width: none;
+    }
+
+    .thinner-card__col--right {
+        margin-top: 100px;
+    }
+
+    .thinner-card__heading {
+        font-size: 18px;
+    }
+
+    .thinner-card__text,
+    .thinner-card__list {
+        margin-top: 24px;
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    .thinner-card__text {
+        max-width: 600px;
+    }
+
+    .thinner-card__btn {
+        height: 50px;
+        margin-top: 32px;
+        border-radius: 9px;
+    }
+
+    .bundle-card__text {
+        font-size: 14px;
+    }
+
+    .deck-card--thinner .deck-card__image.thinner-card__hand {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        margin: 20px auto -18.42px;
+        transform: none;
+        /* Down through the bottom tab and cut to the card's outline: the full
+           width while beside the body, only the centred tab below it */
+        -webkit-mask:
+            linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 18.42px) no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='59.7463 1267.58 200.5077 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M59.7463 1267.58V1268.58C65.9094 1268.58 71.077 1272.92 75.0248 1277.65C79.792 1283.36 86.9666 1287 94.9912 1287H225.009C233.033 1287 240.208 1283.36 244.975 1277.65C248.923 1272.92 254.091 1268.58 260.254 1268.58V1267.58Z'/%3E%3C/svg%3E") 50% 100% / 200.51px 19.42px no-repeat;
+        mask:
+            linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 18.42px) no-repeat,
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='59.7463 1267.58 200.5077 19.42' preserveAspectRatio='none'%3E%3Cpath fill='%23151514' d='M59.7463 1267.58V1268.58C65.9094 1268.58 71.077 1272.92 75.0248 1277.65C79.792 1283.36 86.9666 1287 94.9912 1287H225.009C233.033 1287 240.208 1283.36 244.975 1277.65C248.923 1272.92 254.091 1268.58 260.254 1268.58V1267.58Z'/%3E%3C/svg%3E") 50% 100% / 200.51px 19.42px no-repeat;
+    }
+
+    /* The glow is part of the card background now (::before / ::after) */
+    .deck-card--thinner .deck-card__glow {
+        display: none;
+    }
+
+    .pigment-slide__text {
+        font-size: 13px;
+    }
+
+    .product__size {
+        font-size: 12px;
+    }
+
+    .product__name, .product__price {
+        font-size: 15px;
+    }
+}
+
+/* 770–1024px — tips detail: the same row of three, lower (560px); the tone
+   panel keeps a fixed 200px and the photo and white card share the rest
+   about 40/60; tighter card padding and a smaller title */
+@media (min-width: 770px) and (max-width: 1024px) {
+    .tips-detail {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) 200px;
+        height: 560px;
+        gap: 20px;
+    }
+
+    .tips-detail__card {
+        padding: 40px 32px 28px;
+    }
+
+    .tips-detail__title {
+        margin-bottom: 18px;
+        font-size: 26px;
+    }
+
+    .tips-detail__tone {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    /* clear of the close cross in the narrow panel, still centred */
+    .tips-detail__label {
+        padding: 0 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 769px) {
+    .pigment-slide, .pigments-range__controls {
+        width: 500px;
+    }
+
+    .pigment-slide__logo {
+        display: none;
+    }
+
+    .pigment-slide--cover .pigment-slide__image {
+        right: -65px;
+    }
+
+    .pigment-slide--cover .pigment-slide__image {
+        width: 280px;
+    }
+
+    .pigment-slide--brow .pigment-slide__image {
+        width: 150px;
+    }
+
+    .pigment-slide--brow .pigment-slide__image {
+        left: 345px;
+    }
+
+    .bundles {
+        display: grid;
+        min-height: 0;
+    }
+
+    .bundles__content {
+        grid-area: 1 / 1;
+        padding: 0 var(--page-gutter);
+    }
+
+    .bundles__title {
+        font-size: min(70px, 12vw);
+    }
+
+    .bundles__line {
+        white-space: nowrap;
+    }
+
+    .bundles__text {
+        font-size: 14px;
+    }
+
+    .bundles__script {
+        margin-bottom: 4vw;
+        font-size: min(175px, 31vw);
+    }
+
+    .bundles__serif {
+        margin-top: -1.5vw;
+    }
+
+    .bundles__figure--left,
+    .bundles__figure--right {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        grid-area: 2 / 1;
+        align-self: start;
+    }
+
+    .bundles__figure--left {
+        justify-self: start;
+        width: min(69vw, 420px);
+        margin-top: -2vw;
+    }
+
+    .bundles__figure--right {
+        z-index: 1;
+        justify-self: end;
+        width: min(123vw, 760px);
+        margin: 0vw max(-40vw, -280px) 0 0;
+    }
+
+    .deck-card--pigments .deck-card__title {
+        font-size: 39.5px;
+    }
+
+    .deck-card--pigments .deck-card__image {
+        width: 400px;
+    }
+
+    .deck-card__glow {
+        width: 625px;
+    }
+
+    .cover-up__nav {
+        display: none;
+    }
+
+    .permanent {
+        border-right-width: 15px;
+        border-left-width: 15px;
+    }
+
+    .permanent__bg {
+        aspect-ratio: 340 / 623;
+    }
+
+    .permanent__bg img {
+        object-fit: cover;
+    }
+
+    .permanent__content {
+        align-self: end;
+        justify-self: stretch;
+        align-items: center;
+        max-width: none;
+        margin: 0;
+        padding: 0 44px 60px;
+        text-align: center;
+    }
+
+    .permanent__title {
+        font-size: min(85px, 11vw);
+    }
+
+    .permanent__text {
+        margin-top: 18px;
+        font-size: clamp(16.5px, 2.6vw, 20px);
+    }
+
+    /* only the first sentence on phones, as in the design */
+    .permanent__text-more {
+        display: none;
+    }
+
+    .permanent__btn {
+        min-width: 219px;
+        height: 61px;
+        margin-top: 40px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .tips__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cover-up__head {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* tips */
+        .tips-detail {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "photo tone"
+            "card card";
+        gap: 10px;
+        height: auto;
+    }
+
+    .tips-detail__photo {
+        grid-area: photo;
+        aspect-ratio: 3 / 4;
+    }
+
+    .tips-detail__tone {
+        grid-area: tone;
+        padding: 18px 14px 4px;
+    }
+
+    .tips-detail__card {
+        grid-area: card;
+        padding: 30px 24px 26px;
+        -webkit-mask: none;
+        mask: none;
+    }
+
+    .tips-detail__card,
+    .tips-detail__tone {
+        transform: translateY(24px);
+    }
+
+    .tips-detail__type {
+        top: 26px;
+        right: 24px;
+    }
+
+    .tips-detail__title {
+        max-width: 100%;
+        margin-bottom: 18px;
+        font-size: 26px;
+    }
+
+    .tips-detail__text {
+        max-width: none;
+        font-size: 13px;
+    }
+
+    .tips-detail__facts {
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .tips-detail__fact {
+        font-size: 14px;
+    }
+
+    .tips-detail__label {
+        padding: 0 28px;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .tips-detail__mix {
+        gap: 12px;
+    }
+
+    .tips-detail__swatch {
+        width: 32px;
+        height: 32px;
+    }
+
+    .tips-detail__line {
+        margin-bottom: 14px;
+    }
+
+    .tips-detail__close {
+        top: 10px;
+        right: 8px;
+    }
+}
+
+/* ≤570px — the needle further right so it clears "The 5RL needle" */
+@media (max-width: 570px) {
+    .eyeliner__needle {
+        margin-right: calc(-1 * var(--page-gutter) - 38%);
+    }
+
+    .pigments-hero {
+        --pigments-hero-h: var(--fixed-vh, 100svh);
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: var(--pigments-hero-h) auto;
+        height: auto;
+        padding: 0 var(--page-gutter) 80px;
+    }
+
+    .pigments-hero__picture,
+    .pigments-hero__bg {
+        bottom: auto;
+        height: var(--pigments-hero-h);
+    }
+
+    .pigments-hero__content {
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 55px;
+        text-align: center;
+    }
+
+    .pigments-hero__title {
+        margin: 30px 0 0;
+        font-size: min(40px, 11vw);
+        line-height: 90%;
+    }
+
+    .pigments-hero__actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 48px;
+    }
+
+    .pigments-hero__btn--light,
+    .pigments-hero__btn--outline {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pigments-hero__tag {
+        font-size: 12px;
+        padding: 0 25px;
+        height: 36px;
+    }
+
+    .pigments-hero__title {
+        font-size: 40px;
+        line-height: 88%;
+        max-width: 330px;
+    }
+
+    .pigments-hero__btn--light, .pigments-hero__btn--outline {
+        height: 56px;
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .pigments-hero__btn img, .eyeliner__btn img, .thinner-card__btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pigments-hero__actions {
+        gap: 17px;
+        border-radius: 12px;
+    }
+
+    /* .pigments-range */
+    .pigments-range {
+        padding: 70px 15px 0px;
+    }
+
+        .pigment-slide,
+    .pigments-range__controls {
+        width: 100%;
+    }
+
+    .pigment-slide {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 560px;
+        padding: 35px 15px 25px 25px;
+        border-radius: 15px;
+    }
+
+    .pigment-slide__body,
+    .pigment-slide--cover .pigment-slide__body,
+    .pigment-slide--brow .pigment-slide__body {
+        position: relative;
+        z-index: 1;
+        inset: auto;
+        flex: 1;
+    }
+
+    .pigment-slide__title,
+    .pigment-slide--brow .pigment-slide__title {
+        font-size: 25px;
+        line-height: 1.1;
+    }
+
+    .pigment-slide__text,
+    .pigment-slide--brow .pigment-slide__text {
+        gap: 28px;
+        margin-top: 28px;
+        font-size: 13px;
+    }
+
+    /* Eyebrow: swatches move from the top-right corner to the bottom */
+    .pigment-slide--brow {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .pigment-slide__swatches,
+    .pigment-slide--brow .pigment-slide__swatches {
+        position: relative;
+        z-index: 1;
+        inset: auto;
+        gap: 9px;
+        margin-top: auto;
+        padding-top: 40px;
+    }
+
+    .pigment-slide--brow .pigment-slide__body {
+        flex: none;
+    }
+
+    .pigment-slide__swatches li {
+        width: 35px;
+        height: 35px;
+        border-radius: 4px;
+    }
+
+    .pigment-slide--cover .pigment-slide__image,
+    .pigment-slide--brow .pigment-slide__image {
+        right: -30px;
+        left: auto;
+        width: auto;
+        height: 230px;
+    }
+
+    .pigments-range__controls {
+        gap: 7px;
+        margin-top: 30px;
+    }
+
+    .pigments-range__pagination.swiper-pagination-bullets {
+        min-width: 0;
+        height: 52px;
+        padding: 21px 28px;
+    }
+
+    .pigments-range__play {
+        flex-shrink: 0;
+        width: 52px;
+        height: 52px;
+    }
+
+    .pigment-slide__swatches li {
+        font-size: 12px;
+    }
+
+    .pigments-range__play-icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .pigment-slide--brow .pigment-slide__text {
+        max-width: none;
+    }
+
+    .pigments-range__pagination .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .pigments-range__pagination.swiper-pagination-bullets {
+        gap: 10px;
+    }
+
+    .pigments-range__pagination .swiper-pagination-bullet-active {
+        width: 43px;
+        border-radius: 3.75px;
+    }
+
+    .pigments-range__pause-icon {
+        width: 10px;
+        height: 13px;
+    }
+
+    /* .bundles */
+    .bundles {
+        padding-top: 145px;
+    }
+
+    .bundles__script {
+        font-size: 120px;
+        margin-bottom: 13px;
+    }
+
+    .bundles__title {
+        font-size: 39px;
+        line-height: 1;
+    }
+
+    .bundles__text {
+        margin-top: 30px;
+        font-size: 14px;
+        line-height: 171%;
+        max-width: 305px;
+    }
+
+    .bundle-slider__slider {
+        padding: 0 10px;
+    }
+
+    .bundle-card {
+        width: 100%;
+        height: auto;
+        min-height: 568px;
+        padding: 50px 25px 0;
+    }
+
+    /* title, text, link in one column */
+    .bundle-card__head {
+        display: contents;
+    }
+
+    .bundle-card__title {
+        order: 1;
+        font-size: 25px;
+        line-height: 96%;
+    }
+
+    .bundle-card__text {
+        order: 2;
+        font-size: 14px;
+        line-height: 171%;
+        margin-top: 17px;
+    }
+
+    .bundle-card__link {
+        order: 3;
+        align-self: flex-start;
+        gap: 6px;
+        margin-top: 40px;
+        font-size: 18px;
+    }
+
+    .bundle-card__link img {
+        width: 15px;
+        height: 13px;
+    }
+
+    .bundle-card__image,
+    .bundle-card__image--wide {
+        top: auto;
+        bottom: -60px;
+        left: 50%;
+        width: min(118%, 440px);
+        transform: translateX(-50%);
+    }
+
+    .bundle-card:hover .bundle-card__image {
+        transform: translateX(-50%);
+    }
+
+    .bundle-slider__base {
+        height: 25px;
+        margin-top: -25px;
+    }
+
+    .bundle-slider__tab {
+        width: 260px;
+        height: 25px;
+    }
+
+    .bundle-slider__nav {
+        gap: 13px;
+        margin-top: 5px;
+    }
+
+    .bundle-slider__arrow {
+        width: 54px;
+        height: 54px;
+        border-radius: 10px;
+    }
+
+    .bundle-slider__arrow svg, .pigments-hero__arrow {
+        width: 15px;
+        height: 13px;
+    }
+
+    /* .deck--pigments */
+    .deck--pigments {
+        padding-top: 0px;
+    }
+
+    .deck .deck-card--pigments .deck-card__title {
+        font-size: 28px;
+        max-width: 291px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .deck .deck-card--pigments:not(.deck-card--thinner) .deck-card__image {
+        --bottle-h: max(120px, calc(var(--deck-card-h) - 390px));
+
+        top: calc(225px + (var(--deck-card-h) - 250px - 95px) / 2);
+        width: var(--bottle-h);
+        max-width: none;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    /* .cover-up */
+    .cover-up {
+        padding: 100px 0;
+    }
+
+    .cover-up__head {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 56px;
+    }
+
+    .cover-up__swatches {
+        padding-top: 0px;
+    }
+
+    .cover-up__title {
+        font-size: 25px;
+        line-height: 96%;
+    }
+
+    .cover-up__slider {
+        padding: 0 10px;
+    }
+
+    .cover-up .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 5px;
+    }
+
+    .cover-up .swiper-slide {
+        width: auto;
+    }
+
+    /* tips */
+    .tips__kicker {
+        font-size: 14px;
+        line-height: 200%;
+    }
+
+    .tips__title {
+        font-size: 30px;
+        margin-top: 15px;
+    }
+
+    .tips__stage {
+        margin-top: 30px;
+    }
+
+    .tips {
+        padding: 0 15px;
+    }
+
+    .tips-detail__title {
+        font-size: 22px;
+    }
+
+    .tips-detail__facts {
+        margin-top: 50px;
+    }
+
+    .tips-detail__swatch {
+        width: 25px;
+        height: 25px;
+    }
+
+    .tips__grid {
+        gap: 8px;
+        row-gap: 15px;
+    }
+
+    .skin-card__media {
+        aspect-ratio: 293 / 777;
+    }
+
+    .skin-card__link {
+        gap: 9px;
+    }
+
+    .skin-card__type {
+        padding: 6px 8px;
+        font-size: 15px;
+    }
+
+    /* permanent */
+    .permanent {
+        border-right-width: 10px;
+        border-left-width: 10px;
+    }
+
+    .permanent__title {
+        font-size: 35px;
+        line-height: 100%;
+    }
+
+    .permanent__text {
+        margin-top: 15px;
+        font-size: 16px;
+        line-height: 138%;
+    }
+
+    .permanent__content {
+        padding-bottom: 42px;
+    }
+
+    /* .eyeliner */
+    .eyeliner {
+        padding-top: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .eyeliner__title {
+        font-size: 35px;
+    }
+
+    .eyeliner__text {
+        font-size: 14px;
+        line-height: 157%;
+        max-width: 275px;
+        margin-top: 20px;
+    }
+
+    .eyeliner__cards {
+        margin-top: 62px;
+    }
+
+    .eyeliner__swatches {
+        padding-top: 0;
+    }
+
+    .eyeliner__needle-title {
+        font-size: 25px;
+    }
+
+    .eyeliner__needle-info {
+        margin-top: 100px;
+        padding-left: 17px;
+    }
+
+    .eyeliner__needle-text {
+        max-width: 231px;
+        font-size: 13px;
+        padding-left: 20px;
+    }
+
+    .eyeliner__btn {
+        margin-top: 50px;
+        height: 56px;
+        font-size: 14px;
+        padding: 0 20px;
+        border-radius: 12px;
+    }
+
+    /* .thinner */
+    .thinner-card__logo {
+        top: 23px;
+        width: 106px;
+    }
+
+    .deck-card--thinner .deck-card__content.thinner-card {
+        padding: 110px 24px 0;
+    }
+
+    .thinner-card__btn {
+        height: 56px;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+
+    .deck--thinner {
+        padding-bottom: 100px;
+    }
+}
+/* ≤1025px — tips cards: "Learn more" shows from the start (touch screens
+   have no hover to reveal it), a little smaller, with a soft ring pulsing
+   out of it now and then so it reads as something to tap. The cards pulse
+   a little apart, not in unison. */
+@media (max-width: 1025px) {
+    .skin-card__more {
+        width: 96px;
+        height: 96px;
+        font-size: 12px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .skin-card__more::after {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border: 1px solid rgba(255, 255, 255, .75);
+        border-radius: 50%;
+        opacity: 0;
+        animation: skin-more-pulse 2.4s cubic-bezier(.22, 1, .36, 1) infinite;
+    }
+
+    .skin-card:nth-child(2n) .skin-card__more::after {
+        animation-delay: .4s;
+    }
+
+    .skin-card:nth-child(3n) .skin-card__more::after {
+        animation-delay: .8s;
+    }
+
+    @keyframes skin-more-pulse {
+        0% {
+            opacity: .9;
+            transform: scale(1);
+        }
+
+        70%,
+        100% {
+            opacity: 0;
+            transform: scale(1.4);
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .skin-card__more {
+        width: 80px;
+        height: 80px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1025px) and (prefers-reduced-motion: reduce) {
+    .skin-card__more::after {
+        animation: none;
     }
 }
