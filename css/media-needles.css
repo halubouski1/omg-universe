@@ -639,7 +639,7 @@
     }
 
         .needles-facts {
-        --facts-gap: 40px;
+        --facts-gap: 24px; /* between items, and at the join of the two copies */
 
         padding-right: 0;
         padding-left: 0;
@@ -661,7 +661,7 @@
     .needles-facts__list[aria-hidden="true"] {
         display: flex;
         flex-shrink: 0;
-        gap: 30px;
+        gap: var(--facts-gap);
         padding-right: var(--facts-gap);
     }
 
@@ -838,7 +838,7 @@
 
     .needles-facts__item {
         font-size: 14px;
-        padding-left: 25px;
+        padding-left: 16px;
         flex: 0 0 198px;
     }
 

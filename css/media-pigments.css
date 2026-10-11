@@ -1793,7 +1793,15 @@
     .skin-card__more {
         width: 80px;
         height: 80px;
+        /* less side padding: with 2.1em "LEARN" was wider than the text box
+           and sat off centre; 1.2em still wraps "Learn / more" */
+        padding: 0 1.2em;
         font-size: 11px;
+    }
+
+    /* the raised tab 2px lower, closing the sliver between it and the cards */
+    .bundle-slider__tab {
+        transform: translate(-50%, 2px);
     }
 }
 
