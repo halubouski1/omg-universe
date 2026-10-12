@@ -449,6 +449,11 @@
         font-size: 39.75px;
     }
 
+    .popup__title--done {
+        max-width: 367.5px;
+        margin-bottom: 51px;
+    }
+
     .popup__form {
         max-width: 381px;
     }
@@ -1249,6 +1254,15 @@
     .popup__title {
         margin-bottom: 34px;
         font-size: 34px;
+    }
+
+    .popup__title--done {
+        max-width: 265px;
+        margin-bottom: 45px;
+    }
+
+    .popup__title-accent {
+        display: inline;
     }
 
     .popup__fields {

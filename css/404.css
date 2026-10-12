@@ -1,0 +1,107 @@
+/* ==========================================================================
+   404 — "404 / error" and a short note on the left, the heading and the
+   button on the right, the checkout parrot standing over the right "4".
+   Measured against the 1920 design (assets/404.jpg).
+   ========================================================================== */
+.notfound {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    min-height: 1145px;
+    padding: 0 70px 183px 108px;
+    overflow: hidden;
+    /* the favourites page's oval lines, filling the section from the top */
+    background: url('../assets/img/favorites-bg.jpg') 50% 0 / cover no-repeat, #eceff4;
+    color: #131312;
+}
+
+/* Centred on the page: its left edge 514px left of the middle at 1920 */
+.notfound__parrot {
+    position: absolute;
+    z-index: 1;
+    top: 366px;
+    left: calc(50% - 514px);
+    width: 812px;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+}
+
+.notfound__side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.notfound__side--left {
+    padding-bottom: 5px; /* the note ends a little above the button */
+}
+
+.notfound__side--right {
+    z-index: 2;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* The design's weight sits between the bundled Light (300) and Regular
+   (400) files: Light plus a .022em outline in the text colour matches its
+   stroke (39px on the "4" at 1920, against 28 and 54px) */
+.notfound__code {
+    margin-top: 100px;
+    margin-left: -.02em;
+    font-weight: 300;
+    font-size: 494px;
+    line-height: .8;
+    letter-spacing: -0.03em;
+    -webkit-text-stroke: .022em currentColor;
+}
+
+.notfound__error {
+    margin-top: 29px;
+    font-weight: 300;
+    font-size: 104px;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
+    -webkit-text-stroke: .022em currentColor;
+}
+
+.notfound__text {
+    max-width: 120px;
+    margin-top: auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #131312;
+}
+
+.notfound__title {
+    max-width: 687px;
+    margin-top: 190px;
+    margin-right: 6px;
+    font-weight: 300;
+    font-size: 100px;
+    line-height: 92px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    -webkit-text-stroke: .022em currentColor;
+}
+
+/* "Sorry, / but page / is not found" — the design's breaks, kept per line
+   (no max-width can make the first line the shortest) */
+.notfound__line {
+    display: block;
+}
+
+.notfound__btn {
+    min-width: 258px;
+    height: 59px;
+    margin-top: auto;
+    border-radius: 10px;
+    background-color: #44d62d;
+    color: #000;
+    font-size: 16px;
+}
+
+.notfound__btn:hover {
+    background-color: #8ee06d;
+}

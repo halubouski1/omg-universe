@@ -111,6 +111,9 @@ const EVENT_HEAD_REVEAL = {
 // Head waits for the row to start opening, then date and city follow in turn
 const EVENT_HEAD_DELAY = 120;
 const EVENT_HEAD_STAGGER = 80;
+// How long the cursor must rest on a row before it opens (taps and keyboard
+// focus open it at once)
+const EVENT_HOVER_DELAY = 500;
 
 const initEventsList = (list) => {
   const items = [...list.querySelectorAll('[data-event]')];
@@ -156,11 +159,20 @@ const initEventsList = (list) => {
     });
   };
 
-  // Where the window must be scrolled for the row, in its final layout, to sit
-  // in the middle of the viewport (clamped to the scrollable range).
-  const getCenteredScroll = (item) => {
+  // The row being opened stays where it is on screen: if the row that closes
+  // is above it, the page scrolls by exactly the height that row loses, in
+  // step with the animation, so nothing jumps under the cursor (centring the
+  // row instead moved the whole page on every hover).
+  // Only if the opened row would then run past the bottom of the screen does
+  // the page scroll further, by just enough to show all of it.
+  const EVENT_EDGE = 24;
+  const getAnchoredScroll = (topBefore, item) => {
     const rect = item.getBoundingClientRect();
-    const target = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+    let target = window.scrollY + rect.top - topBefore;
+    const bottomOnScreen = topBefore + rect.height;
+    if (bottomOnScreen > window.innerHeight - EVENT_EDGE && rect.height < window.innerHeight - EVENT_EDGE * 2) {
+      target += bottomOnScreen - (window.innerHeight - EVENT_EDGE);
+    }
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     return Math.min(Math.max(target, 0), maxScroll);
   };
@@ -195,6 +207,7 @@ const initEventsList = (list) => {
 
     const changed = [activeItem, nextItem].filter(Boolean);
     const before = changed.map(measure);
+    const topBefore = nextItem.getBoundingClientRect().top;
 
     activeItem?.classList.remove('is-active');
     nextItem.classList.add('is-active');
@@ -202,7 +215,7 @@ const initEventsList = (list) => {
 
     // Read the final layout before any animation pulls it back to the start
     const after = changed.map(measure);
-    const targetScroll = getCenteredScroll(nextItem);
+    const targetScroll = getAnchoredScroll(topBefore, nextItem);
 
     if (prefersReducedMotion) {
       scrollToInstantly(targetScroll);
@@ -220,10 +233,33 @@ const initEventsList = (list) => {
 
   // pointermove rather than pointerenter: after a resize the cursor can end up
   // over a new row without moving, and that alone shouldn't expand it.
+  // Hover intent: a row opens only once the cursor has rested on it for
+  // EVENT_HOVER_DELAY, so passing over rows on the way somewhere doesn't
+  // open them. Moving to another row restarts the wait; leaving cancels it.
+  let hoverTimer = null;
+  let hoverTarget = null;
+
+  const cancelHover = () => {
+    clearTimeout(hoverTimer);
+    hoverTimer = null;
+    hoverTarget = null;
+  };
+
   list.addEventListener('pointermove', (event) => {
     if (event.pointerType !== 'mouse' || isAnimating) return;
-    setActive(event.target.closest('[data-event]'));
+    const row = event.target.closest('[data-event]');
+    if (!row || row === activeItem) { cancelHover(); return; }
+    if (row === hoverTarget) return; // already waiting on this row
+    cancelHover();
+    hoverTarget = row;
+    hoverTimer = setTimeout(() => {
+      hoverTimer = null;
+      hoverTarget = null;
+      setActive(row);
+    }, EVENT_HOVER_DELAY);
   });
+
+  list.addEventListener('pointerleave', cancelHover);
 
   // Touch has no hover: a tap expands the row
   list.addEventListener('click', (event) => {
@@ -420,6 +456,42 @@ document.querySelectorAll('[data-popup]').forEach((popup) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closePopup();
+});
+
+// Popup forms: a valid submit switches the dialog to its thank-you step
+// (.is-done; the real request goes here); empty or wrong fields are marked.
+// Once the popup has closed it goes back to an empty form.
+document.querySelectorAll('[data-popup-form]').forEach((form) => {
+  const dialog = form.closest('.popup__dialog');
+  const popup = form.closest('[data-popup]');
+  const formStep = dialog.querySelector('[data-popup-step="form"]');
+  const doneStep = dialog.querySelector('[data-popup-step="done"]');
+  const inputs = [...form.querySelectorAll('input')];
+
+  inputs.forEach((input) => input.addEventListener('input', () => input.classList.remove('is-invalid')));
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const invalid = inputs.filter((input) => !input.checkValidity());
+    inputs.forEach((input) => input.classList.toggle('is-invalid', invalid.includes(input)));
+    if (invalid.length) { invalid[0].focus(); return; }
+
+    dialog.classList.add('is-done');
+    formStep.setAttribute('aria-hidden', 'true');
+    doneStep.removeAttribute('aria-hidden');
+    setTimeout(() => doneStep.querySelector('a, button')?.focus({ preventScroll: true }), 600);
+  });
+
+  // reset after the closing fade, so the switch back isn't seen
+  new MutationObserver(() => {
+    if (popup.classList.contains('is-open') || !dialog.classList.contains('is-done')) return;
+    setTimeout(() => {
+      dialog.classList.remove('is-done');
+      formStep.removeAttribute('aria-hidden');
+      doneStep.setAttribute('aria-hidden', 'true');
+      form.reset();
+    }, 450);
+  }).observe(popup, { attributes: true, attributeFilter: ['class'] });
 });
 
 

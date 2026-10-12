@@ -2086,3 +2086,73 @@ body.is-popup-open {
     vertical-align: -2px;
     filter: brightness(.557);
 }
+
+
+/* --- Popup steps: the form and the thank-you state share one spot, so the
+   window keeps the form's size; main.js switches .is-done on the dialog.
+   The form fades away, then the title and the button rise in turn. */
+.popup__steps {
+    display: grid;
+    width: 100%;
+}
+
+.popup__step {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .35s ease, visibility 0s;
+}
+
+.popup__step--form > * {
+    transition: opacity .35s ease, transform .35s ease;
+}
+
+.popup__step--done {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s .35s;
+}
+
+.popup__step--done > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.popup__dialog.is-done .popup__step--form {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s .35s;
+}
+
+.popup__dialog.is-done .popup__step--form > * {
+    transform: translateY(-16px);
+}
+
+.popup__dialog.is-done .popup__step--done {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .35s ease .25s, visibility 0s;
+}
+
+.popup__dialog.is-done .popup__step--done > * {
+    opacity: 1;
+    transform: none;
+    transition-delay: .35s;
+}
+
+.popup__dialog.is-done .popup__step--done > :nth-child(2) {
+    transition-delay: .5s;
+}
+
+/* Thank-you title: the popup title, wider, 68px above the button */
+.popup__title--done {
+    max-width: 490px;
+    margin-bottom: 68px;
+}
+
+.popup__input.is-invalid {
+    border-color: #e5484d;
+}

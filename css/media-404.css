@@ -1,0 +1,148 @@
+/* ==========================================================================
+   404 page, ≤1919px — the 1920 layout at 0.75 scale
+   ==========================================================================
+   Every px value from 404.css restated ×0.75. Ems (the outline, the 404's
+   offset), percentages and ratios are left as they are. */
+@media (max-width: 1919px) {
+    .notfound {
+        min-height: 858.75px;
+        padding: 0 52.5px 137.25px 81px;
+    }
+
+    .notfound__parrot {
+        top: 274.5px;
+        left: calc(50% - 385.5px);
+        width: 609px;
+    }
+
+    .notfound__side--left {
+        padding-bottom: 3.75px;
+    }
+
+    .notfound__code {
+        margin-top: 75px;
+        font-size: 370.5px;
+    }
+
+    .notfound__error {
+        margin-top: 21.75px;
+        font-size: 78px;
+    }
+
+    .notfound__text {
+        max-width: 90px;
+        font-size: 12px;
+    }
+
+    .notfound__title {
+        max-width: 515.25px;
+        margin-top: 142.5px;
+        margin-right: 4.5px;
+        font-size: 75px;
+        line-height: 69px;
+    }
+
+    .notfound__btn {
+        min-width: 193.5px;
+        height: 44.25px;
+        border-radius: 7.5px;
+        font-size: 12px;
+    }
+}
+
+/* ≤1270px — "404" and the heading follow the screen width (330 / 63.5px at
+   1270 down to 200 / 38.5px at 769), so they keep clear of each other; their
+   top margins scale with them, and so does the parrot. The note and the
+   button stay as they are. */
+@media (max-width: 1270px) {
+    .notfound__code {
+        margin-top: 5.9vw;
+        font-size: 26vw;
+    }
+
+    /* The parrot shrinks with them (609px at 1270), keeps its offset from
+       the centre and stays cut by the section's bottom edge, so it doesn't
+       grow over the note and the button on narrow screens */
+    .notfound__parrot {
+        top: auto;
+        bottom: -25.9vw;
+        left: calc(50% - 30.35vw);
+        width: 48vw;
+    }
+
+    .notfound__title {
+        margin-top: 11.2vw;
+        font-size: 5vw;
+        line-height: .92;
+        max-width: none;
+    }
+}
+
+/* ≤769px — one column, from the 360 design (assets/404=360.jpg): the heading
+   right-aligned 110px down, the button at full width, then "404" centred with
+   "error" under its right side and the parrot on the left, cut by the bottom
+   edge. Sizes follow the screen width (exact at 360) and stop growing at the
+   570 size, so tablets don't get oversized type. The short note isn't in the
+   phone design. */
+@media (max-width: 769px) {
+    .notfound {
+        /* the favourites page's phone version of the oval lines */
+        background-image: url('../assets/img/favorites-bg-mob.jpg');
+        flex-direction: column;
+        min-height: 0;
+        padding: 110px 23px 0;
+    }
+
+    .notfound__side {
+        display: contents;
+    }
+
+    .notfound__text {
+        display: none;
+    }
+
+    .notfound__title {
+        order: 1;
+        align-self: flex-end;
+        margin: 0;
+        font-size: min(12.9vw, 73.5px);
+        line-height: 1.12;
+    }
+
+    .notfound__btn {
+        order: 2;
+        align-self: stretch;
+        margin: min(10vw, 57px) -13px 0;
+        min-width: 0;
+        height: 59px;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+
+    .notfound__code {
+        order: 3;
+        align-self: center;
+        margin: min(16.1vw, 92px) 0 0;
+        font-size: min(54.7vw, 312px);
+    }
+
+    .notfound__error {
+        order: 4;
+        align-self: flex-end;
+        margin: min(3.5vw, 20px) min(10.3vw, 59px) 0 0;
+        font-size: min(8.6vw, 49px);
+    }
+
+    /* In the flow after "error", pulled up over the "404" and left past the
+       screen edge; the negative bottom margin lets the section cut it */
+    .notfound__parrot {
+        position: relative;
+        z-index: 1;
+        order: 5;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        width: min(108.6vw, 619px);
+        margin: max(-25vw, -142.5px) 0 max(-46.7vw, -266px) max(-32vw, -182px);
+    }
+}
