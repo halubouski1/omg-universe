@@ -159,20 +159,11 @@ const initEventsList = (list) => {
     });
   };
 
-  // The row being opened stays where it is on screen: if the row that closes
-  // is above it, the page scrolls by exactly the height that row loses, in
-  // step with the animation, so nothing jumps under the cursor (centring the
-  // row instead moved the whole page on every hover).
-  // Only if the opened row would then run past the bottom of the screen does
-  // the page scroll further, by just enough to show all of it.
-  const EVENT_EDGE = 24;
-  const getAnchoredScroll = (topBefore, item) => {
+  // Where the window must be scrolled for the row, in its final layout, to sit
+  // in the middle of the viewport (clamped to the scrollable range).
+  const getCenteredScroll = (item) => {
     const rect = item.getBoundingClientRect();
-    let target = window.scrollY + rect.top - topBefore;
-    const bottomOnScreen = topBefore + rect.height;
-    if (bottomOnScreen > window.innerHeight - EVENT_EDGE && rect.height < window.innerHeight - EVENT_EDGE * 2) {
-      target += bottomOnScreen - (window.innerHeight - EVENT_EDGE);
-    }
+    const target = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     return Math.min(Math.max(target, 0), maxScroll);
   };
@@ -186,10 +177,22 @@ const initEventsList = (list) => {
   // so the resize and the scroll read as one movement.
   const easeInOutCubic = (t) => (t < .5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2);
 
+  // With Lenis, Lenis itself glides the page (same duration and curve as the
+  // row), with the wheel locked meanwhile: setting the position by hand each
+  // frame while Lenis runs its own smoothing made the two fight and jerk.
   const scrollInSync = (targetY) => {
     const startY = window.scrollY;
     const distance = targetY - startY;
     if (Math.abs(distance) < 1) return;
+    if (lenis) {
+      lenis.scrollTo(targetY, {
+        duration: EVENT_ANIMATION.duration / 1000,
+        easing: easeInOutCubic,
+        lock: true,
+        force: true,
+      });
+      return;
+    }
     // Timed from the first frame: rAF timestamps can predate this call
     let startTime = null;
 
@@ -207,7 +210,6 @@ const initEventsList = (list) => {
 
     const changed = [activeItem, nextItem].filter(Boolean);
     const before = changed.map(measure);
-    const topBefore = nextItem.getBoundingClientRect().top;
 
     activeItem?.classList.remove('is-active');
     nextItem.classList.add('is-active');
@@ -215,7 +217,7 @@ const initEventsList = (list) => {
 
     // Read the final layout before any animation pulls it back to the start
     const after = changed.map(measure);
-    const targetScroll = getAnchoredScroll(topBefore, nextItem);
+    const targetScroll = getCenteredScroll(nextItem);
 
     if (prefersReducedMotion) {
       scrollToInstantly(targetScroll);
