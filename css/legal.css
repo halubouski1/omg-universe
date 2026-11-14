@@ -1,0 +1,270 @@
+/* ==========================================================================
+   Legal pages (privacy policy, terms, delivery & returns, campaign rules) —
+   light page like 404 / catalog: the oval lines background of the favourites
+   page, a switcher between the documents styled like the catalog filters,
+   the 404 heading style, a sticky contents list on the left and the text
+   column on the right.
+   Header, footer, buttons and fonts come from style.css.
+   No Figma design: built from the project's existing styles.
+   ========================================================================== */
+.page-light {
+    background-color: #eceff4;
+}
+
+.legal {
+    --legal-ink: #131312;
+    --legal-muted: #878787;
+    --legal-line: #caccce;
+    --legal-accent: #44d62d;
+    --legal-accent-dark: #4a932f;
+
+    padding: 236px 108px 160px;
+    background: url('../assets/img/favorites-bg.jpg') 50% 0 / 100% auto no-repeat, #eceff4;
+    color: var(--legal-ink);
+}
+
+/* --- Switcher between the documents (like .catalog__filters) -------------- */
+.legal__docs {
+    margin-bottom: 60px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid var(--legal-line);
+}
+
+.legal__docs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 85px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.legal__docs-link {
+    position: relative;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 176%;
+    letter-spacing: -0.03em;
+    color: var(--legal-muted);
+    transition: color .35s ease;
+}
+
+.legal__docs-link:hover,
+.legal__docs-link[aria-current="page"] {
+    color: var(--legal-ink);
+}
+
+/* the current document: the lime dot of the text bullets on the left */
+.legal__docs-link[aria-current="page"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background-color: var(--legal-accent);
+}
+
+.legal__docs-link:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 6px;
+}
+
+/* --- Heading --------------------------------------------------------------- */
+.legal__head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--legal-line);
+}
+
+.legal__label {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    line-height: 135%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--legal-muted);
+}
+
+/* The 404 heading: Light plus a thin outline in the text colour */
+.legal__title {
+    font-weight: 300;
+    font-size: 100px;
+    line-height: 92px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    -webkit-text-stroke: .022em currentColor;
+}
+
+.legal__title-accent {
+    font-family: 'Brier', serif;
+    font-weight: 700;
+    color: var(--legal-accent);
+    -webkit-text-stroke: 0;
+}
+
+.legal__updated {
+    font-size: 16px;
+    line-height: 135%;
+    letter-spacing: -0.03em;
+    color: var(--legal-muted);
+    text-align: right;
+}
+
+.legal__updated time {
+    color: var(--legal-ink);
+}
+
+/* --- Contents + text --------------------------------------------------------- */
+.legal__layout {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 880px);
+    justify-content: space-between;
+    gap: 60px;
+    padding-top: 80px;
+}
+
+.legal__toc {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+}
+
+.legal__toc-title {
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 135%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--legal-muted);
+}
+
+.legal__toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.legal__toc-link {
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: -0.03em;
+    color: var(--legal-ink);
+    transition: color .3s ease;
+}
+
+.legal__toc-link:hover {
+    color: var(--legal-accent-dark);
+}
+
+.legal__toc-link:focus-visible {
+    outline: 2px solid var(--legal-accent-dark);
+    outline-offset: 3px;
+}
+
+/* Text from the editor: plain tags, styled here */
+.legal__content {
+    font-size: 18px;
+    line-height: 155%;
+    letter-spacing: -0.02em;
+}
+
+.legal__content > * + * {
+    margin-top: 20px;
+}
+
+.legal__content h2 {
+    margin-top: 64px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    scroll-margin-top: 40px;
+}
+
+.legal__content h2:first-child {
+    margin-top: 0;
+}
+
+.legal__content h2 + * {
+    margin-top: 24px;
+}
+
+.legal__content h3 {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+}
+
+.legal__content ul,
+.legal__content ol {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.legal__content li {
+    position: relative;
+    padding-left: 28px;
+}
+
+/* the lime dot of the project's accent instead of a bullet */
+.legal__content ul > li::before {
+    content: '';
+    position: absolute;
+    top: .62em;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--legal-accent);
+}
+
+.legal__content ol {
+    counter-reset: legal;
+}
+
+.legal__content ol > li::before {
+    counter-increment: legal;
+    content: counter(legal) '.';
+    position: absolute;
+    left: 0;
+    color: var(--legal-muted);
+}
+
+.legal__content strong {
+    font-weight: 500;
+}
+
+.legal__content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color .3s ease;
+}
+
+.legal__content a:hover {
+    color: var(--legal-accent-dark);
+}
+
+.legal__content code {
+    font-family: inherit;
+    font-weight: 500;
+}
+
+/* A page without H2 headings has no contents list: the text keeps its column */
+.legal__layout > .legal__content:only-child {
+    grid-column: 2;
+}

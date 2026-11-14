@@ -588,6 +588,13 @@ ul {
     white-space: nowrap;
 }
 
+/* Phones only (media.css ≤769): an arrow at the right of the row that turns
+   up while the row is open. It lives in the head, so it rides on the city's
+   line and never changes the row's height. */
+.event__arrow {
+    display: none;
+}
+
 /* Out of flow while collapsed so it can fade out in place */
 .event__desc {
     position: absolute;
@@ -2155,4 +2162,13 @@ body.is-popup-open {
 
 .popup__input.is-invalid {
     border-color: #e5484d;
+}
+
+/* Sale: the old price struck through before the current one (WordPress cards / product page) */
+.product__price del,
+.product-info__price del {
+    margin-right: .25em;
+    color: inherit;
+    opacity: .4;
+    text-decoration-thickness: 1px;
 }

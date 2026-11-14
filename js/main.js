@@ -1,4 +1,12 @@
 // ========================================
+// Paths — the WordPress theme passes its own in window.omgTheme; the static
+// pages keep their relative ones
+// ========================================
+const OMG_THEME = window.omgTheme || {};
+const themeAsset = (path) => `${OMG_THEME.assets || 'assets'}/${path}`;
+const pageUrl = (key, fallback) => OMG_THEME.pages?.[key] || fallback;
+
+// ========================================
 // Lenis smooth scroll
 // ========================================
 let lenis = null;
@@ -101,8 +109,9 @@ const EVENT_ANIMATION = {
   // ease-in-out: the row and the page start and settle gently together
   easing: 'cubic-bezier(.65, 0, .35, 1)', // same curve as easeInOutCubic below
 };
-// Date and city re-appear at their new spot instead of sliding across the row
-const EVENT_HEAD_TARGETS = '.event__date, .event__city';
+// Date, city and the phone arrow re-appear at their new spot instead of
+// sliding across the row
+const EVENT_HEAD_TARGETS = '.event__date, .event__city, .event__arrow';
 const EVENT_HEAD_REVEAL = {
   duration: 650,
   easing: 'cubic-bezier(.22, 1, .36, 1)',
@@ -111,9 +120,6 @@ const EVENT_HEAD_REVEAL = {
 // Head waits for the row to start opening, then date and city follow in turn
 const EVENT_HEAD_DELAY = 120;
 const EVENT_HEAD_STAGGER = 80;
-// How long the cursor must rest on a row before it opens (taps and keyboard
-// focus open it at once)
-const EVENT_HOVER_DELAY = 500;
 
 const initEventsList = (list) => {
   const items = [...list.querySelectorAll('[data-event]')];
@@ -230,38 +236,30 @@ const initEventsList = (list) => {
     // Rows move under a still cursor while animating; ignoring the pointer
     // meanwhile stops that from activating rows the user never aimed at.
     isAnimating = true;
-    setTimeout(() => { isAnimating = false; }, EVENT_ANIMATION.duration);
+    setTimeout(() => {
+      isAnimating = false;
+      // The cursor came to rest on another row meanwhile: open it now
+      if (pendingItem && pendingItem !== activeItem) setActive(pendingItem);
+      pendingItem = null;
+    }, EVENT_ANIMATION.duration);
   };
 
   // pointermove rather than pointerenter: after a resize the cursor can end up
   // over a new row without moving, and that alone shouldn't expand it.
-  // Hover intent: a row opens only once the cursor has rested on it for
-  // EVENT_HOVER_DELAY, so passing over rows on the way somewhere doesn't
-  // open them. Moving to another row restarts the wait; leaving cancels it.
-  let hoverTimer = null;
-  let hoverTarget = null;
-
-  const cancelHover = () => {
-    clearTimeout(hoverTimer);
-    hoverTimer = null;
-    hoverTarget = null;
-  };
+  // A row opens as soon as the cursor is over it. While a row is still
+  // animating, rows slide under a still cursor; the row under the cursor is
+  // remembered and opened when the animation ends, so rows the user never
+  // aimed at don't flicker open in between.
+  let pendingItem = null;
 
   list.addEventListener('pointermove', (event) => {
-    if (event.pointerType !== 'mouse' || isAnimating) return;
+    if (event.pointerType !== 'mouse') return;
     const row = event.target.closest('[data-event]');
-    if (!row || row === activeItem) { cancelHover(); return; }
-    if (row === hoverTarget) return; // already waiting on this row
-    cancelHover();
-    hoverTarget = row;
-    hoverTimer = setTimeout(() => {
-      hoverTimer = null;
-      hoverTarget = null;
-      setActive(row);
-    }, EVENT_HOVER_DELAY);
+    if (isAnimating) { pendingItem = row; return; }
+    setActive(row);
   });
 
-  list.addEventListener('pointerleave', cancelHover);
+  list.addEventListener('pointerleave', () => { pendingItem = null; });
 
   // Touch has no hover: a tap expands the row
   list.addEventListener('click', (event) => {
@@ -461,8 +459,38 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Popup forms: a valid submit switches the dialog to its thank-you step
-// (.is-done; the real request goes here); empty or wrong fields are marked.
+// (.is-done); empty or wrong fields are marked. On WordPress
+// (window.omgForms + the form's hidden omg_form field) the entry is posted
+// to admin-ajax → Gravity Forms first, and the thank-you shows only once it
+// is saved; otherwise an error line appears above the button. The static
+// pages have no backend and show the thank-you straight away.
 // Once the popup has closed it goes back to an empty form.
+const OMG_FORMS = window.omgForms;
+
+const sendLeadForm = async (form) => {
+  const fail = (message, field) => ({ ok: false, message: message || OMG_FORMS.messages?.error || 'Error', field });
+  try {
+    const response = await fetch(OMG_FORMS.ajaxUrl, { method: 'POST', body: new FormData(form), credentials: 'same-origin' });
+    const json = await response.json().catch(() => null);
+    return json?.success ? { ok: true } : fail(json?.data?.message, json?.data?.field);
+  } catch {
+    return fail(OMG_FORMS.messages?.network);
+  }
+};
+
+const setFormStatus = (form, message) => {
+  let status = form.querySelector('[data-form-status]');
+  if (!status && message) {
+    status = document.createElement('p');
+    status.className = 'form-status';
+    status.setAttribute('role', 'alert');
+    status.setAttribute('data-form-status', '');
+    const submit = form.querySelector('[type="submit"]');
+    if (submit) submit.before(status); else form.append(status);
+  }
+  if (status) status.textContent = message || '';
+};
+
 document.querySelectorAll('[data-popup-form]').forEach((form) => {
   const dialog = form.closest('.popup__dialog');
   const popup = form.closest('[data-popup]');
@@ -472,12 +500,26 @@ document.querySelectorAll('[data-popup-form]').forEach((form) => {
 
   inputs.forEach((input) => input.addEventListener('input', () => input.classList.remove('is-invalid')));
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (form.getAttribute('aria-busy') === 'true') return;
     const invalid = inputs.filter((input) => !input.checkValidity());
     inputs.forEach((input) => input.classList.toggle('is-invalid', invalid.includes(input)));
     if (invalid.length) { invalid[0].focus(); return; }
 
+    if (OMG_FORMS?.ajaxUrl && form.elements.omg_form) {
+      form.setAttribute('aria-busy', 'true');
+      const result = await sendLeadForm(form);
+      form.removeAttribute('aria-busy');
+      if (!result.ok) {
+        setFormStatus(form, result.message);
+        const field = result.field && form.elements[result.field];
+        if (field) { field.classList.add('is-invalid'); field.focus(); }
+        return;
+      }
+    }
+
+    setFormStatus(form, '');
     dialog.classList.add('is-done');
     formStep.setAttribute('aria-hidden', 'true');
     doneStep.removeAttribute('aria-hidden');
@@ -486,6 +528,7 @@ document.querySelectorAll('[data-popup-form]').forEach((form) => {
 
   // reset after the closing fade, so the switch back isn't seen
   new MutationObserver(() => {
+    if (!popup.classList.contains('is-open')) setFormStatus(form, '');
     if (popup.classList.contains('is-open') || !dialog.classList.contains('is-done')) return;
     setTimeout(() => {
       dialog.classList.remove('is-done');
@@ -512,9 +555,9 @@ const FAV_TOAST_MAX = 4;
 let favStack = null;
 
 const TOAST_MODES = {
-  added: { text: 'Product added to favorites', icon: 'assets/icons/favorites-notifictaion.svg', link: 'Go to favorites', href: 'favorites.html' },
+  added: { text: 'Product added to favorites', icon: themeAsset('icons/favorites-notifictaion.svg'), link: 'Go to favorites', href: pageUrl('favorites', 'favorites.html') },
   removed: { text: 'Product removed from favorites', short: true },
-  cart: { text: 'Product added to cart', icon: 'assets/icons/cart.svg', link: 'Go to cart', href: 'cart.html', cart: true },
+  cart: { text: 'Product added to cart', icon: themeAsset('icons/cart.svg'), link: 'Go to cart', href: pageUrl('cart', 'cart.html'), cart: true },
   cartRemoved: { text: 'Product removed from cart', short: true },
 };
 
@@ -561,7 +604,7 @@ const showFavToast = (card, mode = 'added') => {
       ${m.link ? `<a class="fav-toast__link" href="${m.href}">${m.link}${ARROW_SVG}</a>` : ''}
     </div>
     <button class="fav-toast__close" type="button" aria-label="Close notification">
-      <img src="assets/icons/close.svg" alt="" width="16" height="16">
+      <img src="${themeAsset('icons/close.svg')}" alt="" width="16" height="16">
     </button>`;
   toast.querySelector('.fav-toast__close').addEventListener('click', () => hideFavToast(toast));
   toast.addEventListener('pointerenter', () => clearTimeout(toast.timer));
@@ -580,7 +623,9 @@ const showFavToast = (card, mode = 'added') => {
 // ========================================
 // Favourites store — kept in localStorage so the hearts stay on across
 // pages and visits, and favorites.html can list them. A product is
-// identified by its name, photo and price (the placeholder cards have no ids).
+// identified by its name, photo and price (the placeholder cards have no ids);
+// WordPress cards carry data-product-id, and then that id is the key and
+// the favourites page asks the server for fresh cards (favorites.js).
 // ========================================
 const FAV_KEY = 'omg-favorites';
 
@@ -597,13 +642,15 @@ const productFromCard = (card) => {
   const name = card.querySelector('.product__name')?.textContent.trim() || '';
   const price = card.querySelector('.product__price')?.textContent.trim() || '';
   const src = image?.getAttribute('src') || '';
+  const productId = Number(card.dataset.productId) || 0;
   return {
-    id: `${name}|${src}|${price}`,
+    id: productId ? String(productId) : `${name}|${src}|${price}`,
+    productId,
     name,
     price,
     size: card.querySelector('.product__size')?.textContent.trim() || '',
     image: src,
-    href: card.querySelector('.product__link')?.getAttribute('href') || 'catalog.html',
+    href: card.querySelector('.product__link')?.getAttribute('href') || pageUrl('catalog', 'catalog.html'),
   };
 };
 
@@ -648,8 +695,13 @@ document.addEventListener('click', (event) => {
     return;
   }
 
-  // "+" toggles like the heart (cart not stored yet): green while in the cart
+  // "+" toggles like the heart (cart not stored yet): green while in the cart.
+  // On WordPress the real cart (window.OmgCart, wp-js/cart-store.js) takes over
   const add = event.target.closest('.product__card .product__add');
+  if (add && window.OmgCart) {
+    window.OmgCart.toggle(add);
+    return;
+  }
   if (add) {
     const isActive = add.classList.toggle('is-active');
     add.setAttribute('aria-pressed', String(isActive));

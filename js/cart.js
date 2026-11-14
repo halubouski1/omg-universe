@@ -12,12 +12,15 @@ const initBag = (bag) => {
   const subtotal = document.querySelector('[data-bag-subtotal]');
   const total = document.querySelector('[data-bag-total]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // data-bag-external: a back end (WordPress) keeps the totals and removes
+  // the item on its side when `bag:remove` fires; here only the animation
+  const external = bag.hasAttribute('data-bag-external');
 
   const updateTotals = () => {
     const items = [...list.querySelectorAll('[data-bag-item]')];
     const sum = items.reduce((acc, item) => acc + Number(item.dataset.price || 0), 0);
-    if (subtotal) subtotal.textContent = formatUsd(sum);
-    if (total) total.textContent = formatUsd(sum + (items.length ? DELIVERY_PRICE : 0));
+    if (subtotal && !external) subtotal.textContent = formatUsd(sum);
+    if (total && !external) total.textContent = formatUsd(sum + (items.length ? DELIVERY_PRICE : 0));
     list.hidden = items.length === 0;
     empty.hidden = items.length !== 0;
   };
@@ -40,6 +43,7 @@ const initBag = (bag) => {
   const removeItem = async (item) => {
     if (item.dataset.removing) return;
     item.dataset.removing = 'true';
+    bag.dispatchEvent(new CustomEvent('bag:remove', { detail: { item } }));
     // Only a keyboard user (focus ring showing) needs focus moved on; after
     // a tap or click nothing should get focused
     const fromKeyboard = item.contains(document.activeElement)

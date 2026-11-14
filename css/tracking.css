@@ -212,3 +212,259 @@
     outline: 1px solid #fff;
     outline-offset: 3px;
 }
+
+/* --- Tracking result (WordPress only) -------------------------------------------
+   Built by tracking.js under the card after a lookup; the static page never
+   shows it. Not in the design: card proportions and colours of the page
+   (white panel, the card's green as accent). */
+.tracking:has(.tracking-result:not([hidden])) {
+    align-content: center;
+    row-gap: 30px;
+    height: auto;
+}
+
+.tracking-result {
+    --tracking-result-ink: #141414;
+    --tracking-result-muted: rgba(20, 20, 20, 0.55);
+    --tracking-result-line: rgba(20, 20, 20, 0.12);
+    --tracking-result-accent: #33b120;
+    --tracking-result-alert: #d8442f;
+    position: relative;
+    z-index: 1;
+    width: 611px;
+    padding: 32px 40px 36px;
+    border-radius: 14px;
+    background-color: #fff;
+    color: var(--tracking-result-ink);
+    box-shadow: 0 20px 60px rgba(20, 20, 20, 0.08);
+}
+
+.tracking-result[hidden] {
+    display: none;
+}
+
+.tracking-result__head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--tracking-result-line);
+}
+
+/* Status as a pill with a dot in the state colour */
+.tracking-result__status {
+    display: inline-flex;
+    align-items: center;
+    align-self: start;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 40px;
+    background-color: rgba(20, 20, 20, 0.05);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 124%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.tracking-result__status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--tracking-result-muted);
+}
+
+.tracking-result__status--in_transit::before,
+.tracking-result__status--out_for_delivery::before,
+.tracking-result__status--pre_transit::before {
+    background-color: var(--tracking-result-accent);
+}
+
+.tracking-result__status--delivered {
+    background-color: var(--tracking-result-accent);
+    color: #fff;
+}
+
+.tracking-result__status--delivered::before {
+    background-color: #fff;
+}
+
+.tracking-result__status--exception {
+    color: var(--tracking-result-alert);
+}
+
+.tracking-result__status--exception::before {
+    background-color: var(--tracking-result-alert);
+}
+
+.tracking-result__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+}
+
+.tracking-result__label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 124%;
+    color: var(--tracking-result-muted);
+}
+
+.tracking-result__value {
+    margin: 4px 0 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 124%;
+    overflow-wrap: anywhere;
+}
+
+.tracking-result__summary,
+.tracking-result__message {
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.tracking-result__head + .tracking-result__message {
+    margin-top: 24px;
+}
+
+.tracking-result > .tracking-result__message:first-child {
+    margin-top: 0;
+}
+
+.tracking-result--error .tracking-result__message {
+    color: var(--tracking-result-alert);
+}
+
+/* Spinner while the carrier answers */
+.tracking-result--loading .tracking-result__message {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--tracking-result-muted);
+}
+
+.tracking-result--loading .tracking-result__message::before {
+    content: "";
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--tracking-result-line);
+    border-top-color: var(--tracking-result-accent);
+    border-radius: 50%;
+    animation: tracking-result-spin .8s linear infinite;
+}
+
+@keyframes tracking-result-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tracking-result--loading .tracking-result__message::before {
+        animation-duration: 2.4s;
+    }
+}
+
+.tracking-result__title {
+    margin-top: 28px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 124%;
+}
+
+/* Timeline: newest on top, a dot per event on a thin line */
+.tracking-result__events {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.tracking-result__event {
+    position: relative;
+    padding: 0 0 22px 28px;
+}
+
+.tracking-result__event::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--tracking-result-line);
+}
+
+.tracking-result__event:first-child::before {
+    background-color: var(--tracking-result-accent);
+}
+
+.tracking-result__event:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 4px;
+    width: 2px;
+    background-color: var(--tracking-result-line);
+}
+
+.tracking-result__event:last-child {
+    padding-bottom: 0;
+}
+
+.tracking-result__date {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 124%;
+    color: var(--tracking-result-muted);
+}
+
+.tracking-result__desc {
+    margin-top: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.tracking-result__place {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 124%;
+    color: var(--tracking-result-muted);
+}
+
+/* Same look as the card's submit button, inverted */
+.tracking-result__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 28px;
+    padding: 18px 28px;
+    border-radius: 6px;
+    background-color: var(--tracking-result-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    transition: background-color .4s ease;
+}
+
+.tracking-result__link:hover {
+    background-color: var(--tracking-result-ink);
+}
+
+.tracking-result__link:hover .tracking-card__arrow {
+    transform: translateX(4px);
+}
+
+.tracking-result__link:focus-visible {
+    outline: 1px solid var(--tracking-result-ink);
+    outline-offset: 3px;
+}

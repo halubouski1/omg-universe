@@ -205,3 +205,142 @@
         margin: 40px calc(var(--page-gutter) * -1) 0;
     }
 }
+
+/* Tracking result (WordPress only), ≤1919px — ×0.75 like the card */
+@media (max-width: 1919px) {
+    .tracking:has(.tracking-result:not([hidden])) {
+        row-gap: 22.5px;
+    }
+
+    .tracking-result {
+        width: 458.25px;
+        padding: 24px 30px 27px;
+        border-radius: 10.5px;
+    }
+
+    .tracking-result__head {
+        gap: 15px;
+        padding-bottom: 18px;
+        border-bottom-width: 1.5px;
+    }
+
+    .tracking-result__status {
+        gap: 7.5px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .tracking-result__status::before {
+        width: 6px;
+        height: 6px;
+    }
+
+    .tracking-result__facts {
+        gap: 12px 30px;
+    }
+
+    .tracking-result__label,
+    .tracking-result__date,
+    .tracking-result__place {
+        font-size: 10.5px;
+    }
+
+    .tracking-result__value {
+        margin-top: 3px;
+        font-size: 13.5px;
+    }
+
+    .tracking-result__summary,
+    .tracking-result__message,
+    .tracking-result__desc {
+        font-size: 12px;
+    }
+
+    .tracking-result__summary,
+    .tracking-result__message,
+    .tracking-result__head + .tracking-result__message {
+        margin-top: 18px;
+    }
+
+    .tracking-result--loading .tracking-result__message::before {
+        width: 15px;
+        height: 15px;
+    }
+
+    .tracking-result__title {
+        margin-top: 21px;
+        font-size: 15px;
+    }
+
+    .tracking-result__events {
+        margin-top: 15px;
+    }
+
+    .tracking-result__event {
+        padding: 0 0 16.5px 21px;
+    }
+
+    .tracking-result__event::before {
+        top: 4.5px;
+        width: 7.5px;
+        height: 7.5px;
+    }
+
+    .tracking-result__event:not(:last-child)::after {
+        top: 15px;
+        left: 3px;
+        width: 1.5px;
+    }
+
+    .tracking-result__link {
+        gap: 12px;
+        margin-top: 21px;
+        padding: 13.5px 21px;
+        border-radius: 4.5px;
+        font-size: 12px;
+    }
+}
+
+/* Tracking result (WordPress only), ≤570px — full width under the card */
+@media (max-width: 570px) {
+    .tracking-result {
+        width: auto;
+        margin-top: 20px;
+        padding: 30px 24px;
+        border-radius: 14px;
+    }
+
+    .tracking-result__status {
+        font-size: 13px;
+    }
+
+    .tracking-result__label,
+    .tracking-result__date,
+    .tracking-result__place {
+        font-size: 12px;
+    }
+
+    .tracking-result__value {
+        font-size: 15px;
+    }
+
+    .tracking-result__summary,
+    .tracking-result__message,
+    .tracking-result__desc {
+        font-size: 14px;
+    }
+
+    .tracking-result__title {
+        font-size: 16px;
+    }
+
+    .tracking-result__link {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 46px;
+        padding: 0 20px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+}

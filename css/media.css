@@ -796,6 +796,34 @@
         transform: rotate(4deg);
     }
 
+    /* Arrow on the right of every row, centred on the city's line
+       (the city's line box is .78em tall, so its centre is .39em up) */
+    /* The arrow gets its own strip on the right, so a long city never runs
+       under it; when date and city don't fit on one line (Guadalajara), the
+       city moves under the date and the arrow stays on its line */
+    .event__head {
+        position: relative;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        row-gap: 14px;
+        padding-right: 26px; /* 18px arrow + 8px */
+    }
+
+    .event__arrow {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: calc(75px * .39 - 6px);
+        width: 18px;
+        height: 12px;
+        rotate: 0deg;
+        transition: rotate .6s var(--events-ease);
+    }
+
+    .event.is-active .event__arrow {
+        rotate: 180deg;
+    }
+
     .events__list {
         padding-top: 30px;
     }
@@ -946,7 +974,10 @@
 
     .event__city {
         font-size: 50px;
-    } 
+    }
+    .event__arrow {
+        bottom: calc(50px * .39 - 6px);
+    }
 
     .events__list {
         gap: 32px;

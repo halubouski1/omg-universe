@@ -130,7 +130,9 @@ const initCheckout = (form) => {
 
     const isPayment = step === 'payment';
     summary?.classList.toggle('is-payment', isPayment);
-    swapSummaryLabel(isPayment ? 'Checkout' : 'Continue');
+    swapSummaryLabel(isPayment
+      ? summaryLabel?.dataset.labelPayment || 'Checkout'
+      : summaryLabel?.dataset.labelShipping || 'Continue');
   };
 
   // After a step change the page glides (with Lenis, which owns the page
@@ -185,6 +187,9 @@ const initCheckout = (form) => {
   });
 
   const completeOrder = () => {
+    // data-checkout-external: a back end (WordPress/WooCommerce) handles the
+    // submit itself
+    if (form.hasAttribute('data-checkout-external')) return;
     // The real order submit goes here; for now the thank-you page opens
     window.location.href = 'thanks.html';
   };

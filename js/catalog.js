@@ -15,7 +15,9 @@ const initCatalog = (catalog) => {
   const moreButton = catalog.querySelector('[data-catalog-more]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let activeFilter = 'all';
+  // Starts on the button marked active in the markup ("All" here; a
+  // category on the WordPress category pages)
+  let activeFilter = filters.find((button) => button.classList.contains('is-active'))?.dataset.filter || 'all';
   let activeSort = 'recommended';
   let transitionId = 0; // a newer filter/sort change cancels an older one
   let shownCount = CATALOG_PAGE_SIZE;

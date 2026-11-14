@@ -4,7 +4,24 @@
 // button under it; removing the heart here takes the card away, and the
 // empty state comes back once the list is empty.
 // ========================================
-const CART_ICON = '<img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">';
+const CART_ICON = `<img src="${themeAsset('icons/btn-cart.svg')}" alt="" width="21" height="21">`;
+
+// WordPress: products saved with their id are drawn by the server (the same
+// card template as the catalog, with today's price and photo). Returns
+// id → <li>; empty when there is no server or the request fails.
+const fetchFavCards = async (ids) => {
+  const ajaxUrl = window.omgFavorites?.ajaxUrl;
+  if (!ajaxUrl || !ids.length) return new Map();
+  try {
+    const response = await fetch(`${ajaxUrl}?action=omg_favorites_cards&ids=${ids.join(',')}`, { credentials: 'same-origin' });
+    const json = await response.json();
+    const template = document.createElement('template');
+    template.innerHTML = json?.data?.html || '';
+    return new Map([...template.content.children].map((li) => [li.dataset.favId, li]));
+  } catch {
+    return new Map();
+  }
+};
 
 const initFavorites = () => {
   const list = document.querySelector('[data-favorites-list]');
@@ -62,14 +79,34 @@ const initFavorites = () => {
 
   // data-order keeps the order products were added in ("Recommended"),
   // data-price the number for the price sorts
-  readFavs().forEach((product, index) => {
-    const li = renderCard(product);
-    li.dataset.order = String(index);
-    li.dataset.price = String(parseFloat(product.price.replace(/[^\d.,]/g, '').replace(',', '.')) || 0);
-    grid.append(li);
-  });
-  sync();
-  revealFavCards(grid);
+  const render = (serverCards) => {
+    readFavs().forEach((product, index) => {
+      let li;
+      if (product.productId && window.omgFavorites) {
+        // a product removed from the shop has no card any more: skip it
+        li = serverCards.get(String(product.productId));
+        if (!li) return;
+        li.querySelector('.favorites__cart')?.addEventListener('click', () => li.querySelector('.product__add')?.click());
+        const heart = li.querySelector('.product__fav');
+        if (heart) setFavButton(heart, true); // the server draws hearts off
+      } else {
+        li = renderCard(product);
+      }
+      li.dataset.order = String(index);
+      li.dataset.price ||= String(parseFloat(product.price.replace(/[^\d.,]/g, '').replace(',', '.')) || 0);
+      grid.append(li);
+    });
+    sync();
+    revealFavCards(grid);
+  };
+
+  const serverIds = window.omgFavorites ? readFavs().map((f) => f.productId).filter(Boolean) : [];
+  if (serverIds.length) {
+    empty.hidden = true; // no "empty" flash while the cards load
+    fetchFavCards(serverIds).then(render);
+  } else {
+    render(new Map());
+  }
 
   initFavSort(grid);
 

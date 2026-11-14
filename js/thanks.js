@@ -27,7 +27,7 @@ const initOrderItems = (list) => {
   const hint = document.createElement('button');
   hint.type = 'button';
   hint.className = 'order-card__more';
-  hint.innerHTML = `<span>+${hidden} more</span><img src="assets/icons/options-chevron.svg" alt="" width="9" height="6">`;
+  hint.innerHTML = `<span>+${hidden} more</span><img src="${themeAsset('icons/options-chevron.svg')}" alt="" width="9" height="6">`;
   hint.setAttribute('aria-label', `Show ${hidden} more products`);
   list.after(hint);
 

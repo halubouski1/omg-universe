@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Legal pages — breakpoints of media.css: ≤1919 (the 1920 layout ×0.75),
+   ≤1270, ≤769 (one column, contents above the text), ≤570 (phones)
+   ========================================================================== */
+@media (max-width: 1919px) {
+    .legal {
+        padding: 177px 81px 120px;
+    }
+
+    .legal__docs {
+        margin-bottom: 45px;
+        padding-bottom: 28.5px;
+    }
+
+    .legal__docs-list {
+        gap: 15px 63.75px;
+    }
+
+    .legal__docs-link {
+        font-size: 18.75px;
+    }
+
+    .legal__docs-link[aria-current="page"]::before {
+        left: -15px;
+        width: 6px;
+        height: 6px;
+        margin-top: -3px;
+    }
+
+    .legal__docs-link:focus-visible {
+        outline-offset: 4.5px;
+    }
+
+    .legal__head {
+        gap: 18px 45px;
+        padding-bottom: 45px;
+    }
+
+    .legal__label,
+    .legal__updated,
+    .legal__toc-title {
+        font-size: 12px;
+    }
+
+    .legal__title {
+        font-size: 75px;
+        line-height: 69px;
+    }
+
+    .legal__layout {
+        grid-template-columns: 270px minmax(0, 660px);
+        gap: 45px;
+        padding-top: 60px;
+    }
+
+    .legal__toc-title {
+        margin-bottom: 18px;
+    }
+
+    .legal__toc-list {
+        gap: 9px;
+    }
+
+    .legal__toc-link {
+        font-size: 14px;
+    }
+
+    .legal__content {
+        font-size: 14px;
+    }
+
+    .legal__content > * + * {
+        margin-top: 15px;
+    }
+
+    .legal__content h2 {
+        margin-top: 48px;
+        font-size: 24px;
+    }
+
+    .legal__content h2 + * {
+        margin-top: 18px;
+    }
+
+    .legal__content h3 {
+        margin-top: 30px;
+        font-size: 17px;
+    }
+
+    .legal__content ul,
+    .legal__content ol {
+        gap: 9px;
+    }
+
+    .legal__content li {
+        padding-left: 21px;
+    }
+
+    .legal__content ul > li::before {
+        left: 3px;
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .legal {
+        padding-right: var(--page-gutter);
+        padding-left: var(--page-gutter);
+    }
+
+    .legal__title {
+        font-size: 5.9vw;
+        line-height: .92;
+    }
+
+    .legal__layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 769px) {
+    .legal {
+        padding-top: 130px;
+        padding-bottom: 80px;
+        background-image: url('../assets/img/favorites-bg-mob.jpg');
+    }
+
+    .legal__docs {
+        margin-bottom: 32px;
+        padding-bottom: 20px;
+    }
+
+    .legal__docs-list {
+        gap: 6px 36px;
+    }
+
+    .legal__docs-link {
+        font-size: 17px;
+    }
+
+    .legal__docs-link[aria-current="page"]::before {
+        left: -13px;
+    }
+
+    .legal__head {
+        grid-template-columns: 1fr;
+        padding-bottom: 32px;
+    }
+
+    .legal__title {
+        font-size: min(10.5vw, 60px);
+    }
+
+    .legal__updated {
+        text-align: left;
+    }
+
+    .legal__layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 32px;
+    }
+
+    .legal__toc {
+        position: static;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--legal-line);
+    }
+
+    .legal__content {
+        font-size: 15px;
+    }
+
+    .legal__content h2 {
+        margin-top: 40px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 570px) {
+    .legal {
+        padding-top: 110px;
+    }
+
+    .legal__title {
+        font-size: 11.5vw;
+    }
+
+    .legal__docs-list {
+        gap: 4px 30px;
+    }
+
+    .legal__docs-link {
+        font-size: 16px;
+    }
+
+    .legal__toc-link {
+        font-size: 15px;
+    }
+
+    .legal__content h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 769px) {
+    .legal__layout > .legal__content:only-child {
+        grid-column: auto;
+    }
+}
