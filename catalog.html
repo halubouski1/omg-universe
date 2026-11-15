@@ -42,7 +42,6 @@
                 <li><button class="catalog__filter is-active" type="button" aria-pressed="true" data-filter="all" data-title="All products">All</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pigments" data-title="Pigments">Pigments</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="cartridges" data-title="Cartridges">Cartridges</button></li>
-                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pmu-sketch" data-title="PMU Sketch">PMU Sketch</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pencils" data-title="Pencils">Pencils</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="latex" data-title="Latex">Latex</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pmu-devices" data-title="PMU Devices">PMU Devices</button></li>
@@ -69,263 +68,777 @@
                 </ul>
             </div>
         </div>
-
-        <!-- Placeholder products: three photos and one name until the real
-             catalogue is supplied. -->
         <ul class="catalog__grid" data-catalog-grid>
-                <li class="product" data-category="pencils" data-price="1700" data-order="0">
+                <li class="product" data-category="pencils" data-price="16.8" data-order="0">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/product-img-1.jpg" alt="PMU Sketch Pencils box with three pencils" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add PMU Sketch Pencils to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add PMU Sketch Pencils to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">PMU Sketch</span>
+                                <h2 class="product__name"><a class="product__link" href="pencils.html">PMU Sketch Pencils</a></h2>
                             </div>
-                            <p class="product__price">1 700€</p>
+                            <p class="product__price"><del>24€</del> 16,80€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pencils" data-price="1450" data-order="1">
+                <li class="product" data-category="latex" data-price="6" data-order="1">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/product-latex-1.jpg" alt="Three OMG practice latex sheets with brow outlines" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add OMG Latex to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="latex.html">OMG Latex</a></h2>
                             </div>
-                            <p class="product__price">1 450€</p>
+                            <p class="product__price">from 6€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pigments" data-price="1950" data-order="2">
+                <li class="product" data-category="pigments" data-price="42" data-order="2">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/cover-up-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 11 Sun Flash to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 11 Sun Flash to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Cover-up pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">11 Sun Flash</a></h2>
                             </div>
-                            <p class="product__price">1 950€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pencils" data-price="2300" data-order="3">
+                <li class="product" data-category="pigments" data-price="42" data-order="3">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/cover-up-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 12 Saturn to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 12 Saturn to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Cover-up pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">12 Saturn</a></h2>
                             </div>
-                            <p class="product__price">2 300€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="cartridges" data-price="1200" data-order="4">
+                <li class="product" data-category="pigments" data-price="42" data-order="4">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/cover-up-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 13 UFO to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 13 UFO to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Cover-up pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">13 UFO</a></h2>
                             </div>
-                            <p class="product__price">1 200€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pencils" data-price="1700" data-order="5">
+                <li class="product" data-category="pigments" data-price="42" data-order="5">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/eyebrow-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 2 Moon to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 2 Moon to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">2 Moon</a></h2>
                             </div>
-                            <p class="product__price">1 700€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pmu-sketch" data-price="1350" data-order="6">
+                <li class="product" data-category="pigments" data-price="42" data-order="6">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/eyebrow-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 3 Milky Way to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 3 Milky Way to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">3 Milky Way</a></h2>
                             </div>
-                            <p class="product__price">1 350€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pmu-devices" data-price="2600" data-order="7">
+                <li class="product" data-category="pigments" data-price="42" data-order="7">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/eyebrow-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 4 Infinity to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 4 Infinity to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">4 Infinity</a></h2>
                             </div>
-                            <p class="product__price">2 600€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pigments" data-price="1550" data-order="8">
+                <li class="product" data-category="pigments" data-price="42" data-order="8">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/eyebrow-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 5 Mercury to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 5 Mercury to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">5 Mercury</a></h2>
                             </div>
-                            <p class="product__price">1 550€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pencils" data-price="1850" data-order="9">
+                <li class="product" data-category="pigments" data-price="42" data-order="9">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/eyebrow-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 6 Galaxy to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 6 Galaxy to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Eyebrow pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">6 Galaxy</a></h2>
                             </div>
-                            <p class="product__price">1 850€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="latex" data-price="990" data-order="10">
+                <li class="product" data-category="pigments" data-price="42" data-order="10">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 204 Parhelion to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 204 Parhelion to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="latex.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">204 Parhelion</a></h2>
                             </div>
-                            <p class="product__price">990€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pencils" data-price="2100" data-order="11">
+                <li class="product" data-category="pigments" data-price="42" data-order="11">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 244 Star Birth to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 244 Star Birth to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">244 Star Birth</a></h2>
                             </div>
-                            <p class="product__price">2 100€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="cartridges" data-price="1250" data-order="12">
+                <li class="product" data-category="pigments" data-price="42" data-order="12">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-3.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 240 Universe to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 240 Universe to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">240 Universe</a></h2>
                             </div>
-                            <p class="product__price">1 250€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pmu-sketch" data-price="1600" data-order="13">
+                <li class="product" data-category="pigments" data-price="42" data-order="13">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-1.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-4.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 402 Eclipse to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 402 Eclipse to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">402 Eclipse</a></h2>
                             </div>
-                            <p class="product__price">1 600€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pigments" data-price="1750" data-order="14">
+                <li class="product" data-category="pigments" data-price="42" data-order="14">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-2.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-5.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 442 Proxima to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 442 Proxima to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">442 Proxima</a></h2>
                             </div>
-                            <p class="product__price">1 750€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
                         </div>
                     </article>
                 </li>
-                <li class="product" data-category="pmu-devices" data-price="2450" data-order="15">
+                <li class="product" data-category="pigments" data-price="42" data-order="15">
                     <article class="product__card">
                         <div class="product__media">
-                            <img class="product__image" src="assets/img/product-card-3.jpg" alt="" width="461" height="622" loading="lazy">
-                            <button class="product__add" type="button" aria-label="Add Norsk Nasjonaldrakt to cart"></button>
-                            <button class="product__fav" type="button" aria-label="Add Norsk Nasjonaldrakt to favorites" aria-pressed="false"></button>
+                            <img class="product__image" src="assets/img/lips-pigments-7.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 420 Blood Moon to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 420 Blood Moon to favorites" aria-pressed="false"></button>
                         </div>
                         <div class="product__info">
                             <div class="product__meta">
-                                <span class="product__size">XL 110x150</span>
-                                <h2 class="product__name"><a class="product__link" href="pencils.html">Norsk Nasjonaldrakt</a></h2>
+                                <span class="product__size">Pigments for lips</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">420 Blood Moon</a></h2>
                             </div>
-                            <p class="product__price">2 450€</p>
+                            <p class="product__price"><del>60€</del> 42€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="42" data-order="16">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyeliner-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 7 Interstellar to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 7 Interstellar to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyeliner pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">7 Interstellar</a></h2>
+                            </div>
+                            <p class="product__price"><del>60€</del> 42€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="42" data-order="17">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/eyeliner-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 000 Dark Matter to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 000 Dark Matter to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Eyeliner pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">000 Dark Matter</a></h2>
+                            </div>
+                            <p class="product__price"><del>60€</del> 42€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="9.8" data-order="18">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/diluent.jpg" alt="OMG Diluent bottle, 10 ml" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add Diluent to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add Diluent to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Pigments</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Diluent</a></h2>
+                            </div>
+                            <p class="product__price"><del>14€</del> 9,80€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="19">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft.jpg" alt="Satellite 25/1 RLLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="20">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 25/1 RLLT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLLT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLLT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLLT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="21">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft-new.jpg" alt="Satellite 25/1 RLMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLMT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="22">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 25/1 RLMT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLMT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLMT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLMT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="23">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft.jpg" alt="Satellite 25/1 RLST cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLST to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLST to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLST</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="24">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard-2.jpg" alt="Satellite 25/1 RLST-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/1 RLST-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/1 RLST-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLST-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="25">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft.jpg" alt="Satellite 30/1 RLLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/1 RLLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/1 RLLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="26">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 30/1 RLLT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/1 RLLT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/1 RLLT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLLT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="27">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft.jpg" alt="Satellite 30/1 RLMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/1 RLMT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/1 RLMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="28">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 30/1 RLMT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/1 RLMT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/1 RLMT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLMT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="29">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard-2.jpg" alt="Satellite 30/1 RLST-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/1 RLST-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/1 RLST-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLST-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="30">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 35/1 RLLT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 35/1 RLLT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 35/1 RLLT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLLT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="31">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-soft.jpg" alt="Satellite 35/1 RLMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 35/1 RLMT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 35/1 RLMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="32">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 35/1 RLMT-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 35/1 RLMT-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 35/1 RLMT-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLMT-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="33">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-hard.jpg" alt="Satellite 35/1 RLST-H cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 35/1 RLST-H to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 35/1 RLST-H to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 1RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLST-H</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="34">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-3rl.jpg" alt="Satellite 25/3 RLLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 25/3 RLLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 25/3 RLLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 3RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/3 RLLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="35">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-3rl.jpg" alt="Satellite 30/3 RLLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/3 RLLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/3 RLLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 3RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/3 RLLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="36">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-3rl.jpg" alt="Satellite 35/3 RLLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 35/3 RLLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 35/3 RLLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 3RL</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/3 RLLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="37">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-flat.jpg" alt="Satellite 25/5 FMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add 25/5 FMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">25/5 FMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="38">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-flat-2.jpg" alt="Satellite 30/5 FMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/5 FMT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/5 FMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 5 Flat</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/5 FMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="39">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-flat.jpg" alt="Satellite 35/5 FMT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add 35/5 FMT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">35/5 FMT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="cartridges" data-price="31.5" data-order="40">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/cartridge-magnum.jpg" alt="Satellite 30/11 CMLT cartridges box" width="461" height="622" loading="lazy">
+                            <button class="product__add" type="button" aria-label="Add 30/11 CMLT to cart"></button>
+                            <button class="product__fav" type="button" aria-label="Add 30/11 CMLT to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Satellite 11 Magnum</span>
+                                <h2 class="product__name"><a class="product__link" href="needles.html">30/11 CMLT</a></h2>
+                            </div>
+                            <p class="product__price"><del>45€</del> 31,50€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="150" data-order="41">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/bundle-1.jpg" alt="OMG pigments bundle 1" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add Pigments Bundle 1 to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 1</a></h2>
+                            </div>
+                            <p class="product__price"><del>180€</del> 150€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="150" data-order="42">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/bundle-2.jpg" alt="OMG pigments bundle 2" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add Pigments Bundle 2 to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 2</a></h2>
+                            </div>
+                            <p class="product__price"><del>180€</del> 150€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="240" data-order="43">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/bundle-3.jpg" alt="OMG pigments bundle 3" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add Pigments Bundle 3 to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 3</a></h2>
+                            </div>
+                            <p class="product__price"><del>300€</del> 240€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="150" data-order="44">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/bundle-4.jpg" alt="OMG pigments bundle 4" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add Pigments Bundle 4 to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 4</a></h2>
+                            </div>
+                            <p class="product__price"><del>180€</del> 150€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pigments" data-price="150" data-order="45">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/bundle-5.jpg" alt="OMG pigments bundle 5" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add Pigments Bundle 5 to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 5</a></h2>
+                            </div>
+                            <p class="product__price"><del>180€</del> 150€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-devices" data-price="490" data-order="46">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/omg-1-rocket.jpg" alt="OMG-1 Rocket PMU device" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add OMG-1 Rocket to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Rocket</a></h2>
+                            </div>
+                            <p class="product__price">490€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-devices" data-price="95" data-order="47">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/power-supply.jpg" alt="OMG-1 power supply" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add OMG-1 Power Supply to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Power Supply</a></h2>
+                            </div>
+                            <p class="product__price">95€</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="product" data-category="pmu-devices" data-price="555" data-order="48">
+                    <article class="product__card">
+                        <div class="product__media">
+                            <img class="product__image" src="assets/img/products/omg-1-bundle.jpg" alt="OMG-1 Rocket with power supply" width="461" height="622" loading="lazy">
+                            <button class="product__fav" type="button" aria-label="Add OMG-1 Bundle to favorites" aria-pressed="false"></button>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__meta">
+                                <span class="product__size">Out of stock</span>
+                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Bundle</a></h2>
+                            </div>
+                            <p class="product__price">555€</p>
                         </div>
                     </article>
                 </li>

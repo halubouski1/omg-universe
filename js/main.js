@@ -211,11 +211,16 @@ const initEventsList = (list) => {
     requestAnimationFrame(step);
   };
 
-  const setActive = (nextItem) => {
+  // Mouse: the row stays where the cursor found it and opens downwards (the
+  // poster may run past the bottom of the screen). The page only scrolls by
+  // as much as a closing row above shifts it, so nothing jumps under the
+  // cursor. Touch and keyboard still bring the opened row to the middle.
+  const setActive = (nextItem, { anchor = false } = {}) => {
     if (!nextItem || nextItem === activeItem) return;
 
     const changed = [activeItem, nextItem].filter(Boolean);
     const before = changed.map(measure);
+    const topBefore = nextItem.getBoundingClientRect().top;
 
     activeItem?.classList.remove('is-active');
     nextItem.classList.add('is-active');
@@ -223,7 +228,10 @@ const initEventsList = (list) => {
 
     // Read the final layout before any animation pulls it back to the start
     const after = changed.map(measure);
-    const targetScroll = getCenteredScroll(nextItem);
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const targetScroll = anchor
+      ? Math.min(Math.max(window.scrollY + nextItem.getBoundingClientRect().top - topBefore, 0), maxScroll)
+      : getCenteredScroll(nextItem);
 
     if (prefersReducedMotion) {
       scrollToInstantly(targetScroll);
@@ -239,7 +247,7 @@ const initEventsList = (list) => {
     setTimeout(() => {
       isAnimating = false;
       // The cursor came to rest on another row meanwhile: open it now
-      if (pendingItem && pendingItem !== activeItem) setActive(pendingItem);
+      if (pendingItem && pendingItem !== activeItem) setActive(pendingItem, { anchor: true });
       pendingItem = null;
     }, EVENT_ANIMATION.duration);
   };
@@ -256,7 +264,7 @@ const initEventsList = (list) => {
     if (event.pointerType !== 'mouse') return;
     const row = event.target.closest('[data-event]');
     if (isAnimating) { pendingItem = row; return; }
-    setActive(row);
+    setActive(row, { anchor: true });
   });
 
   list.addEventListener('pointerleave', () => { pendingItem = null; });
@@ -640,7 +648,9 @@ const writeFavs = (list) => {
 const productFromCard = (card) => {
   const image = card.querySelector('.product__image');
   const name = card.querySelector('.product__name')?.textContent.trim() || '';
-  const price = card.querySelector('.product__price')?.textContent.trim() || '';
+  // A sale shows «<del>60€</del> 42€»: keep only the current price
+  const priceEl = card.querySelector('.product__price');
+  const price = (priceEl?.lastChild?.textContent || priceEl?.textContent || '').trim();
   const src = image?.getAttribute('src') || '';
   const productId = Number(card.dataset.productId) || 0;
   return {
