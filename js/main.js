@@ -223,20 +223,30 @@ const initEventsList = (list) => {
     // state to the new one (~0.3s) — old and new city / poster are briefly
     // both visible. Only the list takes part (view-transition-name), so
     // the rest of the page keeps running underneath.
-    if (anchor && document.startViewTransition && !prefersReducedMotion) {
+    // No waiting: the new row is in its final state at once (.is-instant
+    // switches off the rows' own delayed CSS transitions), and a hover during
+    // a running cross-fade simply starts the next one. Without View
+    // Transitions the rows switch instantly — no height animation, no scroll.
+    if (anchor) {
       const previous = activeItem;
       activeItem = nextItem;
-      list.style.viewTransitionName = 'omg-events';
-      isAnimating = true;
-      const transition = document.startViewTransition(() => {
+      const swap = () => {
         previous?.classList.remove('is-active');
         nextItem.classList.add('is-active');
-      });
+      };
+      list.classList.add('is-instant');
+      if (!document.startViewTransition || prefersReducedMotion) {
+        swap();
+        void list.offsetHeight; // apply the new state with transitions off
+        list.classList.remove('is-instant');
+        return;
+      }
+      list.style.viewTransitionName = 'omg-events';
+      const transition = document.startViewTransition(swap);
       transition.finished.finally(() => {
+        if (activeItem !== nextItem) return; // a newer hover took over
         list.style.viewTransitionName = '';
-        isAnimating = false;
-        if (pendingItem && pendingItem !== activeItem) setActive(pendingItem, { anchor: true });
-        pendingItem = null;
+        list.classList.remove('is-instant');
       });
       return;
     }
@@ -286,6 +296,8 @@ const initEventsList = (list) => {
   list.addEventListener('pointermove', (event) => {
     if (event.pointerType !== 'mouse') return;
     const row = event.target.closest('[data-event]');
+    // Hover never waits: only a touch/keyboard animation still in progress
+    // defers it (rows slide under the cursor then)
     if (isAnimating) { pendingItem = row; return; }
     setActive(row, { anchor: true });
   });
