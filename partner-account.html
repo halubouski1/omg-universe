@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/vendor/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/partners.css">
+    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <title>Partner account — OMG Universe</title>
+</head>
+<body>
+
+<header class="header">
+    <a class="header__brand" href="index.html" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.svg" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="favorites.html" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="cart.html" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu" aria-controls="site-menu" data-popup-open="site-menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main class="partners">
+    <section class="account" aria-labelledby="account-title">
+        <div class="account__inner">
+            <p class="account__notice">Demo: this is how the partner account looks on the website. On WordPress it shows the partner’s real code, orders and credit after login.</p>
+            <div class="account__head">
+                <div>
+                    <h1 class="account__title" id="account-title" data-aos="fade-up">Partner <em>account</em></h1>
+                    <p class="account__hello" data-aos="fade-up" data-aos-delay="100">Hello, Maria! Share your code — your clients get −10%, you get 5% OMG Credit.</p>
+                </div>
+                <a class="account__logout" href="partners.html">Log out</a>
+            </div>
+
+            <div class="account__share" data-aos="fade-up">
+                <div class="account__box account__box--code">
+                    <span class="account__label">Your promo code</span>
+                    <div class="account__copy-row">
+                        <span class="account__code">MARIA10</span>
+                        <button class="account__copy" type="button" data-copy="MARIA10">Copy</button>
+                    </div>
+                </div>
+                <div class="account__box">
+                    <span class="account__label">Your referral link — applies the code automatically</span>
+                    <div class="account__copy-row">
+                        <span class="account__link">https://omg-pmu.eu/?ref=MARIA10</span>
+                        <button class="account__copy" type="button" data-copy="https://omg-pmu.eu/?ref=MARIA10">Copy link</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account__stats" data-aos="fade-up" data-aos-delay="100">
+                <div class="account__stat account__stat--main"><span class="account__label">Available</span><span class="account__stat-value">€27,40</span></div>
+                <div class="account__stat"><span class="account__label">Pending</span><span class="account__stat-value">€9</span><span class="account__stat-note">Becomes available 14 days after the order is completed</span></div>
+                <div class="account__stat"><span class="account__label">Used</span><span class="account__stat-value">€12</span></div>
+                <div class="account__stat"><span class="account__label">Expiring in 30 days</span><span class="account__stat-value">€3,60</span><span class="account__stat-note">On 12 December 2026</span></div>
+            </div>
+
+            <div class="account__section" data-aos="fade-up">
+                <h2 class="account__section-title">Orders with your code</h2>
+                <div class="account__table-wrap">
+                    <table class="account__table">
+                        <thead><tr><th>Order</th><th>Date</th><th class="is-num">Eligible, excl. VAT</th><th class="is-num">Your credit</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td>#28412</td><td>12 Nov 2026</td><td class="is-num">€180</td><td class="is-num">€9</td><td><span class="account__badge account__badge--pending">Pending</span></td></tr>
+                            <tr><td>#28307</td><td>28 Oct 2026</td><td class="is-num">€378</td><td class="is-num">€18,90</td><td><span class="account__badge account__badge--available">Available</span></td></tr>
+                            <tr><td>#28155</td><td>09 Oct 2026</td><td class="is-num">€170</td><td class="is-num">€8,50</td><td><span class="account__badge account__badge--available">Available</span></td></tr>
+                            <tr><td>#27980</td><td>21 Sep 2026</td><td class="is-num">€75,60</td><td class="is-num">€0</td><td><span class="account__badge account__badge--cancelled">Refunded</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="account__section" data-aos="fade-up">
+                <h2 class="account__section-title">Credit history</h2>
+                <div class="account__table-wrap">
+                    <table class="account__table">
+                        <thead><tr><th>Date</th><th>Operation</th><th class="is-num">Amount</th><th>Valid until</th></tr></thead>
+                        <tbody>
+                            <tr><td>11 Nov 2026</td><td>Credit for order #28307</td><td class="is-num is-plus">+€18,90</td><td>11 Nov 2027</td></tr>
+                            <tr><td>02 Nov 2026</td><td>Used in order #28390</td><td class="is-num is-minus">−€12</td><td>—</td></tr>
+                            <tr><td>23 Oct 2026</td><td>Credit for order #28155</td><td class="is-num is-plus">+€8,50</td><td>23 Oct 2027</td></tr>
+                            <tr><td>12 Dec 2025</td><td>Credit for order #24410</td><td class="is-num is-plus">+€3,60</td><td>12 Dec 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="ref-terms__more">
+                <a class="link-arrow" href="referral-rules.html">Program rules<svg class="link-arrow__icon" width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></a>
+            </div>
+        </div>
+    </section>
+
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="catalog.html">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="course.html">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="pencils.html">Pencils</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="needles.html">Needles</a></li>
+                        <li data-aos="fade-up" data-aos-delay="280"><a class="footer__link" href="partners.html">Partners</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">TikTok</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" id="contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="privacy.html">Privacy terms</a>
+    </div>
+</footer>
+
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" data-popup data-lenis-prevent>
+    <div class="menu__overlay" data-popup-close></div>
+    <div class="menu__panel">
+        <div class="menu__shape" aria-hidden="true"></div>
+        <button class="menu__close" type="button" aria-label="Close menu" data-popup-close>
+            <img src="assets/icons/close.svg" alt="" width="23" height="23">
+        </button>
+        <a class="menu__logo" href="index.html" aria-label="OMG Universe — home">
+            <img src="assets/icons/logo.svg" alt="" width="136" height="80">
+        </a>
+        <nav class="menu__nav" aria-label="Main">
+            <ul class="menu__links">
+                <li style="--i: 0"><a class="menu__link" href="index.html" data-text="Home"><span class="menu__link-text">Home</span></a></li>
+                <li style="--i: 1"><a class="menu__link" href="course.html" data-text="Online course"><span class="menu__link-text">Online course</span></a></li>
+                <li style="--i: 2"><a class="menu__link" href="catalog.html" data-text="Catalog"><span class="menu__link-text">Catalog</span></a></li>
+                <li style="--i: 3"><a class="menu__link" href="tracking.html" data-text="Track order"><span class="menu__link-text">Track order</span></a></li>
+                <li style="--i: 4"><a class="menu__link" href="partners.html" data-text="Partners"><span class="menu__link-text">Partners</span></a></li>
+                <li style="--i: 5"><a class="menu__link" href="#contacts" data-text="Contact us"><span class="menu__link-text">Contact us</span></a></li>
+            </ul>
+        </nav>
+        <div class="menu__contacts">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/vendor/aos.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Partner account: copy code / link
+document.querySelectorAll('[data-copy]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(button.dataset.copy); } catch { return; }
+    const label = button.textContent;
+    button.textContent = 'Copied';
+    button.classList.add('is-copied');
+    setTimeout(() => { button.textContent = label; button.classList.remove('is-copied'); }, 1600);
+  });
+});
+</script>
+</body>
+</html>
