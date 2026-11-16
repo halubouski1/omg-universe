@@ -48,7 +48,7 @@
     }
 
     .legal__layout {
-        grid-template-columns: 270px minmax(0, 660px);
+        grid-template-columns: 270px minmax(0, 810px);
         gap: 45px;
         padding-top: 60px;
     }

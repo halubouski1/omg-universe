@@ -44,7 +44,7 @@
         <div class="course-hero__content">
             <p class="promo__label" data-aos="fade-up">OMG partner program</p>
             <h1 class="promo__title" id="partners-title" data-aos="fade-up" data-aos-delay="120">Recommend OMG</h1>
-            <p class="promo__label" data-aos="fade-up" data-aos-delay="180">Your client gets −10%, you get 5% OMG Credit for future purchases</p>
+            <p class="promo__label partners__lead" data-aos="fade-up" data-aos-delay="180">Your client gets −10%, you get 5% OMG Credit for future purchases</p>
             <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
                 <a class="btn btn--light" href="#partner-apply" data-popup-open="partner-apply">Become a partner</a>
                 <a class="btn btn--glass" href="#how-it-works">How it works</a>
@@ -296,9 +296,10 @@
                         <input class="popup__input" id="partner-instagram" name="instagram" type="text" placeholder="Instagram or website" required>
                         <label class="visually-hidden" for="partner-country">Country</label>
                         <input class="popup__input" id="partner-country" name="country" type="text" placeholder="Country" autocomplete="country-name" required>
-                        <label class="popup__check">
-                            <input name="consent" type="checkbox" value="yes" required>
-                            <span>I agree to the <a href="referral-rules.html" target="_blank">partner program rules</a> and the <a href="privacy.html" target="_blank">privacy policy</a></span>
+                        <label class="ref-check">
+                            <input class="ref-check__input" name="consent" type="checkbox" value="yes" required>
+                            <span class="ref-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span>
+                            <span class="ref-check__label">I agree to the <a href="referral-rules.html" target="_blank">partner program rules</a> and the <a href="privacy.html" target="_blank">privacy policy</a></span>
                         </label>
                     </div>
                     <button class="btn popup__submit" type="submit">Send application</button>

@@ -123,7 +123,7 @@
 /* --- Contents + text --------------------------------------------------------- */
 .legal__layout {
     display: grid;
-    grid-template-columns: 360px minmax(0, 880px);
+    grid-template-columns: 360px minmax(0, 1080px);
     justify-content: space-between;
     gap: 60px;
     padding-top: 80px;

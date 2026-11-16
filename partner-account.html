@@ -38,13 +38,66 @@
 <main class="partners">
     <section class="account" aria-labelledby="account-title">
         <div class="account__inner">
-            <p class="account__notice">Demo: this is how the partner account looks on the website. On WordPress it shows the partner’s real code, orders and credit after login.</p>
+            <p class="account__notice">Demo on the static site: any e-mail and password open the partner account. On WordPress the partner logs in with the account created on approval.</p>
+
+            <div data-account-view="login">
+                <div class="account__head">
+                    <h1 class="account__title" id="account-title" data-aos="fade-up">Partner <em>account</em></h1>
+                </div>
+                <div class="account__login">
+                    <h2 class="account__login-title">Partner login</h2>
+                    <form novalidate data-account-login>
+                        <p>
+                            <label for="login-email">E-mail</label>
+                            <input id="login-email" name="log" type="email" autocomplete="email" required>
+                        </p>
+                        <p>
+                            <label for="login-password">Password</label>
+                            <input id="login-password" name="pwd" type="password" autocomplete="current-password" required>
+                        </p>
+                        <label class="ref-check">
+                            <input class="ref-check__input" name="rememberme" type="checkbox" value="forever" checked>
+                            <span class="ref-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span>
+                            <span class="ref-check__label">Remember me</span>
+                        </label>
+                        <button class="button" type="submit">Log in</button>
+                    </form>
+                    <p class="account__login-links">
+                        <button type="button" data-account-show="lost">Forgot your password?</button> · <a href="partners.html">Become a partner</a>
+                    </p>
+                </div>
+            </div>
+
+            <div data-account-view="lost" hidden>
+                <div class="account__head">
+                    <p class="account__title" aria-hidden="true">Partner <em>account</em></p>
+                </div>
+                <div class="account__login">
+                    <h2 class="account__login-title">Reset password</h2>
+                    <div data-account-lost-form>
+                        <p class="account__login-text">Enter the e-mail of your partner account — we’ll send you a link to set a new password.</p>
+                        <form novalidate data-account-lost>
+                            <p>
+                                <label for="lost-email">E-mail</label>
+                                <input id="lost-email" name="user_login" type="email" autocomplete="email" required>
+                            </p>
+                            <button class="button" type="submit">Send reset link</button>
+                        </form>
+                    </div>
+                    <p class="account__login-text" data-account-lost-done hidden>If this e-mail belongs to a partner account, a reset link is on its way. Check your inbox.</p>
+                    <p class="account__login-links">
+                        <button type="button" data-account-show="login">Back to login</button>
+                    </p>
+                </div>
+            </div>
+
+            <div data-account-view="dashboard" hidden>
             <div class="account__head">
                 <div>
-                    <h1 class="account__title" id="account-title" data-aos="fade-up">Partner <em>account</em></h1>
+                    <h2 class="account__title" data-aos="fade-up">Partner <em>account</em></h2>
                     <p class="account__hello" data-aos="fade-up" data-aos-delay="100">Hello, Maria! Share your code — your clients get −10%, you get 5% OMG Credit.</p>
                 </div>
-                <a class="account__logout" href="partners.html">Log out</a>
+                <button class="btn btn--glass account__logout" type="button" data-account-show="login">Log out</button>
             </div>
 
             <div class="account__share" data-aos="fade-up">
@@ -99,6 +152,8 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
             </div>
 
             <div class="ref-terms__more">
@@ -207,6 +262,44 @@ document.querySelectorAll('[data-copy]').forEach((button) => {
     setTimeout(() => { button.textContent = label; button.classList.remove('is-copied'); }, 1600);
   });
 });
+</script>
+<script>
+// Partner account (static demo): login → account, forgot password, log out
+(() => {
+  const views = document.querySelectorAll('[data-account-view]');
+  const show = (name) => {
+    views.forEach((view) => { view.hidden = view.dataset.accountView !== name; });
+    window.scrollTo({ top: 0 });
+    document.querySelector(`[data-account-view="${name}"] input`)?.focus({ preventScroll: true });
+  };
+  const valid = (form) => {
+    const inputs = [...form.querySelectorAll('input[required]')];
+    inputs.forEach((input) => input.classList.toggle('is-invalid', !input.checkValidity()));
+    const bad = inputs.find((input) => !input.checkValidity());
+    bad?.focus();
+    return !bad;
+  };
+  document.querySelectorAll('[data-account-show]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.dataset.accountShow === 'lost') {
+        document.querySelector('[data-account-lost-form]').hidden = false;
+        document.querySelector('[data-account-lost-done]').hidden = true;
+      }
+      show(button.dataset.accountShow);
+    });
+  });
+  document.querySelector('[data-account-login]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (valid(event.target)) show('dashboard');
+  });
+  document.querySelector('[data-account-lost]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!valid(event.target)) return;
+    document.querySelector('[data-account-lost-form]').hidden = true;
+    document.querySelector('[data-account-lost-done]').hidden = false;
+  });
+  document.querySelectorAll('.account__login input').forEach((input) => input.addEventListener('input', () => input.classList.remove('is-invalid')));
+})();
 </script>
 </body>
 </html>
