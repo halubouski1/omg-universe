@@ -293,9 +293,21 @@ const initEventsList = (list) => {
   // aimed at don't flicker open in between.
   let pendingItem = null;
 
-  list.addEventListener('pointermove', (event) => {
+  // While a cross-fade runs the browser hands every pointer event to <html>
+  // (View Transitions), so the row is found from the cursor position; the
+  // rows already have their new layout by then. That lets a hover on
+  // another row interrupt the fade at once instead of being lost.
+  const rowAt = (x, y) => items.find((item) => {
+    const rect = item.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y < rect.bottom;
+  });
+
+  document.addEventListener('pointermove', (event) => {
     if (event.pointerType !== 'mouse') return;
-    const row = event.target.closest('[data-event]');
+    const fading = Boolean(list.style.viewTransitionName);
+    if (!fading && !list.contains(event.target)) return;
+    const row = fading ? rowAt(event.clientX, event.clientY) : event.target.closest('[data-event]');
+    if (!row) return;
     // Hover never waits: only a touch/keyboard animation still in progress
     // defers it (rows slide under the cursor then)
     if (isAnimating) { pendingItem = row; return; }
