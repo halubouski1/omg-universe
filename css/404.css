@@ -11,7 +11,7 @@
     padding: 0 70px 183px 108px;
     overflow: hidden;
     /* the favourites page's oval lines, filling the section from the top */
-    background: url('../assets/img/favorites-bg.jpg') 50% 0 / cover no-repeat, #eceff4;
+    background: url('../assets/img/favorites-bg.jpg?v=2') 50% 0 / cover no-repeat, #eceff4;
     color: #131312;
 }
 

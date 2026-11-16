@@ -19,7 +19,7 @@
     --legal-accent-dark: #4a932f;
 
     padding: 236px 108px 160px;
-    background: url('../assets/img/favorites-bg.jpg') 50% 0 / 100% auto no-repeat, #eceff4;
+    background: url('../assets/img/favorites-bg.jpg?v=2') 50% 0 / 100% auto no-repeat, #eceff4;
     color: var(--legal-ink);
 }
 

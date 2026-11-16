@@ -5,7 +5,7 @@
 .catalog--favorites {
     padding-top: 186px;
     /* thin oval lines on the page colour, filling the section from the top */
-    background: url('../assets/img/favorites-bg.jpg') 50% 0 / cover no-repeat, #eceff4;
+    background: url('../assets/img/favorites-bg.jpg?v=2') 50% 0 / cover no-repeat, #eceff4;
 }
 
 .catalog--favorites .catalog__head {
