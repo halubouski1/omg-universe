@@ -123,6 +123,10 @@
     .legal {
         padding-top: 130px;
         padding-bottom: 80px;
+    }
+
+    .legal::before {
+        aspect-ratio: 360 / 800;
         background-image: url('../assets/img/favorites-bg-mob.jpg');
     }
 

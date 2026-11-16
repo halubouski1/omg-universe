@@ -18,9 +18,28 @@
     --legal-accent: #44d62d;
     --legal-accent-dark: #4a932f;
 
+    position: relative;
+    isolation: isolate;
     padding: 236px 108px 160px;
-    background: url('../assets/img/favorites-bg.jpg?v=2') 50% 0 / 100% auto no-repeat, #eceff4;
+    background-color: #eceff4;
     color: var(--legal-ink);
+}
+
+/* Oval lines of the favourites page: one screen tall, fading out softly
+   downwards and a little lighter, so the lines never end in a hard cut */
+.legal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    aspect-ratio: 1920 / 1112;
+    background: url('../assets/img/favorites-bg.jpg?v=2') 50% 0 / 100% auto no-repeat;
+    opacity: .75;
+    -webkit-mask-image: linear-gradient(#000 30%, transparent 92%);
+    mask-image: linear-gradient(#000 30%, transparent 92%);
+    pointer-events: none;
 }
 
 /* --- Switcher between the documents (like .catalog__filters) -------------- */

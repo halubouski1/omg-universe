@@ -389,6 +389,21 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 
 // ========================================
+// Legal pages: contents links glide to their section
+// ========================================
+document.querySelectorAll('.legal__toc-link[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    if (!target) return;
+    event.preventDefault();
+    if (lenis) lenis.scrollTo(target, { offset: -40, duration: 1.2 });
+    else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', link.hash);
+  });
+});
+
+
+// ========================================
 // Back to top
 // ========================================
 document.querySelectorAll('[data-scroll-top]').forEach((button) => {
