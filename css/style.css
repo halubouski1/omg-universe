@@ -2172,3 +2172,18 @@ body.is-popup-open {
     opacity: .4;
     text-decoration-thickness: 1px;
 }
+
+/* Events list on hover (main.js): only the list cross-fades between the old
+   and the new open row, like the client's reference; the page under it
+   switches at once */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+}
+
+::view-transition-group(omg-events),
+::view-transition-old(omg-events),
+::view-transition-new(omg-events) {
+    animation-duration: .3s;
+    animation-timing-function: ease;
+}

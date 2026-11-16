@@ -218,6 +218,29 @@ const initEventsList = (list) => {
   const setActive = (nextItem, { anchor = false } = {}) => {
     if (!nextItem || nextItem === activeItem) return;
 
+    // Mouse (as in the client's reference video): the page stays put, the
+    // rows switch layout at once and the list cross-fades from the old
+    // state to the new one (~0.3s) — old and new city / poster are briefly
+    // both visible. Only the list takes part (view-transition-name), so
+    // the rest of the page keeps running underneath.
+    if (anchor && document.startViewTransition && !prefersReducedMotion) {
+      const previous = activeItem;
+      activeItem = nextItem;
+      list.style.viewTransitionName = 'omg-events';
+      isAnimating = true;
+      const transition = document.startViewTransition(() => {
+        previous?.classList.remove('is-active');
+        nextItem.classList.add('is-active');
+      });
+      transition.finished.finally(() => {
+        list.style.viewTransitionName = '';
+        isAnimating = false;
+        if (pendingItem && pendingItem !== activeItem) setActive(pendingItem, { anchor: true });
+        pendingItem = null;
+      });
+      return;
+    }
+
     const changed = [activeItem, nextItem].filter(Boolean);
     const before = changed.map(measure);
     const topBefore = nextItem.getBoundingClientRect().top;

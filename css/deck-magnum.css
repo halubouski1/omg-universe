@@ -1,0 +1,182 @@
+/* ==========================================================================
+   Magnum card on the home deck — the dark card from needles.html
+   (pigments.css + needles.css), scoped to .deck-card--magnum so the other
+   home cards keep their own look. Mobile title sizes live in media.css.
+   ========================================================================== */
+.deck-card--magnum .deck-card__title {
+    max-width: 8.4em;
+    top: 186px;
+    font-size: 70px;
+    line-height: 93%;
+}
+
+.deck-card--magnum .deck-card__title em {
+    font-weight: 400;
+    line-height: 0.7;
+}
+
+/* Soft green light behind the cartridge */
+.deck-card--magnum .deck-card__glow {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    width: 1500px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(52, 146, 30, .7), rgba(39, 110, 25, .3) 55%, rgba(20, 20, 20, 0));
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.deck-card--magnum .deck-card__image {
+    top: 52%;
+    width: 1272px;
+}
+
+.deck-card--magnum .deck-card__feature {
+    gap: 25px;
+}
+
+.deck-card--magnum .deck-card__preview {
+    position: relative;
+    width: 111px;
+    height: 111px;
+}
+
+.deck-card--magnum .deck-card__preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+/* Round "+" as on the catalog cards (catalog.css isn't loaded on home) */
+.deck-card--magnum .product__add {
+    position: absolute;
+    z-index: 2;
+    top: -14px;
+    right: -4px;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), background-color .3s ease;
+}
+
+.deck-card--magnum .product__add::before,
+.deck-card--magnum .product__add::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 1.5px;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+    transition: background-color .3s ease;
+}
+
+.deck-card--magnum .product__add::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.deck-card--magnum .product__add:hover {
+    background-color: #4a932f;
+    transform: rotate(90deg);
+}
+
+.deck-card--magnum .product__add:hover::before,
+.deck-card--magnum .product__add:hover::after,
+.deck-card--magnum .product__add.is-active:hover::before,
+.deck-card--magnum .product__add.is-active:hover::after {
+    background-color: #fff;
+}
+
+.deck-card--magnum .product__add.is-active::before,
+.deck-card--magnum .product__add.is-active::after {
+    background-color: #4a932f;
+}
+
+.deck-card--magnum .product__add:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 1919px) {
+    .deck-card--magnum .deck-card__title {
+        top: 139.5px;
+        font-size: 52.5px;
+    }
+
+    .deck-card--magnum .deck-card__glow {
+        width: 1125px;
+        height: 600px;
+    }
+
+    .deck-card--magnum .deck-card__image {
+        width: 954px;
+    }
+
+    .deck-card--magnum .deck-card__feature {
+        gap: 18.75px;
+    }
+
+    .deck-card--magnum .deck-card__preview {
+        width: 83.25px;
+        height: 83.25px;
+    }
+
+    .deck-card--magnum .product__add {
+        top: -10.5px;
+        right: -3px;
+        width: 29.25px;
+        height: 29.25px;
+    }
+
+    .deck-card--magnum .product__add::before,
+    .deck-card--magnum .product__add::after {
+        width: 9.75px;
+        height: 1.125px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .deck-card--magnum .deck-card__image {
+        width: 620px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .deck-card--magnum .deck-card__title {
+        font-size: 42.5px;
+    }
+
+    .deck-card--magnum .deck-card__glow {
+        width: 825px;
+    }
+}
+
+@media (max-width: 769px) {
+    .deck-card--magnum .deck-card__title {
+        font-size: 39.5px;
+    }
+
+    .deck-card--magnum .deck-card__image {
+        width: 450px;
+    }
+
+    .deck-card--magnum .deck-card__glow {
+        width: 625px;
+    }
+}
+
+/* Tall mobile card: the cartridge stands upright, sized from the card height */
+@media (max-width: 570px) {
+    .deck .deck-card--magnum .deck-card__image {
+        --bottle-h: max(120px, calc(var(--deck-card-h) - 340px));
+        top: calc(180px + (var(--deck-card-h) - 250px - 95px) / 2);
+        width: var(--bottle-h);
+        max-width: none;
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+}
