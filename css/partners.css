@@ -208,7 +208,7 @@
     display: grid;
     justify-items: center;
     gap: 50px;
-    padding: 160px var(--page-gutter) 180px;
+    padding: 160px var(--page-gutter) 240px;
     background: radial-gradient(60% 70% at 50% 100%, rgba(52, 146, 30, .55), rgba(0, 0, 0, 0) 70%), #000;
     text-align: center;
 }
@@ -229,7 +229,8 @@
 }
 
 .ref-cta__text {
-    max-width: 560px;
+    max-width: 760px;
+    text-wrap: balance; /* even lines, no lone last word */
     font-size: 18px;
     line-height: 1.5;
     color: rgba(255, 255, 255, .75);
@@ -239,7 +240,7 @@
 /* Hero subtitle under "Recommend OMG": readable line height */
 .partners__lead {
     max-width: 680px;
-    margin: 22px auto 0;
+    margin: 22px auto 44px; /* space before the buttons */
     line-height: 1.5;
 }
 
@@ -677,7 +678,7 @@
     .ref-terms__card { padding: 42px 45px; }
     .ref-terms__title { font-size: 19.5px; }
     .ref-terms__list li { font-size: 14px; }
-    .ref-cta { padding: 120px var(--page-gutter) 135px; gap: 37.5px; }
+    .ref-cta { padding: 120px var(--page-gutter) 180px; gap: 37.5px; }
     .ref-cta__title { font-size: 97.5px; }
     .ref-cta__text { font-size: 15px; }
     .account { padding: 130px var(--page-gutter) 105px; }
@@ -697,7 +698,7 @@
 }
 
 @media (max-width: 570px) {
-    .partners__lead { margin-top: 18px; font-size: 14px; line-height: 1.55; }
+    .partners__lead { margin: 18px auto 32px; font-size: 14px; line-height: 1.55; }
     .partners .stats__group { row-gap: 56px; }
     .partners .stats__item { gap: 18px; }
     .partners .stats__value { font-size: 58px; }
@@ -720,7 +721,7 @@
     .ref-example__item:nth-child(2)::after { display: block; }
     .ref-example__value { font-size: 56px; }
     .ref-terms__card { padding: 30px 24px; }
-    .ref-cta { padding: 90px var(--page-gutter) 100px; }
+    .ref-cta { padding: 90px var(--page-gutter) 130px; }
     .ref-cta__title { font-size: 56px; }
     .account { padding: 110px var(--page-gutter) 80px; }
     .account__title { font-size: 44px; }
