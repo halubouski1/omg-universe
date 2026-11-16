@@ -1,7 +1,8 @@
 /* ==========================================================================
    Magnum card on the home deck — the dark card from needles.html
    (pigments.css + needles.css), scoped to .deck-card--magnum so the other
-   home cards keep their own look. Mobile title sizes live in media.css.
+   home cards keep their own look; only the green glow is shared by every
+   home deck card. Mobile title sizes live in media.css.
    ========================================================================== */
 .deck-card--magnum .deck-card__title {
     max-width: 8.4em;
@@ -15,8 +16,9 @@
     line-height: 0.7;
 }
 
-/* Soft green light behind the cartridge */
-.deck-card--magnum .deck-card__glow {
+/* Soft green light behind the product — on every home deck card, so the
+   four cards look alike (same as the pigments / needles decks) */
+.deck .deck-card__glow {
     position: absolute;
     top: 53%;
     left: 50%;
@@ -108,7 +110,7 @@
         font-size: 52.5px;
     }
 
-    .deck-card--magnum .deck-card__glow {
+    .deck .deck-card__glow {
         width: 1125px;
         height: 600px;
     }
@@ -151,7 +153,7 @@
         font-size: 42.5px;
     }
 
-    .deck-card--magnum .deck-card__glow {
+    .deck .deck-card__glow {
         width: 825px;
     }
 }
@@ -165,7 +167,7 @@
         width: 450px;
     }
 
-    .deck-card--magnum .deck-card__glow {
+    .deck .deck-card__glow {
         width: 625px;
     }
 }
