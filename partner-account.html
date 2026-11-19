@@ -46,22 +46,30 @@
                 <div class="acc__head">
                     <div>
                         <p class="acc__label">Partner account</p>
-                        <h1 class="acc__title" id="acc-title">Log in</h1>
+                        <h1 class="acc__title" id="acc-title">Log <span>in</span></h1>
                     </div>
                 </div>
-                <div class="acc__auth acc__auth--single">
+                <div class="acc__auth acc__auth--split">
                     <div class="acc__card">
-                        <h2 class="acc__card-title">Log in</h2>
                         <form class="acc__form" novalidate data-acc-login>
                             <div class="acc__field"><label for="f-username">E-mail</label><input id="f-username" name="username" type="email" autocomplete="email" required></div>
                             <div class="acc__field"><label for="f-password">Password</label><input id="f-password" name="password" type="password" autocomplete="current-password" required></div>
                             <label class="acc-check"><input type="checkbox" name="rememberme" checked><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>Remember me</span></label>
                             <div class="acc__actions"><button type="submit">Log in</button><span class="acc__auth-links"><button class="acc__link-btn" type="button" data-acc-show="lost">Forgot your password?</button></span></div>
                         </form>
-                        <p class="acc__auth-links" style="margin-top:22px">Not a partner yet? <a href="partners.html">Become a partner</a></p>
+                        <p class="acc__switch">Not a partner yet?<a href="partners.html">Become a partner</a></p>
+                    </div>
+                    <div class="acc__perks">
+                        <p class="acc__perks-title">OMG <span>partner</span> account</p>
+                        <ul class="acc__perks-list">
+                            <li>Your personal −10% code and referral link</li>
+                            <li>5% OMG Credit from every order with your code</li>
+                            <li>Credit history, orders, returns and settings</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
 
             <div data-acc-view="lost" hidden>
                 <div class="acc__head"><div><p class="acc__label">Partner account</p><p class="acc__title">Reset <span>password</span></p></div></div>
@@ -370,6 +378,7 @@
 <script src="js/vendor/aos.js"></script>
 <script src="js/vendor/lenis.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/select.js"></script>
 <script src="js/account.js"></script>
 </body>
 </html>

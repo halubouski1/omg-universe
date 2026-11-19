@@ -55,8 +55,10 @@
   tabs.forEach((tab) => tab.addEventListener('click', () => showTab(tab.dataset.accTab)));
 
   root.querySelectorAll('[data-acc-show]').forEach((button) => button.addEventListener('click', () => {
-    root.querySelector('[data-acc-lost-done]').hidden = true;
-    root.querySelector('[data-acc-lost]').hidden = false;
+    const done = root.querySelector('[data-acc-lost-done]');
+    const lost = root.querySelector('[data-acc-lost]');
+    if (done) done.hidden = true;
+    if (lost) lost.hidden = false;
     showView(button.dataset.accShow);
   }));
 
