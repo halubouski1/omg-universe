@@ -1,0 +1,642 @@
+/* ==========================================================================
+   Accounts — customer (account.html, WooCommerce «My account») and partner
+   (partner-account.html, the «Partner program» tab). Light page in the
+   site's colours (#eceff4, white cards, green accent), Helvetica Neue only:
+   no decorative fonts, so figures and tables read easily.
+   Header, footer and buttons come from style.css.
+   ========================================================================== */
+.acc {
+    --acc-bg: #eceff4;
+    --acc-card: #fff;
+    --acc-ink: #131312;
+    --acc-muted: #7d7f82;
+    --acc-line: #dcdee2;
+    --acc-accent: #44d62d;
+    --acc-accent-dark: #3a8f26;
+    --acc-soft: #f4f6f9;
+    --acc-radius: 14px;
+
+    min-height: 100vh;
+    padding: 190px var(--page-gutter) 140px;
+    background-color: var(--acc-bg);
+    color: var(--acc-ink);
+}
+
+.acc__inner {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.acc__notice {
+    margin-bottom: 30px;
+    padding: 14px 20px;
+    border: 1px dashed var(--acc-line);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--acc-muted);
+}
+
+.acc [hidden] {
+    display: none !important;
+}
+
+/* --- Head ----------------------------------------------------------------- */
+.acc__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 50px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--acc-line);
+}
+
+.acc__label {
+    margin-bottom: 14px;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--acc-muted);
+}
+
+.acc__title {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.acc__title span {
+    color: var(--acc-accent-dark);
+}
+
+.acc__btn,
+.acc .woocommerce-Button,
+.acc .woocommerce-button,
+.acc button[type="submit"]:not(.acc__link-btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 28px;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--acc-ink);
+    color: #fff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+
+.acc__btn:hover,
+.acc button[type="submit"]:not(.acc__link-btn):hover,
+.acc .woocommerce-Button:hover,
+.acc .woocommerce-button:hover {
+    background-color: var(--acc-accent-dark);
+}
+
+.acc__btn--light {
+    border: 1px solid var(--acc-line);
+    background-color: var(--acc-card);
+    color: var(--acc-ink);
+}
+
+.acc__btn--light:hover {
+    border-color: var(--acc-ink);
+    background-color: var(--acc-card);
+}
+
+.acc__link-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* --- Layout: tabs on the left, panel on the right ---------------------------- */
+.acc__layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.acc__nav {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    border-radius: var(--acc-radius);
+    background-color: var(--acc-card);
+}
+
+.acc__nav ul {
+    display: contents;
+    list-style: none;
+}
+
+.acc__tab,
+.acc__nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 9px;
+    background: none;
+    color: var(--acc-ink);
+    font: inherit;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+
+.acc__tab:hover,
+.acc__nav a:hover {
+    background-color: var(--acc-soft);
+}
+
+.acc__tab.is-active,
+.acc__nav .is-active > a {
+    background-color: var(--acc-ink);
+    color: #fff;
+}
+
+.acc__tab--partner,
+.acc__nav .woocommerce-MyAccount-navigation-link--partner a {
+    color: var(--acc-accent-dark);
+    font-weight: 500;
+}
+
+.acc__nav .woocommerce-MyAccount-navigation-link--partner.is-active a,
+.acc__tab--partner.is-active {
+    color: #fff;
+}
+
+.acc__tab--logout,
+.acc__nav .woocommerce-MyAccount-navigation-link--customer-logout a {
+    color: var(--acc-muted);
+}
+
+.acc__nav .woocommerce-MyAccount-navigation-link--customer-logout,
+.acc__tab--logout {
+    margin-top: 6px;
+    border-top: 1px solid var(--acc-line);
+    border-radius: 0 0 9px 9px;
+}
+
+/* --- Panels ------------------------------------------------------------- */
+.acc__panel > * + * {
+    margin-top: 16px;
+}
+
+.acc__card {
+    padding: 34px 36px;
+    border-radius: var(--acc-radius);
+    background-color: var(--acc-card);
+}
+
+.acc__card-title {
+    margin-bottom: 22px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+.acc__text {
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #45474a;
+}
+
+.acc__text + .acc__text {
+    margin-top: 12px;
+}
+
+.acc__text a {
+    text-decoration: underline;
+}
+
+.acc__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 16px;
+}
+
+.acc__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 26px;
+    padding: 26px 28px;
+    border-radius: var(--acc-radius);
+    background-color: var(--acc-card);
+}
+
+.acc__tile--dark {
+    background-color: var(--acc-ink);
+    color: #fff;
+}
+
+.acc__tile--green {
+    background-color: var(--acc-accent);
+    color: #000;
+}
+
+.acc__tile-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: .65;
+}
+
+.acc__tile-value {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.acc__tile-note {
+    margin-top: -14px;
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: .7;
+}
+
+.acc__share {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+}
+
+.acc__copy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+}
+
+.acc__code {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.acc__link {
+    overflow: hidden;
+    font-size: 17px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.acc__copy {
+    flex-shrink: 0;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(--acc-ink);
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.acc__tile--green .acc__copy {
+    background-color: #000;
+}
+
+.acc__copy.is-copied {
+    background-color: var(--acc-accent-dark);
+}
+
+/* --- Tables ------------------------------------------------------------ */
+.acc__table-wrap {
+    overflow-x: auto;
+}
+
+.acc table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.acc th,
+.acc td {
+    padding: 15px 14px;
+    border-bottom: 1px solid var(--acc-line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.acc thead th {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--acc-muted);
+}
+
+.acc tbody tr:last-child td,
+.acc tfoot tr:last-child td,
+.acc tfoot tr:last-child th {
+    border-bottom: 0;
+}
+
+.acc .is-num {
+    text-align: right;
+}
+
+.acc .is-plus {
+    color: var(--acc-accent-dark);
+}
+
+.acc .is-minus {
+    color: #d1453b;
+}
+
+.acc__badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: var(--acc-soft);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.acc__badge--available,
+.acc__badge--completed { background-color: #e3f7de; color: var(--acc-accent-dark); }
+.acc__badge--pending,
+.acc__badge--processing,
+.acc__badge--requested,
+.acc__badge--on-hold { background-color: #fff3d6; color: #9a6a00; }
+.acc__badge--cancelled,
+.acc__badge--refunded,
+.acc__badge--failed,
+.acc__badge--rejected,
+.acc__badge--expired { background-color: #fde5e2; color: #c0392b; }
+.acc__badge--shipped,
+.acc__badge--approved { background-color: #e1ecfb; color: #2f5fa8; }
+
+.acc__empty {
+    padding: 8px 0;
+    color: var(--acc-muted);
+}
+
+.acc__table-btn {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 1px solid var(--acc-line);
+    border-radius: 8px;
+    background-color: var(--acc-card);
+    color: var(--acc-ink);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.acc__order-detail td {
+    background-color: var(--acc-soft);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- Forms ---------------------------------------------------------------- */
+.acc__form {
+    display: grid;
+    gap: 18px;
+}
+
+.acc__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.acc__field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--acc-muted);
+}
+
+.acc input[type="text"],
+.acc input[type="email"],
+.acc input[type="password"],
+.acc input[type="tel"],
+.acc input[type="number"],
+.acc select,
+.acc textarea {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid var(--acc-line);
+    border-radius: 9px;
+    background-color: var(--acc-card);
+    color: var(--acc-ink);
+    font: inherit;
+    font-size: 16px;
+    transition: border-color .25s ease;
+}
+
+.acc textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.acc input:focus,
+.acc select:focus,
+.acc textarea:focus {
+    border-color: var(--acc-ink);
+    outline: none;
+}
+
+.acc .is-invalid {
+    border-color: #d1453b !important;
+}
+
+.acc fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.acc legend {
+    margin-bottom: 14px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.acc__success {
+    padding: 14px 18px;
+    border-radius: 9px;
+    background-color: #e3f7de;
+    color: var(--acc-accent-dark);
+    font-size: 15px;
+}
+
+.acc__error {
+    padding: 14px 18px;
+    border-radius: 9px;
+    background-color: #fde5e2;
+    color: #c0392b;
+    font-size: 15px;
+}
+
+.acc__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Custom checkbox (as in checkout), green when ticked */
+.acc-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.acc-check input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.acc-check__box {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #b9bcc0;
+    border-radius: 5px;
+    background-color: var(--acc-card);
+    transition: border-color .3s ease, background-color .3s ease;
+}
+
+.acc-check__box img {
+    transform: scale(0);
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.acc-check input:checked + .acc-check__box {
+    border-color: var(--acc-accent);
+    background-color: var(--acc-accent);
+}
+
+.acc-check input:checked + .acc-check__box img {
+    transform: scale(1);
+}
+
+.acc-check input:focus-visible + .acc-check__box {
+    outline: 1px solid var(--acc-accent-dark);
+    outline-offset: 3px;
+}
+
+/* --- Login / register / lost password ------------------------------------ */
+.acc__auth {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1100px;
+}
+
+.acc__auth--single {
+    grid-template-columns: minmax(0, 540px);
+}
+
+.acc__auth .acc__card {
+    padding: 40px 42px;
+}
+
+.acc__auth-links {
+    font-size: 14px;
+    color: var(--acc-muted);
+}
+
+.acc__auth-links a,
+.acc__auth-links button {
+    color: var(--acc-ink);
+}
+
+.acc__addresses {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.acc address {
+    font-style: normal;
+    line-height: 1.6;
+    color: #45474a;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1919px) {
+    .acc { padding-top: 150px; }
+    .acc__title { font-size: 52px; }
+    .acc__layout { grid-template-columns: 240px minmax(0, 1fr); gap: 30px; }
+}
+
+@media (max-width: 1025px) {
+    .acc__layout { grid-template-columns: 1fr; }
+    .acc__nav {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .acc__nav::-webkit-scrollbar { display: none; }
+    .acc__tab,
+    .acc__nav a { width: auto; white-space: nowrap; }
+    .acc__tab--logout,
+    .acc__nav .woocommerce-MyAccount-navigation-link--customer-logout { margin: 0; border: 0; }
+    .acc__auth { grid-template-columns: 1fr; max-width: 560px; }
+    .acc__share { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 570px) {
+    .acc { padding: 120px var(--page-gutter) 80px; }
+    .acc__head { margin-bottom: 26px; padding-bottom: 24px; }
+    .acc__title { font-size: 38px; }
+    .acc__card,
+    .acc__auth .acc__card { padding: 24px 20px; }
+    .acc__card-title { font-size: 20px; }
+    .acc__row,
+    .acc__addresses { grid-template-columns: 1fr; }
+    .acc__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .acc__tile { gap: 18px; padding: 18px 16px; }
+    .acc__tile-value { font-size: 28px; }
+    .acc__tile-note { margin-top: -8px; font-size: 11px; }
+    .acc__code { font-size: 30px; }
+    .acc__copy-row { flex-wrap: wrap; }
+}

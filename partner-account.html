@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="css/vendor/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
-    <link rel="stylesheet" href="css/partners.css">
-    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <link rel="stylesheet" href="css/account.css">
     <title>Partner account — OMG Universe</title>
 </head>
-<body>
+<body class="page-light">
 
-<header class="header">
+<header class="header header--dark">
     <a class="header__brand" href="index.html" aria-label="OMG Universe — home">
         <img class="header__logo" src="assets/icons/logo.svg" alt="OMG" width="68" height="40">
     </a>
@@ -21,6 +20,9 @@
         <div class="header__tools-wrapper">
             <a class="header__icon-btn" href="#" aria-label="Search">
                 <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="account.html" aria-label="My account">
+                <img src="assets/icons/account.svg" alt="" width="19" height="19">
             </a>
             <a class="header__icon-btn" href="favorites.html" aria-label="Wishlist">
                 <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
@@ -35,129 +37,247 @@
     </div>
 </header>
 
-<main class="partners">
-    <section class="account" aria-labelledby="account-title">
-        <div class="account__inner">
-            <p class="account__notice">Demo on the static site: any e-mail and password open the partner account. On WordPress the partner logs in with the account created on approval.</p>
+<main>
+    <section class="acc" aria-labelledby="acc-title" data-acc>
+        <div class="acc__inner">
+            <p class="acc__notice">Demo on the static site: any e-mail and password open the account. On WordPress partners log in with the account created on approval.</p>
 
-            <div data-account-view="login">
-                <div class="account__head">
-                    <h1 class="account__title" id="account-title" data-aos="fade-up">Partner <em>account</em></h1>
+            <div data-acc-view="auth">
+                <div class="acc__head">
+                    <div>
+                        <p class="acc__label">Partner account</p>
+                        <h1 class="acc__title" id="acc-title">Log in</h1>
+                    </div>
                 </div>
-                <div class="account__login">
-                    <h2 class="account__login-title">Partner login</h2>
-                    <form novalidate data-account-login>
-                        <p>
-                            <label for="login-email">E-mail</label>
-                            <input id="login-email" name="log" type="email" autocomplete="email" required>
-                        </p>
-                        <p>
-                            <label for="login-password">Password</label>
-                            <input id="login-password" name="pwd" type="password" autocomplete="current-password" required>
-                        </p>
-                        <label class="ref-check">
-                            <input class="ref-check__input" name="rememberme" type="checkbox" value="forever" checked>
-                            <span class="ref-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span>
-                            <span class="ref-check__label">Remember me</span>
-                        </label>
-                        <button class="button" type="submit">Log in</button>
-                    </form>
-                    <p class="account__login-links">
-                        <button type="button" data-account-show="lost">Forgot your password?</button> · <a href="partners.html">Become a partner</a>
-                    </p>
+                <div class="acc__auth acc__auth--single">
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Log in</h2>
+                        <form class="acc__form" novalidate data-acc-login>
+                            <div class="acc__field"><label for="f-username">E-mail</label><input id="f-username" name="username" type="email" autocomplete="email" required></div>
+                            <div class="acc__field"><label for="f-password">Password</label><input id="f-password" name="password" type="password" autocomplete="current-password" required></div>
+                            <label class="acc-check"><input type="checkbox" name="rememberme" checked><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>Remember me</span></label>
+                            <div class="acc__actions"><button type="submit">Log in</button><span class="acc__auth-links"><button class="acc__link-btn" type="button" data-acc-show="lost">Forgot your password?</button></span></div>
+                        </form>
+                        <p class="acc__auth-links" style="margin-top:22px">Not a partner yet? <a href="partners.html">Become a partner</a></p>
+                    </div>
                 </div>
             </div>
 
-            <div data-account-view="lost" hidden>
-                <div class="account__head">
-                    <p class="account__title" aria-hidden="true">Partner <em>account</em></p>
-                </div>
-                <div class="account__login">
-                    <h2 class="account__login-title">Reset password</h2>
-                    <div data-account-lost-form>
-                        <p class="account__login-text">Enter the e-mail of your partner account — we’ll send you a link to set a new password.</p>
-                        <form novalidate data-account-lost>
-                            <p>
-                                <label for="lost-email">E-mail</label>
-                                <input id="lost-email" name="user_login" type="email" autocomplete="email" required>
-                            </p>
-                            <button class="button" type="submit">Send reset link</button>
+            <div data-acc-view="lost" hidden>
+                <div class="acc__head"><div><p class="acc__label">Partner account</p><p class="acc__title">Reset <span>password</span></p></div></div>
+                <div class="acc__auth acc__auth--single">
+                    <div class="acc__card">
+                        <p class="acc__text">Enter the e-mail of your account — we’ll send you a link to set a new password.</p>
+                        <div class="acc__success" data-acc-lost-done hidden style="margin-top:18px">If this e-mail has an account, a reset link is on its way. Check your inbox.</div>
+                        <form class="acc__form" novalidate data-acc-lost style="margin-top:22px">
+                            <div class="acc__field"><label for="f-user-login">E-mail</label><input id="f-user-login" name="user_login" type="email" autocomplete="email" required></div>
+                            <div class="acc__actions"><button type="submit">Send reset link</button><span class="acc__auth-links"><button class="acc__link-btn" type="button" data-acc-show="auth">Back to login</button></span></div>
                         </form>
                     </div>
-                    <p class="account__login-text" data-account-lost-done hidden>If this e-mail belongs to a partner account, a reset link is on its way. Check your inbox.</p>
-                    <p class="account__login-links">
-                        <button type="button" data-account-show="login">Back to login</button>
-                    </p>
                 </div>
             </div>
 
-            <div data-account-view="dashboard" hidden>
-            <div class="account__head">
-                <div>
-                    <h2 class="account__title" data-aos="fade-up">Partner <em>account</em></h2>
-                    <p class="account__hello" data-aos="fade-up" data-aos-delay="100">Hello, Maria! Share your code — your clients get −10%, you get 5% OMG Credit.</p>
+            <div data-acc-view="cabinet" hidden>
+                <div class="acc__head">
+                    <div>
+                        <p class="acc__label">Partner account</p>
+                        <p class="acc__title">Hello, <span>Maria</span></p>
+                    </div>
+                    <button class="acc__btn acc__btn--light" type="button" data-acc-logout>Log out</button>
                 </div>
-                <button class="btn btn--glass account__logout" type="button" data-account-show="login">Log out</button>
-            </div>
+                <div class="acc__layout">
+                    <nav class="acc__nav" aria-label="Account">
+                    <button class="acc__tab acc__tab--partner is-active" type="button" data-acc-tab="partner">Partner program</button>
+                    <button class="acc__tab" type="button" data-acc-tab="dashboard">Dashboard</button>
+                    <button class="acc__tab" type="button" data-acc-tab="orders">Orders</button>
+                    <button class="acc__tab" type="button" data-acc-tab="returns">Returns</button>
+                    <button class="acc__tab" type="button" data-acc-tab="promo">Promo code</button>
+                    <button class="acc__tab" type="button" data-acc-tab="addresses">Addresses</button>
+                    <button class="acc__tab" type="button" data-acc-tab="details">Account details</button>
+                    <button class="acc__tab acc__tab--logout" type="button" data-acc-logout>Log out</button>
+                    </nav>
+                    <div>
+                <section class="acc__panel" data-acc-panel="partner" aria-label="Partner program">
+                    <div class="acc__share">
+                        <div class="acc__tile acc__tile--green">
+                            <span class="acc__tile-label">Your promo code</span>
+                            <div class="acc__copy-row"><span class="acc__code">MARIA10</span><button class="acc__copy" type="button" data-copy="MARIA10">Copy</button></div>
+                        </div>
+                        <div class="acc__tile">
+                            <span class="acc__tile-label">Your referral link — applies the code automatically</span>
+                            <div class="acc__copy-row"><span class="acc__link">https://omg-pmu.eu/?ref=MARIA10</span><button class="acc__copy" type="button" data-copy="https://omg-pmu.eu/?ref=MARIA10">Copy link</button></div>
+                        </div>
+                    </div>
+                    <div class="acc__grid">
+                        <div class="acc__tile acc__tile--dark"><span class="acc__tile-label">Available</span><span class="acc__tile-value">27,40€</span></div>
+                        <div class="acc__tile"><span class="acc__tile-label">Pending</span><span class="acc__tile-value">9€</span><span class="acc__tile-note">Available 14 days after the order is completed</span></div>
+                        <div class="acc__tile"><span class="acc__tile-label">Used</span><span class="acc__tile-value">12€</span></div>
+                        <div class="acc__tile"><span class="acc__tile-label">Expiring in 30 days</span><span class="acc__tile-value">3,60€</span><span class="acc__tile-note">On 12 December 2026</span></div>
+                    </div>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Orders with your code</h2>
+                        <div class="acc__table-wrap"><table>
+                            <thead><tr><th>Order</th><th>Date</th><th class="is-num">Eligible, excl. VAT</th><th class="is-num">Your credit</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td>#28412</td><td>12 Nov 2026</td><td class="is-num">180€</td><td class="is-num">9€</td><td><span class="acc__badge acc__badge--pending">Pending</span></td></tr>
+                                <tr><td>#28307</td><td>28 Oct 2026</td><td class="is-num">378€</td><td class="is-num">18,90€</td><td><span class="acc__badge acc__badge--available">Available</span></td></tr>
+                                <tr><td>#28155</td><td>09 Oct 2026</td><td class="is-num">170€</td><td class="is-num">8,50€</td><td><span class="acc__badge acc__badge--available">Available</span></td></tr>
+                                <tr><td>#27980</td><td>21 Sep 2026</td><td class="is-num">75,60€</td><td class="is-num">0€</td><td><span class="acc__badge acc__badge--cancelled">Refunded</span></td></tr>
+                            </tbody>
+                        </table></div>
+                    </div>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Credit history</h2>
+                        <div class="acc__table-wrap"><table>
+                            <thead><tr><th>Date</th><th>Operation</th><th class="is-num">Amount</th><th>Valid until</th></tr></thead>
+                            <tbody>
+                                <tr><td>11 Nov 2026</td><td>Credit for order #28307</td><td class="is-num is-plus">+18,90€</td><td>11 Nov 2027</td></tr>
+                                <tr><td>02 Nov 2026</td><td>Used in order #28390</td><td class="is-num is-minus">−12€</td><td>—</td></tr>
+                                <tr><td>23 Oct 2026</td><td>Credit for order #28155</td><td class="is-num is-plus">+8,50€</td><td>23 Oct 2027</td></tr>
+                                <tr><td>12 Dec 2025</td><td>Credit for order #24410</td><td class="is-num is-plus">+3,60€</td><td>12 Dec 2026</td></tr>
+                            </tbody>
+                        </table></div>
+                        <p class="acc__text" style="margin-top:20px"><a href="referral-rules.html">Program rules</a> · OMG Credit is applied at checkout: tick “Use my OMG Credit”.</p>
+                    </div>
+                </section>
+                <section class="acc__panel" data-acc-panel="dashboard" aria-label="Dashboard" hidden>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Welcome back, Maria</h2>
+                        <p class="acc__text">Here you can follow your orders, request a return, keep a promo code for your next purchase and change your addresses and password.</p>
+                    </div>
+                    <div class="acc__grid">
+                        <div class="acc__tile acc__tile--dark"><span class="acc__tile-label">Last order</span><span class="acc__tile-value">#28412</span><span class="acc__tile-note">Shipped · DHL Express</span></div>
+                        <div class="acc__tile"><span class="acc__tile-label">Orders</span><span class="acc__tile-value">4</span></div>
+                        <div class="acc__tile"><span class="acc__tile-label">Saved promo code</span><span class="acc__tile-value" data-acc-saved-code>—</span><span class="acc__tile-note">Applied automatically in your bag</span></div>
+                        <div class="acc__tile acc__tile--green"><span class="acc__tile-label">OMG Credit available</span><span class="acc__tile-value">27,40€</span><span class="acc__tile-note">Partner program — 9€ pending</span></div>
+                    </div>
+                    <div class="acc__actions"><a class="acc__btn" href="catalog.html">Go to catalog</a><a class="acc__btn acc__btn--light" href="tracking.html">Track an order</a></div>
+                </section>
 
-            <div class="account__share" data-aos="fade-up">
-                <div class="account__box account__box--code">
-                    <span class="account__label">Your promo code</span>
-                    <div class="account__copy-row">
-                        <span class="account__code">MARIA10</span>
-                        <button class="account__copy" type="button" data-copy="MARIA10">Copy</button>
+                <section class="acc__panel" data-acc-panel="orders" aria-label="Orders" hidden>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Order history</h2>
+                        <div class="acc__table-wrap"><table>
+                            <thead><tr><th>Order</th><th>Date</th><th>Status</th><th class="is-num">Total</th><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>#28412</td><td>12 Nov 2026</td><td><span class="acc__badge acc__badge--shipped">Shipped</span></td><td class="is-num">89,96€</td>
+                                    <td class="is-num"><button class="acc__table-btn" type="button" data-acc-toggle="order-28412">View</button></td>
+                                </tr>
+                                <tr class="acc__order-detail" id="order-28412" hidden><td colspan="5">2 × 2 Moon pigment · DHL Express · tracking 1Z84A0</td></tr>
+                                <tr>
+                                    <td>#28307</td><td>28 Oct 2026</td><td><span class="acc__badge acc__badge--completed">Completed</span></td><td class="is-num">126,50€</td>
+                                    <td class="is-num"><button class="acc__table-btn" type="button" data-acc-toggle="order-28307">View</button></td>
+                                </tr>
+                                <tr class="acc__order-detail" id="order-28307" hidden><td colspan="5">3 × 30/1 RLMT-H cartridges, 1 × PMU Sketch Pencils · Omniva</td></tr>
+                                <tr>
+                                    <td>#28155</td><td>09 Oct 2026</td><td><span class="acc__badge acc__badge--completed">Completed</span></td><td class="is-num">52,08€</td>
+                                    <td class="is-num"><button class="acc__table-btn" type="button" data-acc-toggle="order-28155">View</button></td>
+                                </tr>
+                                <tr class="acc__order-detail" id="order-28155" hidden><td colspan="5">1 × Diluent, 1 × 11 Sun Flash · Omniva</td></tr>
+                                <tr>
+                                    <td>#27980</td><td>21 Sep 2026</td><td><span class="acc__badge acc__badge--refunded">Refunded</span></td><td class="is-num">75,60€</td>
+                                    <td class="is-num"><button class="acc__table-btn" type="button" data-acc-toggle="order-27980">View</button></td>
+                                </tr>
+                                <tr class="acc__order-detail" id="order-27980" hidden><td colspan="5">2 × 204 Parhelion · returned</td></tr>
+                            </tbody>
+                        </table></div>
+                    </div>
+                </section>
+
+                <section class="acc__panel" data-acc-panel="returns" aria-label="Returns" hidden>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Request a return</h2>
+                        <p class="acc__text">You can return goods within 14 days of receiving them. Choose the order and the items — we’ll reply by e-mail with the return address. <a href="delivery-returns.html">Delivery &amp; returns</a></p>
+                        <div class="acc__success" data-acc-return-done hidden style="margin-top:18px">Return request for order <strong data-acc-return-order></strong> sent. We’ll reply by e-mail within 2 working days.</div>
+                        <form class="acc__form" novalidate data-acc-return style="margin-top:22px">
+                            <div class="acc__field"><label for="ret-order">Order</label>
+                                <select id="ret-order" name="order" required>
+                                    <option value="">Choose an order</option>
+                                    <option value="28412">#28412 — 12 Nov 2026 — 89,96€</option>
+                                    <option value="28307">#28307 — 28 Oct 2026 — 126,50€</option>
+                                </select>
+                            </div>
+                            <fieldset>
+                                <legend>Items to return</legend>
+                                <label class="acc-check"><input type="checkbox" name="items" value="moon" checked><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>2 Moon pigment × 2</span></label>
+                            </fieldset>
+                            <div class="acc__field"><label for="ret-reason">Reason</label>
+                                <select id="ret-reason" name="reason" required>
+                                    <option value="">Choose a reason</option>
+                                    <option>Wrong product</option><option>Damaged or defective</option><option>Changed my mind</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div class="acc__field"><label for="ret-comment">Comment</label><textarea id="ret-comment" name="comment" placeholder="Tell us what happened"></textarea></div>
+                            <div class="acc__actions"><button type="submit">Send return request</button></div>
+                        </form>
+                    </div>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Your return requests</h2>
+                        <div class="acc__table-wrap"><table>
+                            <thead><tr><th>Request</th><th>Order</th><th>Date</th><th>Reason</th><th>Status</th></tr></thead>
+                            <tbody data-acc-return-list>
+                                <tr><td>R-1021</td><td>#27980</td><td>24 Sep 2026</td><td>Damaged or defective</td><td><span class="acc__badge acc__badge--completed">Refunded</span></td></tr>
+                            </tbody>
+                        </table></div>
+                    </div>
+                </section>
+
+                <section class="acc__panel" data-acc-panel="promo" aria-label="Promo code" hidden>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Promo code</h2>
+                        <p class="acc__text">Enter a promo code once — it’s saved to your account and applied automatically when you check out. Codes can’t be combined with each other.</p>
+                        <div class="acc__success" data-acc-promo-done hidden style="margin-top:18px">Code <strong data-acc-promo-code></strong> saved — it will be applied in your bag.</div>
+                        <form class="acc__form" novalidate data-acc-promo style="margin-top:22px">
+                            <div class="acc__row">
+                                <div class="acc__field"><label for="f-promo-code">Promo code</label><input id="f-promo-code" name="promo_code" type="text" autocomplete="off" required></div>
+                                <div class="acc__field" style="align-self:end"><button type="submit">Save code</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="acc__panel" data-acc-panel="addresses" aria-label="Addresses" hidden>
+                    <div class="acc__addresses">
+                        <div class="acc__card">
+                            <h2 class="acc__card-title">Billing &amp; shipping address</h2>
+                            <address>Maria Ivanova<br>Viru 5-12<br>10140 Tallinn<br>Estonia<br>+372 5555 0000</address>
+                        </div>
+                        <div class="acc__card">
+                            <h2 class="acc__card-title">Edit address</h2>
+                            <div class="acc__success" data-acc-form-done hidden>Address saved.</div>
+                            <form class="acc__form" novalidate data-acc-save>
+                                <div class="acc__row"><div class="acc__field"><label for="f-first-name">First name</label><input id="f-first-name" name="first_name" type="text" value="Maria" required></div><div class="acc__field"><label for="f-last-name">Last name</label><input id="f-last-name" name="last_name" type="text" value="Ivanova" required></div></div>
+                                <div class="acc__field"><label for="f-address-1">Street address</label><input id="f-address-1" name="address_1" type="text" value="Viru 5-12" required></div>
+                                <div class="acc__row"><div class="acc__field"><label for="f-city">City</label><input id="f-city" name="city" type="text" value="Tallinn" required></div><div class="acc__field"><label for="f-postcode">Postcode</label><input id="f-postcode" name="postcode" type="text" value="10140" required></div></div>
+                                <div class="acc__row"><div class="acc__field"><label for="f-country">Country</label><input id="f-country" name="country" type="text" value="Estonia" required></div><div class="acc__field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" value="+372 5555 0000" required></div></div>
+                                <div class="acc__actions"><button type="submit">Save address</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="acc__panel" data-acc-panel="details" aria-label="Account details" hidden>
+                    <div class="acc__card">
+                        <h2 class="acc__card-title">Account details</h2>
+                        <div class="acc__success" data-acc-form-done hidden>Account details saved.</div>
+                        <form class="acc__form" novalidate data-acc-save>
+                            <div class="acc__row"><div class="acc__field"><label for="f-account-first-name">First name</label><input id="f-account-first-name" name="account_first_name" type="text" value="Maria" required></div><div class="acc__field"><label for="f-account-last-name">Last name</label><input id="f-account-last-name" name="account_last_name" type="text" value="Ivanova" required></div></div>
+                            <div class="acc__field"><label for="f-account-email">E-mail</label><input id="f-account-email" name="account_email" type="email" value="maria@example.com" autocomplete="email" required></div>
+                            <fieldset>
+                                <legend>Change password</legend>
+                                <div class="acc__form">
+                                    <div class="acc__field"><label for="f-password-current">Current password (leave blank to keep)</label><input id="f-password-current" name="password_current" type="password" autocomplete="current-password"></div>
+                                    <div class="acc__row"><div class="acc__field"><label for="f-password-1">New password</label><input id="f-password-1" name="password_1" type="password" autocomplete="new-password"></div><div class="acc__field"><label for="f-password-2">Confirm new password</label><input id="f-password-2" name="password_2" type="password" autocomplete="new-password"></div></div>
+                                </div>
+                            </fieldset>
+                            <label class="acc-check"><input type="checkbox" name="newsletter" checked><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>Send me news and offers by e-mail</span></label>
+                            <div class="acc__actions"><button type="submit">Save changes</button></div>
+                        </form>
+                    </div>
+                </section>
                     </div>
                 </div>
-                <div class="account__box">
-                    <span class="account__label">Your referral link — applies the code automatically</span>
-                    <div class="account__copy-row">
-                        <span class="account__link">https://omg-pmu.eu/?ref=MARIA10</span>
-                        <button class="account__copy" type="button" data-copy="https://omg-pmu.eu/?ref=MARIA10">Copy link</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="account__stats" data-aos="fade-up" data-aos-delay="100">
-                <div class="account__stat account__stat--main"><span class="account__label">Available</span><span class="account__stat-value">€27,40</span></div>
-                <div class="account__stat"><span class="account__label">Pending</span><span class="account__stat-value">€9</span><span class="account__stat-note">Becomes available 14 days after the order is completed</span></div>
-                <div class="account__stat"><span class="account__label">Used</span><span class="account__stat-value">€12</span></div>
-                <div class="account__stat"><span class="account__label">Expiring in 30 days</span><span class="account__stat-value">€3,60</span><span class="account__stat-note">On 12 December 2026</span></div>
-            </div>
-
-            <div class="account__section" data-aos="fade-up">
-                <h2 class="account__section-title">Orders with your code</h2>
-                <div class="account__table-wrap">
-                    <table class="account__table">
-                        <thead><tr><th>Order</th><th>Date</th><th class="is-num">Eligible, excl. VAT</th><th class="is-num">Your credit</th><th>Status</th></tr></thead>
-                        <tbody>
-                            <tr><td>#28412</td><td>12 Nov 2026</td><td class="is-num">€180</td><td class="is-num">€9</td><td><span class="account__badge account__badge--pending">Pending</span></td></tr>
-                            <tr><td>#28307</td><td>28 Oct 2026</td><td class="is-num">€378</td><td class="is-num">€18,90</td><td><span class="account__badge account__badge--available">Available</span></td></tr>
-                            <tr><td>#28155</td><td>09 Oct 2026</td><td class="is-num">€170</td><td class="is-num">€8,50</td><td><span class="account__badge account__badge--available">Available</span></td></tr>
-                            <tr><td>#27980</td><td>21 Sep 2026</td><td class="is-num">€75,60</td><td class="is-num">€0</td><td><span class="account__badge account__badge--cancelled">Refunded</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="account__section" data-aos="fade-up">
-                <h2 class="account__section-title">Credit history</h2>
-                <div class="account__table-wrap">
-                    <table class="account__table">
-                        <thead><tr><th>Date</th><th>Operation</th><th class="is-num">Amount</th><th>Valid until</th></tr></thead>
-                        <tbody>
-                            <tr><td>11 Nov 2026</td><td>Credit for order #28307</td><td class="is-num is-plus">+€18,90</td><td>11 Nov 2027</td></tr>
-                            <tr><td>02 Nov 2026</td><td>Used in order #28390</td><td class="is-num is-minus">−€12</td><td>—</td></tr>
-                            <tr><td>23 Oct 2026</td><td>Credit for order #28155</td><td class="is-num is-plus">+€8,50</td><td>23 Oct 2027</td></tr>
-                            <tr><td>12 Dec 2025</td><td>Credit for order #24410</td><td class="is-num is-plus">+€3,60</td><td>12 Dec 2026</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            </div>
-
-            <div class="ref-terms__more">
-                <a class="link-arrow" href="referral-rules.html">Program rules<svg class="link-arrow__icon" width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg></a>
             </div>
         </div>
     </section>
@@ -247,59 +367,9 @@
     </div>
 </div>
 
-
 <script src="js/vendor/aos.js"></script>
 <script src="js/vendor/lenis.min.js"></script>
 <script src="js/main.js"></script>
-<script>
-// Partner account: copy code / link
-document.querySelectorAll('[data-copy]').forEach((button) => {
-  button.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(button.dataset.copy); } catch { return; }
-    const label = button.textContent;
-    button.textContent = 'Copied';
-    button.classList.add('is-copied');
-    setTimeout(() => { button.textContent = label; button.classList.remove('is-copied'); }, 1600);
-  });
-});
-</script>
-<script>
-// Partner account (static demo): login → account, forgot password, log out
-(() => {
-  const views = document.querySelectorAll('[data-account-view]');
-  const show = (name) => {
-    views.forEach((view) => { view.hidden = view.dataset.accountView !== name; });
-    window.scrollTo({ top: 0 });
-    document.querySelector(`[data-account-view="${name}"] input`)?.focus({ preventScroll: true });
-  };
-  const valid = (form) => {
-    const inputs = [...form.querySelectorAll('input[required]')];
-    inputs.forEach((input) => input.classList.toggle('is-invalid', !input.checkValidity()));
-    const bad = inputs.find((input) => !input.checkValidity());
-    bad?.focus();
-    return !bad;
-  };
-  document.querySelectorAll('[data-account-show]').forEach((button) => {
-    button.addEventListener('click', () => {
-      if (button.dataset.accountShow === 'lost') {
-        document.querySelector('[data-account-lost-form]').hidden = false;
-        document.querySelector('[data-account-lost-done]').hidden = true;
-      }
-      show(button.dataset.accountShow);
-    });
-  });
-  document.querySelector('[data-account-login]')?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (valid(event.target)) show('dashboard');
-  });
-  document.querySelector('[data-account-lost]')?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!valid(event.target)) return;
-    document.querySelector('[data-account-lost-form]').hidden = true;
-    document.querySelector('[data-account-lost-done]').hidden = false;
-  });
-  document.querySelectorAll('.account__login input').forEach((input) => input.addEventListener('input', () => input.classList.remove('is-invalid')));
-})();
-</script>
+<script src="js/account.js"></script>
 </body>
 </html>
