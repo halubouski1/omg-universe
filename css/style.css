@@ -576,7 +576,7 @@ ul {
 
 .event.is-active .event__date {
     background-size: 100% 100%;
-    transition: background-size .6s cubic-bezier(.65, 0, .35, 1) .25s;
+    transition: background-size .6s cubic-bezier(.65, 0, .35, 1);
     padding: 10px;
 }
 
@@ -619,7 +619,7 @@ ul {
     visibility: visible;
     transform: none;
     pointer-events: auto;
-    transition: opacity .6s ease .25s, transform .8s var(--events-ease) .25s, visibility 0s;
+    transition: opacity .5s ease, transform .7s var(--events-ease), visibility 0s;
 }
 
 /* Marker: two solid bars behind the text — all of line 1, then the start of
@@ -671,8 +671,8 @@ ul {
     --event-marker-1: 100%;
     --event-marker-2: var(--event-marker-line-2);
     transition:
-        --event-marker-1 .55s cubic-bezier(.65, 0, .35, 1) .45s,
-        --event-marker-2 .45s cubic-bezier(.22, 1, .36, 1) .95s;
+        --event-marker-1 .55s cubic-bezier(.65, 0, .35, 1) .1s,
+        --event-marker-2 .45s cubic-bezier(.22, 1, .36, 1) .5s;
 }
 
 /* Taller than the row, so it is centred on it and overlaps its neighbours */
@@ -685,16 +685,21 @@ ul {
     height: auto;
     opacity: 0;
     /* Same fade-and-rise as the date and city; the tilt stays constant */
-    transform: translateY(-50%) translateY(10px) rotate(4deg);
+    transform: translateY(-50%) translateY(10px) rotate(var(--poster-tilt, 4deg));
     pointer-events: none;
     transition: opacity .3s ease, transform .35s var(--events-ease);
 }
 
 /* Figma -4deg = CSS 4deg (Figma measures rotation counter-clockwise) */
+/* Posters lean left and right in turn: +4°, −4°, +4° … */
+.event:nth-child(even) {
+    --poster-tilt: -4deg;
+}
+
 .event.is-active .event__poster {
     opacity: 1;
-    transform: translateY(-50%) rotate(4deg);
-    transition: opacity .7s ease .2s, transform .9s var(--events-ease) .2s;
+    transform: translateY(-50%) rotate(var(--poster-tilt, 4deg));
+    transition: opacity .5s ease, transform .7s var(--events-ease);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2173,26 +2178,3 @@ body.is-popup-open {
     text-decoration-thickness: 1px;
 }
 
-/* Events list on hover (main.js): only the list cross-fades between the old
-   and the new open row, like the client's reference; the page under it
-   switches at once */
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation: none;
-}
-
-::view-transition-group(omg-events),
-::view-transition-old(omg-events),
-::view-transition-new(omg-events) {
-    animation-duration: .25s;
-    animation-timing-function: ease-out;
-}
-
-/* Hover switch (main.js): the row is in its final state at once — its own
-   delayed fades are off, the list cross-fade above is the only motion */
-.events__list.is-instant .event,
-.events__list.is-instant .event *,
-.events__list.is-instant .event *::before,
-.events__list.is-instant .event *::after {
-    transition: none !important;
-}

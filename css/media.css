@@ -131,7 +131,7 @@
 
     .event__poster {
         width: 388.5px;
-        transform: translateY(-50%) translateY(7.5px) rotate(4deg);
+        transform: translateY(-50%) translateY(7.5px) rotate(var(--poster-tilt, 4deg));
     }
 
     .year-mark {
@@ -670,7 +670,7 @@
         grid-column: 2;
         grid-row: 1 / 3;
         width: 260px;
-        transform: rotate(4deg);
+        transform: rotate(var(--poster-tilt, 4deg));
     }
 
     /* The 834px bottom tab is wider than the card body here; keep it inside
@@ -793,7 +793,7 @@
         top: auto;
         right: auto;
         align-self: flex-end;
-        transform: rotate(4deg);
+        transform: rotate(var(--poster-tilt, 4deg));
     }
 
     /* Arrow on the right of every row, centred on the city's line

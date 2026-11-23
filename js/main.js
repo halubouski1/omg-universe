@@ -143,7 +143,7 @@ const initEventsList = (list) => {
     };
   };
 
-  const animateFromSnapshot = (item, before, after) => {
+  const animateFromSnapshot = (item, before, after, headDelay = EVENT_HEAD_DELAY) => {
     item.animate(
       [
         { height: `${before.height}px`, marginTop: before.marginTop },
@@ -160,7 +160,7 @@ const initEventsList = (list) => {
           { opacity: 0, transform: 'translateY(10px)' },
           { opacity: 1, transform: 'none' },
         ],
-        { ...EVENT_HEAD_REVEAL, delay: EVENT_HEAD_DELAY + index * EVENT_HEAD_STAGGER },
+        { ...EVENT_HEAD_REVEAL, delay: headDelay + index * EVENT_HEAD_STAGGER },
       );
     });
   };
@@ -218,36 +218,30 @@ const initEventsList = (list) => {
   const setActive = (nextItem, { anchor = false } = {}) => {
     if (!nextItem || nextItem === activeItem) return;
 
-    // Mouse (as in the client's reference video): the page stays put, the
-    // rows switch layout at once and the list cross-fades from the old
-    // state to the new one (~0.3s) — old and new city / poster are briefly
-    // both visible. Only the list takes part (view-transition-name), so
-    // the rest of the page keeps running underneath.
-    // No waiting: the new row is in its final state at once (.is-instant
-    // switches off the rows' own delayed CSS transitions), and a hover during
-    // a running cross-fade simply starts the next one. Without View
-    // Transitions the rows switch instantly — no height animation, no scroll.
+    // Mouse: the original height animation, but with zero response — a new
+    // hover never waits. A row that is still moving is measured where it is
+    // right now, its animation is dropped and the new one starts from there.
     if (anchor) {
-      const previous = activeItem;
+      const moving = items.filter((item) => item.getAnimations({ subtree: true }).length);
+      const changed = [...new Set([activeItem, nextItem, ...moving].filter(Boolean))];
+      const before = changed.map(measure);
+      const topBefore = nextItem.getBoundingClientRect().top;
+      changed.forEach((item) => item.getAnimations({ subtree: true }).forEach((a) => a.cancel()));
+
+      activeItem?.classList.remove('is-active');
+      nextItem.classList.add('is-active');
       activeItem = nextItem;
-      const swap = () => {
-        previous?.classList.remove('is-active');
-        nextItem.classList.add('is-active');
-      };
-      list.classList.add('is-instant');
-      if (!document.startViewTransition || prefersReducedMotion) {
-        swap();
-        void list.offsetHeight; // apply the new state with transitions off
-        list.classList.remove('is-instant');
+
+      const after = changed.map(measure);
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const targetScroll = Math.min(Math.max(window.scrollY + nextItem.getBoundingClientRect().top - topBefore, 0), maxScroll);
+
+      if (prefersReducedMotion) {
+        scrollToInstantly(targetScroll);
         return;
       }
-      list.style.viewTransitionName = 'omg-events';
-      const transition = document.startViewTransition(swap);
-      transition.finished.finally(() => {
-        if (activeItem !== nextItem) return; // a newer hover took over
-        list.style.viewTransitionName = '';
-        list.classList.remove('is-instant');
-      });
+      changed.forEach((item, index) => animateFromSnapshot(item, before[index], after[index], 0));
+      scrollInSync(targetScroll);
       return;
     }
 
@@ -293,23 +287,10 @@ const initEventsList = (list) => {
   // aimed at don't flicker open in between.
   let pendingItem = null;
 
-  // While a cross-fade runs the browser hands every pointer event to <html>
-  // (View Transitions), so the row is found from the cursor position; the
-  // rows already have their new layout by then. That lets a hover on
-  // another row interrupt the fade at once instead of being lost.
-  const rowAt = (x, y) => items.find((item) => {
-    const rect = item.getBoundingClientRect();
-    return x >= rect.left && x <= rect.right && y >= rect.top && y < rect.bottom;
-  });
-
-  document.addEventListener('pointermove', (event) => {
+  list.addEventListener('pointermove', (event) => {
     if (event.pointerType !== 'mouse') return;
-    const fading = Boolean(list.style.viewTransitionName);
-    if (!fading && !list.contains(event.target)) return;
-    const row = fading ? rowAt(event.clientX, event.clientY) : event.target.closest('[data-event]');
-    if (!row) return;
-    // Hover never waits: only a touch/keyboard animation still in progress
-    // defers it (rows slide under the cursor then)
+    const row = event.target.closest('[data-event]');
+    // Hover never waits; only a touch/keyboard animation still running defers it
     if (isAnimating) { pendingItem = row; return; }
     setActive(row, { anchor: true });
   });
