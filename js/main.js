@@ -297,9 +297,30 @@ const initEventsList = (list) => {
 
   list.addEventListener('pointerleave', () => { pendingItem = null; });
 
-  // Touch has no hover: a tap expands the row
+  // Each row links to its event page (.event__link covers the row; a click
+  // on the poster follows it too). Touch has no hover: the first tap on a
+  // closed row only expands it, the next one opens the link. An empty "#"
+  // link just expands the row.
+  let lastPointer = 'mouse';
+  list.addEventListener('pointerdown', (event) => { lastPointer = event.pointerType; });
+
   list.addEventListener('click', (event) => {
-    setActive(event.target.closest('[data-event]'));
+    const row = event.target.closest('[data-event]');
+    if (!row) return;
+    const link = row.querySelector('.event__link');
+    const href = link?.getAttribute('href') || '';
+    const wasActive = row.classList.contains('is-active');
+    setActive(row);
+
+    if (!link || href === '' || href === '#') {
+      if (event.target.closest('.event__link')) event.preventDefault();
+      return;
+    }
+    if (lastPointer !== 'mouse' && !wasActive) {
+      event.preventDefault();
+      return;
+    }
+    if (!event.target.closest('.event__link')) link.click(); // poster
   });
 
   list.addEventListener('focusin', (event) => {
@@ -380,6 +401,47 @@ document.querySelectorAll('.legal__toc-link[href^="#"]').forEach((link) => {
     if (lenis) lenis.scrollTo(target, { offset: -40, duration: 1.2 });
     else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     history.replaceState(null, '', link.hash);
+  });
+});
+
+
+// ========================================
+// "Learn more ↓" / "Needle specifications ↓": a slow, soft glide to the
+// section named in data-scroll-to (ease-in-out, longer for longer distances)
+// ========================================
+const glideEase = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+const glideTo = (target, offset = 0) => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const maxY = document.documentElement.scrollHeight - window.innerHeight;
+  const toY = Math.min(Math.max(window.scrollY + target.getBoundingClientRect().top + offset, 0), maxY);
+  const distance = Math.abs(toY - window.scrollY);
+  const duration = Math.min(2.2, Math.max(1.2, distance / 900)); // seconds
+
+  if (lenis) {
+    lenis.scrollTo(toY, { duration: reduce ? 0 : duration, easing: glideEase, immediate: reduce, force: true });
+    return;
+  }
+  if (reduce) {
+    window.scrollTo(0, toY);
+    return;
+  }
+  const fromY = window.scrollY;
+  const start = performance.now();
+  const step = (now) => {
+    const progress = Math.min((now - start) / (duration * 1000), 1);
+    window.scrollTo(0, fromY + (toY - fromY) * glideEase(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+};
+
+document.querySelectorAll('[data-scroll-to]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const target = document.querySelector(link.dataset.scrollTo);
+    if (!target) return;
+    event.preventDefault();
+    glideTo(target, -20);
   });
 });
 

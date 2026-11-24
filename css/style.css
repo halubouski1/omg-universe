@@ -692,6 +692,7 @@ ul {
 
 /* Figma -4deg = CSS 4deg (Figma measures rotation counter-clockwise) */
 /* Posters lean left and right in turn: +4°, −4°, +4° … */
+.events__list > li:nth-child(even) > .event,
 .event:nth-child(even) {
     --poster-tilt: -4deg;
 }
@@ -2178,3 +2179,16 @@ body.is-popup-open {
     text-decoration-thickness: 1px;
 }
 
+
+/* Event row = link to the event's landing (main.js handles taps) */
+.event__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.event__link:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+}

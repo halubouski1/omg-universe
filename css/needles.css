@@ -673,3 +673,9 @@
 .needle-products--3rl .catalog__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+/* Down arrow the size of the cart icon it replaces */
+.needles-hero__btn .needles-hero__arrow {
+    width: 18px;
+    height: 16px;
+}

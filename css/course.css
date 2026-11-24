@@ -638,37 +638,37 @@
         align-items: stretch;
     }
 
-    .tariff,
-    .tariff--featured {
+    .tariffs__list .tariff,
+    .tariffs__list .tariff--featured {
         padding: 108px 50px 57px 50px;
     }
 
-    .tariff .tariff__about,
-    .tariff--featured .tariff__about {
+    .tariffs__list .tariff .tariff__about,
+    .tariffs__list .tariff--featured .tariff__about {
         margin-top: 110px;
     }
 
-    .tariff__btn {
+    .tariffs__list .tariff__btn {
         margin-top: auto;
     }
 
-    .tariff__price {
+    .tariffs__list .tariff__price {
         margin-bottom: 55px;
     }
 }
 
 @media (min-width: 1026px) and (max-width: 1919px) {
-    .tariff,
-    .tariff--featured {
+    .tariffs__list .tariff,
+    .tariffs__list .tariff--featured {
         padding: 81px 37.5px 42.75px 37.5px;
     }
 
-    .tariff .tariff__about,
-    .tariff--featured .tariff__about {
+    .tariffs__list .tariff .tariff__about,
+    .tariffs__list .tariff--featured .tariff__about {
         margin-top: 82.5px;
     }
 
-    .tariff__price {
+    .tariffs__list .tariff__price {
         margin-bottom: 41px;
     }
 }

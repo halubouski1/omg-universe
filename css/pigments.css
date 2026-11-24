@@ -1542,16 +1542,59 @@
     transform: rotate(90deg);
 }
 
-/* Bundles: the bottles sit in the middle of the space under the text */
-.bundle-slider .bundle-card__image,
-.bundle-slider .bundle-card__image--wide {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    align-self: center;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
+/* Bundles: the bottles stand on the bottom edge of the card, centred
+   (phones keep their own absolute layout from media-pigments.css) */
+@media (min-width: 571px) {
+    .bundle-slider .bundle-card__image,
+    .bundle-slider .bundle-card__image--wide {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: center;
+        max-width: 100%;
+        height: auto;
+        margin: auto auto -14px;
+    }
+}
+
+/* What is in the set (from the product descriptions of the old site) */
+.bundle-card__set {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+    color: #44a62d;
+}
+
+@media (max-width: 1919px) {
+    .bundle-card__set {
+        margin-top: 7px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 570px) {
+    .bundle-card__set {
+        order: 2;
+    }
+}
+
+/* Tips now sit right above the Permanent Makeup banner (the eyebrow line
+   moved above them): keep the usual gap between the two sections */
+section.tips {
+    padding-bottom: 240px;
+}
+
+@media (max-width: 1919px) {
+    section.tips {
+        padding-bottom: 200px;
+    }
+}
+
+@media (max-width: 570px) {
+    section.tips {
+        padding-bottom: 160px;
+    }
 }

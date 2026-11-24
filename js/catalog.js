@@ -94,7 +94,11 @@ const initCatalog = (catalog) => {
 
   // Outgoing cards and title fade away, the grid is rebuilt, then the title
   // slides back in and the new cards rise in one after another
-  const updateGrid = async (newTitle) => {
+  // Title and its "Learn more" leave and come back together
+  const heading = title.closest('.catalog__heading') || title;
+  let syncLearnLink = () => {};
+
+  const updateGrid = async (newTitle, filterButton) => {
     const id = ++transitionId;
     const visible = cards.filter((card) => !card.hidden);
 
@@ -103,7 +107,7 @@ const initCatalog = (catalog) => {
       { opacity: 0, transform: 'translateY(16px)' },
     ], { duration: 250, easing: 'ease-in' }));
     if (newTitle) {
-      outgoing.push(animate(title, [
+      outgoing.push(animate(heading, [
         { opacity: 1, transform: 'none' },
         { opacity: 0, transform: 'translateY(-24px)' },
       ], { duration: 250, easing: 'ease-in' }));
@@ -117,7 +121,8 @@ const initCatalog = (catalog) => {
 
     if (newTitle) {
       title.textContent = newTitle;
-      animateIn(title, [
+      syncLearnLink(filterButton);
+      animateIn(heading, [
         { opacity: 0, transform: 'translateY(32px)' },
         { opacity: 1, transform: 'none' },
       ], { duration: 650 });
@@ -136,7 +141,7 @@ const initCatalog = (catalog) => {
 
   // "Learn more" beside the title: the landing page of the chosen category
   const learnLink = catalog.querySelector('[data-catalog-learn]');
-  const syncLearnLink = (button) => {
+  syncLearnLink = (button) => {
     if (!learnLink) return;
     const url = button?.dataset.learn;
     learnLink.hidden = !url;
@@ -147,7 +152,6 @@ const initCatalog = (catalog) => {
   filters.forEach((button) => {
     button.addEventListener('click', () => {
       if (button.dataset.filter === activeFilter) return;
-      syncLearnLink(button);
       activeFilter = button.dataset.filter;
       shownCount = CATALOG_PAGE_SIZE;
       filters.forEach((item) => {
@@ -155,7 +159,7 @@ const initCatalog = (catalog) => {
         item.classList.toggle('is-active', isActive);
         item.setAttribute('aria-pressed', String(isActive));
       });
-      updateGrid(button.dataset.title);
+      updateGrid(button.dataset.title, button);
     });
   });
 

@@ -521,3 +521,17 @@
 .sort__button {
     white-space: nowrap;
 }
+
+/* Arrow in step with the 14px label */
+.catalog__learn svg {
+    flex-shrink: 0;
+    width: 14px;
+    height: 12px;
+}
+
+@media (max-width: 570px) {
+    .catalog__learn svg {
+        width: 12px;
+        height: 10px;
+    }
+}

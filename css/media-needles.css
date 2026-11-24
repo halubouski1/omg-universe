@@ -1136,3 +1136,17 @@
         animation: none;
     }
 }
+
+@media (max-width: 1919px) {
+    .needles-hero__btn .needles-hero__arrow {
+        width: 13.5px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 570px) {
+    .needles-hero__btn .needles-hero__arrow {
+        width: 18px;
+        height: 16px;
+    }
+}

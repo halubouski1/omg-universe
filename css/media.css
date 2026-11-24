@@ -1453,3 +1453,14 @@
         padding: 20px 22px;
     }
 }
+/* Eight menu links: on short screens (laptops) the words and gaps follow the
+   viewport height so the list never reaches the contacts at the bottom */
+@media (min-width: 571px) and (max-height: 1000px) {
+    .menu__links {
+        gap: min(39px, 2.6vh);
+    }
+
+    .menu__link {
+        font-size: min(56.25px, 4.8vh);
+    }
+}
