@@ -1089,3 +1089,50 @@
         transform: translate(-50%, -50%) rotate(90deg);
     }
 }
+/* --- Batch 2026-11: 1RL marquee, 3RL trio, configuration column ----------- */
+@media (max-width: 1919px) {
+    .needle-table__col-config { width: 112.5px; }
+    .needle-table__col-skin { width: 270px; }
+    .needle-loop--1rl { padding: 93.75px 0 150px; }
+    .needle-products--3rl { padding-bottom: 105px; }
+}
+
+@media (max-width: 1025px) {
+    .needle-table { min-width: 1200px; }
+    .needle-table__col-skin { width: 220px; }
+    .needle-products--3rl { padding-right: 0; padding-left: 0; }
+}
+
+@media (max-width: 570px) {
+    .needle-table__col-config { width: 100px; }
+    .needle-table { width: 1082px; }
+    .needle-loop--1rl { padding: 60px 0 100px; }
+    .needle-products--3rl { padding-top: 0; padding-bottom: 80px; }
+
+    /* Phones show the other strips as a grid; the 1RL strip keeps running */
+    .needle-loop--1rl .needle-loop__track {
+        display: flex;
+        width: max-content;
+        animation: needle-loop 80s linear infinite;
+    }
+
+    .needle-loop--1rl .needle-loop__group[aria-hidden="true"] {
+        display: flex;
+    }
+
+    .needle-loop--1rl .needle-loop__group {
+        display: flex;
+        gap: 8px;
+        padding: 0 8px 0 0;
+    }
+
+    .needle-loop--1rl .needle-loop__item {
+        width: 240px;
+    }
+}
+
+@media (max-width: 570px) and (prefers-reduced-motion: reduce) {
+    .needle-loop--1rl .needle-loop__track {
+        animation: none;
+    }
+}

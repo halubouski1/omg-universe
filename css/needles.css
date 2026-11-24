@@ -638,3 +638,38 @@
     top: -14px;
     right: -4px;
 }
+
+/* --- Batch 2026-11: scroll buttons, 1RL marquee, 3RL trio ------------------ */
+/* "Learn more" / "Needle specifications": arrow points down, nudges on hover */
+.needles-hero__arrow {
+    flex-shrink: 0;
+    transform: rotate(90deg);
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.needles-hero__btn:hover .needles-hero__arrow {
+    transform: rotate(90deg) translateX(3px);
+}
+
+/* Configuration column of the finder table */
+.needle-table__col-config { width: 150px; }
+.needle-table__col-skin { width: 360px; }
+
+/* All 15 1RL cartridges right after the table: same strip as before, more
+   cards, so a longer run keeps the speed */
+.needle-loop--1rl {
+    padding: 125px 0 200px;
+}
+
+.needle-loop--1rl .needle-loop__track {
+    animation-duration: 100s;
+}
+
+/* The 3RL needle: three full-width cards under the copy */
+.needle-products--3rl {
+    padding: 0 var(--page-gutter) 140px;
+}
+
+.needle-products--3rl .catalog__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
