@@ -1536,3 +1536,22 @@
     width: 305px;
     height: auto;
 }
+
+/* Hero «Learn more» points down to the pigments */
+.pigments-hero__arrow--down {
+    transform: rotate(90deg);
+}
+
+/* Bundles: the bottles sit in the middle of the space under the text */
+.bundle-slider .bundle-card__image,
+.bundle-slider .bundle-card__image--wide {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    align-self: center;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
