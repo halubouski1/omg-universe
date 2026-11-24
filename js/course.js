@@ -312,3 +312,27 @@ const initMoon = (globe) => {
 };
 
 document.querySelectorAll('[data-moon]').forEach(initMoon);
+
+
+// ========================================
+// Tariffs: the green card follows the cursor (desktop), the middle one is
+// green by default and again when the cursor leaves the cards
+// ========================================
+(() => {
+  const list = document.querySelector('.tariffs__list');
+  if (!list || !window.matchMedia('(hover: hover) and (min-width: 1026px)').matches) return;
+  const cards = [...list.querySelectorAll('.tariff')];
+  const home = list.querySelector('.tariff--featured');
+  const light = (card) => cards.forEach((c) => c.classList.toggle('tariff--featured', c === card));
+  cards.forEach((card) => card.addEventListener('mouseenter', () => light(card)));
+  list.addEventListener('mouseleave', () => light(home));
+})();
+
+// Which package the request comes from: buttons with data-package fill the
+// hidden «package» field of the popup they open (consultation form)
+document.addEventListener('click', (event) => {
+  const trigger = event.target.closest('[data-popup-open][data-package]');
+  if (!trigger) return;
+  const popup = document.getElementById(trigger.dataset.popupOpen);
+  popup?.querySelectorAll('[data-package-field]').forEach((field) => { field.value = trigger.dataset.package; });
+}, true);

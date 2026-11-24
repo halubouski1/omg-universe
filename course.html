@@ -113,7 +113,8 @@
                     </button>
                 </div>
                 <p class="tariff__price">599€</p>
-                <a class="btn btn--lime tariff__btn" href="#consultation" data-popup-open="consultation">Cource program</a>
+                <a class="btn btn--lime tariff__btn" href="cart.html" data-package="Basic package">Buy now</a>
+                <button class="tariff__program" type="button" data-popup-open="program-basic">Course program</button>
             </li>
             <li class="tariff tariff--featured" data-aos="fade-up" data-aos-delay="120">
                 <p class="tariff__badge">popular choice <img src="assets/icons/tariffs-star.svg" alt="" width="17" height="17"></p>
@@ -131,24 +132,27 @@
                     </button>
                 </div>
                 <p class="tariff__price">899€</p>
-                <a class="btn btn--dark tariff__btn" href="#consultation" data-popup-open="consultation">Cource program</a>
+                <a class="btn btn--lime tariff__btn" href="cart.html" data-package="Advantage package">Buy now</a>
+                <button class="tariff__program" type="button" data-popup-open="program-advantage">Course program</button>
             </li>
             <li class="tariff" data-aos="fade-up" data-aos-delay="240">
-                <h3 class="tariff__title"><span class="tariff__accent">Premium</span> Package</h3>
+                <p class="tariff__badge tariff__badge--date">27 Jan – 27 Mar 2027</p>
+                <h3 class="tariff__title"><span class="tariff__accent">Mentoring</span> Package</h3>
                 <p class="tariff__subtitle">когда нужен быстрый результат</p>
                 <div class="tariff__about">
-                    <div class="tariff__desc" id="tariff-desc-premium" data-expandable>
+                    <div class="tariff__desc" id="tariff-desc-mentoring" data-expandable>
                         <p>Start creating brows you truly admire — and would proudly choose for yourself</p>
                         <p>deeply understand the correct hand positioning learn how to build a correct basic hairstroke scheme and understand the logic behind it</p>
                         <p>master brow mapping step by step and adapt the shape to every face, so each result looks natural and balanced</p>
                         <p>work through real client cases, from consultation to aftercare, and build a portfolio you are proud to show</p>
                     </div>
-                    <button class="tariff__toggle" type="button" aria-expanded="false" aria-controls="tariff-desc-premium" aria-label="Show full description" data-expand-toggle>
+                    <button class="tariff__toggle" type="button" aria-expanded="false" aria-controls="tariff-desc-mentoring" aria-label="Show full description" data-expand-toggle>
                         <img src="assets/icons/footer-arrow-top.svg" alt="" width="11" height="11">
                     </button>
                 </div>
                 <p class="tariff__price">1 599€</p>
-                <a class="btn btn--lime tariff__btn" href="#consultation" data-popup-open="consultation">Cource program</a>
+                <a class="btn btn--lime tariff__btn" href="cart.html" data-package="Mentoring package">Buy now</a>
+                <button class="tariff__program" type="button" data-popup-open="program-mentoring">Course program</button>
             </li>
         </ul>
     </section>
@@ -364,6 +368,66 @@
     </div>
 </div>
 
+<div class="popup" id="program-basic" role="dialog" aria-modal="true" aria-labelledby="program-basic-title" data-popup data-lenis-prevent>
+    <div class="popup__overlay" data-popup-close></div>
+    <div class="popup__dialog">
+        <button class="popup__close" type="button" aria-label="Close" data-popup-close>
+            <img src="assets/icons/close.svg" alt="" width="16" height="16">
+        </button>
+        <div class="popup__steps">
+            <div class="popup__step popup__step--form">
+                <h2 class="popup__title" id="program-basic-title">Course program <span class="popup__title-accent">Basic package</span></h2>
+                <ul class="program-langs">
+                    <li><a class="program-lang" href="assets/docs/course-basic-en.pdf" target="_blank" rel="noopener"><span>English</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="assets/docs/course-basic-ru.pdf" target="_blank" rel="noopener"><span>Русский</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/13K46VvMwgDErswqWDgXGCiVHQNSQMLN4/view" target="_blank" rel="noopener"><span>Italiano</span><span class="program-lang__type">Google Drive</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/1PZ171bXKLsm0Dav_0xkGN_Ubne5ngFym/view" target="_blank" rel="noopener"><span>Español</span><span class="program-lang__type">Google Drive</span></a></li>
+                </ul>
+                <button class="btn popup__submit" type="button" data-popup-open="consultation" data-package="Basic package">Get a consultation</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup" id="program-advantage" role="dialog" aria-modal="true" aria-labelledby="program-advantage-title" data-popup data-lenis-prevent>
+    <div class="popup__overlay" data-popup-close></div>
+    <div class="popup__dialog">
+        <button class="popup__close" type="button" aria-label="Close" data-popup-close>
+            <img src="assets/icons/close.svg" alt="" width="16" height="16">
+        </button>
+        <div class="popup__steps">
+            <div class="popup__step popup__step--form">
+                <h2 class="popup__title" id="program-advantage-title">Course program <span class="popup__title-accent">Advantage package</span></h2>
+                <ul class="program-langs">
+                    <li><a class="program-lang" href="assets/docs/course-advanced-en.pdf" target="_blank" rel="noopener"><span>English</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="assets/docs/course-advanced-ru.pdf" target="_blank" rel="noopener"><span>Русский</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/1d-nC96OpaPvVQTUMAB85OjvQnJIneDpk/view" target="_blank" rel="noopener"><span>Italiano</span><span class="program-lang__type">Google Drive</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/15jrgeE3TlljhTXSgSKMrkWMnk4sg4ehI/view" target="_blank" rel="noopener"><span>Español</span><span class="program-lang__type">Google Drive</span></a></li>
+                </ul>
+                <button class="btn popup__submit" type="button" data-popup-open="consultation" data-package="Advantage package">Get a consultation</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup" id="program-mentoring" role="dialog" aria-modal="true" aria-labelledby="program-mentoring-title" data-popup data-lenis-prevent>
+    <div class="popup__overlay" data-popup-close></div>
+    <div class="popup__dialog">
+        <button class="popup__close" type="button" aria-label="Close" data-popup-close>
+            <img src="assets/icons/close.svg" alt="" width="16" height="16">
+        </button>
+        <div class="popup__steps">
+            <div class="popup__step popup__step--form">
+                <h2 class="popup__title" id="program-mentoring-title">Course program <span class="popup__title-accent">Mentoring package</span></h2>
+                <ul class="program-langs">
+                    <li><a class="program-lang" href="assets/docs/course-advanced-en.pdf" target="_blank" rel="noopener"><span>English</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="assets/docs/course-advanced-ru.pdf" target="_blank" rel="noopener"><span>Русский</span><span class="program-lang__type">PDF</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/1d-nC96OpaPvVQTUMAB85OjvQnJIneDpk/view" target="_blank" rel="noopener"><span>Italiano</span><span class="program-lang__type">Google Drive</span></a></li>
+                    <li><a class="program-lang" href="https://drive.google.com/file/d/15jrgeE3TlljhTXSgSKMrkWMnk4sg4ehI/view" target="_blank" rel="noopener"><span>Español</span><span class="program-lang__type">Google Drive</span></a></li>
+                </ul>
+                <button class="btn popup__submit" type="button" data-popup-open="consultation" data-package="Mentoring package">Get a consultation</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="popup" id="consultation" role="dialog" aria-modal="true" aria-labelledby="consultation-title" data-popup data-lenis-prevent>
     <div class="popup__overlay" data-popup-close></div>
     <div class="popup__dialog">
@@ -383,6 +447,7 @@
                         <input class="popup__input" id="consultation-phone" name="phone" type="tel" placeholder="+1 (000)-000-00-00" autocomplete="tel" required>
                         <label class="visually-hidden" for="consultation-email">Email</label>
                         <input class="popup__input" id="consultation-email" name="email" type="email" placeholder="example@mail.com" autocomplete="email" required>
+                        <input type="hidden" name="package" value="" data-package-field>
                     </div>
                     <button class="btn popup__submit" type="submit">Leave a request</button>
                 </form>

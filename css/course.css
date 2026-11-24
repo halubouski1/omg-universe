@@ -558,3 +558,156 @@
 .footer {
     --footer-top: #000;
 }
+
+/* ==========================================================================
+   Tariffs v2 — three cards of one size; the green look (.tariff--featured)
+   follows the cursor on desktop (course.js moves the class) and fades in
+   through a gradient layer. Buy now + Course program on every card.
+   ========================================================================== */
+.tariff {
+    isolation: isolate;
+    transition: color .45s ease, border-color .45s ease;
+}
+
+.tariff::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(181.79deg, #6aff6a -2.79%, #30d13b 119.21%);
+    opacity: 0;
+    transition: opacity .45s ease;
+}
+
+.tariff--featured {
+    background: rgba(0, 0, 0, .45);
+}
+
+.tariff--featured::before {
+    opacity: 1;
+}
+
+.tariff--featured .tariff__accent {
+    color: inherit;
+}
+
+.tariff__price {
+    transition: color .45s ease;
+}
+
+.tariff__btn {
+    transition: background-color .45s ease, color .45s ease;
+}
+
+.tariff--featured .tariff__btn.btn--lime {
+    background-color: #000;
+    color: #fff;
+}
+
+.tariff__program {
+    align-self: center;
+    margin-top: 18px;
+    padding: 4px 0;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: .75;
+    cursor: pointer;
+    transition: opacity .3s ease;
+}
+
+.tariff__program:hover {
+    opacity: 1;
+}
+
+.tariff__badge--date {
+    padding: 7px 12px;
+    border: 1px solid currentColor;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+@media (min-width: 1026px) {
+    .tariffs__list {
+        align-items: stretch;
+    }
+
+    .tariff,
+    .tariff--featured {
+        padding: 108px 50px 57px 50px;
+    }
+
+    .tariff .tariff__about,
+    .tariff--featured .tariff__about {
+        margin-top: 110px;
+    }
+
+    .tariff__btn {
+        margin-top: auto;
+    }
+
+    .tariff__price {
+        margin-bottom: 55px;
+    }
+}
+
+@media (min-width: 1026px) and (max-width: 1919px) {
+    .tariff,
+    .tariff--featured {
+        padding: 81px 37.5px 42.75px 37.5px;
+    }
+
+    .tariff .tariff__about,
+    .tariff--featured .tariff__about {
+        margin-top: 82.5px;
+    }
+
+    .tariff__price {
+        margin-bottom: 41px;
+    }
+}
+
+/* Course program popup: a language per row */
+.program-langs {
+    display: grid;
+    gap: 10px;
+    margin: 30px 0 26px;
+    list-style: none;
+}
+
+.program-lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid rgba(39, 44, 31, .15);
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: border-color .3s ease, background-color .3s ease;
+}
+
+.program-lang:hover {
+    border-color: #30d13b;
+    background-color: rgba(106, 255, 106, .12);
+}
+
+.program-lang__type {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #4a932f;
+}
+
+/* the star of «popular choice» is dark — light it up on a dark card */
+.tariff:not(.tariff--featured) .tariff__badge img {
+    filter: invert(1);
+    transition: filter .45s ease;
+}
