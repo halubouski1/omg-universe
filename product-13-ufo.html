@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/vendor/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/media-catalog.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/media-product.css">
+    <script>document.documentElement.style.setProperty("--fixed-vh", window.innerHeight + "px");</script>
+    <title>13 UFO — OMG Universe</title>
+</head>
+<body>
+
+<header class="header">
+    <a class="header__brand" href="index.html" aria-label="OMG Universe — home">
+        <img class="header__logo" src="assets/icons/logo.svg" alt="OMG" width="68" height="40">
+    </a>
+
+    <div class="header__tools">
+        <div class="header__tools-wrapper">
+            <a class="header__icon-btn" href="#" aria-label="Search">
+                <img src="assets/icons/search.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="account.html" aria-label="My account">
+                <img src="assets/icons/account.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="favorites.html" aria-label="Wishlist">
+                <img src="assets/icons/favorites.svg" alt="" width="19" height="19">
+            </a>
+            <a class="header__icon-btn" href="cart.html" aria-label="Shopping bag">
+                <img src="assets/icons/cart.svg" alt="" width="18" height="18">
+            </a>
+        </div>
+        <button class="header__menu-btn" type="button" aria-label="Open menu" aria-controls="site-menu" data-popup-open="site-menu">
+            <img src="assets/icons/burger.svg" alt="" width="17" height="9">
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="hero product-hero" aria-labelledby="product-title">
+        <div class="hero__media">
+            <picture>
+                <source media="(max-width: 570px)" srcset="assets/img/pigments-hero-mob.jpg" width="360" height="706">
+                <img class="hero__slide is-active" src="assets/img/pigments-hero.jpg" alt="" width="1920" height="1217" fetchpriority="high">
+            </picture>
+        </div>
+
+        <div class="product-hero__inner">
+            <nav class="breadcrumbs" aria-label="Breadcrumb" data-aos="fade">
+                <ol class="breadcrumbs__list">
+                    <li><a class="breadcrumbs__link" href="index.html">Home</a></li>
+                    <li><a class="breadcrumbs__link" href="catalog.html">Catalog</a></li>
+                    <li><span class="breadcrumbs__current" aria-current="page">13 UFO</span></li>
+                </ol>
+            </nav>
+
+            <div class="product-hero__bottom">
+                <h1 class="product-hero__title" id="product-title">
+                    <span class="product-hero__kicker" data-aos="fade-up">Cover-up pigments</span>
+                    <span class="product-hero__name" data-aos="fade-up" data-aos-delay="120">13 UFO</span>
+                </h1>
+
+                <div class="product-hero__buy" data-aos="fade-up" data-aos-delay="240">
+                    <span class="product-hero__price-label">Price</span>
+                    <p class="product-hero__price">42€</p>
+                    <a class="btn btn--light" href="cart.html">Buy now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-details" aria-labelledby="product-details-title">
+        <p class="product-details__code" data-aos="fade">Product code: 13</p>
+
+        <div class="product-details__body">
+            <div class="gallery" data-gallery>
+                <div class="gallery__main" data-aos="fade-up" data-aos-duration="1000">
+                    <img class="gallery__image" src="assets/img/cover-up-pigments-3.jpg" alt="13 UFO" width="873" height="938">
+                </div>
+            </div>
+
+            <div class="product-info">
+                <div class="product-info__head" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="product-info__title" id="product-details-title">13 UFO</h2>
+                    <p class="product-info__price"><del>60€</del> 42€</p>
+                </div>
+
+                <div class="product-info__actions" data-aos="fade-up" data-aos-delay="200">
+                    <button class="product-info__add" type="button">
+                        Add to cart
+                        <img src="assets/icons/btn-cart.svg" alt="" width="21" height="21">
+                    </button>
+
+                    <div class="qty" data-qty>
+                        <label class="qty__label" for="product-qty">Quantity</label>
+                        <input class="qty__input" id="product-qty" type="number" min="1" max="99" value="1" inputmode="numeric">
+                        <div class="qty__steps">
+                            <button class="qty__step qty__step--up" type="button" aria-label="Increase quantity" data-qty-step="1">
+                                <img src="assets/icons/chevron.svg" alt="" width="6" height="5">
+                            </button>
+                            <button class="qty__step" type="button" aria-label="Decrease quantity" data-qty-step="-1">
+                                <img src="assets/icons/chevron.svg" alt="" width="6" height="5">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="accordion__heading">
+                        <button class="accordion__toggle" type="button" aria-expanded="true" aria-controls="product-description" data-expand-toggle>
+                            Description
+                            <img class="accordion__chevron" src="assets/icons/options-chevron.svg" alt="" width="9" height="6">
+                        </button>
+                    </h3>
+                    <div class="accordion__panel is-expanded" id="product-description" style="height: auto;">
+                        <div class="accordion__content">
+                            <p class="product-info__text"><strong>Cover up pigment.<br>
+Concentrated pigment for permanent make-up. For latex only.</strong><br>
+Perfect to cover warm undesirable undertone or old redish PMU.</p>
+<p class="product-info__text"><strong>Ingredients:</strong><br>
+Sterile water, Glycerin, Ethanol, Iron Oxide,<br>
+CI: 77492, 77288, 77891</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion accordion--delivery" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="accordion__heading">
+                        <button class="accordion__toggle" type="button" aria-expanded="false" aria-controls="product-delivery" data-expand-toggle>
+                            Delivery Options
+                            <img class="accordion__chevron" src="assets/icons/options-chevron.svg" alt="" width="9" height="6">
+                        </button>
+                    </h3>
+                    <div class="accordion__panel" id="product-delivery">
+                        <div class="accordion__content">
+                            <p class="product-info__text">Delivery takes from 2 working days up to 3–4 weeks, depending on the delivery method. You can return the goods within 14 days of receiving them.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related" aria-labelledby="related-title">
+        <h2 class="visually-hidden" id="related-title">You may also like</h2>
+        <ul class="catalog__grid">
+            <li class="product" data-aos="fade-up" data-aos-delay="0">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/cover-up-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 11 Sun Flash to cart"></button>
+                        <button class="product__fav" type="button" aria-label="Add 11 Sun Flash to favorites" aria-pressed="false"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Cover-up pigments</span>
+                            <h2 class="product__name"><a class="product__link" href="product-11-sun-flash.html">11 Sun Flash</a></h2>
+                        </div>
+                        <p class="product__price"><del>60€</del> 42€</p>
+                    </div>
+                </article>
+            </li>
+            <li class="product" data-aos="fade-up" data-aos-delay="80">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/cover-up-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 12 Saturn to cart"></button>
+                        <button class="product__fav" type="button" aria-label="Add 12 Saturn to favorites" aria-pressed="false"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Cover-up pigments</span>
+                            <h2 class="product__name"><a class="product__link" href="product-12-saturn.html">12 Saturn</a></h2>
+                        </div>
+                        <p class="product__price"><del>60€</del> 42€</p>
+                    </div>
+                </article>
+            </li>
+            <li class="product" data-aos="fade-up" data-aos-delay="160">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/eyebrow-pigments-1.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 2 Moon to cart"></button>
+                        <button class="product__fav" type="button" aria-label="Add 2 Moon to favorites" aria-pressed="false"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Eyebrow pigments</span>
+                            <h2 class="product__name"><a class="product__link" href="product-2-moon.html">2 Moon</a></h2>
+                        </div>
+                        <p class="product__price"><del>60€</del> 42€</p>
+                    </div>
+                </article>
+            </li>
+            <li class="product" data-aos="fade-up" data-aos-delay="240">
+                <article class="product__card">
+                    <div class="product__media">
+                        <img class="product__image" src="assets/img/eyebrow-pigments-2.jpg" alt="" width="461" height="622" loading="lazy">
+                        <button class="product__add" type="button" aria-label="Add 3 Milky Way to cart"></button>
+                        <button class="product__fav" type="button" aria-label="Add 3 Milky Way to favorites" aria-pressed="false"></button>
+                    </div>
+                    <div class="product__info">
+                        <div class="product__meta">
+                            <span class="product__size">Eyebrow pigments</span>
+                            <h2 class="product__name"><a class="product__link" href="product-3-milky-way.html">3 Milky Way</a></h2>
+                        </div>
+                        <p class="product__price"><del>60€</del> 42€</p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+            <video class="cta__video" src="assets/vid/cta-course.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+            <div class="cta__top" data-aos="fade">
+                <a class="cta__logo" href="/" aria-label="OMG Universe — home">
+                    <img src="assets/icons/logo.svg" alt="OMG" width="68" height="40">
+                </a>
+                <p class="cta__year year-mark" aria-label="2026"><span class="year-mark__small">20</span><span class="year-mark__big">26</span></p>
+            </div>
+
+            <div class="cta__content">
+                <p class="promo__label" data-aos="fade-up">Online course that transforms</p>
+                <h2 class="promo__title" id="cta-title" data-aos="fade-up" data-aos-delay="120">PMU reality</h2>
+                <div class="promo__actions" data-aos="fade-up" data-aos-delay="240">
+                    <a class="btn btn--light" href="course.html#tariffs">Buy now</a>
+                    <a class="btn btn--glass" href="course.html#tariffs">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__card">
+        <div class="footer__nav">
+            <nav class="footer__group" aria-labelledby="footer-pages">
+                <p class="footer__label" id="footer-pages">Pages</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="catalog.html">Products</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="course.html">Classes</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="pigments.html">Pigments</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="pencils.html">Pencils</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="needles.html">Needles</a></li>
+                        <li data-aos="fade-up" data-aos-delay="280"><a class="footer__link" href="partners.html">Partners</a></li>
+                </ul>
+            </nav>
+            <nav class="footer__group footer__group--end" aria-labelledby="footer-follow">
+                <p class="footer__label" id="footer-follow">Follow us</p>
+                <ul class="footer__links">
+                        <li data-aos="fade-up" data-aos-delay="0"><a class="footer__link" href="#">Instagram</a></li>
+                        <li data-aos="fade-up" data-aos-delay="70"><a class="footer__link" href="#">YouTube</a></li>
+                        <li data-aos="fade-up" data-aos-delay="140"><a class="footer__link" href="#">WhatsApp</a></li>
+                        <li data-aos="fade-up" data-aos-delay="210"><a class="footer__link" href="#">Telegram</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr class="footer__divider">
+
+        <div class="footer__contacts" id="contacts" data-aos="fade-up">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+
+        <button class="footer__to-top" data-aos="zoom-in" data-aos-delay="100" type="button" aria-label="Back to top" data-scroll-top>
+            <img src="assets/icons/footer-arrow-top.svg" alt="" width="14" height="14">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="footer__copy">© 2026</p>
+        <a class="footer__dev" href="#" aria-label="Website development">
+            <img src="assets/icons/dev-logo.svg" alt="" width="160" height="35">
+        </a>
+        <a class="footer__legal" href="privacy.html">Privacy terms</a>
+    </div>
+</footer>
+
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" data-popup data-lenis-prevent>
+    <div class="menu__overlay" data-popup-close></div>
+    <div class="menu__panel">
+        <div class="menu__shape" aria-hidden="true"></div>
+        <button class="menu__close" type="button" aria-label="Close menu" data-popup-close>
+            <img src="assets/icons/close.svg" alt="" width="23" height="23">
+        </button>
+        <a class="menu__logo" href="index.html" aria-label="OMG Universe — home">
+            <img src="assets/icons/logo.svg" alt="" width="136" height="80">
+        </a>
+        <nav class="menu__nav" aria-label="Main">
+            <ul class="menu__links">
+                <li style="--i: 0"><a class="menu__link" href="index.html" data-text="Home"><span class="menu__link-text">Home</span></a></li>
+                <li style="--i: 1"><a class="menu__link" href="course.html" data-text="Online course"><span class="menu__link-text">Online course</span></a></li>
+                <li style="--i: 2"><a class="menu__link" href="catalog.html" data-text="Catalog"><span class="menu__link-text">Catalog</span></a></li>
+                <li style="--i: 3"><a class="menu__link" href="tracking.html" data-text="Track order"><span class="menu__link-text">Track order</span></a></li>
+                <li style="--i: 4"><a class="menu__link" href="partners.html" data-text="Partners"><span class="menu__link-text">Partners</span></a></li>
+                <li style="--i: 5"><a class="menu__link" href="#contacts" data-text="Contact us"><span class="menu__link-text">Contact us</span></a></li>
+            </ul>
+        </nav>
+        <div class="menu__contacts">
+            <div class="footer__contact">
+                <p class="footer__contact-label">Phone Number <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <a class="footer__contact-value" href="tel:+3732311113131">+373 (231)-111-31-31</a>
+            </div>
+            <div class="footer__contact footer__contact--end">
+                <p class="footer__contact-label">office <img class="footer__star" src="assets/icons/footer-label-star.svg" alt="" width="19" height="19"></p>
+                <address class="footer__contact-value footer__address">Viige 11, 13516 Tallinn, Estonia Reg</address>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/vendor/aos.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

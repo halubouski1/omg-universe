@@ -134,9 +134,20 @@ const initCatalog = (catalog) => {
     revealCards(appeared);
   });
 
+  // "Learn more" beside the title: the landing page of the chosen category
+  const learnLink = catalog.querySelector('[data-catalog-learn]');
+  const syncLearnLink = (button) => {
+    if (!learnLink) return;
+    const url = button?.dataset.learn;
+    learnLink.hidden = !url;
+    if (url) learnLink.href = url;
+  };
+  syncLearnLink(filters.find((button) => button.dataset.filter === activeFilter));
+
   filters.forEach((button) => {
     button.addEventListener('click', () => {
       if (button.dataset.filter === activeFilter) return;
+      syncLearnLink(button);
       activeFilter = button.dataset.filter;
       shownCount = CATALOG_PAGE_SIZE;
       filters.forEach((item) => {

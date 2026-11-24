@@ -457,3 +457,67 @@
 .product__add.is-active:hover::after {
     background-color: #fff;
 }
+
+/* --- Title + "Learn more" (category landing page) -------------------------- */
+.catalog__heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 30px;
+}
+
+.catalog__learn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 20px 12px 24px;
+    border-radius: 10px;
+    background: linear-gradient(98.59deg, #19421f 29.78%, #019e15 129.45%);
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: filter .4s ease;
+}
+
+.catalog__learn[hidden] {
+    display: none;
+}
+
+.catalog__learn svg {
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.catalog__learn:hover {
+    filter: brightness(1.15);
+}
+
+.catalog__learn:hover svg {
+    transform: translateX(3px);
+}
+
+.catalog__learn:focus-visible {
+    outline: 1px solid #2e7a25;
+    outline-offset: 3px;
+}
+
+@media (max-width: 570px) {
+    .catalog__heading {
+        gap: 12px 16px;
+    }
+
+    .catalog__learn {
+        gap: 10px;
+        padding: 9px 14px 9px 16px;
+        font-size: 12px;
+    }
+}
+
+.catalog__head {
+    align-items: center;
+    gap: 16px;
+}
+
+.sort__button {
+    white-space: nowrap;
+}

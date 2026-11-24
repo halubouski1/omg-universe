@@ -43,10 +43,10 @@
         <nav class="catalog__filters" aria-label="Product categories">
             <ul class="catalog__filter-list">
                 <li><button class="catalog__filter is-active" type="button" aria-pressed="true" data-filter="all" data-title="All products">All</button></li>
-                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pigments" data-title="Pigments">Pigments</button></li>
-                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="cartridges" data-title="Cartridges">Cartridges</button></li>
-                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pencils" data-title="Pencils">Pencils</button></li>
-                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="latex" data-title="Latex">Latex</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pigments" data-learn="pigments.html" data-title="Pigments">Pigments</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="cartridges" data-learn="needles.html" data-title="Cartridges">Cartridges</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pencils" data-learn="pencils.html" data-title="Pencils">Pencils</button></li>
+                <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="latex" data-learn="latex.html" data-title="Latex">Latex</button></li>
                 <li><button class="catalog__filter" type="button" aria-pressed="false" data-filter="pmu-devices" data-title="PMU Devices">PMU Devices</button></li>
             </ul>
             <!-- Phones: step through the categories (catalog.js) -->
@@ -57,7 +57,14 @@
         </nav>
 
         <div class="catalog__head">
-            <h1 class="catalog__title" id="catalog-title" aria-live="polite" data-catalog-title>All products</h1>
+            <div class="catalog__heading">
+                <h1 class="catalog__title" id="catalog-title" aria-live="polite" data-catalog-title>All products</h1>
+                <!-- Category landing page of the chosen filter (data-learn, catalog.js) -->
+                <a class="catalog__learn" href="#" hidden data-catalog-learn>
+                    Learn more
+                    <svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8.94978 0L7.27172 1.67806L11.1872 5.59354L0 5.59361V7.83103L11.1872 7.83096L7.27172 11.7464L8.94978 13.4245L15.662 6.71225L8.94978 0Z" fill="currentColor"/></svg>
+                </a>
+            </div>
 
             <div class="sort" data-sort-menu>
                 <button class="sort__button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options">
@@ -113,7 +120,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Cover-up pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">11 Sun Flash</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-11-sun-flash.html">11 Sun Flash</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -129,7 +136,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Cover-up pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">12 Saturn</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-12-saturn.html">12 Saturn</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -145,7 +152,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Cover-up pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">13 UFO</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-13-ufo.html">13 UFO</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -161,7 +168,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyebrow pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">2 Moon</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-2-moon.html">2 Moon</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -177,7 +184,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyebrow pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">3 Milky Way</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-3-milky-way.html">3 Milky Way</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -193,7 +200,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyebrow pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">4 Infinity</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-4-infinity.html">4 Infinity</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -209,7 +216,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyebrow pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">5 Mercury</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-5-mercury.html">5 Mercury</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -225,7 +232,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyebrow pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">6 Galaxy</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-6-galaxy.html">6 Galaxy</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -241,7 +248,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">204 Parhelion</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-204-parhelion.html">204 Parhelion</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -257,7 +264,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">244 Star Birth</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-244-star-birth.html">244 Star Birth</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -273,7 +280,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">240 Universe</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-240-universe.html">240 Universe</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -289,7 +296,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">402 Eclipse</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-402-eclipse.html">402 Eclipse</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -305,7 +312,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">442 Proxima</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-442-proxima.html">442 Proxima</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -321,7 +328,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments for lips</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">420 Blood Moon</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-420-blood-moon.html">420 Blood Moon</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -337,7 +344,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyeliner pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">7 Interstellar</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-7-interstellar.html">7 Interstellar</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -353,7 +360,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Eyeliner pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">000 Dark Matter</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-000-dark-matter.html">000 Dark Matter</a></h2>
                             </div>
                             <p class="product__price"><del>60€</del> 42€</p>
                         </div>
@@ -369,7 +376,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Pigments</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Diluent</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-diluent.html">Diluent</a></h2>
                             </div>
                             <p class="product__price"><del>14€</del> 9,80€</p>
                         </div>
@@ -385,7 +392,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rllt.html">25/1 RLLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -401,7 +408,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLLT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rllt-h.html">25/1 RLLT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -417,7 +424,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rlmt.html">25/1 RLMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -433,7 +440,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLMT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rlmt-h.html">25/1 RLMT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -449,7 +456,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLST</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rlst.html">25/1 RLST</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -465,7 +472,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/1 RLST-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-1-rlst-h.html">25/1 RLST-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -481,7 +488,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-1-rllt.html">30/1 RLLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -497,7 +504,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLLT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-1-rllt-h.html">30/1 RLLT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -513,7 +520,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-1-rlmt.html">30/1 RLMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -529,7 +536,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLMT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-1-rlmt-h.html">30/1 RLMT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -545,7 +552,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/1 RLST-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-1-rlst-h.html">30/1 RLST-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -561,7 +568,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLLT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-1-rllt-h.html">35/1 RLLT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -577,7 +584,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-1-rlmt.html">35/1 RLMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -593,7 +600,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLMT-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-1-rlmt-h.html">35/1 RLMT-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -609,7 +616,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 1RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/1 RLST-H</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-1-rlst-h.html">35/1 RLST-H</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -625,7 +632,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 3RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/3 RLLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-3-rllt.html">25/3 RLLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -641,7 +648,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 3RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/3 RLLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-3-rllt.html">30/3 RLLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -657,7 +664,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 3RL</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/3 RLLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-3-rllt.html">35/3 RLLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -672,7 +679,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">25/5 FMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-25-5-fmt.html">25/5 FMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -688,7 +695,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 5 Flat</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/5 FMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-5-fmt.html">30/5 FMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -703,7 +710,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">35/5 FMT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-35-5-fmt.html">35/5 FMT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -719,7 +726,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Satellite 11 Magnum</span>
-                                <h2 class="product__name"><a class="product__link" href="needles.html">30/11 CMLT</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-30-11-cmlt.html">30/11 CMLT</a></h2>
                             </div>
                             <p class="product__price"><del>45€</del> 31,50€</p>
                         </div>
@@ -734,7 +741,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 1</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-pigments-bundle-1.html">Pigments Bundle 1</a></h2>
                             </div>
                             <p class="product__price"><del>180€</del> 150€</p>
                         </div>
@@ -749,7 +756,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 2</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-pigments-bundle-2.html">Pigments Bundle 2</a></h2>
                             </div>
                             <p class="product__price"><del>180€</del> 150€</p>
                         </div>
@@ -764,7 +771,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 3</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-pigments-bundle-3.html">Pigments Bundle 3</a></h2>
                             </div>
                             <p class="product__price"><del>300€</del> 240€</p>
                         </div>
@@ -779,7 +786,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 4</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-pigments-bundle-4.html">Pigments Bundle 4</a></h2>
                             </div>
                             <p class="product__price"><del>180€</del> 150€</p>
                         </div>
@@ -794,7 +801,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="pigments.html">Pigments Bundle 5</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-pigments-bundle-5.html">Pigments Bundle 5</a></h2>
                             </div>
                             <p class="product__price"><del>180€</del> 150€</p>
                         </div>
@@ -809,7 +816,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Rocket</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-omg-1-rocket.html">OMG-1 Rocket</a></h2>
                             </div>
                             <p class="product__price">490€</p>
                         </div>
@@ -824,7 +831,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Power Supply</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-omg-1-power-supply.html">OMG-1 Power Supply</a></h2>
                             </div>
                             <p class="product__price">95€</p>
                         </div>
@@ -839,7 +846,7 @@
                         <div class="product__info">
                             <div class="product__meta">
                                 <span class="product__size">Out of stock</span>
-                                <h2 class="product__name"><a class="product__link" href="catalog.html">OMG-1 Bundle</a></h2>
+                                <h2 class="product__name"><a class="product__link" href="product-omg-1-bundle.html">OMG-1 Bundle</a></h2>
                             </div>
                             <p class="product__price">555€</p>
                         </div>
