@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/dash.css">
     <title>Partner account — OMG Universe</title>
 </head>
 <body class="page-light">
@@ -85,42 +86,73 @@
                 </div>
             </div>
 
-            <div data-acc-view="cabinet" hidden>
-                <div class="acc__head">
-                    <div>
-                        <p class="acc__label">Partner account</p>
-                        <p class="acc__title">Hello, <span>Maria</span></p>
-                    </div>
-                    <button class="acc__btn acc__btn--light" type="button" data-acc-logout>Log out</button>
-                </div>
-                <div class="acc__layout">
-                    <nav class="acc__nav" aria-label="Account">
-                    <button class="acc__tab acc__tab--partner is-active" type="button" data-acc-tab="partner">Partner program</button>
-                    <button class="acc__tab" type="button" data-acc-tab="dashboard">Dashboard</button>
-                    <button class="acc__tab" type="button" data-acc-tab="orders">Orders</button>
-                    <button class="acc__tab" type="button" data-acc-tab="returns">Returns</button>
-                    <button class="acc__tab" type="button" data-acc-tab="promo">Promo code</button>
-                    <button class="acc__tab" type="button" data-acc-tab="addresses">Addresses</button>
-                    <button class="acc__tab" type="button" data-acc-tab="details">Account details</button>
-                    <button class="acc__tab acc__tab--logout" type="button" data-acc-logout>Log out</button>
+            <div class="dash" data-acc-view="cabinet" hidden>
+                <aside class="dash__side">
+                    <nav class="acc__nav dash__nav" aria-label="Account">
+                        <p class="dash__group">Main</p>
+                        <button class="acc__tab dash__link is-active" type="button" data-acc-tab="partner"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3"/><path d="M2 17a5 5 0 0 1 10 0"/><path d="M13 4a3 3 0 0 1 0 6M15 12a5 5 0 0 1 3 5"/></svg><span>Partner program</span></button>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="dashboard"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h6v6H3zM11 3h6v6h-6zM3 11h6v6H3zM11 11h6v6h-6z"/></svg><span>Dashboard</span></button>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="orders"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg><span>Orders</span><span class="dash__count">4</span></button>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="returns"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5 3 9l4 4"/><path d="M3 9h9a5 5 0 0 1 0 10H8"/></svg><span>Returns</span></button>
+                        <p class="dash__group">Benefits</p>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="promo"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 0 0 4v4h14v-4a2 2 0 0 1 0-4V3H3z"/><path d="M8 3v12" stroke-dasharray="2 2"/></svg><span>Promo code</span></button>
+                        <p class="dash__group">Account</p>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="addresses"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.2 6-10A6 6 0 0 0 4 8c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2"/></svg><span>Addresses</span></button>
+                        <button class="acc__tab dash__link" type="button" data-acc-tab="details"><svg class="dash__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="6.5" r="3.5"/><path d="M3 18a7 7 0 0 1 14 0"/></svg><span>Account details</span></button>
                     </nav>
-                    <div>
-                <section class="acc__panel" data-acc-panel="partner" aria-label="Partner program">
-                    <div class="acc__share">
-                        <div class="acc__tile acc__tile--green">
-                            <span class="acc__tile-label">Your promo code</span>
-                            <div class="acc__copy-row"><span class="acc__code">MARIA10</span><button class="acc__copy" type="button" data-copy="MARIA10">Copy</button></div>
+                    <div class="dash__user">
+                        <span class="dash__avatar" aria-hidden="true">M</span>
+                        <span class="dash__who"><b>Maria Ivanova</b><span>maria@example.com</span></span>
+                        <button class="dash__logout" type="button" data-acc-logout aria-label="Log out"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H4v12h4"/><path d="M12 6l4 4-4 4M16 10H8"/></svg></button>
+                    </div>
+                </aside>
+
+                <div class="dash__main">
+                    <div class="dash__head">
+                        <div>
+                            <p class="dash__label">Partner account</p>
+                            <p class="dash__hello"><span data-dash-hello>Good morning</span>, Maria</p>
+                            <p class="dash__date" data-dash-date>Here’s your account on Wednesday, 26 November.</p>
                         </div>
-                        <div class="acc__tile">
-                            <span class="acc__tile-label">Your referral link — applies the code automatically</span>
-                            <div class="acc__copy-row"><span class="acc__link">https://omg-pmu.eu/?ref=MARIA10</span><button class="acc__copy" type="button" data-copy="https://omg-pmu.eu/?ref=MARIA10">Copy link</button></div>
+                        <div class="dash__actions">
+                            <a class="dash-pill" href="tracking.html">Track order</a>
+                            <a class="dash-pill dash-pill--dark" href="catalog.html">Go to catalog <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></a>
                         </div>
                     </div>
-                    <div class="acc__grid">
-                        <div class="acc__tile acc__tile--dark"><span class="acc__tile-label">Available</span><span class="acc__tile-value">27,40€</span></div>
-                        <div class="acc__tile"><span class="acc__tile-label">Pending</span><span class="acc__tile-value">9€</span><span class="acc__tile-note">Available 14 days after the order is completed</span></div>
-                        <div class="acc__tile"><span class="acc__tile-label">Used</span><span class="acc__tile-value">12€</span></div>
-                        <div class="acc__tile"><span class="acc__tile-label">Expiring in 30 days</span><span class="acc__tile-value">3,60€</span><span class="acc__tile-note">On 12 December 2026</span></div>
+
+                <section class="acc__panel dash__panel" data-acc-panel="partner" aria-label="Partner program">
+                    <div class="dash__top">
+                        <article class="dash-card dash-card--green dash-mix">
+                            <p class="dash-card__label">OMG Credit available</p>
+                            <p class="dash-big">27,40€</p>
+                            <ul class="dash-mix__list">
+                                <li><span class="dash-mix__dot" style="--dot:#bafd4f"></span>Pending<b>9€</b></li>
+                                <li><span class="dash-mix__dot" style="--dot:#fff"></span>Used<b>12€</b></li>
+                                <li><span class="dash-mix__dot" style="--dot:#0d2410"></span>Expiring in 30 days<b>3,60€</b></li>
+                            </ul>
+                            <p class="dash-card__note">Pending credit becomes available 14 days after the order is completed.</p>
+                        </article>
+
+                        <article class="dash-card dash-share">
+                            <div class="dash-card__head">
+                                <h2 class="dash-card__title">Share and earn</h2>
+                                <a class="dash-card__go" href="referral-rules.html" aria-label="Program rules"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></a>
+                            </div>
+                            <p class="dash-card__label">Your promo code</p>
+                            <div class="dash-copy"><span class="dash-copy__code">MARIA10</span><button class="dash-copy__btn acc__copy" type="button" data-copy="MARIA10">Copy</button></div>
+                            <p class="dash-card__label">Referral link — applies the code automatically</p>
+                            <div class="dash-copy"><span class="dash-copy__link">https://omg-pmu.eu/?ref=MARIA10</span><button class="dash-copy__btn acc__copy" type="button" data-copy="https://omg-pmu.eu/?ref=MARIA10">Copy link</button></div>
+                        </article>
+
+                        <article class="dash-card dash-chart">
+                            <div class="dash-card__head">
+                                <p class="dash-card__label">Credit earned</p>
+                                <p class="dash-chart__range">Dec 2025 – Nov 2026</p>
+                            </div>
+                            <p class="dash-big">27,90€ <span class="dash-delta">+228%</span></p>
+                            <div class="dash-dots" data-dash-dots="3.6,0,0,0,0,0,0,0,0,0,8.5,27.9" data-dash-labels="Dec,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov" aria-hidden="true"></div>
+                            <div class="dash-chart__foot"><span>OCT <b>8,50€</b></span><span>NOV <b>27,90€</b></span></div>
+                        </article>
                     </div>
                     <div class="acc__card">
                         <h2 class="acc__card-title">Orders with your code</h2>
@@ -148,18 +180,87 @@
                         <p class="acc__text" style="margin-top:20px"><a href="referral-rules.html">Program rules</a> · OMG Credit is applied at checkout: tick “Use my OMG Credit”.</p>
                     </div>
                 </section>
-                <section class="acc__panel" data-acc-panel="dashboard" aria-label="Dashboard" hidden>
-                    <div class="acc__card">
-                        <h2 class="acc__card-title">Welcome back, Maria</h2>
-                        <p class="acc__text">Here you can follow your orders, request a return, keep a promo code for your next purchase and change your addresses and password.</p>
+
+                <section class="acc__panel dash__panel" data-acc-panel="dashboard" aria-label="Dashboard" hidden>
+                    <div class="dash__top">
+                        <article class="dash-card dash-order">
+                            <div class="dash-card__head">
+                                <h2 class="dash-card__title">Last order</h2>
+                                <button class="dash-card__go" type="button" data-acc-go="orders" aria-label="Open orders"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></button>
+                            </div>
+                            <div class="dash-ring" data-dash-ring="3" data-dash-ring-steps="4" aria-hidden="true"><span class="dash-ring__tag">Shipped</span></div>
+                            <div>
+                                <p class="dash-big">#28412</p>
+                                <p class="dash-card__note">Shipped · DHL Express · 12 Nov</p>
+                            </div>
+                        </article>
+
+                        <article class="dash-card dash-card--green dash-mix">
+                            <p class="dash-card__label">Spent in 2026</p>
+                            <p class="dash-big">268,54€</p>
+                            <ul class="dash-mix__list">
+                                <li><span class="dash-mix__dot" style="--dot:#bafd4f"></span>Pigments<b>142,04€</b></li>
+                                <li><span class="dash-mix__dot" style="--dot:#fff"></span>Cartridges<b>94,50€</b></li>
+                                <li><span class="dash-mix__dot" style="--dot:#7be36a"></span>Pencils<b>16,80€</b></li>
+                                <li><span class="dash-mix__dot" style="--dot:#0d2410"></span>Delivery<b>15,20€</b></li>
+                            </ul>
+                        </article>
+
+                        <article class="dash-card dash-chart">
+                            <div class="dash-card__head">
+                                <p class="dash-card__label">Monthly spend</p>
+                                <p class="dash-chart__range">Dec 2025 – Nov 2026</p>
+                            </div>
+                            <p class="dash-big">89,96€ <span class="dash-delta dash-delta--down">−50%</span></p>
+                            <div class="dash-dots" data-dash-dots="0,0,0,0,0,0,0,0,0,0,178.58,89.96" data-dash-labels="Dec,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov" aria-hidden="true"></div>
+                            <div class="dash-chart__foot"><span>OCT <b>178,58€</b></span><span>NOV <b>89,96€</b></span></div>
+                        </article>
                     </div>
-                    <div class="acc__grid">
-                        <div class="acc__tile acc__tile--dark"><span class="acc__tile-label">Last order</span><span class="acc__tile-value">#28412</span><span class="acc__tile-note">Shipped · DHL Express</span></div>
-                        <div class="acc__tile"><span class="acc__tile-label">Orders</span><span class="acc__tile-value">4</span></div>
-                        <div class="acc__tile"><span class="acc__tile-label">Saved promo code</span><span class="acc__tile-value" data-acc-saved-code>—</span><span class="acc__tile-note">Applied automatically in your bag</span></div>
-                        <div class="acc__tile acc__tile--green"><span class="acc__tile-label">OMG Credit available</span><span class="acc__tile-value">27,40€</span><span class="acc__tile-note">Partner program — 9€ pending</span></div>
+
+                    <div class="dash__bottom">
+                        <article class="dash-card dash-feed">
+                            <div class="dash-seg" role="group" aria-label="Show">
+                                <button class="dash-seg__btn is-active" type="button" data-dash-filter="all" aria-pressed="true">All</button>
+                                <button class="dash-seg__btn" type="button" data-dash-filter="orders" aria-pressed="false">Orders</button>
+                                <button class="dash-seg__btn" type="button" data-dash-filter="returns" aria-pressed="false">Returns</button>
+                                <button class="dash-seg__btn" type="button" data-dash-filter="promo" aria-pressed="false">Promo</button>
+                            </div>
+                            <div class="dash-card__head">
+                                <h2 class="dash-card__title">Recent activity</h2>
+                                <button class="dash-card__more" type="button" data-acc-go="orders">All orders <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></button>
+                            </div>
+                            <ul class="dash-feed__list">
+                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28412 shipped</b><span>2 × 2 Moon pigment · DHL Express, tracking 1Z84A0</span></span><span class="dash-badge dash-badge--blue">Shipped</span><time class="dash-row__time">12 Nov</time></li>
+                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28307 delivered</b><span>3 × 30/1 RLMT-H cartridges, PMU Sketch Pencils · Omniva</span></span><span class="dash-badge dash-badge--green">126,50€</span><time class="dash-row__time">28 Oct</time></li>
+                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28155 delivered</b><span>Diluent, 11 Sun Flash · Omniva</span></span><span class="dash-badge dash-badge--green">52,08€</span><time class="dash-row__time">09 Oct</time></li>
+                                <li class="dash-row" data-kind="returns"><span class="dash-row__icon dash-row__icon--red"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5 3 9l4 4"/><path d="M3 9h9a5 5 0 0 1 0 10H8"/></svg></span><span class="dash-row__body"><b>Return R-1021 refunded</b><span>Order #27980 · 2 × 204 Parhelion · money back to your card</span></span><span class="dash-badge dash-badge--red">−75,60€</span><time class="dash-row__time">24 Sep</time></li>
+                                <li class="dash-row" data-kind="promo"><span class="dash-row__icon dash-row__icon--lime"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 0 0 4v4h14v-4a2 2 0 0 1 0-4V3H3z"/><path d="M8 3v12" stroke-dasharray="2 2"/></svg></span><span class="dash-row__body"><b>Save a promo code</b><span>Enter it once — it’s applied automatically in your bag</span></span><button class="dash-badge dash-badge--dark" type="button" data-acc-go="promo">Add code</button><time class="dash-row__time"></time></li>
+                            </ul>
+                        </article>
+
+                        <div class="dash__aside">
+                            <article class="dash-card dash-card--lime dash-help">
+                                <p class="dash-help__who"><span class="dash-help__dot"></span>OMG support <span>online</span></p>
+                                <p class="dash-help__title">Your order is on its way.<span>Want to see where it is?</span></p>
+                                <div class="dash-help__actions">
+                                    <a class="dash-pill dash-pill--dark" href="tracking.html">Track order</a>
+                                    <a class="dash-pill" href="#contacts">Contact us</a>
+                                </div>
+                            </article>
+                            <div class="dash__minis">
+                                <article class="dash-card dash-card--dark dash-mini">
+                                    <p class="dash-card__label">Saved promo code</p>
+                                    <p class="dash-mini__value" data-acc-saved-code>—</p>
+                                    <p class="dash-card__note">Applied in your bag</p>
+                                </article>
+                                <article class="dash-card dash-card--green dash-mini">
+                                    <p class="dash-card__label">Orders</p>
+                                    <p class="dash-mini__value">4</p>
+                                    <p class="dash-card__note">Since Sep 2026</p>
+                                </article>
+                            </div>
+                        </div>
                     </div>
-                    <div class="acc__actions"><a class="acc__btn" href="catalog.html">Go to catalog</a><a class="acc__btn acc__btn--light" href="tracking.html">Track an order</a></div>
                 </section>
 
                 <section class="acc__panel" data-acc-panel="orders" aria-label="Orders" hidden>
@@ -284,7 +385,6 @@
                         </form>
                     </div>
                 </section>
-                    </div>
                 </div>
             </div>
         </div>
@@ -381,5 +481,6 @@
 <script src="js/main.js"></script>
 <script src="js/select.js"></script>
 <script src="js/account.js"></script>
+<script src="js/dash.js"></script>
 </body>
 </html>
