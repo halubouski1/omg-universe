@@ -815,8 +815,57 @@
     font-size: 15px;
 }
 
-.dash tbody tr:last-child td {
+.dash tbody th {
+    padding: 16px 8px;
+    border-bottom: 1px solid var(--d-line);
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.dash tbody tr:last-child td,
+.dash tbody tr:last-child th {
     border-bottom: 0;
+}
+
+/* WooCommerce orders table: light pill actions instead of big dark buttons */
+.dash .woocommerce-orders-table .woocommerce-button,
+.dash .woocommerce-orders-table .button {
+    display: inline-flex;
+    min-height: 0;
+    margin: 2px 4px 2px 0;
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--d-soft);
+    color: var(--d-ink);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+.dash .woocommerce-orders-table .woocommerce-button:hover,
+.dash .woocommerce-orders-table .button:hover {
+    background-color: var(--d-ink);
+    color: #fff;
+}
+
+.dash .woocommerce-orders-table__cell-order-status {
+    color: var(--d-green);
+    font-weight: 500;
+}
+
+.dash .woocommerce-orders-table__row--status-cancelled .woocommerce-orders-table__cell-order-status,
+.dash .woocommerce-orders-table__row--status-refunded .woocommerce-orders-table__cell-order-status,
+.dash .woocommerce-orders-table__row--status-failed .woocommerce-orders-table__cell-order-status {
+    color: var(--d-red);
+}
+
+.dash .woocommerce-orders-table__row--status-processing .woocommerce-orders-table__cell-order-status,
+.dash .woocommerce-orders-table__row--status-shipped .woocommerce-orders-table__cell-order-status,
+.dash .woocommerce-orders-table__row--status-on-hold .woocommerce-orders-table__cell-order-status,
+.dash .woocommerce-orders-table__row--status-pending .woocommerce-orders-table__cell-order-status {
+    color: #3b67c9;
 }
 
 .dash tbody tr {

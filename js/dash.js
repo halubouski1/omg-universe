@@ -93,6 +93,22 @@
     }));
   });
 
+  // --- Phones/tablets: the menu is one scrolling row; keep the active link in view
+  const nav = root.querySelector('.dash__nav');
+  const showActive = () => {
+    if (!nav || nav.scrollWidth <= nav.clientWidth) return;
+    const active = nav.querySelector('.is-active');
+    if (!active) return;
+    const offset = active.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+    nav.scrollTo({ left: nav.scrollLeft + offset - (nav.clientWidth - active.offsetWidth) / 2, behavior: 'smooth' });
+  };
+  showActive();
+  // web fonts change the link widths after the first layout
+  document.fonts?.ready.then(() => requestAnimationFrame(showActive));
+  window.addEventListener('load', showActive);
+  nav?.addEventListener('click', () => requestAnimationFrame(showActive));
+  window.addEventListener('hashchange', () => requestAnimationFrame(showActive));
+
   // --- Buttons that open another tab ("All orders", "Add code", ↗)
   root.querySelectorAll('button[data-acc-go]').forEach((button) => button.addEventListener('click', () => {
     root.querySelector(`[data-acc-tab="${button.dataset.accGo}"]`)?.click();
