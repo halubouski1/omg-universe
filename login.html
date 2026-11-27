@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/vendor/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/dash.css">
+    <title>Log in — OMG Universe</title>
+</head>
+<body class="page-light account-page auth-page">
+
+<header class="header header--dark">
+    <a class="header__brand" href="account.html" aria-label="OMG Universe — account">
+        <img class="header__logo" src="assets/icons/logo.svg" alt="OMG" width="68" height="40">
+    </a>
+
+</header>
+
+<main class="acc auth-screen" data-acc data-auth-page="login">
+    <div class="acc__inner auth-screen__inner">
+        <div class="acc__card auth-screen__card">
+            <p class="acc__label" data-auth-label>My account</p>
+            <h1 class="acc__title">Log <span>in</span></h1>
+            <form class="acc__form" method="post" data-acc-login>
+                <div class="acc__field">
+                    <label for="login-username">Username or email</label>
+                    <input id="login-username" name="username" type="text" autocomplete="username" required>
+                </div>
+                <div class="acc__field">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+                </div>
+                <div class="acc__actions">
+                    <button type="submit">Log in</button>
+                    <a class="acc__link-btn" href="forgot-password.html" data-auth-link>Forgot your password?</a>
+                </div>
+            </form>
+            <p class="acc__switch" data-auth-register>Don’t have an account? <a href="account.html?view=register">Create one</a></p>
+            <p class="acc__switch" data-auth-partner hidden>Not a partner yet? <a href="partners.html">Become a partner</a></p>
+        </div>
+    </div>
+</main>
+<script src="js/account.js"></script>
+</body>
+</html>

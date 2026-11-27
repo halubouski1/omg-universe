@@ -1,7 +1,6 @@
 // ========================================
 // Account dashboard (account.html, partner-account.html and the WordPress
-// «My account»): greeting with today's date, the dotted ring of the last
-// order, dot-matrix month charts and the activity filter.
+// «My account»): greeting with today's date, monthly line and dot-matrix charts and the activity filter.
 // ========================================
 (() => {
   const root = document.querySelector('.dash');
@@ -20,6 +19,38 @@
   }
 
   const SVG = 'http://www.w3.org/2000/svg';
+
+  // Monthly spend uses the same underlying values as the dashboard summary.
+  root.querySelectorAll('[data-dash-line]').forEach((chart) => {
+    const values = chart.dataset.dashLine.split(',').map(Number);
+    const ceiling = Math.max(...values, 1);
+    const svg = document.createElementNS(SVG, 'svg');
+    svg.setAttribute('viewBox', '0 0 440 120');
+    svg.setAttribute('preserveAspectRatio', 'none');
+
+    [12, 44, 76, 108].forEach((y) => {
+      const guide = document.createElementNS(SVG, 'line');
+      guide.setAttribute('x1', '2');
+      guide.setAttribute('x2', '438');
+      guide.setAttribute('y1', y);
+      guide.setAttribute('y2', y);
+      svg.append(guide);
+    });
+
+    const points = values.map((value, index) => ({
+      x: 2 + index * 436 / (values.length - 1),
+      y: 108 - value * 96 / ceiling,
+    }));
+    const line = document.createElementNS(SVG, 'path');
+    const segments = points.slice(1).map((point, index) => {
+      const previous = points[index];
+      const middle = (previous.x + point.x) / 2;
+      return `C ${middle} ${previous.y}, ${middle} ${point.y}, ${point.x} ${point.y}`;
+    });
+    line.setAttribute('d', `M ${points[0].x} ${points[0].y} ${segments.join(' ')}`);
+    svg.append(line);
+    chart.append(svg);
+  });
 
   // --- Ring of dots: the outer ring fills up with the order steps
   // (placed → paid → shipped → delivered), inner rings are texture

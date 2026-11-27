@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/dash.css">
     <title>My account — OMG Universe</title>
 </head>
-<body class="page-light">
+<body class="page-light account-page">
 
 <header class="header header--dark">
     <a class="header__brand" href="index.html" aria-label="OMG Universe — home">
@@ -39,37 +39,8 @@
 </header>
 
 <main>
-    <section class="acc" aria-labelledby="acc-title" data-acc>
+    <section class="acc" aria-label="Account" data-acc>
         <div class="acc__inner">
-
-            <div data-acc-view="auth">
-                <div class="acc__head">
-                    <div>
-                        <p class="acc__label">My account</p>
-                        <h1 class="acc__title" id="acc-title">Log <span>in</span></h1>
-                    </div>
-                </div>
-                <div class="acc__auth acc__auth--split">
-                    <div class="acc__card">
-                        <form class="acc__form" novalidate data-acc-login>
-                            <div class="acc__field"><label for="f-username">E-mail</label><input id="f-username" name="username" type="email" autocomplete="email" required></div>
-                            <div class="acc__field"><label for="f-password">Password</label><input id="f-password" name="password" type="password" autocomplete="current-password" required></div>
-                            <label class="acc-check"><input type="checkbox" name="rememberme" checked><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>Remember me</span></label>
-                            <div class="acc__actions"><button type="submit">Log in</button><span class="acc__auth-links"><button class="acc__link-btn" type="button" data-acc-show="lost">Forgot your password?</button></span></div>
-                        </form>
-                        <p class="acc__switch">Don’t have an account?<button class="acc__link-btn" type="button" data-acc-show="register">Create one</button></p>
-                    </div>
-                    <div class="acc__perks">
-                        <p class="acc__perks-title">Your OMG <span>account</span></p>
-                        <ul class="acc__perks-list">
-                            <li>Order history and tracking in one place</li>
-                            <li>Return requests in two clicks</li>
-                            <li>A saved promo code, applied at checkout</li>
-                            <li>Faster checkout with saved addresses</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
             <div data-acc-view="register" hidden>
                 <div class="acc__head"><div><p class="acc__label">My account</p><p class="acc__title">Create an <span>account</span></p></div></div>
@@ -81,7 +52,7 @@
                             <label class="acc-check"><input type="checkbox" name="terms" required><span class="acc-check__box" aria-hidden="true"><img src="assets/icons/check.svg" alt="" width="9" height="6"></span><span>I agree to the <a href="terms.html" target="_blank">terms</a> and the <a href="privacy.html" target="_blank">privacy policy</a></span></label>
                             <div class="acc__actions"><button type="submit">Create account</button></div>
                         </form>
-                        <p class="acc__switch">Already have an account?<button class="acc__link-btn" type="button" data-acc-show="auth">Log in</button></p>
+                        <p class="acc__switch">Already have an account?<a class="acc__link-btn" href="login.html">Log in</a></p>
                     </div>
                     <div class="acc__perks">
                         <p class="acc__perks-title">Your OMG <span>account</span></p>
@@ -91,20 +62,6 @@
                             <li>A saved promo code, applied at checkout</li>
                             <li>Faster checkout with saved addresses</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div data-acc-view="lost" hidden>
-                <div class="acc__head"><div><p class="acc__label">My account</p><p class="acc__title">Reset <span>password</span></p></div></div>
-                <div class="acc__auth acc__auth--single">
-                    <div class="acc__card">
-                        <p class="acc__text">Enter the e-mail of your account — we’ll send you a link to set a new password.</p>
-                        <div class="acc__success" data-acc-lost-done hidden style="margin-top:18px">If this e-mail has an account, a reset link is on its way. Check your inbox.</div>
-                        <form class="acc__form" novalidate data-acc-lost style="margin-top:22px">
-                            <div class="acc__field"><label for="f-user-login">E-mail</label><input id="f-user-login" name="user_login" type="email" autocomplete="email" required></div>
-                            <div class="acc__actions"><button type="submit">Send reset link</button><span class="acc__auth-links"><button class="acc__link-btn" type="button" data-acc-show="auth">Back to login</button></span></div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -133,12 +90,12 @@
                     <div class="dash__head">
                         <div>
                             <p class="dash__label">My account</p>
-                            <p class="dash__hello"><span data-dash-hello>Good morning</span>, Maria</p>
+                            <h1 class="dash__hello"><span data-dash-hello>Good morning</span>, Maria</h1>
                             <p class="dash__date" data-dash-date>Here’s your account on Wednesday, 26 November.</p>
                         </div>
                         <div class="dash__actions">
-                            <a class="dash-pill" href="tracking.html">Track order</a>
-                            <a class="dash-pill dash-pill--dark" href="catalog.html">Go to catalog <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></a>
+                            <a class="dash-pill" href="tracking.html"><span>Track order</span></a>
+                            <a class="dash-pill dash-pill--dark" href="catalog.html"><span>Go to catalog</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></a>
                         </div>
                     </div>
 
@@ -156,14 +113,14 @@
                             </div>
                         </article>
 
-                        <article class="dash-card dash-card--green dash-mix">
+                        <article class="dash-card dash-mix dash-mix--spend">
                             <p class="dash-card__label">Spent in 2026</p>
                             <p class="dash-big">268,54€</p>
                             <ul class="dash-mix__list">
-                                <li><span class="dash-mix__dot" style="--dot:#bafd4f"></span>Pigments<b>142,04€</b></li>
-                                <li><span class="dash-mix__dot" style="--dot:#fff"></span>Cartridges<b>94,50€</b></li>
-                                <li><span class="dash-mix__dot" style="--dot:#7be36a"></span>Pencils<b>16,80€</b></li>
-                                <li><span class="dash-mix__dot" style="--dot:#0d2410"></span>Delivery<b>15,20€</b></li>
+                                <li><span class="dash-mix__dot" aria-hidden="true"></span>Pigments<b>142,04€</b></li>
+                                <li><span class="dash-mix__dot" aria-hidden="true"></span>Cartridges<b>94,50€</b></li>
+                                <li><span class="dash-mix__dot" aria-hidden="true"></span>Pencils<b>16,80€</b></li>
+                                <li><span class="dash-mix__dot" aria-hidden="true"></span>Delivery<b>15,20€</b></li>
                             </ul>
                         </article>
 
@@ -173,35 +130,43 @@
                                 <p class="dash-chart__range">Dec 2025 – Nov 2026</p>
                             </div>
                             <p class="dash-big">89,96€ <span class="dash-delta dash-delta--down">−50%</span></p>
-                            <div class="dash-dots" data-dash-dots="0,0,0,0,0,0,0,0,0,0,178.58,89.96" data-dash-labels="Dec,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov" aria-hidden="true"></div>
+                            <div class="dash-line" data-dash-line="0,0,0,0,0,0,0,0,0,0,178.58,89.96" aria-hidden="true"></div>
                             <div class="dash-chart__foot"><span>OCT <b>178,58€</b></span><span>NOV <b>89,96€</b></span></div>
                         </article>
                     </div>
 
                     <div class="dash__bottom">
-                        <article class="dash-card dash-feed">
+                        <div class="dash-feed">
                             <div class="dash-seg" role="group" aria-label="Show">
                                 <button class="dash-seg__btn is-active" type="button" data-dash-filter="all" aria-pressed="true">All</button>
                                 <button class="dash-seg__btn" type="button" data-dash-filter="orders" aria-pressed="false">Orders</button>
                                 <button class="dash-seg__btn" type="button" data-dash-filter="returns" aria-pressed="false">Returns</button>
                                 <button class="dash-seg__btn" type="button" data-dash-filter="promo" aria-pressed="false">Promo</button>
                             </div>
-                            <div class="dash-card__head">
-                                <h2 class="dash-card__title">Recent activity</h2>
-                                <button class="dash-card__more" type="button" data-acc-go="orders">All orders <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></button>
-                            </div>
-                            <ul class="dash-feed__list">
-                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28412 shipped</b><span>2 × 2 Moon pigment · DHL Express, tracking 1Z84A0</span></span><span class="dash-badge dash-badge--blue">Shipped</span><time class="dash-row__time">12 Nov</time></li>
-                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28307 delivered</b><span>3 × 30/1 RLMT-H cartridges, PMU Sketch Pencils · Omniva</span></span><span class="dash-badge dash-badge--green">126,50€</span><time class="dash-row__time">28 Oct</time></li>
-                                <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28155 delivered</b><span>Diluent, 11 Sun Flash · Omniva</span></span><span class="dash-badge dash-badge--green">52,08€</span><time class="dash-row__time">09 Oct</time></li>
-                                <li class="dash-row" data-kind="returns"><span class="dash-row__icon dash-row__icon--red"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5 3 9l4 4"/><path d="M3 9h9a5 5 0 0 1 0 10H8"/></svg></span><span class="dash-row__body"><b>Return R-1021 refunded</b><span>Order #27980 · 2 × 204 Parhelion · money back to your card</span></span><span class="dash-badge dash-badge--red">−75,60€</span><time class="dash-row__time">24 Sep</time></li>
-                                <li class="dash-row" data-kind="promo"><span class="dash-row__icon dash-row__icon--lime"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 0 0 4v4h14v-4a2 2 0 0 1 0-4V3H3z"/><path d="M8 3v12" stroke-dasharray="2 2"/></svg></span><span class="dash-row__body"><b>Save a promo code</b><span>Enter it once — it’s applied automatically in your bag</span></span><button class="dash-badge dash-badge--dark" type="button" data-acc-go="promo">Add code</button><time class="dash-row__time"></time></li>
-                            </ul>
-                        </article>
+                            <article class="dash-card dash-feed__card">
+                                <div class="dash-card__head">
+                                    <h2 class="dash-card__title">Recent activity</h2>
+                                    <button class="dash-card__more" type="button" data-acc-go="orders">All orders <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7 6h7v7"/></svg></button>
+                                </div>
+                                <ul class="dash-feed__list">
+                                    <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28412 shipped</b><span>2 × 2 Moon pigment · DHL Express, tracking 1Z84A0</span></span><span class="dash-badge dash-badge--blue">Shipped</span><time class="dash-row__time">12 Nov</time></li>
+                                    <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28307 delivered</b><span>3 × 30/1 RLMT-H cartridges, PMU Sketch Pencils · Omniva</span></span><span class="dash-badge dash-badge--green">126,50€</span><time class="dash-row__time">28 Oct</time></li>
+                                    <li class="dash-row" data-kind="orders"><span class="dash-row__icon dash-row__icon--green"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="dash-row__body"><b>Order #28155 delivered</b><span>Diluent, 11 Sun Flash · Omniva</span></span><span class="dash-badge dash-badge--green">52,08€</span><time class="dash-row__time">09 Oct</time></li>
+                                    <li class="dash-row" data-kind="returns"><span class="dash-row__icon dash-row__icon--red"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5 3 9l4 4"/><path d="M3 9h9a5 5 0 0 1 0 10H8"/></svg></span><span class="dash-row__body"><b>Return R-1021 refunded</b><span>Order #27980 · 2 × 204 Parhelion · money back to your card</span></span><span class="dash-badge dash-badge--red">−75,60€</span><time class="dash-row__time">24 Sep</time></li>
+                                    <li class="dash-row" data-kind="promo"><span class="dash-row__icon dash-row__icon--lime"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 0 0 4v4h14v-4a2 2 0 0 1 0-4V3H3z"/><path d="M8 3v12" stroke-dasharray="2 2"/></svg></span><span class="dash-row__body"><b>Save a promo code</b><span>Enter it once — it’s applied automatically in your bag</span></span><button class="dash-badge dash-badge--dark" type="button" data-acc-go="promo">Add code</button><time class="dash-row__time"></time></li>
+                                </ul>
+                            </article>
+                        </div>
 
                         <div class="dash__aside">
-                            <article class="dash-card dash-card--lime dash-help">
-                                <p class="dash-help__who"><span class="dash-help__dot"></span>OMG support <span>online</span></p>
+                            <article class="dash-card dash-card--green dash-help">
+                                <div class="dash-help__who">
+                                    <a class="dash-help__icon" href="#contacts" aria-label="Contact OMG support">
+                                        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M17 9.5a6 6 0 0 1-6 6H9l-4 2v-3.5a6 6 0 0 1 4-10h2a6 6 0 0 1 6 6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                                    </a>
+                                    OMG support
+                                    <span class="dash-help__status"><span aria-hidden="true"></span>Online</span>
+                                </div>
                                 <p class="dash-help__title">Your order is on its way.<span>Want to see where it is?</span></p>
                                 <div class="dash-help__actions">
                                     <a class="dash-pill dash-pill--dark" href="tracking.html">Track order</a>
@@ -209,12 +174,12 @@
                                 </div>
                             </article>
                             <div class="dash__minis">
-                                <article class="dash-card dash-card--dark dash-mini">
+                                <article class="dash-card dash-mini">
                                     <p class="dash-card__label">Saved promo code</p>
                                     <p class="dash-mini__value" data-acc-saved-code>—</p>
                                     <p class="dash-card__note">Applied in your bag</p>
                                 </article>
-                                <article class="dash-card dash-card--green dash-mini">
+                                <article class="dash-card dash-mini">
                                     <p class="dash-card__label">Orders</p>
                                     <p class="dash-mini__value">4</p>
                                     <p class="dash-card__note">Since Sep 2026</p>
@@ -351,6 +316,7 @@
         </div>
     </section>
 
+</main>
 
 <footer class="footer">
     <div class="footer__card">

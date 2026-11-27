@@ -1,4 +1,4 @@
-// Accounts on the static site (account.html, partner-account.html): a demo of
+// Account pages on the static site: a demo of
 // the WordPress «My account» — log in / register / reset password, tabs
 // (#orders, #returns …), forms that confirm instead of saving. On WordPress
 // the same tabs are real WooCommerce account pages and this file isn't loaded.
@@ -21,6 +21,49 @@
       } catch { /* private mode: the demo just forgets */ }
     },
   };
+
+  const params = new URLSearchParams(location.search);
+  const partner = params.get('account') === 'partner';
+  const accountPath = partner ? 'partner-account.html' : 'account.html';
+
+  if (root.hasAttribute('data-auth-page')) {
+    const tab = params.get('tab');
+    root.querySelectorAll('[data-auth-link]').forEach((link) => {
+      const url = new URL(link.href);
+      if (partner) url.searchParams.set('account', 'partner');
+      if (tab) url.searchParams.set('tab', tab);
+      link.href = url.href;
+    });
+    if (partner) {
+      document.querySelector('.header__brand').href = accountPath;
+      root.querySelector('[data-auth-label]').textContent = 'Partner account';
+      const register = root.querySelector('[data-auth-register]');
+      const partnerLink = root.querySelector('[data-auth-partner]');
+      if (register) register.hidden = true;
+      if (partnerLink) partnerLink.hidden = false;
+    }
+
+    root.querySelector('[data-acc-login]')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      store.set('in', true);
+      location.replace(tab && /^[a-z-]+$/.test(tab) ? accountPath + '#' + tab : accountPath);
+    });
+
+    root.querySelector('[data-acc-lost]')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      event.currentTarget.reset();
+      event.currentTarget.hidden = true;
+      root.querySelector('[data-acc-lost-intro]').hidden = true;
+      const result = root.querySelector('[data-acc-lost-done]');
+      result.hidden = false;
+      result.focus();
+    });
+    return;
+  }
+
+  const loginURL = new URL('login.html', location.href);
+  if (location.pathname.endsWith('/partner-account.html')) loginURL.searchParams.set('account', 'partner');
+  const goToLogin = () => location.replace(loginURL);
 
   const showView = (name) => {
     views.forEach((view) => { view.hidden = view.dataset.accView !== name; });
@@ -54,31 +97,18 @@
 
   tabs.forEach((tab) => tab.addEventListener('click', () => showTab(tab.dataset.accTab)));
 
-  root.querySelectorAll('[data-acc-show]').forEach((button) => button.addEventListener('click', () => {
-    const done = root.querySelector('[data-acc-lost-done]');
-    const lost = root.querySelector('[data-acc-lost]');
-    if (done) done.hidden = true;
-    if (lost) lost.hidden = false;
-    showView(button.dataset.accShow);
-  }));
-
   root.querySelectorAll('[data-acc-logout]').forEach((button) => button.addEventListener('click', () => {
     store.set('in', false);
-    history.replaceState(null, '', location.pathname);
-    showView('auth');
+    goToLogin();
   }));
 
   root.querySelectorAll('[data-acc-login]').forEach((form) => form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (valid(form)) logIn();
+    if (valid(form)) {
+      history.replaceState(null, '', location.pathname);
+      logIn();
+    }
   }));
-
-  root.querySelector('[data-acc-lost]')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!valid(e.target)) return;
-    e.target.hidden = true;
-    root.querySelector('[data-acc-lost-done]').hidden = false;
-  });
 
   // Orders: «View» opens the line with the order details
   root.querySelectorAll('[data-acc-toggle]').forEach((button) => button.addEventListener('click', () => {
@@ -145,8 +175,14 @@
     setTimeout(() => { button.textContent = label; button.classList.remove('is-copied'); }, 1600);
   }));
 
-  // Opened with #orders etc. or already logged in during this visit → straight to the account
-  if (store.get('in') || location.hash.length > 1) logIn();
-  // A link to another tab on the same page (account.html#returns)
-  window.addEventListener('hashchange', () => { if (location.hash.length > 1) logIn(); });
+  if (store.get('in')) {
+    logIn();
+    window.addEventListener('hashchange', () => showTab(location.hash.slice(1), false));
+  } else if (params.get('view') === 'register' && views.some((view) => view.dataset.accView === 'register')) {
+    showView('register');
+  } else {
+    const tab = location.hash.slice(1);
+    if (tabs.some((button) => button.dataset.accTab === tab)) loginURL.searchParams.set('tab', tab);
+    goToLogin();
+  }
 })();
